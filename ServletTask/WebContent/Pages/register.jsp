@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Register here</title>
 </head>
 <body>
 <%@ page import="com.zilker.servlet.config.Config"%>  

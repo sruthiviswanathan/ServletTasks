@@ -4,13 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Main Page</title>
+<title>Success Page</title>
 </head>
 <body>
-
-<a href="./Pages/register.jsp">REGISTER</a>
-<br>
-<a href="StudentServlet">DISPLAY USERS</a>
-
+<h3>Successfully Registered</h3>
 </body>
 </html>

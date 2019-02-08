@@ -39,13 +39,10 @@ public class StudentServlet extends HttpServlet {
 		Student student = new Student();
 		StudentDelegate studentDelegate = new StudentDelegate();
 		
-		
-		
-		System.out.println("hi");
 		stud = studentDelegate.DisplayStudentDetails(student);
 		System.out.println(stud);
-		request.setAttribute("servletName", stud); 
-//		response.sendRedirect("/Pages/displayusers.jsp");
+		request.setAttribute("studentList", stud); 
+
 		getServletConfig().getServletContext().getRequestDispatcher("/Pages/displayusers.jsp").forward(request,response);
 		}catch(Exception e) {
 			
@@ -72,14 +69,14 @@ public class StudentServlet extends HttpServlet {
 		student.setCountry(country);
 		
 		if (studentDelegate.insertStudentDetails(student)) {
-			RequestDispatcher rd = request.getRequestDispatcher("/Pages/displayusers.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/Pages/Success.jsp");
 			rd.forward(request, response);
 		} else {
-			System.out.println("error");
+			response.sendRedirect("/Pages/Retry.jsp");
 		}
 		
 		}catch(Exception e) {
-			
+			response.sendRedirect("/Pages/Retry.jsp");
 		}
 	}
 

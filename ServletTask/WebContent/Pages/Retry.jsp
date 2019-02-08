@@ -4,13 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Main Page</title>
+<title>Retry Registering</title>
 </head>
 <body>
-
-<a href="./Pages/register.jsp">REGISTER</a>
-<br>
-<a href="StudentServlet">DISPLAY USERS</a>
-
+<h5>Error Registering!!! TRY AGAIN</h5>
+<%@include file="/Pages/register.jsp" %>
 </body>
 </html>
