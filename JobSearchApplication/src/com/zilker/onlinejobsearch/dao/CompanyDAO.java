@@ -50,8 +50,8 @@ public class CompanyDAO {
 	/*
 	 * method for publishing new vacancy.
 	 */
-	public int publishVacancy(Company company, User user) throws SQLException {
-		int flag = 0;
+	public boolean publishVacancy(Company company, User user) throws SQLException {
+		boolean flag = false;
 		try {
 			connection = DButils.getConnection();
 			preparestatement = connection.prepareStatement(QueryConstants.INSERTVACANCY);
@@ -64,10 +64,10 @@ public class CompanyDAO {
 			preparestatement.setInt(7, user.getUserId());
 			preparestatement.setInt(8, user.getUserId());
 			preparestatement.executeUpdate();
-			flag = 1;
+			flag = true;
 
 		} catch (SQLException e) {
-			flag = 0;
+			flag = false;
 			throw e;
 
 		} finally {
@@ -79,17 +79,17 @@ public class CompanyDAO {
 	/*
 	 * method for adding new company to the site by company admin.
 	 */
-	public int addNewCompany(Company company) throws SQLException {
-		int flag = 0;
+	public boolean addNewCompany(Company company) throws SQLException {
+		boolean flag = false;
 		try {
 			connection = DButils.getConnection();
 			preparestatement = connection.prepareStatement(QueryConstants.INSERTCOMPANY);
 			preparestatement.setString(1, company.getCompanyName());
 			preparestatement.setString(2, company.getCompanyWebsiteUrl());
 			preparestatement.executeUpdate();
-			flag = 1;
+			flag = true;
 		} catch (SQLException e) {
-			flag = 0;
+			flag = false;
 			throw e;
 
 		} finally {

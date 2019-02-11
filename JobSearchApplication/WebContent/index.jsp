@@ -19,7 +19,7 @@
                         <a href="mainpage.html">FIND JOB</a>
                         <a href="findcompany.html">FIND COMPANY</a>
                          <a href="searchbylocation.html">SEARCH BY LOCATION</a>
-                        <a href="postjob.html">POST JOB</a>
+                        <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
                         <a href="viewprofile.html">YOUR PROFILE</a>
                         <a href="requestvacancy.html">REQUEST A VACANCY</a>
                         <a href="viewpublishedjobs.html">VIEW PUBLISHED JOBS</a>
@@ -28,7 +28,7 @@
                         <ul>
                                 <button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button>
                                 <li>JOB HUNT</li>
-                                <a href="Pages/jsp/login.jsp">
+                                <a href="${Config.BASE_PATH}RegisterAdminServlet">
                                         <li style="float:right"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>SIGN
                                                 IN</li>
                                 </a>

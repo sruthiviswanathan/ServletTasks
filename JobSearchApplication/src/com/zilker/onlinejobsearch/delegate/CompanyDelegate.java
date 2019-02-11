@@ -111,9 +111,9 @@ public class CompanyDelegate {
 		return comp;
 	}
 
-	public int addNewCompany(Company company) throws SQLException {
+	public boolean addNewCompany(Company company) throws SQLException {
 		// TODO Auto-generated method stub
-		int flag = 0;
+		boolean flag = false;
 		try {
 			CompanyDAO companyDao = new CompanyDAO();
 			flag = companyDao.addNewCompany(company);
@@ -137,9 +137,9 @@ public class CompanyDelegate {
 		return flag;
 	}
 
-	public int publishVacancy(Company company, User user) throws SQLException {
+	public boolean publishVacancy(Company company, User user) throws SQLException {
 		// TODO Auto-generated method stub
-		int flag = 0;
+		boolean flag = false;
 		try {
 			CompanyDAO companyDao = new CompanyDAO();
 			flag = companyDao.publishVacancy(company, user);

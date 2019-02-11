@@ -47,4 +47,23 @@
 		<servlet-name>ViewByJob</servlet-name>
 		<url-pattern>/ViewByJob</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>AddNewCompany</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.AddNewCompany</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AddNewCompany</servlet-name>
+		<url-pattern>/AddNewCompany</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>PostJobServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.PostJobServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>PostJobServlet</servlet-name>
+		<url-pattern>/PostJobServlet</url-pattern>
+	</servlet-mapping>
 </element>
+

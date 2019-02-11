@@ -77,7 +77,6 @@ public class ViewByJob extends HttpServlet {
 				}
 				for (Company i : vacancyDetails) {
 					request.setAttribute("displayVacancy", vacancyDetails);
-					//company.setCompanyId(i.getCompanyId());
 				}
 
 			}

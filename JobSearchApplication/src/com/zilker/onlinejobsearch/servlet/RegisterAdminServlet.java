@@ -1,7 +1,7 @@
 package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
-
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +15,7 @@ import com.zilker.onlinejobsearch.beans.User;
 
 import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
 import com.zilker.onlinejobsearch.delegate.UserDelegate;
+
 
 /**
  * Servlet implementation class RegisterAdminServlet
@@ -36,7 +37,19 @@ public class RegisterAdminServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		try {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		Company company = new Company();
+		ArrayList<Company> displayCompanies = new ArrayList<Company>();
+		CompanyDelegate companyDelegate = new CompanyDelegate();
+		displayCompanies = companyDelegate.displayCompanies(company);
+		request.setAttribute("companies", displayCompanies); 
+		//response.sendRedirect("Pages/jsp/login.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
+		rd.forward(request, response);
+		}catch(Exception e) {
+			
+		}
 	}
 
 	/**
@@ -55,7 +68,6 @@ public class RegisterAdminServlet extends HttpServlet {
 			String password = request.getParameter("psw");
 			String confirmPassword = request.getParameter("cpsw");
 			String email = request.getParameter("email");
-//			String companyName = request.getParameter("companyName");
 			String companyName=request.getParameter("companyName");
 			
 			user.setUserName(name);

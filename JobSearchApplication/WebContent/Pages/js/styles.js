@@ -37,8 +37,10 @@ function displaymodal(id) {
   }
 }
 
-function displayjobs(cl) {
-  var x = document.getElementsByClassName("cl");
+
+function displayjobs(id) {
+	console.log(id);
+  var x = document.getElementsByClassName(id);
   console.log(x);
   x.style.display ="block";
 

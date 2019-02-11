@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.zilker.onlinejobsearch.beans.User;
 import com.zilker.onlinejobsearch.beans.UserTechnologyMapping;
@@ -43,17 +44,16 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-			
+			 HttpSession session=request.getSession(); 
 			int role=0;
 			UserDelegate userDelegate = new UserDelegate();
 			User user = new User();
-			
 			String password = request.getParameter("psw");
 			String email = request.getParameter("email");
 			user.setEmail(email);
 			user.setPassword(password);
 			role = userDelegate.login(user);
-			System.out.println(role);
+			session.setAttribute("email",email); 
 			if (role == 0) {
 				System.out.println("invalid login credentials");
 			} else if (role == 1) {

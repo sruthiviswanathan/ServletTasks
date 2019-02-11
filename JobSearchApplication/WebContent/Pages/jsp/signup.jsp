@@ -16,7 +16,7 @@
 <title>LOGIN/SIGNUP</title>
 </head>
 
-<body onload="viewlogin()">
+<body onload="viewsignup()">
 
 	<div class="container">
 		<div id="mySidenav" class="sidenav">
@@ -39,8 +39,8 @@
 
 
 		<div id="myDIV" class="nav" class="row col-25">
-			<button class="btn active" type="submit" onclick="viewlogin()">LOGIN</button>
-			<button class="btn" type="submit" onclick="viewsignup()">SIGNUP</button>
+			<button class="btn" type="submit" onclick="viewlogin()">LOGIN</button>
+			<button class="btn active" type="submit" onclick="viewsignup()">SIGNUP</button>
 		</div>
 		<div class="forms">
 			<form action="${Config.BASE_PATH}LoginServlet" id="login"
@@ -136,7 +136,6 @@
 						<div class="tab" style="width: 75%;">
 							<select id="select" name="companyName"
 								oninput="this.className = ''">
-								 <option value="">Select a Company Name</option>
 								<c:forEach var="comp" items="${companies}">
 									<option value="${comp.getCompanyName()}"><c:out
 											value="${comp.getCompanyName()}" /></option>
@@ -159,12 +158,12 @@
 		</div>
 	</div>
 	<div class="form-popup" id="myForm">
-		<form action="${Config.BASE_PATH}AddNewCompany" class="form-container" method="post">
+		<form action="${Config.BASE_PATH}AddNewCompany" class="form-container"
+			method="post">
 			<h3>ADD NEW COMPANY</h3>
 			<input type="text" placeholder="Enter new Company" name="companyName"
-				required>
-				<input type="text" placeholder="Enter Company Website URL" name="websiteUrl"
-				required>
+				required> <input type="text"
+				placeholder="Enter Company Website URL" name="websiteUrl" required>
 			<button type="submit" id="addcomp" class="btn">ADD COMPANY</button>
 			<button type="button" class="cancel btn" onclick="closeForm()">CLOSE</button>
 		</form>

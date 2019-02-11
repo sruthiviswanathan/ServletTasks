@@ -56,16 +56,18 @@
 								<c:out value="${comp.getLocation()}" />
 							</p>
 							<button class="btn${loop.count}" id="button"
-								onclick="displayjobs(this.class)">VIEW MORE</button>
+								onclick="displayjobs(this.getAttribute('class'))">VIEW
+								MORE</button>
 						</div>
 					</c:forEach>
 				</div>
 			</div>
 		</div>
 		<c:forEach var="comp" items="${displayVacancy}" varStatus="loop">
-			<div class="split right btn${loop.count}" id="rightside" >
+			<div class="btn${loop.count}">
+				<div class="split right rightside">
 
-				
+
 					<div class="header" id="myHeader">
 
 						<div class="row">
@@ -105,8 +107,8 @@
 
 					</div>
 				</div>
-				
 
+			</div>
 		</c:forEach>
 	</div>
 </body>
