@@ -1,0 +1,94 @@
+package com.zilker.onlinejobsearch.servlet;
+
+import java.io.IOException;
+import java.util.logging.Level;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.zilker.onlinejobsearch.beans.User;
+import com.zilker.onlinejobsearch.beans.UserTechnologyMapping;
+import com.zilker.onlinejobsearch.delegate.UserDelegate;
+
+
+/**
+ * Servlet implementation class RegisterServlet
+ */
+@WebServlet("/RegisterServlet")
+public class RegisterServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public RegisterServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		try {
+			String[] technology;
+			int userId=0,flag=0;
+			UserDelegate userDelegate = new UserDelegate();
+			UserTechnologyMapping usertechnology = new UserTechnologyMapping();
+			User user = new User();
+			String name = request.getParameter("userName");
+			String password = request.getParameter("psw");
+			String confirmPassword = request.getParameter("cpsw");
+			String email = request.getParameter("email");
+			String companyName = request.getParameter("companyName");
+			String designation = request.getParameter("designation");
+			
+			user.setUserName(name);
+			user.setEmail(email);
+			user.setPassword(password);
+			user.setCompany(companyName);
+			user.setDesignation(designation);
+			
+			if(userDelegate.register(user)) {
+				userId = userDelegate.fetchUserId(user);
+				user.setUserId(userId);
+				userDelegate.insertIntoUser(user);
+				technology = request.getParameterValues("tech");
+				   if (technology != null) 
+				   {
+				      for (int i = 0; i < technology.length; i++) 
+				      {
+				    	    usertechnology.setUserId(user.getUserId());
+							usertechnology.setTechnologyId(Integer.parseInt(technology[i]));
+							flag = userDelegate.addTechnologyDetails(usertechnology);	
+							RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
+							rd.forward(request, response);
+						
+				      }
+				   }
+				
+
+			}
+			else {
+				response.sendRedirect("index.jsp");
+			}
+			
+			}catch(Exception e) {
+//				response.sendRedirect("/Pages/Retry.jsp");
+			}
+	}
+
+}
