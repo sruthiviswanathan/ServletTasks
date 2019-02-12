@@ -83,7 +83,7 @@ public class RegisterServlet extends HttpServlet {
 
 			}
 			else {
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("Pages/jsp/error.jsp");
 			}
 			
 			}catch(Exception e) {

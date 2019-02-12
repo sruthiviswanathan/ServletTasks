@@ -55,18 +55,18 @@ public class LoginServlet extends HttpServlet {
 			role = userDelegate.login(user);
 			session.setAttribute("email",email); 
 			if (role == 0) {
-				System.out.println("invalid login credentials");
+				response.sendRedirect("Pages/jsp/index.jsp");
 			} else if (role == 1) {
-				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/findjob.jsp");
 				rd.forward(request, response);
 				
 			} else if (role == 2) {
-				RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/admin.jsp");
 				rd.forward(request, response);
 			} 
 		
 			}catch(Exception e) {
-//				response.sendRedirect("/Pages/Retry.jsp");
+				response.sendRedirect("Pages/jsp/error.jsp");
 			}
 	}
 

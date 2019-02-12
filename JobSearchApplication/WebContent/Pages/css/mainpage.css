@@ -6,6 +6,18 @@ body{
        
 }
 
+#hireimage {
+    height: 400px;
+    margin-top: 137px;
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBPfXA5M4ImF6vXFmmYk7PtPMS2dmon-R80RfQy1b80arvceHYuA) no-repeat scroll center center / cover;
+}
+
+.image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
 .tit {
   color: dodgerblue;
   text-align: center;

@@ -92,6 +92,8 @@ public class RegisterAdminServlet extends HttpServlet {
 					if (flag == 1) {
 						RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
 						rd.forward(request, response);
+					}else {
+						response.sendRedirect("Pages/jsp/error.jsp");
 					}
 				}			 
 

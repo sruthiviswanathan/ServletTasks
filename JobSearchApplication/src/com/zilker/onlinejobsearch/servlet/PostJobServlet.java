@@ -88,7 +88,7 @@ public class PostJobServlet extends HttpServlet {
 			if(companyDelegate.publishVacancy(company, user)) {
 				response.sendRedirect("Pages/jsp/postjob.jsp");
 			}else {
-				response.sendRedirect("index.jsp");
+				response.sendRedirect("Pages/jsp/error.jsp");
 			}
 			
 			

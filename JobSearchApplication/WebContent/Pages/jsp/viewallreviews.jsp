@@ -19,13 +19,13 @@
 
 	 <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="${Config.BASE_PATH}index.jsp">FIND JOB</a>
+                        <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
                          <a href="searchbylocation.html">SEARCH BY LOCATION</a>
-                        <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
+                       <%--  <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a> --%>
                         <a href="viewprofile.html">YOUR PROFILE</a>
                         <a href="requestvacancy.html">REQUEST A VACANCY</a>
-                        <a href="viewpublishedjobs.html">VIEW PUBLISHED JOBS</a>
+                      <!--   <a href="viewpublishedjobs.html">VIEW PUBLISHED JOBS</a> -->
       </div>
 	<div class="navbar">
 		<ul>
@@ -33,28 +33,28 @@
 				<i class="fa fa-bars" aria-hidden="true"></i>
 			</button>
 			<li>JOB HUNT</li>
-			<a href="${Config.BASE_PATH}RegisterAdminServlet">
-				<li style="float: right"><i class="fa fa-pencil-square-o"
-					aria-hidden="true"></i>SIGN IN</li>
-			</a>
+			<a href="#">
+					<li style="float: right"><i class="fa fa-user-circle"
+						aria-hidden="true"></i>LOGOUT</li>
+				</a>
 
 		</ul>
 	</div>
 	<div class="row">
-		<div class="col-20">
-			<label for="company">SEARCH FOR COMPANY</label>
+			<form action="${Config.BASE_PATH}FindCompanyServlet" method="post">
+				<div class="col-20 col-xs-12 col-sm-12">
+					<label for="job">SEARCH FOR COMPANY</label>
+				</div>
+				<div class="col-60 col-xs-12 col-sm-12">
+					<input type="text" name="companyName"
+						placeholder="Search for Company.." required><i
+						class="icon fa fa-search" aria-hidden="true"></i>
+				</div>
+				<div class="col-10 col-xs-12 col-sm-12">
+					<input type="submit" class="col-xs-12 col-sm-12" value="SEARCH">
+				</div>
+			</form>
 		</div>
-		<form action="#">
-			<div class="col-60">
-				<input type="text" id="company" name="company"
-					placeholder="Search for Company.."><i
-					class="icon fa fa-search" aria-hidden="true" required></i>
-			</div>
-			<div class="col-20">
-				<input type="submit" value="SEARCH">
-			</div>
-		</form>
-	</div>
 	<form action="${Config.BASE_PATH}RateServlet" method="post">
 	<c:forEach items="${displayCompany}" var="comp">
 	<input type="hidden" name="company" value="${comp.getCompanyName()}">

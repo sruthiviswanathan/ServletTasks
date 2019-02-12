@@ -21,7 +21,7 @@
 	<div class="container">
 		 <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="${Config.BASE_PATH}index.jsp">FIND JOB</a>
+                        <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
                          <a href="searchbylocation.html">SEARCH BY LOCATION</a>
                         <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>

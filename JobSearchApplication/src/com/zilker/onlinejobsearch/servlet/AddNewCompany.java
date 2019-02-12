@@ -64,11 +64,11 @@ public class AddNewCompany extends HttpServlet {
 			if (companyDelegate.addNewCompany(company, user)) {
 				response.sendRedirect("Pages/jsp/signup.jsp");
 			} else {
-
+				response.sendRedirect("Pages/jsp/error.jsp");
 			}
 
 		} catch (Exception e) {
-
+			response.sendRedirect("Pages/jsp/error.jsp");
 		}
 	}
 

@@ -20,13 +20,13 @@
 	<div id="main">
 		 <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="${Config.BASE_PATH}index.jsp">FIND JOB</a>
+                        <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
                          <a href="searchbylocation.html">SEARCH BY LOCATION</a>
-                        <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
+                       <%--  <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a> --%>
                         <a href="viewprofile.html">YOUR PROFILE</a>
                         <a href="requestvacancy.html">REQUEST A VACANCY</a>
-                        <a href="viewpublishedjobs.html">VIEW PUBLISHED JOBS</a>
+                        <!-- <a href="viewpublishedjobs.html">VIEW PUBLISHED JOBS</a> -->
                 </div>
 		<div class="navbar">
 			<ul>
@@ -34,9 +34,9 @@
 					<i class="fa fa-bars" aria-hidden="true"></i>
 				</button>
 				<li>JOB HUNT</li>
-				<a href="${Config.BASE_PATH}RegisterAdminServlet">
-					<li style="float: right"><i class="fa fa-pencil-square-o"
-						aria-hidden="true"></i>SIGN IN</li>
+				<a href="#">
+					<li style="float: right"><i class="fa fa-user-circle"
+						aria-hidden="true"></i>LOGOUT</li>
 				</a>
 
 			</ul>
@@ -73,10 +73,9 @@
 							<%-- <c:set var = "company"  value = "${comp.getCompanyName()}"/> --%>
 						</h2>
 					</div>
-					<div class="col-20">
+					<div class="col-10">
 						<a href="<c:out value="${comp.getCompanyWebsiteUrl()}" />"><button
-								class="button" type="button" value="WEBSITE URL">
-								WEBSITE URL <i class="dir fa fa-chevron-circle-right"> </i>
+								class="button" type="button" value="WEBSITE URL"> WEBSITE URL <i class="dir fa fa-chevron-circle-right"> </i>
 							</button></a>
 
 					</div>
@@ -93,19 +92,20 @@
 				</div>
 			</c:forEach>
 			<div class="row">
-				<div class="col-20">
-					<label for="company" class="reviews">WANT TO KNOW WHAT
-						OTHERS THINK ABOUT THIS COMPANY?</label>
-				</div>
-				<%-- <c:forEach items="${displayCompanyReviews}" var="rev"> --%>
+			<div class="col-20">
+				<label for="company" class="reviews">WANT TO KNOW WHAT
+					OTHERS THINK ABOUT THIS COMPANY?</label>
+			</div>
+			</div>
+			
 				<div class="reviews">
-					<div class="col-10">
+					<div class="col-20">
 						<h4>
 							NAME :
 							<c:out value="${displayCompanyReviews[0].getUserName()}" />
 						</h4>
 					</div>
-					<div class="col-10">
+					<div class="col-20">
 						<h4>
 							REVIEW :
 							<c:out value="${displayCompanyReviews[0].getReview()}" />
@@ -117,22 +117,15 @@
 							<c:out value="${displayCompanyReviews[0].getRating()}" />
 						</h4>
 					</div>
-				</div>
-				<%-- </c:forEach> --%>
-
-				<div class="col-10">
+					<div class="col-10">
 				
 				
 				<button class="button"
 							type="submit" value="VIEW ALL REVIEWS">VIEW ALL REVIEWS</button></a>
 				</div>
-
-				<div class="col-10">
-					<a href="reviewrating.html"><button class="button"
-							type="button" value="RATE THIS COMPANY">RATE THIS
-							COMPANY</button></a>
 				</div>
-			</div>
+				
+	
 		</form>
 		<div class="tit">
 			<h3>JOBS AVAILABLE</h3>
