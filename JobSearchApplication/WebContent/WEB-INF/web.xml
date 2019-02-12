@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <element>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>HouseRental</display-name>
+  <display-name>onlineJobSearch</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -65,5 +65,33 @@
 		<servlet-name>PostJobServlet</servlet-name>
 		<url-pattern>/PostJobServlet</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>AddNewJobDesignationServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.AddNewJobDesignationServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AddNewJobDesignationServlet</servlet-name>
+		<url-pattern>/AddNewJobDesignationServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>FindCompanyServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.FindCompanyServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>FindCompanyServlet</servlet-name>
+		<url-pattern>/FindCompanyServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ReviewServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.ReviewServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ReviewServlet</servlet-name>
+		<url-pattern>/ReviewServlet</url-pattern>
+	</servlet-mapping>
 </element>
+
 

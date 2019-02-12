@@ -51,17 +51,17 @@ public class JobDAO {
 	/*
 	 * method for adding new jobs.
 	 */
-	public int addNewJob(JobMapping jobmapping, User user) throws SQLException {
+	public boolean addNewJob(JobMapping jobmapping, User user) throws SQLException {
 		try {
-			int jobId = 0;
+			boolean flag=false;
 			connection = DButils.getConnection();
 			preparestatement = connection.prepareStatement(QueryConstants.INSERTJOB);
 			preparestatement.setString(1, jobmapping.getJobRole());
 			preparestatement.setInt(2, user.getUserId());
 			preparestatement.setInt(3, user.getUserId());
 			preparestatement.executeUpdate();
-			jobId = fetchJobId(jobmapping);
-			return jobId;
+			//jobId = fetchJobId(jobmapping);
+			return flag;
 		} catch (SQLException e) {
 
 			throw e;

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.zilker.onlinejobsearch.config.Config"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,14 +19,16 @@
 
 <body>
 	<div class="container">
-		<div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-			<a href="mainpage.html">FIND JOB</a> <a href="findcompany.html">FIND
-				COMPANY</a> <a href="searchbylocation.html">SEARCH BY LOCATION</a> <a
-				href="postjob.html">POST JOB</a> <a href="viewprofile.html">YOUR
-				PROFILE</a> <a href="requestvacancy.html">REQUEST A VACANCY</a> <a
-				href="viewpublishedjobs.html">VIEW PUBLISHED JOBS</a>
-		</div>
+		 <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                        <a href="${Config.BASE_PATH}index.jsp">FIND JOB</a>
+                        <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
+                         <a href="searchbylocation.html">SEARCH BY LOCATION</a>
+                        <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
+                        <a href="viewprofile.html">YOUR PROFILE</a>
+                        <a href="requestvacancy.html">REQUEST A VACANCY</a>
+                        <a href="viewpublishedjobs.html">VIEW PUBLISHED JOBS</a>
+                </div>
 		<div class="navbar">
 			<ul>
 				<button onmouseover="openNav()" class="hambug">
@@ -64,8 +67,8 @@
 			</div>
 		</div>
 		<c:forEach var="comp" items="${displayVacancy}" varStatus="loop">
-			<div class="btn${loop.count}">
-				<div class="split right rightside">
+			
+				<div class="split right rightside btn${loop.count}">
 
 
 					<div class="header" id="myHeader">
@@ -108,7 +111,7 @@
 					</div>
 				</div>
 
-			</div>
+			
 		</c:forEach>
 	</div>
 </body>

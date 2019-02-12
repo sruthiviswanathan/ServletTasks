@@ -61,13 +61,13 @@ public class JobDelegate {
 		return comp;
 	}
 
-	public int addNewJob(JobMapping jobmapping, User user) throws SQLException {
+	public boolean addNewJob(JobMapping jobmapping, User user) throws SQLException {
 		// TODO Auto-generated method stub
-		int jobId = 0;
+		boolean flag = true ;
 		try {
 			JobDAO jobDao = new JobDAO();
-			jobId = jobDao.addNewJob(jobmapping, user);
-			return jobId;
+			flag = jobDao.addNewJob(jobmapping, user);
+			return flag;
 		} catch (SQLException e) {
 			throw e;
 		}

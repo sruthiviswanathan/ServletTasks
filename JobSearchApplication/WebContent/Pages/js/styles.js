@@ -1,11 +1,11 @@
 
 function openNav() {
-  // document.getElementById("main").style.marginLeft = "250px";
+ 
   document.getElementById("mySidenav").style.width = "250px";
 }
 
 function closeNav() {
-  // document.getElementById("main").style.marginLeft = "0";
+
   document.getElementById("mySidenav").style.width = "0";
 }
 
@@ -19,30 +19,38 @@ function closeForm() {
 }
 
 
-//////////////////////modal////////////////////////////////
+
 function displaymodal(id) {
-  var modal = document.getElementById('myModal');
-  var btn = document.getElementById(id);
-  var span = document.getElementsByClassName("close")[0];
-  btn.onclick = function () {
-    modal.style.display = "block";
-  }
-  span.onclick = function () {
-    modal.style.display = "none";
-  }
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
+	
+	  console.log(id);
+	  var btn = document.getElementById(id);
+	  var modal = document.getElementsByClassName(id);
+	  console.log(modal);
+	  
+	
+	  for (var i = 0; i < modal.length; i++) {
+		  console.log(modal[i]);
+		  modal[i].style.display ="block";
+		}
 }
 
+function closeModal(cl) {
+	 	
+	var x = document.getElementsByClassName("modal");
+	for(var i=0;i<x.length;i++){
+		 x[i].style.display ="none";
+	}
+	}
 
 function displayjobs(id) {
 	console.log(id);
   var x = document.getElementsByClassName(id);
   console.log(x);
-  x.style.display ="block";
+  for (var i = 0; i < x.length; i++) {
+	  console.log(x[i]);
+	  x[i].style.display ="block";
+	}
+
 
 }
 
