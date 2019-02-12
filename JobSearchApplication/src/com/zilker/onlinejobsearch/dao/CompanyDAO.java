@@ -79,15 +79,15 @@ public class CompanyDAO {
 	/*
 	 * method for adding new company to the site by company admin.
 	 */
-	public boolean addNewCompany(Company company,User user) throws SQLException {
+	public boolean addNewCompany(Company company) throws SQLException {
 		boolean flag = false;
 		try {
 			connection = DButils.getConnection();
 			preparestatement = connection.prepareStatement(QueryConstants.INSERTCOMPANY);
 			preparestatement.setString(1, company.getCompanyName());
 			preparestatement.setString(2, company.getCompanyWebsiteUrl());
-			preparestatement.setInt(3, user.getUserId());
-			preparestatement.setInt(4, user.getUserId());
+//			preparestatement.setInt(3, user.getUserId());
+//			preparestatement.setInt(4, user.getUserId());
 			preparestatement.executeUpdate();
 			flag = true;
 		} catch (SQLException e) {

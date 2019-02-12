@@ -13,7 +13,9 @@ public class QueryConstants {
 	public static final String INSERTADMIN = "insert into user_classification(user_name,email,password,company_name,designation,role) values(?,?,?,?,?,?)";
 	public static final String INSERTCOMPANYADMIN = "insert into company_admin(user_id,company_id,created_by,updated_by) values(?,?,?,?)";
 	public static final String RETRIEVEUSERDATA = "select email,password,role,user_id from user_classification";
-	public static final String INSERTCOMPANY = "insert into company_details(company_name,website_url,created_by,updated_by) values(?,?,?,?)";
+	public static final String RETRIEVEUSERDETAILS = "select user_name,company_name,designation from user_classification where user_id=?";
+	//public static final String INSERTCOMPANY = "insert into company_details(company_name,website_url,created_by,updated_by) values(?,?,?,?)";
+	public static final String INSERTCOMPANY = "insert into company_details(company_name,website_url) values(?,?)";
 	public static final String INSERTCOMPANYBYSITEADMIN = "insert into company_details(company_name,website_url,created_by,updated_by) values(?,?,?,?)";
 	public static final String UPDATECOMPANYCREATER = "update company_details set created_by=?,updated_by=? where company_id=?";
 	public static final String RETRIEVECOMPANYDATA = "select company_id,company_name from company_details";
@@ -55,4 +57,5 @@ public class QueryConstants {
 	public static final String RETRIEVECOMPANYBYLOCATION = "select company_id,job_id,location,job_description,salary,vacancy_count from vacancy_publish where location=? and vacancy_status='available'";
 	public static final String FETCHJOBDESIGNATIONBYID = "select job_designation from job where job_id=?";
 	public static final String RETRIEVECOMPANYBYLOCATIONANDJOB = "select company_id,job_id,location,job_description,salary,vacancy_count from vacancy_publish where location=? and job_designation=? and vacancy_status='available'";
+	
 }

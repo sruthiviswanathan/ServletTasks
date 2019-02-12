@@ -74,9 +74,9 @@ public class UserDelegate {
 		return flag;
 	}
 
-	public int reviewAndRateCompany(User user, Company company) throws SQLException {
+	public boolean reviewAndRateCompany(User user, Company company) throws SQLException {
 		// TODO Auto-generated method stub
-		int flag = 0;
+		boolean flag = false;
 		try {
 			UserDAO userDao = new UserDAO();
 			flag = userDao.reviewAndRateCompany(user, company);
@@ -86,9 +86,9 @@ public class UserDelegate {
 		return flag;
 	}
 
-	public int interviewProcess(User user, Company company, JobMapping jobmapping) throws SQLException {
+	public boolean interviewProcess(User user, Company company, JobMapping jobmapping) throws SQLException {
 		// TODO Auto-generated method stub
-		int flag = 0;
+		boolean flag = false;
 		try {
 			UserDAO userDao = new UserDAO();
 			flag = userDao.interviewProcess(user, company, jobmapping);
@@ -150,6 +150,21 @@ public class UserDelegate {
 		}
 
 		return comp;
+	}
+	
+
+	public ArrayList<User> retrieveUserData(User user)throws SQLException {
+		// TODO Auto-generated method stub
+		ArrayList<User> userData = new ArrayList<User>();
+		try {
+			UserDAO userDao = new UserDAO();
+			userData = userDao.retrieveUserData(user);
+
+		} catch (SQLException e) {
+			throw e;
+		}
+
+		return userData;
 	}
 
 	public boolean ifAlreadyExists(User user) throws SQLException {
@@ -311,6 +326,7 @@ public class UserDelegate {
 		}
 		return flag;
 	}
+
 
 }
 

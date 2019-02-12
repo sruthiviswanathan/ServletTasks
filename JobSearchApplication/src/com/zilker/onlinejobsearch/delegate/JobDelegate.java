@@ -63,7 +63,7 @@ public class JobDelegate {
 
 	public boolean addNewJob(JobMapping jobmapping, User user) throws SQLException {
 		// TODO Auto-generated method stub
-		boolean flag = true ;
+		boolean flag = false ;
 		try {
 			JobDAO jobDao = new JobDAO();
 			flag = jobDao.addNewJob(jobmapping, user);

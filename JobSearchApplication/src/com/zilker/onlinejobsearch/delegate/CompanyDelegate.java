@@ -111,12 +111,12 @@ public class CompanyDelegate {
 		return comp;
 	}
 
-	public boolean addNewCompany(Company company,User user) throws SQLException {
+	public boolean addNewCompany(Company company) throws SQLException {
 		// TODO Auto-generated method stub
 		boolean flag = false;
 		try {
 			CompanyDAO companyDao = new CompanyDAO();
-			flag = companyDao.addNewCompany(company,user);
+			flag = companyDao.addNewCompany(company);
 		} catch (SQLException e) {
 			throw e;
 		}

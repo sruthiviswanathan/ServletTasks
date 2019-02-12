@@ -97,10 +97,11 @@ public class FindCompanyServlet extends HttpServlet {
 					if (companyReviews.isEmpty()) {
 						System.out.println("***No Reviews for this Company!!!***");
 					}
+					
 					for (Company i : companyReviews) {
 						request.setAttribute("displayCompanyReviews", companyReviews);
 					}
-
+					
 				}
 			}
 			getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/companydetails.jsp").forward(request,response);

@@ -20,12 +20,9 @@
 	<div class="container">
 		 <div id="mySidenav" class="sidenav">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                       <%--  <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
-                         <a href="searchbylocation.html">SEARCH BY LOCATION</a> --%>
+                      
                         <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
-                        <a href="viewprofile.html">YOUR PROFILE</a>
-                      <!--   <a href="requestvacancy.html">REQUEST A VACANCY</a> -->
+                        <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
                         <a href="viewpublishedjobs.html">VIEW PUBLISHED JOBS</a>
                         <a href="#">VIEW INTERESTED PEOPLE</a>
                 </div>

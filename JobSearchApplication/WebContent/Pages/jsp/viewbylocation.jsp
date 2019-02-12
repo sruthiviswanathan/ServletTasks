@@ -48,29 +48,32 @@
 		<%@page import="java.util.ArrayList"%>
 		<div class="split left">
 			<div class="jobs">
+				
 				<div class="row row1">
-
-					<c:forEach var="comp" items="${displayVacancy}" varStatus="loop">
+			<c:forEach var="location" items="${retrieveByLocation}" varStatus="loop">
+					<c:forEach var="comp" items="${displayCompany}">
 
 						<div class="card col-sm-6 col-xs-height">
 							<h4>
-								<b><c:out value="${job.get(0)}" /></b>
+								<b><c:out value="${vacancydetails.getJobRole()}" /></b>
 							</h4>
 							<p>
 								<c:out value="${comp.getCompanyName()}" />
 							</p>
 							<p>
-								<c:out value="${comp.getLocation()}" />
+								<c:out value="${location.getLocation()}" />
 							</p>
 							<button class="btn${loop.count}" id="button"
 								onclick="displayjobs(this.getAttribute('class'))">VIEW
 								MORE</button>
 						</div>
 					</c:forEach>
+					</c:forEach>
 				</div>
 			</div>
 		</div>
-		<c:forEach var="comp" items="${displayVacancy}" varStatus="loop">
+		<c:forEach var="location" items="${retrieveByLocation}" varStatus="loop">
+			<c:forEach var="comp" items="${displayCompany}">
 			
 				<div class="split right rightside btn${loop.count}">
 
@@ -89,11 +92,11 @@
 								<h3>
 									<c:out value="${comp.getCompanyName()}" />
 									/
-									<c:out value="${job.get(0)}" />
+									<c:out value="${vacancydetails.getJobRole()}" />
 									/
-									<c:out value="${comp.getLocation()}" />
+									<c:out value="${location.getLocation()}" />
 									/
-									<c:out value="${comp.getSalary()}" />
+									<c:out value="${location.getSalary()}" />
 								</h3>
 							</div>
 							<div class="col-60 col-xs-12 col-md-12">
@@ -109,13 +112,14 @@
 					</div>
 					<div class="content">
 						<p>
-							<c:out value="${comp.getJobDescription()}" />
+							<c:out value="${location.getJobDescription()}" />
 						</p>
 
 					</div>
 				</div>
 
 			
+		</c:forEach>
 		</c:forEach>
 	</div>
 </body>

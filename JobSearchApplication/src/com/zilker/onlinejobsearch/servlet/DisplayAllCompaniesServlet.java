@@ -2,8 +2,8 @@ package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,18 +13,17 @@ import javax.servlet.http.HttpServletResponse;
 import com.zilker.onlinejobsearch.beans.Company;
 import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
 
-
 /**
- * Servlet implementation class RetreiveAllCompanyServlet
+ * Servlet implementation class DisplayAllCompaniesServlet
  */
-@WebServlet("/RetreiveAllCompanyServlet")
-public class RetreiveAllCompanyServlet extends HttpServlet {
+@WebServlet("/DisplayAllCompaniesServlet")
+public class DisplayAllCompaniesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RetreiveAllCompanyServlet() {
+    public DisplayAllCompaniesServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,22 +33,19 @@ public class RetreiveAllCompanyServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
 		try {
-		Company company = new Company();
-		ArrayList<Company> companyDetails = new ArrayList<Company>();
-		CompanyDelegate companyDelegate = new CompanyDelegate();
-		
-		companyDetails = companyDelegate.RetreiveAllCompanies(company);
-		request.setAttribute("companyList", companyDetails); 
-
-		getServletConfig().getServletContext().getRequestDispatcher("Pages/jsp/index.jsp").forward(request,response);
-
-		
-		}catch(Exception e) {
-			
-		}
+			//response.getWriter().append("Served at: ").append(request.getContextPath());
+			Company company = new Company();
+			ArrayList<Company> displayCompanies = new ArrayList<Company>();
+			CompanyDelegate companyDelegate = new CompanyDelegate(); 
+			displayCompanies = companyDelegate.displayCompanies(company); 
+			request.setAttribute("companies",displayCompanies);
+			response.sendRedirect("Pages/jsp/reviewandrating.jsp");
+			}catch(Exception e) {
+				
+			}
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */

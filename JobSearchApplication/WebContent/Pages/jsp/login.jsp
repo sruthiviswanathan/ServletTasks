@@ -4,13 +4,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/forms.css">
-<link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/navbar.css">
+<link rel="stylesheet" href="Pages/css/forms.css">
+<link rel="stylesheet" href="Pages/css/navbar.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>LOGIN/SIGNUP</title>
@@ -19,21 +18,15 @@
 <body onload="viewlogin()">
 
 	<div class="container">
-		<%--  <div id="mySidenav" class="sidenav">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
-                         <a href="searchbylocation.html">SEARCH BY LOCATION</a>
-                        <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
-                        <a href="viewprofile.html">YOUR PROFILE</a>
-                        <a href="requestvacancy.html">REQUEST A VACANCY</a>
-                       <!--  <a href="viewpublishedjobs.html">VIEW PUBLISHED JOBS</a> -->
-                </div> --%>
+ 		
 		<div class="navbar">
 			<ul>
+				
+				<li style="float: left"><i class="fa fa-search" aria-hidden="true"></i></li>
+				
 				<li style="float: left">JOB HUNT</li>
 			</ul>
-		</div>
+		</div> 
 
 
 
@@ -169,8 +162,8 @@
 		</form>
 	</div>
 </body>
-<script src="${Config.BASE_PATH}Pages/js/form.js"></script>
-<script src="${Config.BASE_PATH}Pages/js/styles.js"></script>
-<script src="${Config.BASE_PATH}Pages/js/validate.js"></script>
+<script src="Pages/js/form.js"></script>
+<script src="Pages/js/styles.js"></script>
+<script src="Pages/js/validate.js"></script>
 
 </html>

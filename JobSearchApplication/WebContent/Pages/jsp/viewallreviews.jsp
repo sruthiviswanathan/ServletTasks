@@ -21,11 +21,10 @@
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
-                         <a href="searchbylocation.html">SEARCH BY LOCATION</a>
-                       <%--  <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a> --%>
-                        <a href="viewprofile.html">YOUR PROFILE</a>
+                         <a href="${Config.BASE_PATH}Pages/jsp/searchbylocation.jsp">SEARCH BY LOCATION</a>
+                        <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
                         <a href="requestvacancy.html">REQUEST A VACANCY</a>
-                      <!--   <a href="viewpublishedjobs.html">VIEW PUBLISHED JOBS</a> -->
+                      
       </div>
 	<div class="navbar">
 		<ul>
@@ -55,9 +54,10 @@
 				</div>
 			</form>
 		</div>
-	<form action="${Config.BASE_PATH}RateServlet" method="post">
+	<form action="${Config.BASE_PATH}RateServlet" method="get">
+	
 	<c:forEach items="${displayCompany}" var="comp">
-	<input type="hidden" name="company" value="${comp.getCompanyName()}">
+	<input type="hidden" name="companyname" value="${comp.getCompanyName()}">
 		<div class="row">
 
 			<div class="col-20">
@@ -69,6 +69,7 @@
 					alt="zilker" />
 				<h2>${comp.getCompanyName()}</h2>
 			</div>
+			
 			<div class="col-20">
 				<a href="<c:out value="${comp.getCompanyWebsiteUrl()}" />"><button
 								class="button" type="button" value="WEBSITE URL">
@@ -84,7 +85,8 @@
 				<h2><c:out value="${comp.getAverageRating()}" /></h2>
 			</div>
 			<div class="col-20">
-				<a href="reviewrating.html"><button class="button" type="button"
+				<%-- <a href="${Config.BASE_PATH}RateServlet"> --%>
+				<button class="button" type="submit"
 						value="RATE THIS COMPANY">RATE THIS COMPANY</button></a>
 			</div>
 		</div>

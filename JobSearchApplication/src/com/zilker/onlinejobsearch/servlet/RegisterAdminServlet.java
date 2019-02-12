@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.zilker.onlinejobsearch.beans.Company;
+import com.zilker.onlinejobsearch.beans.JobMapping;
 import com.zilker.onlinejobsearch.beans.User;
 
 import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
+import com.zilker.onlinejobsearch.delegate.JobDelegate;
 import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
 
@@ -37,19 +39,19 @@ public class RegisterAdminServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		try {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		Company company = new Company();
-		ArrayList<Company> displayCompanies = new ArrayList<Company>();
-		CompanyDelegate companyDelegate = new CompanyDelegate();
-		displayCompanies = companyDelegate.displayCompanies(company);
-		request.setAttribute("companies", displayCompanies); 
-		//response.sendRedirect("Pages/jsp/login.jsp");
-		RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
-		rd.forward(request, response);
-		}catch(Exception e) {
-			
-		}
+			//response.getWriter().append("Served at: ").append(request.getContextPath());
+			Company company = new Company();
+			ArrayList<Company> displayCompanies = new ArrayList<Company>();
+			CompanyDelegate companyDelegate = new CompanyDelegate(); 
+			displayCompanies = companyDelegate.displayCompanies(company); 
+			request.setAttribute("companies",displayCompanies);
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
+			rd.forward(request, response);
+			}catch(Exception e) {
+				
+			}
 	}
 
 	/**

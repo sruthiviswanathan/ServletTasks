@@ -1,6 +1,8 @@
 package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,14 +48,14 @@ public class AddNewCompany extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-			HttpSession session = request.getSession();
-			String email = (String) session.getAttribute("email");
-			UserDelegate userDelegate = new UserDelegate();
-			User user = new User();
-			user.setEmail(email);
-			int userId = 0;
-			userId = userDelegate.fetchUserId(user);
-			user.setUserId(userId);
+//			HttpSession session = request.getSession();
+//			String email = (String) session.getAttribute("email");
+//			UserDelegate userDelegate = new UserDelegate();
+//			User user = new User();
+//			user.setEmail(email);
+//			int userId = 0;
+//			userId = userDelegate.fetchUserId(user);
+//			user.setUserId(userId);
 			Company company = new Company();
 			CompanyDelegate companyDelegate = new CompanyDelegate();
 			String companyName = request.getParameter("companyName");
@@ -61,8 +63,8 @@ public class AddNewCompany extends HttpServlet {
 			company.setCompanyName(companyName);
 			company.setCompanyWebsiteUrl(websiteUrl);
 
-			if (companyDelegate.addNewCompany(company, user)) {
-				response.sendRedirect("Pages/jsp/signup.jsp");
+			if (companyDelegate.addNewCompany(company)) {
+				response.sendRedirect("RegisterAdminServlet");
 			} else {
 				response.sendRedirect("Pages/jsp/error.jsp");
 			}

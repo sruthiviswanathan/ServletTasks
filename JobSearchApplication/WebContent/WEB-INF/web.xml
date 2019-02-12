@@ -92,6 +92,53 @@
 		<servlet-name>ReviewServlet</servlet-name>
 		<url-pattern>/ReviewServlet</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>RateServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.RateServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>RateServlet</servlet-name>
+		<url-pattern>/RateServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>UserProfileServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.UserProfileServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UserProfileServlet</servlet-name>
+		<url-pattern>/UserProfileServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>SearchByLocation</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.SearchByLocation</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SearchByLocation</servlet-name>
+		<url-pattern>/SearchByLocation</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>DisplayAllCompaniesServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.DisplayAllCompaniesServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DisplayAllCompaniesServlet</servlet-name>
+		<url-pattern>/DisplayAllCompaniesServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>DisplayAllJobDesignationServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.DisplayAllJobDesignationServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DisplayAllJobDesignationServlet</servlet-name>
+		<url-pattern>/DisplayAllJobDesignationServlet</url-pattern>
+	</servlet-mapping>
 </element>
+
+
 
 

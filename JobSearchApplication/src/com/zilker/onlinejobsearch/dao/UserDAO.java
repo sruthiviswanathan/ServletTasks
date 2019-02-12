@@ -183,6 +183,30 @@ public class UserDAO {
 		}
 		return comp;
 	}
+	
+	public ArrayList<User> retrieveUserData(User user)throws SQLException {
+		// TODO Auto-generated method stub
+		ArrayList<User> userData = new ArrayList<User>();
+
+		try {
+			connection = DButils.getConnection();
+			preparestatement = connection.prepareStatement(QueryConstants.RETRIEVEUSERDETAILS);
+			preparestatement.setInt(1, user.getUserId());
+			resultset = preparestatement.executeQuery();
+			while (resultset.next()) {
+				User u = new User();
+				u.setUserName(resultset.getString(1));
+				u.setCompany(resultset.getString(2));
+				u.setDesignation(resultset.getString(3));
+				userData.add(u);
+			}
+		} catch (SQLException e) {
+			throw e;
+		} finally {
+			DButils.closeConnection(connection, preparestatement, resultset);
+		}
+		return userData;
+	}
 
 	public String fetchUserNameById(int userId) throws SQLException {
 
@@ -352,7 +376,8 @@ public class UserDAO {
 	/*
 	 * method for adding interview process of a company
 	 */
-	public int interviewProcess(User user, Company company, JobMapping jobmapping) throws SQLException {
+	public boolean interviewProcess(User user, Company company, JobMapping jobmapping) throws SQLException {
+		boolean flag=false;
 		try {
 			connection = DButils.getConnection();
 			preparestatement = connection.prepareStatement(QueryConstants.INSERTJOBREVIEW);
@@ -363,19 +388,21 @@ public class UserDAO {
 			preparestatement.setInt(5, user.getUserId());
 			preparestatement.setInt(6, user.getUserId());
 			preparestatement.executeUpdate();
-			return 1;
+			flag=true;
 		} catch (SQLException e) {
 			throw e;
 
 		} finally {
 			DButils.closeConnection(connection, preparestatement, resultset);
 		}
+		return flag;
 	}
 
 	/*
 	 * method for adding review and rating of a company
 	 */
-	public int reviewAndRateCompany(User user, Company company) throws SQLException {
+	public boolean reviewAndRateCompany(User user, Company company) throws SQLException {
+		boolean flag= false;
 		try {
 
 			connection = DButils.getConnection();
@@ -390,12 +417,14 @@ public class UserDAO {
 			preparestatement = connection.prepareStatement(QueryConstants.RETRIEVECOMPANYNAME);
 			preparestatement.setInt(1, company.getCompanyId());
 			resultset = preparestatement.executeQuery();
-			return 1;
+			flag=true;
+			
 		} catch (SQLException e) {
 			throw e;
 		} finally {
 			DButils.closeConnection(connection, preparestatement, resultset);
 		}
+		return flag;
 	}
 
 	public boolean ifAlreadyExists(User user) throws SQLException {
@@ -662,6 +691,8 @@ public class UserDAO {
 		}
 		return flag;
 	}
+
+	
 
 	
 }
