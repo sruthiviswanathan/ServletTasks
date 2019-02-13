@@ -1,10 +1,12 @@
 package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -50,6 +52,8 @@ public class ViewByJob extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out = response.getWriter();
 			ArrayList<String> jobRole = new ArrayList<String>();
 			ArrayList<Company> vacancyDetails = new ArrayList<Company>();
 			JobDelegate jobDelegate = new JobDelegate();
@@ -65,9 +69,11 @@ public class ViewByJob extends HttpServlet {
 			jobmapping.setJobRole(jobDesignation);
 			jobId = jobDelegate.fetchJobId(jobmapping);
 			if (jobId == 0) {
-				System.out.println(
-						"No vacancies in this designation as of now!!Do you still want to search for other job designation?(y/n)");
-
+				 out.println("<script type=\"text/javascript\">");
+				   out.println("alert('No vacancy in this designation!!!');");
+				   out.println("location='Pages/jsp/findjob.jsp';");
+				   out.println("</script>");
+				  // response.sendRedirect("Pages/jsp/findjob.jsp");
 			} else {
 				
 				company.setJobId(jobId);
@@ -77,10 +83,11 @@ public class ViewByJob extends HttpServlet {
 				}
 				for (Company i : vacancyDetails) {
 					request.setAttribute("displayVacancy", vacancyDetails);
+					getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/viewjobs.jsp").forward(request,response);
 				}
 
 			}
-			getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/viewjobs.jsp").forward(request,response);
+			
 		} catch (SQLException e) {
 		
 		}

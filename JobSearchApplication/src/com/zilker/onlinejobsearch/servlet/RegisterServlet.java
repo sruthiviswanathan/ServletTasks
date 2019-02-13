@@ -1,6 +1,7 @@
 package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 
 import javax.servlet.RequestDispatcher;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.zilker.onlinejobsearch.beans.Technology;
 import com.zilker.onlinejobsearch.beans.User;
 import com.zilker.onlinejobsearch.beans.UserTechnologyMapping;
 import com.zilker.onlinejobsearch.delegate.UserDelegate;
@@ -35,7 +37,17 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		try {
+			//response.getWriter().append("Served at: ").append(request.getContextPath());
+			Technology technology = new Technology();
+			ArrayList<Technology> tech = new ArrayList<Technology>();
+			UserDelegate userDelegate = new UserDelegate();
+			tech = userDelegate.displayTechnologies(technology);
+			request.setAttribute("technologies",tech);
+			response.sendRedirect("Pages/jsp/login.jsp");
+			}catch(Exception e) {
+				
+			}
 	}
 
 	/**

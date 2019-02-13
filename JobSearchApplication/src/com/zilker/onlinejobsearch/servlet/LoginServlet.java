@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
 			role = userDelegate.login(user);
 			session.setAttribute("email",email); 
 			if (role == 0) {
-				response.sendRedirect("Pages/jsp/index.jsp");
+				response.sendRedirect("Pages/jsp/login.jsp");
 			} else if (role == 1) {
 				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/findjob.jsp");
 				rd.forward(request, response);

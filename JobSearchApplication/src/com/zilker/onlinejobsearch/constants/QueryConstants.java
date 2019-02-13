@@ -54,7 +54,7 @@ public class QueryConstants {
 	public static final String UPDATEVACANCYDESCRIPTION = "update vacancy_publish set job_description=?,updated_by=?,update_timestamp=? where company_id=? and job_id=?";
 	public static final String UPDATEVACANCYSALARY = "update vacancy_publish set salary=?,updated_by=?,update_timestamp=? where company_id=? and job_id=?";
 	public static final String UPDATEVACANCYCOUNT = "update vacancy_publish set vacancy_count=?,vacancy_status=?,updated_by=?,update_timestamp=? where company_id=? and job_id=?";
-	public static final String RETRIEVECOMPANYBYLOCATION = "select company_id,job_id,location,job_description,salary,vacancy_count from vacancy_publish where location=? and vacancy_status='available'";
+	public static final String RETRIEVECOMPANYBYLOCATION ="select company_details.company_name,company_details.website_url,job.job_designation,vacancy_publish.location,vacancy_publish.job_description,vacancy_publish.salary,vacancy_publish.vacancy_count from vacancy_publish,company_details,job where location=? and vacancy_status='available' and vacancy_publish.company_id= company_details.company_id and vacancy_publish.job_id= job.job_id;";
 	public static final String FETCHJOBDESIGNATIONBYID = "select job_designation from job where job_id=?";
 	public static final String RETRIEVECOMPANYBYLOCATIONANDJOB = "select company_id,job_id,location,job_description,salary,vacancy_count from vacancy_publish where location=? and job_designation=? and vacancy_status='available'";
 	

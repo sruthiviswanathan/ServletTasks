@@ -1,13 +1,15 @@
 function validateForm()                                    
 { 
-    var name = document.forms["admin"]["username"];               
+    var name = document.forms["admin"]["userName"];               
     var email = document.forms["admin"]["email"];    
-    var what =  document.forms["admin"]["company"];  
+    var what =  document.forms["admin"]["companyName"];  
     var password = document.forms["admin"]["psw"];  
     var confirm = document.forms["admin"]["cpsw"];  
-   
+    console.log("validate");
     if (name.value == "")                                  
     { 
+//    	 nameError = "Please enter your name";
+//         document.getElementById("name_error").innerHTML = nameError;
         window.alert("Please enter your name."); 
         name.focus(); 
         return false; 
@@ -58,7 +60,6 @@ function validateForm()
    
     return true; 
 }
-
 
 function validatePostJob()                                    
 { 

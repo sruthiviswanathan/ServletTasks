@@ -21,10 +21,9 @@
                         <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/searchbylocation.jsp">SEARCH BY LOCATION</a>
-                       <%--  <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a> --%>
                         <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
-                        <a href="requestvacancy.html">REQUEST A VACANCY</a>
-                       <!--  <a href="viewpublishedjobs.html">VIEW PUBLISHED JOBS</a> -->
+                        <a href="${Config.BASE_PATH}Pages/jsp/requestvacancy.jsp">REQUEST A VACANCY</a>
+               
                 </div>
                 <div class="navbar">
                         <ul>

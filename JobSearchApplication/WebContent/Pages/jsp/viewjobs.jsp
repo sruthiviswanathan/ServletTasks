@@ -26,7 +26,7 @@
                          <a href="${Config.BASE_PATH}Pages/jsp/searchbylocation.jsp">SEARCH BY LOCATION</a>
                   
                         <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
-                        <a href="requestvacancy.html">REQUEST A VACANCY</a>
+                        <a href="${Config.BASE_PATH}Pages/jsp/requestvacancy.jsp">REQUEST A VACANCY</a>
                  
                 </div>
 		<div class="navbar">
@@ -81,19 +81,19 @@
 
 							<div class="col-20 col-xs-12 col-md-12">
 								<img
-									src="data:image/png;base64,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"
-									alt="zilker" />
+									src="data:image/png;base64,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"
+									alt="gethired" />
 
 							</div>
 							<div class="col-60 col-xs-12 col-md-12">
 								<h3>
-									<c:out value="${comp.getCompanyName()}" />
-									/
-									<c:out value="${job.get(0)}" />
-									/
-									<c:out value="${comp.getLocation()}" />
-									/
-									<c:out value="${comp.getSalary()}" />
+								
+								<c:out value="${comp.getCompanyName()}" />
+								/
+								<c:out value="${job.get(0)}" />
+								/
+								<c:out value="${comp.getLocation()}" />
+								
 								</h3>
 							</div>
 							<div class="col-60 col-xs-12 col-md-12">
@@ -108,10 +108,24 @@
 
 					</div>
 					<div class="content">
-						<p>
-							<c:out value="${comp.getJobDescription()}" />
-						</p>
-
+								<p>	JOB DESIGNATION:
+								<c:out value="${job.get(0)}" />
+								</p>
+								<p>COMPANY NAME:
+								<c:out value="${comp.getCompanyName()}" />
+								</p>
+								<p>JOB DESCRIPTION:
+								<c:out value="${comp.getJobDescription()}" />
+								</p>	
+								<p>LOCATION:
+								<c:out value="${comp.getLocation()}" />
+								</p>
+								<p>	SALARY:
+								<c:out value="${comp.getSalary()}" />
+								</p>
+								<p>	VACANCY COUNT:
+								<c:out value="${comp.getVacancyCount()}" />
+								</p>
 					</div>
 				</div>
 

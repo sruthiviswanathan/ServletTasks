@@ -1,7 +1,6 @@
 package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
@@ -12,21 +11,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.zilker.onlinejobsearch.beans.Company;
+import com.zilker.onlinejobsearch.beans.Technology;
 import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
-import com.zilker.onlinejobsearch.delegate.JobDelegate;
 import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
 /**
- * Servlet implementation class SearchByLocation
+ * Servlet implementation class DisplayAllTechnologiesServlet
  */
-@WebServlet("/SearchByLocation")
-public class SearchByLocation extends HttpServlet {
+@WebServlet("/DisplayAllTechnologiesServlet")
+public class DisplayAllTechnologiesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchByLocation() {
+    public DisplayAllTechnologiesServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,7 +35,17 @@ public class SearchByLocation extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		try {
+			//response.getWriter().append("Served at: ").append(request.getContextPath());
+			Technology technology = new Technology();
+			ArrayList<Technology> tech = new ArrayList<Technology>();
+			UserDelegate userDelegate = new UserDelegate();
+			tech = userDelegate.displayTechnologies(technology);
+			request.setAttribute("technologies",tech);
+			response.sendRedirect("Pages/jsp/login.jsp");
+			}catch(Exception e) {
+				
+			}
 	}
 
 	/**
@@ -44,28 +53,7 @@ public class SearchByLocation extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		try {
-			ArrayList<Company> retrieveByLocation = new ArrayList<Company>();
-			Company company = new Company();	
-			CompanyDelegate companyDelegate = new CompanyDelegate();
-			String location = request.getParameter("location");
-				company.setLocation(location);
-				retrieveByLocation = companyDelegate.retrieveVacancyByLocation(company);
-				if (retrieveByLocation.isEmpty()) {
-					System.out.println("No vacancy in this Location as of now!!");
-					
-				} else {
-					for (Company i : retrieveByLocation) {
-						request.setAttribute("retrieveByLocation", retrieveByLocation);
-					}
-			
-				}
-//				System.out.println(allDetails);
-				getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/viewbylocation.jsp").forward(request,response);	
-		} catch (SQLException e) {
-		
-		}
-
+		doGet(request, response);
 	}
 
 }

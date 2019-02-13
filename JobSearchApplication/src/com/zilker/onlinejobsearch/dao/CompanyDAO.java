@@ -13,6 +13,7 @@ import com.zilker.onlinejobsearch.beans.User;
 import com.zilker.onlinejobsearch.constants.QueryConstants;
 import com.zilker.onlinejobsearch.utils.DButils;
 //import com.zilker.onlinejobsearch.utils.NotifyUser;
+import com.zilker.onlinejobsearch.utils.NotifyUser;
 
 public class CompanyDAO {
 
@@ -25,7 +26,7 @@ public class CompanyDAO {
 	 * method for sending notification if a vacancy is published.
 	 */
 	public void compareVacancyWithRequest(Company company) throws SQLException {
-//		NotifyUser notifyuser = new NotifyUser();
+			NotifyUser notifyuser = new NotifyUser();
 		try {
 			connection = DButils.getConnection();
 			statement = connection.createStatement();
@@ -35,7 +36,7 @@ public class CompanyDAO {
 			while (resultset.next()) {
 				if ((jobId == resultset.getInt(2)) && location.equals(resultset.getString(3))) {
 					String email = resultset.getString(1);
-//					notifyuser.sendNotification(email);
+					notifyuser.sendNotification(email);
 				}
 			}
 
@@ -249,7 +250,8 @@ public class CompanyDAO {
 		}
 		return flag;
 	}
-
+	
+	
 	/*
 	 * method 1 for retrieving vacancy based on company.
 	 */
@@ -393,21 +395,26 @@ public class CompanyDAO {
 		// TODO Auto-generated method stub
 		ArrayList<Company> comp = new ArrayList<Company>();
 		try {
-
+			int companyId=0,jobId=0;float averageRating =0;
 			connection = DButils.getConnection();
 			preparestatement = connection.prepareStatement(QueryConstants.RETRIEVECOMPANYBYLOCATION);
 			preparestatement.setString(1, company.getLocation());
 			resultset = preparestatement.executeQuery();
 			while (resultset.next()) {
 				Company c = new Company();
-				c.setLocation(resultset.getString(3));
-				c.setJobDescription(resultset.getString(4));
-				c.setSalary(resultset.getFloat(5));
-				c.setVacancyCount(resultset.getInt(6));
-				c.setCompanyId(resultset.getInt(1));
-				c.setJobId(resultset.getInt(2));
+				c.setCompanyName(resultset.getString(1));
+				c.setCompanyWebsiteUrl(resultset.getString(2));
+				c.setJobRole(resultset.getString(3));
+				c.setLocation(resultset.getString(4));
+				c.setJobDescription(resultset.getString(5));
+				c.setSalary(resultset.getFloat(6));
+				c.setVacancyCount(resultset.getInt(7));				
+				
 				comp.add(c);
-			}
+						
+
+			}					
+		
 		} catch (SQLException e) {
 			throw e;
 

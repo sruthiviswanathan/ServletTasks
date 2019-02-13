@@ -62,9 +62,9 @@ public class UserDelegate {
 		return i;
 	}
 
-	public int requestNewVacancy(JobRequest jobrequest, User user) throws SQLException {
+	public boolean requestNewVacancy(JobRequest jobrequest, User user) throws SQLException {
 		// TODO Auto-generated method stub
-		int flag = 0;
+		boolean flag = false;
 		try {
 			UserDAO userDao = new UserDAO();
 			flag = userDao.requestNewVacancy(jobrequest, user);

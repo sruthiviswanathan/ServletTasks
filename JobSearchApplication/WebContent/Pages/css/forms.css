@@ -6,7 +6,6 @@
   body{
      font-family: Arial, Helvetica, sans-serif;
      color:black;
-     background-color: whitesmoke;
      
     }
 
@@ -70,7 +69,7 @@
 .check {
   display:inline-block;
 }
-input[type=text] ,input[type=email],input[type=password],input[type="number"],textarea, select,input[type="file"]{
+input[type=text] ,input[type=email],input[type=password],input[type="number"],textarea, select,input[type="file"],.checkbox{
 
     margin: 10px 20px 0px 350px;
     width: 50%;
@@ -93,7 +92,7 @@ input[type=text] ,input[type=email],input[type=password],input[type="number"],te
   margin-top: 10px;
 }
 
-  label,.checkbox {
+  label {
     margin: 10px 20px 0px 350px;
     padding: 29px 12px 12px 0;
     display: block;
@@ -106,7 +105,7 @@ input[type=text] ,input[type=email],input[type=password],input[type="number"],te
     padding: 14px 20px;
     border: none;
     cursor: pointer;
-    width: 15%;
+    width: 20%;
     letter-spacing: 1px;
     margin-top: 10px;
   }
@@ -129,7 +128,7 @@ input[type=text] ,input[type=email],input[type=password],input[type="number"],te
     background-color: lightblue;
   } */
   .cancelbtn {
-    width: 15%;
+     width: 20%;
     padding: 14px 20px;
     background-color: #f44336;
   } 

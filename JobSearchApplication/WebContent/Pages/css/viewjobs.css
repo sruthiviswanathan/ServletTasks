@@ -1,7 +1,6 @@
 @charset "UTF-8";
 body {
   font-family: Arial;
-  background-color: whitesmoke;
   width:100%;
   margin: 0 ;
   height:100vh;
@@ -125,7 +124,7 @@ right: 10px;
   width: 100%;
   border-radius: 5px;
   cursor: pointer;
-  background-color: whitesmoke;
+  background-color:white;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   padding:10px;
@@ -157,8 +156,7 @@ button {
 }
 
 .header {
- 
-  background: #ccc;
+  background-color:white;
   color: dodgerblue;
   text-align: center;
   
@@ -166,7 +164,9 @@ button {
 
 .content {
   /* padding: 16px; */
+    background-color:white;
   color: black;
+  font-weight:bold;
   overflow-y: scroll;
   max-height: 550px;
  

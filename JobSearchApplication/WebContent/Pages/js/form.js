@@ -9,7 +9,7 @@ for (var i = 0; i < btns.length; i++) {
 }
 
 function viewlogin() {
-    var x = document.getElementById("signup");
+	var x = document.getElementById("hideonlogin");
     var y = document.getElementById("login");
     x.style.display = "none";
     y.style.display = "block";
@@ -17,31 +17,32 @@ function viewlogin() {
   }
   
   function viewsignup() {
+	  var z = document.getElementById("hideonlogin");
     var y = document.getElementById("signup");
     var x = document.getElementById("login");
     y.style.display = "block";
     x.style.display = "none";
-   
+    z.style.display = "block";
   
   }
   
   function viewadminfields() {
-    var z = document.getElementById("admin");
-    var y = document.getElementById("defaultfields");
-    var x = document.getElementById("adminoptional");
-    y.style.display = "none";
-    x.style.display = "block";
-    z.style.display = "block";
-  }
+	
+	    var y = document.getElementById("defaultfields");
+	    var x = document.getElementById("adminoptional");
+	    y.style.display = "none";
+	    x.style.display = "block";
+	   
+	  }
 
-  function viewuserfields() {
-    var z = document.getElementById("user");
-    var y = document.getElementById("defaultfields");
-    var x = document.getElementById("adminoptional");
-    y.style.display = "block";
-    x.style.display = "none";
-    z.style.display = "block";
-  }
+	  function viewuserfields() {
+	    var y = document.getElementById("defaultfields");
+	    var x = document.getElementById("adminoptional");
+	    y.style.display = "block";
+	    x.style.display = "none";
+	  
+	  }
+
 
   function openForm() {
     document.getElementById("myForm").style.display = "block";

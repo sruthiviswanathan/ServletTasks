@@ -19,10 +19,9 @@
 	<div id="main">
 		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-			<a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a> <a
-				href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a> <a href="#">VIEW
-				INTERESTED USERS</a> <a href="viewpublishedjobs.html">VIEW PUBLISHED
-				JOBS</a>
+			<a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
+			  <a href="#">VIEW INTERESTED USERS</a> 
+			  <a href="${Config.BASE_PATH}ViewPublishedJobsServlet">VIEW PUBLISHED JOBS</a>
 		</div>
 		<div class="navbar">
 			<ul>

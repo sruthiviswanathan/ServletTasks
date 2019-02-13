@@ -22,7 +22,6 @@
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                       
                         <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
-                        <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
                         <a href="viewpublishedjobs.html">VIEW PUBLISHED JOBS</a>
                         <a href="#">VIEW INTERESTED PEOPLE</a>
                 </div>

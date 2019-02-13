@@ -137,6 +137,33 @@
 		<servlet-name>DisplayAllJobDesignationServlet</servlet-name>
 		<url-pattern>/DisplayAllJobDesignationServlet</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>DisplayAllTechnologiesServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.DisplayAllTechnologiesServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DisplayAllTechnologiesServlet</servlet-name>
+		<url-pattern>/DisplayAllTechnologiesServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>RequestVacancyServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.RequestVacancyServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>RequestVacancyServlet</servlet-name>
+		<url-pattern>/RequestVacancyServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ViewPublishedJobsServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.ViewPublishedJobsServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ViewPublishedJobsServlet</servlet-name>
+		<url-pattern>/ViewPublishedJobsServlet</url-pattern>
+	</servlet-mapping>
 </element>
 
 

@@ -352,7 +352,8 @@ public class UserDAO {
 	/*
 	 * method for requesting vacancy.
 	 */
-	public int requestNewVacancy(JobRequest jobrequest, User user) throws SQLException {
+	public boolean requestNewVacancy(JobRequest jobrequest, User user) throws SQLException {
+		boolean flag=false;
 		try {
 			
 			connection = DButils.getConnection();
@@ -364,13 +365,14 @@ public class UserDAO {
 			preparestatement.setInt(5, user.getUserId());
 			preparestatement.setInt(6, user.getUserId());
 			preparestatement.executeUpdate();
-			return 1;
+			flag=true;
 		} catch (SQLException e) {
 
 			throw e;
 		} finally {
 			DButils.closeConnection(connection, preparestatement, resultset);
 		}
+		return flag;
 	}
 
 	/*
