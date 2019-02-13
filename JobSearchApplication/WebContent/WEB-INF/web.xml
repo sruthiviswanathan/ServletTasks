@@ -164,6 +164,15 @@
 		<servlet-name>ViewPublishedJobsServlet</servlet-name>
 		<url-pattern>/ViewPublishedJobsServlet</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>UpdateVacancyServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.UpdateVacancyServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UpdateVacancyServlet</servlet-name>
+		<url-pattern>/UpdateVacancyServlet</url-pattern>
+	</servlet-mapping>
 </element>
 
 

@@ -61,7 +61,6 @@ public class AddNewJobDesignationServlet extends HttpServlet {
 			jobmapping.setJobRole(jobRole);
 			if(jobDelegate.addNewJob(jobmapping, user)) {
 				response.sendRedirect("PostJobServlet");
-//				response.sendRedirect("Pages/jsp/postjob.jsp");
 			}else {
 				response.sendRedirect("Pages/jsp/error.jsp");
 			}

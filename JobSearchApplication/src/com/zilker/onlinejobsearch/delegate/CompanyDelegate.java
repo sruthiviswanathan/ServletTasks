@@ -159,9 +159,9 @@ public class CompanyDelegate {
 		}
 	}
 
-	public int removeVacancy(Company company, User user) throws SQLException {
+	public boolean removeVacancy(Company company, User user) throws SQLException {
 		// TODO Auto-generated method stub
-		int flag = 0;
+		boolean flag = false;
 		try {
 			CompanyDAO companyDao = new CompanyDAO();
 			flag = companyDao.removeVacancy(company, user);

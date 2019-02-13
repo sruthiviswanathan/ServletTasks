@@ -32,8 +32,7 @@
 
 
 		<div id="myDIV" class="nav" class="row col-25">
-			<button class="btn active" type="submit" onclick="viewlogin()">LOGIN</button>
-			<button class="btn" type="submit" onclick="viewsignup()">SIGNUP</button>
+			<button class="btn active" type="submit" onclick="viewlogin()">LOGIN</button><button class="btn" type="submit" onclick="viewsignup()">SIGNUP</button>
 		</div>
 		<div class="forms">
 			<form action="${Config.BASE_PATH}LoginServlet" id="login"

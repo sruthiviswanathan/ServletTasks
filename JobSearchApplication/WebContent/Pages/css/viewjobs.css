@@ -28,7 +28,6 @@ body {
   left: 0;
   width:30%;
   overflow-x: hidden;
-  background-color: lightgray;
  
 }
 .jobs {
@@ -39,7 +38,6 @@ body {
 .right {
   right: 0;
   width:70%;
-  background-color: lavender;
   
 }
 
@@ -51,9 +49,12 @@ body {
   display:none;
 }
 
+
+
+
 .rightside {
   display: none;
-}
+} 
 
 input[type=text] {
   width: 100%;
@@ -156,14 +157,15 @@ button {
 }
 
 .header {
-  background-color:white;
+ /*  background-color:white; */
   color: dodgerblue;
   text-align: center;
+  background: #ccc;
   
 }
 
 .content {
-  /* padding: 16px; */
+ padding: 16px; 
     background-color:white;
   color: black;
   font-weight:bold;

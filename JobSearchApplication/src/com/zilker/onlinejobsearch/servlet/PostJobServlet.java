@@ -39,7 +39,6 @@ public class PostJobServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-			//response.getWriter().append("Served at: ").append(request.getContextPath());
 			JobMapping jobMapping = new JobMapping();
 			ArrayList<JobMapping> job = new ArrayList<JobMapping>();
 			JobDelegate jobDelegate = new JobDelegate();
@@ -86,7 +85,7 @@ public class PostJobServlet extends HttpServlet {
 			company.setSalary(Float.parseFloat(salary));
 			company.setVacancyCount(Integer.parseInt(count));
 			if(companyDelegate.publishVacancy(company, user)) {
-				companyDelegate.compareVacancyWithRequest(company);
+//				companyDelegate.compareVacancyWithRequest(company);
 				response.sendRedirect("Pages/jsp/postjob.jsp");
 			}else {
 				response.sendRedirect("Pages/jsp/error.jsp");

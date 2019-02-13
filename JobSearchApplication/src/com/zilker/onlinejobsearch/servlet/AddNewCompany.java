@@ -48,14 +48,6 @@ public class AddNewCompany extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-//			HttpSession session = request.getSession();
-//			String email = (String) session.getAttribute("email");
-//			UserDelegate userDelegate = new UserDelegate();
-//			User user = new User();
-//			user.setEmail(email);
-//			int userId = 0;
-//			userId = userDelegate.fetchUserId(user);
-//			user.setUserId(userId);
 			Company company = new Company();
 			CompanyDelegate companyDelegate = new CompanyDelegate();
 			String companyName = request.getParameter("companyName");

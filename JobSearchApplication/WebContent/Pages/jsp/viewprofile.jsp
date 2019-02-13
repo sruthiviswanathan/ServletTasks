@@ -25,35 +25,44 @@
                          <a href="${Config.BASE_PATH}Pages/jsp/searchbylocation.jsp">SEARCH BY LOCATION</a>
                         <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/requestvacancy.jsp">REQUEST A VACANCY</a>
-                </div> 
+           </div> 
         <div class="navbar">
             <ul>
+            <button onmouseover="openNav()" class="hambug">
+					<i class="fa fa-bars" aria-hidden="true"></i>
+				</button>
                 <li style="float:left">JOB HUNT</li>
                 <a href="#">
                         <li style="float:right"><i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</li>
                 </a>
             </ul>
         </div>
+						
+		<div class="tit">
+			<h3>YOUR PROFILE!!!</h3>
+		</div>						
 
         <div class="forms">
             <form action="${Config.BASE_PATH}UserProfileServlet" name ="update" id="update"  onsubmit="return updateUser()" method="post">
                 <div class="update">
                 <c:forEach var="data" items="${userData}">
+               
                     <label for="uname" class="row col-25"><b>USERNAME*</b></label>
                     <input type="text" class="row col-75" id="uname" name="username" value="${data.getUserName()}">                      
                         <label for="cname" class="row col-25"><b>COMPANY NAME*</b></label>
                         <input type="text" class="row col-75" id="cname" name="cname" value="${data.getCompany()}" >
                         <label for="designation" class="row col-25"><b>DESIGNATION*</b></label>
                         <input type="text" class="row col-75" id="cname" name="designation" value="${data.getDesignation()}">
-                        <!-- <label for="skills" class="row col-25"><b>SKILLS SAVED IN YOUR PROFILE</b></label> -->
+                        <label for="skills" class="row col-25"><b>SKILLS SAVED IN YOUR PROFILE</b></label>
                        
-                        <!-- <div class="checkbox col-25">
-                        <span>
-                                <input type="checkbox" name="C" value="c"> C 
-                                <input type="checkbox" name="C++" value="c++"> C++ 
-                                <input type="checkbox" name="Java" value="Java"> Java 
-                        </span>
-                       </div> -->
+                        <div class="checkbox col-25">
+							
+							<c:forEach var="tech" items="${technologies}">
+							<input type="checkbox" name="tech" value="${tech.getTechnologyId()}"><c:out
+											value="${tech.getTechnology()}" />
+						</c:forEach>
+							
+						</div>
 					</c:forEach>
                 </div><br>
                 <div class="nav">

@@ -52,19 +52,22 @@
                         
                                <c:forEach var="vac" items="${vacancyDetails}" varStatus="loop">  
                             	   <div class="split right rightside btn${loop.count}">
+                            	    
                            				 <div class="content">
-                                <form action="#" id="postjob" name="postjob" onsubmit="return validatePostJob()" method="post">
+                                <form action="${Config.BASE_PATH}UpdateVacancyServlet" id="postjob" name="postjob" method="post">
+                                    <input type="hidden" name="jobdesignation" value="${vac.getJobRole()}">
                                         <div class="form">
                                                 <label for="select-job" class="row col-25"><b>JOB DESIGNATION</b></label>
                                                 <div class="select-job">
-                                                        <select id="job"name="job">
-                                                      
-                                                               <option value="${vac.getJobRole()}"><c:out value="${vac.getJobRole()}" /></option> 
+                                                        <select id="job" name="job" oninput="this.className = ''">
+                                                      		
+                                                               <option value="${vac.getJobRole()}">${vac.getJobRole()}</option> 
                                                                <c:forEach var="job" items="${jobs}">
 																	<option value="${job.getJobRole()}"><c:out value="${job.getJobRole()}" /></option>
 																</c:forEach> 
                                                         </select>
                                                 </div>
+                                               
                                                 <div class="nav">
                                                         <button type="button" id="add" onclick="openForm()">NEW</button>
                                                 </div>
@@ -79,7 +82,9 @@
                                                 <textarea rows="4" cols="50" name="description">${vac.getJobDescription()}</textarea>
                                         </div><br>
                                         <div class="nav">
-                                                <input type="submit" value="UPDATE" name="Submit">  
+                                               <!--  <input type="submit" value="UPDATE" name="Submit">   -->
+                                               	<input type="submit" name="action" value="UPDATE">
+    											<input type="submit" name="action" value="DELETE">
                                                 <button type="reset" id="cancel" class="cancelbtn">DISCARD</button>
                                         </div>
                                 </form>

@@ -60,7 +60,6 @@ public class JobDAO {
 			preparestatement.setInt(2, user.getUserId());
 			preparestatement.setInt(3, user.getUserId());
 			preparestatement.executeUpdate();
-			//jobId = fetchJobId(jobmapping);
 			flag=true;
 			return flag;
 		} catch (SQLException e) {

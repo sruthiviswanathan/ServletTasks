@@ -55,6 +55,9 @@ function displayjobs(id) {
 }
 
 function displaymenu(id) {
-  var x = document.getElementById("rightside");
-  x.style.display ="none";
+  var x = document.getElementsByClassName("rightside");
+  for (var i = 0; i < x.length; i++) {
+	  console.log(x[i]);
+	  x[i].style.display ="none";
+	}
 }

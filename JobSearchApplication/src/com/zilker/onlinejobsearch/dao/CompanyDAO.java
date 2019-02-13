@@ -87,8 +87,6 @@ public class CompanyDAO {
 			preparestatement = connection.prepareStatement(QueryConstants.INSERTCOMPANY);
 			preparestatement.setString(1, company.getCompanyName());
 			preparestatement.setString(2, company.getCompanyWebsiteUrl());
-//			preparestatement.setInt(3, user.getUserId());
-//			preparestatement.setInt(4, user.getUserId());
 			preparestatement.executeUpdate();
 			flag = true;
 		} catch (SQLException e) {
@@ -208,8 +206,8 @@ public class CompanyDAO {
 	/*
 	 * method for fetching job id given job designation.
 	 */
-	public int removeVacancy(Company company, User user) throws SQLException {
-		int flag = 0;
+	public boolean removeVacancy(Company company, User user) throws SQLException {
+		boolean flag = false;
 		try {
 			connection = DButils.getConnection();
 
@@ -218,11 +216,11 @@ public class CompanyDAO {
 			preparestatement.setInt(2, company.getCompanyId());
 			preparestatement.setInt(3, company.getJobId());
 			preparestatement.executeUpdate();
-			flag = 1;
+			flag = true;
 
 		} catch (SQLException e) {
 
-			flag = 0;
+			flag = false;
 			throw e;
 		} finally {
 			DButils.closeConnection(connection, preparestatement, resultset);

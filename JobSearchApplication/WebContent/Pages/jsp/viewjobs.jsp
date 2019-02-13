@@ -70,6 +70,7 @@
 				</div>
 			</div>
 		</div>
+	
 		<c:forEach var="comp" items="${displayVacancy}" varStatus="loop">
 			
 				<div class="split right rightside btn${loop.count}">
@@ -131,7 +132,8 @@
 
 			
 		</c:forEach>
-	</div>
+		</div>
+
 </body>
 <script src="${Config.BASE_PATH}Pages/js/styles.js"></script>
 
