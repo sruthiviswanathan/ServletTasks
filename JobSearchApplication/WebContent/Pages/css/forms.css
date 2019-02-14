@@ -27,6 +27,13 @@
       display:block;
     }
 
+ .error {
+  	font-size:16px;
+  	color:red;
+  	font-weight:bold;
+    display: block;
+     margin: 10px 20px 0px 350px;
+  }
 
     #adminoptional {
       display:none;
@@ -198,7 +205,7 @@ input.invalid,select.invalid {
 
 @media (max-width:319px) {
   .col-25, .col-75, input[type=submit], .nav ,input[type=text] 
-  ,input[type=email],input[type=password],.label,.cancelbtn,input[type="number"],input[type="file"],textarea,select,.tit{
+  ,input[type=email],input[type=password],.label,.cancelbtn,input[type="number"],input[type="file"],textarea,select,.tit, .error{
     width: 100%;
     margin: 0;
   }
@@ -206,7 +213,7 @@ input.invalid,select.invalid {
 
 @media (min-width:320px) and (max-width:1025px) {
   .col-25, .col-75, input[type=submit],.nav,input[type=text] 
-  ,input[type=email],input[type=password],.label,button,.cancelbtn,input[type="number"],input[type="file"],textarea,select,.tit{
+  ,input[type=email],input[type=password],.label,button,.cancelbtn,input[type="number"],input[type="file"],textarea,select,.tit,.error{
     width: 100%;
     margin: 0;
   }

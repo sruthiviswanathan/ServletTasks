@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%> 	
 	<%@ page import="com.zilker.onlinejobsearch.config.Config"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,26 +56,35 @@
 					 <select id="job" name="job" oninput="this.className = ''">
 					 <option value="">Select a Job Designation</option>
 						<c:forEach var="job" items="${jobs}">
-							<option value="${job.getJobRole()}"><c:out
+							<option value="${job.getJobId()}"><c:out
 									value="${job.getJobRole()}" /></option>
 						</c:forEach>
 					</select>
+					 <span class="error"><p id="job_error"></p></span>
 				</div>
 				<div class="nav">
 					<button type="button" id="add" onclick="openForm()">NEW</button>
 				</div>
 				<label for="location" class="row col-25"><b>LOCATION</b></label> <input
 					type="text" class="row col-75" id="location" name="location"
-					placeholder="Enter Job Location.."> <label for="salary"
-					class="row col-25"><b>SALARY</b></label> <input type="number"
+					placeholder="Enter Job Location.."> 
+					 <span class="error"><p id="location_error"></p></span>
+					<label for="salary"
+					class="row col-25"><b>SALARY</b></label> 
+					<input type="number"
 					class="row col-75" id="salary" name="salary"
-					placeholder="Enter Salary.." step=".01"> <label for="count"
+					placeholder="Enter Salary.." step=".01"> 
+					 <span class="error"><p id="salary_error"></p></span>
+					<label for="count"
 					class="row col-25"><b>COUNT</b></label> <input type="number"
 					class="row col-75" id="count" name="count"
-					placeholder="Enter Vacancy Count.."> <label
+					placeholder="Enter Vacancy Count..">
+					 <span class="error"><p id="count_error"></p></span>
+					 <label
 					for="description" class="row col-25"><b>JOB DESCRIPTION</b></label>
 				<textarea rows="4" cols="50" name="description"
 					placeholder="Enter Job Description"></textarea>
+					 <span class="error"><p id="desc_error"></p></span>
 			</div>
 			<br>
 			<div class="nav">

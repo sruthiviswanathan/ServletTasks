@@ -50,7 +50,6 @@ function registerForm()
     { 
   	 nameError = "Please enter your name";
   	 document.getElementById("reg_name_error").innerHTML = nameError;
-      //  window.alert("Please enter your name."); 
         name.focus(); 
         return false; 
     } 
@@ -58,7 +57,6 @@ function registerForm()
     { 
     	 emailError = "Please enter a valid e-mail address.";
       	 document.getElementById("reg_email_error").innerHTML = emailError;
-       // window.alert("Please enter a valid e-mail address."); 
         email.focus(); 
         return false; 
     } 
@@ -66,8 +64,7 @@ function registerForm()
     if (email.value.indexOf("@", 0) < 0)                 
     { 
     	 emailError = "Please enter a valid e-mail address";
-      	 document.getElementById("reg_email_error").innerHTML = emailError;
-       // window.alert("Please enter a valid e-mail address."); 
+      	 document.getElementById("reg_email_error").innerHTML = emailError; 
         email.focus(); 
         return false; 
     } 
@@ -76,7 +73,6 @@ function registerForm()
     { 
     	 emailError = "Please enter a valid e-mail address.";
       	 document.getElementById("reg_email_error").innerHTML = emailError;
-        //window.alert("Please enter a valid e-mail address."); 
         email.focus(); 
         return false; 
     } 
@@ -84,8 +80,7 @@ function registerForm()
     if (password.value == "")                        
     { 
     	 passwordError = "Please enter your password";
-      	 document.getElementById("reg_psw_error").innerHTML = passwordError;
-        //window.alert("Please enter your password"); 
+      	 document.getElementById("reg_psw_error").innerHTML = passwordError; 
         password.focus(); 
         return false; 
     } 
@@ -94,15 +89,13 @@ function registerForm()
     { 
     	 confirmError = "Please reenter your password.";
       	 document.getElementById("reg_cpsw_error").innerHTML = confirmError;
-       // window.alert("Please reenter your password."); 
         confirm.focus(); 
         return false; 
     } 
     
     if(password.value !== confirm.value){
     	 matchError = "Both password and Confirm password must match";
-      	 document.getElementById("reg_cpsw_error").innerHTML = matchError;
-       // window.alert("Please reenter your password."); 
+      	 document.getElementById("reg_cpsw_error").innerHTML = matchError; 
         confirm.focus(); 
         return false; 
     }
@@ -111,7 +104,6 @@ function registerForm()
     { 
     	 companyError = "Please Enter a Company Name";
       document.getElementById("reg_comp_error").innerHTML = companyError;
-        //alert("Please select a Company Name."); 
         company.focus(); 
         return false; 
     } 
@@ -119,19 +111,12 @@ function registerForm()
     if (designation.value == "")                  
     { 
     	 designationError = "Please Enter your designation";
-      document.getElementById("reg_des_error").innerHTML = designationError;
-        //alert("Please select a Company Name."); 
+    	 document.getElementById("reg_des_error").innerHTML = designationError;
         designation.focus(); 
         return false; 
     }    
     return true; 
 }
-
-
-
-
-
-
 
 
 function validateForm()                                    
@@ -217,7 +202,10 @@ function validatePostJob()
    
     if (what.selectedIndex < 1)                  
     { 
-        alert("Please select a job Designation."); 
+    	
+    	 jobError = "Please Select a Job Designation";
+      	 document.getElementById("job_error").innerHTML = jobError;    	
+        //alert("Please select a job Designation."); 
         what.focus(); 
         return false; 
     } 
@@ -225,34 +213,44 @@ function validatePostJob()
 
     if (location.value == "")                                  
     { 
-        window.alert("Please enter the location of job."); 
+    	 locationError = "Please enter the location of job.";
+      	 document.getElementById("location_error").innerHTML = locationError;
+       // window.alert("Please enter the location of job."); 
         location.focus(); 
         return false; 
     }
 
     if (salary.value == "")                               
     { 
-        window.alert("Please enter a valid salary amount."); 
+    	 salaryError = "Please enter a valid salary amount.";
+      	 document.getElementById("salary_error").innerHTML =  salaryError ;
+       // window.alert("Please enter a valid salary amount."); 
         salary.focus(); 
         return false; 
     }
 
-    if (count.value == "")                               
+    if (count.value == "" || count.value === "0")                               
     { 
-        window.alert("Please enter a valid vacancy count."); 
+    	 countError = "Please enter a valid vacancy count.";
+      	 document.getElementById("count_error").innerHTML = countError;
+       // window.alert("Please enter a valid vacancy count."); 
         count.focus(); 
         return false; 
     } 
 
     if (description.value == "")                                  
     { 
-        window.alert("Please enter job description."); 
+    	 descError = "Please enter job description.";
+      	 document.getElementById("desc_error").innerHTML = descError;
+       // window.alert("Please enter job description."); 
         description.focus(); 
         return false; 
     }       
     
     return true; 
 }
+
+
 function validateRequestVacancy(){
     var location = document.forms["requestvacancy"]["location"];               
     var what =  document.forms["requestvacancy"]["job"];  

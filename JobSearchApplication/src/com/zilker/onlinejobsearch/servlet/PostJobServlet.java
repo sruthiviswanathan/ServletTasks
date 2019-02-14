@@ -76,17 +76,23 @@ public class PostJobServlet extends HttpServlet {
 			String salary = request.getParameter("salary");
 			String count = request.getParameter("count");
 			String description=request.getParameter("description");
-			jobMapping.setJobRole(jobDesignation);
-			jobId = jobDelegate.fetchJobId(jobMapping);
+			//jobMapping.setJobRole(jobDesignation);
+			//jobId = jobDelegate.fetchJobId(jobMapping);
+			jobId = Integer.parseInt(jobDesignation);
 			company.setCompanyId(companyId);
 			company.setJobId(jobId);
 			company.setLocation(location);
 			company.setJobDescription(description);
 			company.setSalary(Float.parseFloat(salary));
 			company.setVacancyCount(Integer.parseInt(count));
+			ArrayList<JobMapping> job = new ArrayList<JobMapping>();	
+			job = jobDelegate.displayJobs(jobMapping);
+			request.setAttribute("jobs", job); 
 			if(companyDelegate.publishVacancy(company, user)) {
 //				companyDelegate.compareVacancyWithRequest(company);
-				response.sendRedirect("Pages/jsp/postjob.jsp");
+				
+				getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/postjob.jsp").forward(request,response);
+				//response.sendRedirect("Pages/jsp/postjob.jsp");
 			}else {
 				response.sendRedirect("Pages/jsp/error.jsp");
 			}
