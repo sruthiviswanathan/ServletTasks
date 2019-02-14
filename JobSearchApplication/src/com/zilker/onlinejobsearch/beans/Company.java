@@ -19,6 +19,7 @@ public class Company {
 	private String interviewProcess;
 	private String jobRole;
 	private String vacancyStatus;
+	private String email;
 /*
  * Getters and setters for all variables
  */
@@ -28,6 +29,14 @@ public class Company {
 
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getUserName() {

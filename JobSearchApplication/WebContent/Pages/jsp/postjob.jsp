@@ -22,8 +22,8 @@
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                       
                         <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
-                        <a href="viewpublishedjobs.html">VIEW PUBLISHED JOBS</a>
-                        <a href="#">VIEW INTERESTED PEOPLE</a>
+                        <a href="${Config.BASE_PATH}ViewPublishedJobsServlet">VIEW PUBLISHED JOBS</a>
+                        <a href="${Config.BASE_PATH}ViewAppliedUsersServlet">VIEW INTERESTED PEOPLE</a>
                 </div>
 		<div class="navbar">
 			<ul>

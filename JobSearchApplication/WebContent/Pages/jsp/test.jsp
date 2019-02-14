@@ -13,16 +13,16 @@
 		<%@page import="java.util.ArrayList"%>
 <h1>welcome</h1>
 	<table>
-					<c:forEach var="vac" items="${retrieveByLocation}">
+					<c:forEach var="user" items="${appliedUsers}">
 					<tr>
-							<td>	<c:out value="${vac.getJobDescription()}" /> </td>
-							<td>	<c:out value="${vac.getCompanyName()}" /> </td>  
-							<td>	<c:out value="${vac.getJobRole()}" /> </td> 
+							<td>	<c:out value="${user.getUserName()}" /> </td>
+							<td>	<c:out value="${user.getEmail()}" /> </td>  
+							<td>	<c:out value="${user.getJobRole()}" /> </td> 
 							
-							<td>	<c:out value="${vac.getVacancyCount()}" /> </td>
+							<%-- <td>	<c:out value="${vac.getVacancyCount()}" /> </td>
 							<td> <c:out value="${vac.getLocation()}" /></td>
 									
-								<td>	<c:out value="${vac.getSalary()}" /></td>
+								<td>	<c:out value="${vac.getSalary()}" /></td> --%>
 							
 							<%-- <td>	<c:out value="${location.getLocation()}" /> <td> --%>
 						</tr>	

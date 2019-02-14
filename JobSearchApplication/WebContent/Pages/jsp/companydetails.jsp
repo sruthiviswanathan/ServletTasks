@@ -150,6 +150,7 @@
 						<span class="close"
 							onclick="closeModal(this.getAttribute('class'))">&times;</span>
 						<div class="row">
+							<%-- <c:out value="${vac.getCompanyName()}" /> --%>
 							<div class="col-60">
 								<label for="job">JOB DESIGNATION</label>
 							</div>
@@ -159,10 +160,17 @@
 								</p>
 							</div>
 							<div class="col-20">
-								<a href="#"><button class="button" type="submit">
+								<form action="${Config.BASE_PATH}ApplyForJobServlet" method="post">
+								<!-- <a href="#"> -->
+								<input type="hidden" name="companyName" value="${vac.getCompanyName()}">
+								<input type="hidden" name="jobDesignation" value="${vac.getJobRole()}">
+								<button class="button" type="submit">
 										APPLY FOR JOB<i class="dir fa fa-chevron-circle-right"
 											aria-hidden="true"></i>
-									</button></a>
+									</button>
+									<!-- </a> -->
+								</form>
+									
 							</div>
 							<div class="col-60">
 								<label for="jobdesc">JOB DESCRIPTION</label>

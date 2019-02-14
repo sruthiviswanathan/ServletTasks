@@ -81,7 +81,7 @@ public class FindCompanyServlet extends HttpServlet {
 						int jobId = i.getJobId();
 						request.setAttribute("displayVacancies", vacancyDetails);
 						company.setJobId(jobId);
-	
+						
 						interviewProcess = userDelegate.retrieveInterviewProcess(company);
 						if (interviewProcess.isEmpty()) {
 							System.out.println("***No reviews on Interview process!!!***");

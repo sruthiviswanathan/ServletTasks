@@ -694,6 +694,30 @@ public class UserDAO {
 		return flag;
 	}
 
+	public boolean applyForJob(Company company, User user) throws SQLException{
+		// TODO Auto-generated method stub
+		boolean flag = false;
+		try {
+			connection = DButils.getConnection();
+			preparestatement = connection.prepareStatement(QueryConstants.APPLYFORJOB);
+			preparestatement.setInt(1, user.getUserId());
+			preparestatement.setString(2, user.getEmail());
+			preparestatement.setInt(3, company.getCompanyId());
+			preparestatement.setInt(4, company.getJobId());
+			preparestatement.setInt(5, user.getUserId());
+			preparestatement.setInt(6, user.getUserId());
+			preparestatement.executeUpdate();
+			flag = true;
+
+		} catch (SQLException e) {
+			throw e;
+
+		} finally {
+			DButils.closeConnection(connection, preparestatement, resultset);
+		}
+		return flag;
+	}
+
 	
 
 	

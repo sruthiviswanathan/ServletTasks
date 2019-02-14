@@ -173,6 +173,24 @@
 		<servlet-name>UpdateVacancyServlet</servlet-name>
 		<url-pattern>/UpdateVacancyServlet</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>ApplyForJobServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.ApplyForJobServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ApplyForJobServlet</servlet-name>
+		<url-pattern>/ApplyForJobServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ViewAppliedUsersServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.ViewAppliedUsersServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ViewAppliedUsersServlet</servlet-name>
+		<url-pattern>/ViewAppliedUsersServlet</url-pattern>
+	</servlet-mapping>
 </element>
 
 

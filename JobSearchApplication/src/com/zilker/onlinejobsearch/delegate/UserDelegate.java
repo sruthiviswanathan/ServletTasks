@@ -327,6 +327,18 @@ public class UserDelegate {
 		return flag;
 	}
 
+	public boolean applyForJob(Company company, User user)throws SQLException  {
+		// TODO Auto-generated method stub
+		boolean flag = false;
+		try {
+			UserDAO userDao = new UserDAO();
+			flag = userDao.applyForJob(company,user);
+		} catch (SQLException e) {
+			throw e;
+		}
+		return flag;
+	}
+
 
 }
 

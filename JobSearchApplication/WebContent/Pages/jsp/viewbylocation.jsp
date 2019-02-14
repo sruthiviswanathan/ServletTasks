@@ -96,11 +96,21 @@
 								</h3>
 							</div>
 							<div class="col-60 col-xs-12 col-md-12">
-								<a href="#"><button class="col-xs-12" id="button"
+								<!-- <a href="#"><button class="col-xs-12" id="button"
 										type="submit">
 										APPLY FOR JOB<i class="fa fa-chevron-circle-right"
 											aria-hidden="true"></i>
-									</button></a>
+									</button></a> -->
+									<form action="${Config.BASE_PATH}ApplyForJobServlet" method="post">
+								
+									<input type="hidden" name="companyName" value="${location.getCompanyName()}">
+									<input type="hidden" name="jobDesignation" value="${location.getJobRole()}">
+									<button class="col-xs-12" type="submit">
+										APPLY FOR JOB<i class="dir fa fa-chevron-circle-right"
+											aria-hidden="true"></i>
+									</button>
+								
+								</form>
 							</div>
 
 						</div>

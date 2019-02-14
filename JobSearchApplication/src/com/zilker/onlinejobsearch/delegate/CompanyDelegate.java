@@ -254,4 +254,17 @@ public class CompanyDelegate {
 
 	}
 
+
+	public ArrayList<Company> viewAppliedUsers(Company company)throws SQLException{
+		// TODO Auto-generated method stub
+		ArrayList<Company> comp = new ArrayList<Company>();
+		try {
+			CompanyDAO companyDao = new CompanyDAO();
+			comp = companyDao.viewAppliedUsers(company);
+		} catch (SQLException e) {
+			throw e;
+		}
+		return comp;
+	}
+
 }

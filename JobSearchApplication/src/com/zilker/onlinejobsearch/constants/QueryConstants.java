@@ -24,7 +24,10 @@ public class QueryConstants {
 	public static final String INSERTVACANCY = "insert into vacancy_publish(company_id,job_id,location,job_description,salary,vacancy_count,created_by,updated_by) values(?,?,?,?,?,?,?,?)";
 	public static final String INSERTJOB = "insert into job(job_designation,created_by,updated_by)" + "values(?,?,?)";
 	public static final String DELETEVACANCY = "update vacancy_publish set vacancy_count=0 ,vacancy_status='expired',updated_by=? where company_id=? and job_id=?";
-	public static final String RETRIEVEVACANCYBYCOMPID = "select company_id,job_id,location,job_description,salary,vacancy_count from vacancy_publish where company_id=? and vacancy_status='available'";
+	public static final String RETRIEVEVACANCYBYCOMPID ="select c.company_name,v.job_id,v.location,v.job_description,v.salary,v.vacancy_count from vacancy_publish v ,company_details c where v.company_id = ? and c.company_id=v.company_id and vacancy_status='available'";
+	public static final String APPLYFORJOB ="insert into applyforjob(user_id,email,company_id,job_id,created_by,updated_by) values(?,?,?,?,?,?)";
+	public static final String VIEWAPPLIEDUSERS="select user_classification.user_name,company_id,job.job_designation,applyforjob.email from applyforjob,user_classification,job where company_id=? and user_classification.user_id=applyforjob.user_id and applyforjob.job_id = job.job_id";
+	//public static final String RETRIEVEVACANCYBYCOMPID = "select company_id,job_id,location,job_description,salary,vacancy_count from vacancy_publish where company_id=? and vacancy_status='available'";
 	public static final String RETRIEVEVACANCYADMIN = "select company_id,job_id,location,job_description,salary,vacancy_count from vacancy_publish where company_id=?";
 	public static final String RETRIEVECOMPANYNAME = "select company_name,website_url,company_id from company_details where company_id=?";
 	public static final String RETRIEVEJOBDESIGNATION = "select job_designation from job where job_id=?";

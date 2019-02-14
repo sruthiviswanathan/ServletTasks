@@ -326,7 +326,7 @@ public class CompanyDAO {
 				c.setLocation(resultset1.getString(3));
 				c.setSalary(resultset1.getFloat(5));
 				c.setVacancyCount(resultset1.getInt(6));
-
+				c.setCompanyName(resultset1.getString(1));
 				String jobRole = resultset1.getString(2);
 				jobId = Integer.parseInt(jobRole);
 				preparestatement2 = connection.prepareStatement(QueryConstants.RETRIEVEJOBDESIGNATION);
@@ -598,6 +598,35 @@ public class CompanyDAO {
 		} finally {
 			DButils.closeConnection(connection, preparestatement, resultset);
 		}
+	}
+
+
+	public ArrayList<Company> viewAppliedUsers(Company company)throws SQLException{
+		// TODO Auto-generated method stub
+		ArrayList<Company> comp = new ArrayList<Company>();
+		try {
+			connection = DButils.getConnection();
+			preparestatement = connection.prepareStatement(QueryConstants.VIEWAPPLIEDUSERS);
+			preparestatement.setInt(1, company.getCompanyId());
+			resultset = preparestatement.executeQuery();
+			while (resultset.next()) {
+				Company c = new Company();
+				c.setUserName(resultset.getString(1));
+				c.setJobRole(resultset.getString(3));
+				c.setEmail(resultset.getString(4));	
+				comp.add(c);
+						
+
+			}					
+		
+		} catch (SQLException e) {
+			throw e;
+
+		} finally {
+			DButils.closeConnection(connection, preparestatement, resultset);
+		}
+		return comp;
+
 	}
 
 }
