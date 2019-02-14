@@ -8,52 +8,62 @@ function validateForm()
     console.log("validate");
     if (name.value == "")                                  
     { 
-//    	 nameError = "Please enter your name";
-//         document.getElementById("name_error").innerHTML = nameError;
-        window.alert("Please enter your name."); 
+  	 nameError = "Please enter your name";
+  	 document.getElementById("name_error").innerHTML = nameError;
+      //  window.alert("Please enter your name."); 
         name.focus(); 
         return false; 
     } 
-   
-    if (confirm.value == "")                               
-    { 
-        window.alert("Please reenter your password."); 
-        confirm.focus(); 
-        return false; 
-    } 
-       
     if (email.value == "")                                   
     { 
-        window.alert("Please enter a valid e-mail address."); 
+    	 emailError = "Please enter a valid e-mail address.";
+      	 document.getElementById("email_error").innerHTML = emailError;
+       // window.alert("Please enter a valid e-mail address."); 
         email.focus(); 
         return false; 
     } 
    
     if (email.value.indexOf("@", 0) < 0)                 
     { 
-        window.alert("Please enter a valid e-mail address."); 
+    	 emailError = "Please enter a valid e-mail address";
+      	 document.getElementById("email_error").innerHTML = emailError;
+       // window.alert("Please enter a valid e-mail address."); 
         email.focus(); 
         return false; 
     } 
    
     if (email.value.indexOf(".", 0) < 0)                 
     { 
-        window.alert("Please enter a valid e-mail address."); 
+    	 emailError = "Please enter a valid e-mail address.";
+      	 document.getElementById("email_error").innerHTML = emailError;
+        //window.alert("Please enter a valid e-mail address."); 
         email.focus(); 
         return false; 
     } 
    
-   
     if (password.value == "")                        
     { 
-        window.alert("Please enter your password"); 
+    	 passwordError = "Please enter your password";
+      	 document.getElementById("psw_error").innerHTML = passwordError;
+        //window.alert("Please enter your password"); 
         password.focus(); 
-        return flase; 
+        return false; 
     } 
    
+    if (confirm.value == "")                               
+    { 
+    	 confirmError = "Please reenter your password.";
+      	 document.getElementById("cpsw_error").innerHTML = confirmError;
+       // window.alert("Please reenter your password."); 
+        confirm.focus(); 
+        return false; 
+    } 
+       
     if (what.selectedIndex < 1)                  
     { 
-        alert("Please select a Company Name."); 
+    	 selectError = "Please select a Company Name";
+      document.getElementById("select_error").innerHTML = selectError;
+        //alert("Please select a Company Name."); 
         what.focus(); 
         return false; 
     } 

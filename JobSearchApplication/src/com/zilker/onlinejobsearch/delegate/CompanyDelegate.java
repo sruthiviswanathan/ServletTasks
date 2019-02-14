@@ -50,6 +50,20 @@ public class CompanyDelegate {
 			throw e;
 		}
 	}
+	
+	
+	public String fetchCompanyName(int companyId) throws SQLException {
+		// TODO Auto-generated method stub
+		String companyName="";
+		try {
+
+			CompanyDAO companyDao = new CompanyDAO();
+			companyName = companyDao.fetchCompanyName(companyId);
+			return companyName;
+		} catch (SQLException e) {
+			throw e;
+		}
+	}
 
 	public ArrayList<Company> retrieveVacancyByCompany(Company company) throws SQLException {
 		// TODO Auto-generated method stub

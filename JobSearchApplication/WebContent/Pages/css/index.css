@@ -2,21 +2,33 @@
 body,html {
   height: 100%;
   margin: 0;
+  
 }
-
+*{
+	box-sizing:border-box;
+	overflow-x:hidden;
+}
 .bgimage {
-
-  background-image: url(https://images.designtrends.com/wp-content/uploads/2015/11/06163757/plain-Backgrounds1.jpg);
+	background:linear-gradient(0deg,rgba(255,0,150,0.3),rgba(255,0,150,0.3)),url(https://jobs.engie.com/media/images/_crop/crop_msg_1491402501408_visuel-jobs_engie.jpg?v=1491402513438);	
+  /* background-image: url(""); */
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.overlay{
+	background-color: rgba(0,0,0,0.5);
+	z-index: 2;
+}
+
 .text {
+		font-family:Arial;
         color: whitesmoke;
         text-align: center;
-        padding:100px;
+        padding:50px;
         margin-top:0px;
+        height:100%;
       }
  .nav{
     margin: 0px 20px 20px -10px;
@@ -25,26 +37,29 @@ body,html {
     height:10%;
   }
   button {
+   	font-size: 20px;
+  	font-weight:bold;
     display: inline-block;
-    background-color: dodgerblue;
+    background-color: #212121;
     color: white;
     padding: 14px 20px;
     border: none;
     cursor: pointer;
     width: 15%;
     letter-spacing: 1px;
-    margin-top: 10px;
+    margin-top:5px;
+    
   }      
       
 @media (max-width:319px) {
- .tit,.nav,.button{
+ .text,.nav,button{
     width: 100%;
     margin: 0;
   }
 } 
 
 @media (min-width:320px) and (max-width:1025px) {
-  .tit,.nav,.button{
+  .text,.nav,button{
     width: 100%;
     margin: 0;
   }

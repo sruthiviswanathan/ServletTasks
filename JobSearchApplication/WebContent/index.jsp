@@ -18,9 +18,9 @@
 <div class="bgimage">
 <div class="text">
 <h3>HIRING AND GETTING HIRED JUST GOT EASIER WITH US!!!SIGN IN TO CONTINUE</h3>
-</div>
 <div class="nav">
 <a href="${Config.BASE_PATH}RegisterAdminServlet"><button type="submit">SIGN IN</button></a>
+</div>
 </div>
 </div>
 </body>

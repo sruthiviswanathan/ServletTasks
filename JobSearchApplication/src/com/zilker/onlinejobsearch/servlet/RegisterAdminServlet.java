@@ -61,7 +61,7 @@ public class RegisterAdminServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			
-			int userId=0,flag=0,companyId=0;
+			int userId=0,flag=0;
 			UserDelegate userDelegate = new UserDelegate();
 			CompanyDelegate companyDelegate = new CompanyDelegate();
 			User user = new User();
@@ -70,12 +70,15 @@ public class RegisterAdminServlet extends HttpServlet {
 			String password = request.getParameter("psw");
 			String confirmPassword = request.getParameter("cpsw");
 			String email = request.getParameter("email");
-			String companyName=request.getParameter("companyName");
+			String companyid=request.getParameter("companyName");
+			
+			String companyname = companyDelegate.fetchCompanyName(Integer.parseInt(companyid));
+			
 			
 			user.setUserName(name);
 			user.setEmail(email);
 			user.setPassword(password);
-			user.setCompany(companyName);
+			user.setCompany(companyname);
 			user.setDesignation("admin");
 			user.setRoleId(2);
 			
@@ -86,9 +89,9 @@ public class RegisterAdminServlet extends HttpServlet {
 			
 				if (userId != 0) {
 					user.setUserId(userId);
-					company.setCompanyName(companyName);
-					companyId = companyDelegate.fetchCompanyId(company);
-					company.setCompanyId(companyId);
+//					company.setCompanyName(companyName);
+//					companyId = companyDelegate.fetchCompanyId(company);
+					company.setCompanyId(Integer.parseInt(companyid));
 					flag = userDelegate.insertIntoAdmin(user, company);
 //					CompanyDelegate.insertIntoCompanyDetails(user, company);
 					if (flag == 1) {

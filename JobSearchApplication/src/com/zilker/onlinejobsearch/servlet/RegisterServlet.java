@@ -86,20 +86,18 @@ public class RegisterServlet extends HttpServlet {
 				    	    usertechnology.setUserId(user.getUserId());
 							usertechnology.setTechnologyId(Integer.parseInt(technology[i]));
 							flag = userDelegate.addTechnologyDetails(usertechnology);	
-							RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
-							rd.forward(request, response);
 						
 				      }
 				   }
 				
-
+				   response.sendRedirect("Pages/jsp/login.jsp");
 			}
 			else {
 				response.sendRedirect("Pages/jsp/error.jsp");
 			}
 			
 			}catch(Exception e) {
-//				response.sendRedirect("/Pages/Retry.jsp");
+				response.sendRedirect("Pages/jsp/error.jsp");
 			}
 	}
 

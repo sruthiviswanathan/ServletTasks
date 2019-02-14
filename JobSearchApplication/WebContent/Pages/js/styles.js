@@ -51,7 +51,6 @@ function displayjobs(id) {
 	  x[i].style.display ="block";
 	}
 
-
 }
 
 function displaymenu(id) {

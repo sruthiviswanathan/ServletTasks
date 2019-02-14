@@ -6,10 +6,20 @@
   body{
      font-family: Arial, Helvetica, sans-serif;
      color:black;
-     background-color: whitesmoke;
-     
+     background-image:url(https://image.freepik.com/free-vector/jobs-background-design_1200-196.jpg);
+	 height: 100%;
+ 	 background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;   
     }
 
+.formcontainer {
+	margin-top:40px;
+	 background-color: rgba(0,0,0,0.5);
+	 z-index: 2;
+	 margin-left:40px;
+	 margin-right:40px;
+}
     .container {
         /* padding:81px 0px 20px 0px; */
         width:100%;
@@ -31,8 +41,11 @@
     #adminoptional {
       display:none;
     }
+    
     .forms{
       margin-top: 50px;
+      margin-left:30px;
+      margin-right:30px;
     }
     .tit {
         color: dodgerblue;
@@ -42,11 +55,17 @@
         margin-top:10px;
       }
       
+      .col-20 {
+  float: left;
+  width: 20%;
+  margin-top: 20px;
+  margin-left:20px;
+}
+      
   .nav{
-    margin: 0px 20px 20px -10px;
-    text-align: center;
+ 	margin:30px;
+ 	margin-left:250px;
     width:100%;
-    height:10%;
   }
   .col-25 {
     display:block;
@@ -66,13 +85,17 @@
     display: table;
     clear: both;
   }
-  
+ .checkbox {
+  color:white;
+ }
+ 
 .check {
   display:inline-block;
 }
-input[type=text] ,input[type=email],input[type=password],input[type="number"],textarea, select,input[type="file"]{
+input[type=text] ,input[type=email],input[type=password],input[type="number"],textarea, select,input[type="file"],.checkbox{
 
-    margin: 10px 20px 0px 350px;
+ /*    margin: 10px 20px 0px 350px; */
+   /*  width: 50%; */
     width: 50%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -93,20 +116,29 @@ input[type=text] ,input[type=email],input[type=password],input[type="number"],te
   margin-top: 10px;
 }
 
-  label,.checkbox {
-    margin: 10px 20px 0px 350px;
+  label {
+  /*   margin: 10px 20px 0px 350px; */
+  	color:white;
     padding: 29px 12px 12px 0;
+    display: block;
+   
+  }
+  .error {
+  	font-size:16px;
+  	color:red;
+    margin: 10px 20px 0px 350px;
     display: block;
   }
   
   button {
+   font-size: 16px;
+  	font-weight:bold;
     display: inline-block;
     background-color: dodgerblue;
     color: white;
     padding: 14px 20px;
     border: none;
     cursor: pointer;
-    width: 15%;
     letter-spacing: 1px;
     margin-top: 10px;
   }
@@ -123,13 +155,9 @@ input[type=text] ,input[type=email],input[type=password],input[type="number"],te
     background-color: blue;
     border:1px solid whitesmoke;
   }
-/*   
-   input[type=submit]:hover {
-    margin:20px;
-    background-color: lightblue;
-  } */
+
   .cancelbtn {
-    width: 15%;
+    
     padding: 14px 20px;
     background-color: #f44336;
   } 
@@ -191,18 +219,25 @@ input.invalid,select.invalid {
 
 @media (max-width:319px) {
   .col-25, .col-75, input[type=submit], .nav ,input[type=text] 
-  ,input[type=email],input[type=password],.label,.cancelbtn,input[type="number"],input[type="file"],textarea,select,.tit{
+  ,input[type=email],input[type=password],.label,.cancelbtn,input[type="number"],input[type="file"],textarea,select,.tit,.formcontainer {
     width: 100%;
     margin: 0;
   }
+  .col-xs-12 {
+          width: 100%;
+        }
 } 
 
 @media (min-width:320px) and (max-width:1025px) {
   .col-25, .col-75, input[type=submit],.nav,input[type=text] 
-  ,input[type=email],input[type=password],.label,button,.cancelbtn,input[type="number"],input[type="file"],textarea,select,.tit{
+  ,input[type=email],input[type=password],.label,button,.cancelbtn,input[type="number"],input[type="file"],textarea,select,.tit,.error,.formcontainer {
     width: 100%;
     margin: 0;
   }
- 
-} 
-
+  
+  .col-md-12 {
+          width: 100%;   
+           
+        }
+  
+    }

@@ -150,6 +150,33 @@ public class CompanyDAO {
 			DButils.closeConnection(connection, preparestatement, resultset);
 		}
 	}
+	
+	/*
+	 * method for fetching company name giving company id as input.
+	 */
+	public String fetchCompanyName(int companyId) throws SQLException {
+		try {
+
+			connection = DButils.getConnection();
+			statement = connection.createStatement();
+			resultset = statement.executeQuery(QueryConstants.RETRIEVECOMPANYDATA);
+			String companyName="";
+			while (resultset.next()) {
+				if (companyId == Integer.parseInt(resultset.getString(1))) {
+					companyName = resultset.getString(2);
+					break;
+				}
+
+			}
+
+
+			return companyName;
+		} catch (SQLException e) {
+			throw e;
+		} finally {
+			DButils.closeConnection(connection, preparestatement, resultset);
+		}
+	}
 
 	/*
 	 * method for displaying companies.
@@ -163,6 +190,7 @@ public class CompanyDAO {
 
 			while (resultset.next()) {
 				Company c = new Company();
+				c.setCompanyId(resultset.getInt(1));
 				c.setCompanyName(resultset.getString(2));
 				comp.add(c);
 			}

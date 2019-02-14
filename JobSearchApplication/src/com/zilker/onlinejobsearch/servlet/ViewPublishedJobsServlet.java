@@ -1,6 +1,7 @@
 package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
@@ -41,6 +42,8 @@ public class ViewPublishedJobsServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		try {
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
 		User user= new User();
@@ -64,8 +67,11 @@ public class ViewPublishedJobsServlet extends HttpServlet {
 			request.setAttribute("jobs", job); 
 			
 		if (vacancyDetails.isEmpty()) {
-			System.out.println("You havent posted any jobs!!");
-			response.sendRedirect("Pages/jsp/admin.jsp");
+			out.println("<script type=\"text/javascript\">");
+		 	out.println("alert('You have not published any vacancies till now');");
+		 	out.println("location='Pages/jsp/admin.jsp';");
+		    out.println("</script>");
+			//response.sendRedirect("Pages/jsp/admin.jsp");
 		}
 		for (Company i : vacancyDetails) {
 			request.setAttribute("vacancyDetails", vacancyDetails); 

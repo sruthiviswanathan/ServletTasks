@@ -1,0 +1,50 @@
+@charset "UTF-8";
+.customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top:50px;
+  }
+  
+  .customers td, .customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .customers tr:hover {background-color: #ddd;}
+  
+  .customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: dodgerblue;
+    color: white;
+  }
+   .tit {
+        color: dodgerblue;
+        text-align: center;
+        background-color: #ccc;
+        padding:2px;
+        margin-top:10px;
+      }
+      
+  @media (max-width:319px) {
+.tit,.customers{
+    width: 100%;
+    margin: 0;
+  }
+ 
+} 
+
+@media (min-width:320px) and (max-width:1025px) {
+.tit,.customers{
+    width: 100%;
+    margin: 0;
+  }
+  
+  
+  
+    }
+ 

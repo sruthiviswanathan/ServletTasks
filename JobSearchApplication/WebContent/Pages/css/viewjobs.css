@@ -5,6 +5,7 @@ body {
   margin: 0 ;
   height:100vh;
 
+
 }
 * {
     box-sizing: border-box;
@@ -38,7 +39,7 @@ body {
 .right {
   right: 0;
   width:70%;
-  
+  height:100%;
 }
 
 .arrow {
@@ -54,6 +55,7 @@ body {
 
 .rightside {
   display: none;
+  background:white;
 } 
 
 input[type=text] {
@@ -160,17 +162,15 @@ button {
  /*  background-color:white; */
   color: dodgerblue;
   text-align: center;
-  background: #ccc;
-  
+  height:40%;
 }
 
 .content {
  padding: 16px; 
     background-color:white;
   color: black;
-  font-weight:bold;
-  overflow-y: scroll;
-  max-height: 550px;
+  overflow: auto;
+  height: 55%;
  
 }
 
@@ -216,4 +216,5 @@ button {
       width:30%;
   }
 }
+    
     

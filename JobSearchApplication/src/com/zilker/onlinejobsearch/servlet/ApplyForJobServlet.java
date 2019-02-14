@@ -1,6 +1,8 @@
 package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,6 +46,8 @@ public class ApplyForJobServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out = response.getWriter();
 			int companyId=0,jobId=0,userId=0;
 			Company company = new Company();
 			JobMapping jobMapping = new JobMapping();
@@ -65,7 +69,10 @@ public class ApplyForJobServlet extends HttpServlet {
 			company.setCompanyId(companyId);
 			company.setJobId(jobId);
 			if(userDelegate.applyForJob(company,user)) {
-				System.out.println("applied");
+				 	out.println("<script type=\"text/javascript\">");
+				 	 out.println("alert('You have applied for this job!!!The Company May contact you any time');");
+				 	 out.println("location='Pages/jsp/findjob.jsp';");
+				   out.println("</script>");
 			}else {
 				
 			}
