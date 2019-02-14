@@ -35,16 +35,17 @@
 			<button class="btn active" type="submit" onclick="viewlogin()">LOGIN</button><button class="btn" type="submit" onclick="viewsignup()">SIGNUP</button>
 		</div>
 		<div class="forms">
-			<form action="${Config.BASE_PATH}LoginServlet" id="login"
-				method="post">
+			<form action="${Config.BASE_PATH}LoginServlet"id="login" name="login" onsubmit="return loginForm()"	method="post">
 				<div class="login">
 					<label for="email" class="row col-25"><b>EMAIL*</b></label> <input
 						 class="row col-75" type="email"
-						placeholder="Your Email ID.." name="email" required> <label
-						for="psw" class="row col-25"><b>PASSWORD*</b></label> <input
+						placeholder="Your Email ID.." name="email"> 
+						 <span class="error"><p id="log_em_error"></p></span> 
+						<label for="psw" class="row col-25"><b>PASSWORD*</b></label> <input
 						 class="row col-75" type="password"
-						placeholder="Enter Password" name="psw" required> <label
-						class="col-25"><input type="checkbox" checked="checked"
+						placeholder="Enter Password" name="psw"> 
+						 <span class="error"><p id="log_psw_error"></p></span> 
+						<label class="col-25"><input type="checkbox" checked="checked"
 						name="remember"> Remember me</label>
 				</div>
 				<div class="nav">
@@ -53,22 +54,29 @@
 				</div>
 			</form>
 		<div id="hideonlogin">
-			<form action="${Config.BASE_PATH}RegisterServlet" id="signup"
+			<form action="${Config.BASE_PATH}RegisterServlet" id="signup" name="signup" onsubmit="return registerForm()"
 				method="post">
 				<div class="signup">
 
 					<div id="defaultfields">
-						<label for="uname" class="row col-25"><b>USERNAME*</b></label> <input
-							type="text" class="row col-75" name="userName" 
-							placeholder="Your name.." required> <label for="email"
+						<label for="uname" class="row col-25"><b>USERNAME*</b></label>
+						 <input	type="text" class="row col-75" name="userName" 
+							placeholder="Your name.."> 
+							 <span class="error"><p id="reg_name_error"></p></span> 
+							<label for="email"
 							class="row col-25"><b>EMAIL*</b></label> <input type="email"
 							class="row col-75" name="email"
-							placeholder="Your email id.." required> <label for="psw"
+							placeholder="Your email id..">
+							 <span class="error"><p id="reg_email_error"></p></span> 
+							 <label for="psw"
 							class="row col-25"><b>PASSWORD*</b></label> <input
 							class="row col-75" type="password" placeholder="Enter Password"
-							name="psw" required> <label for="psw" class="row col-25"><b>RETYPE
+							name="psw"> 
+							 <span class="error"><p id="reg_psw_error"></p></span> 
+							<label for="cpsw" class="row col-25"><b>RETYPE
 								PASSWORD*</b></label> <input class="row col-75" type="password"
-							placeholder="Reenter Password" name="cpsw" required>
+							placeholder="Reenter Password" name="cpsw">
+							 <span class="error"><p id="reg_cpsw_error"></p></span> 
 						<div class="nav">
 							<div id="admin">
 								<button type="button" onclick="viewadminfields()">REGISTER
@@ -76,11 +84,11 @@
 							</div>
 						</div>
 						<label for="cname" class="row col-25"><b>COMPANY NAME*</b></label>
-						<input type="text" class="row col-75"
-							name="companyName" placeholder="Company name.." required>
+						<input type="text" class="row col-75" name="companyName" placeholder="Company name..">
+							 <span class="error"><p id="reg_comp_error"></p></span> 
 						<label for="designation" class="row col-25"><b>DESIGNATION*</b></label>
-						<input type="text" class="row col-75"
-							name="designation" placeholder="Your designation.." required>
+						<input type="text" class="row col-75" name="designation" placeholder="Your designation..">
+							 <span class="error"><p id="reg_des_error"></p></span> 
 						<label for="skills" class="row col-25"><b>ADD SKILLS
 								TO YOUR PROFILE</b></label>
 

@@ -29,29 +29,30 @@
                         <ul>
                                 <button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button>
                                 <li>JOB HUNT</li>
-                               <a href="#">
-					<li style="float: right"><i class="fa fa-user-circle"
-						aria-hidden="true"></i>LOGOUT</li>
-				</a>
+                               <a href="${Config.BASE_PATH}LogoutServlet">
+								<li style="float: right"><i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</li>
+								</a>
 
                         </ul>
                 </div>
               
-               <form action="${Config.BASE_PATH}ViewByJob" method="post">
-                        <div class="row">
-                                <div class="col-25 col-sm-12 col-xs-12">
+              
+              
+                <div class="row">
+                        <form action="${Config.BASE_PATH}ViewByJob" method="post">
+                                <div class="col-20 col-xs-12 col-sm-12">
                                         <label for="job">SEARCH FOR JOB</label>
                                 </div>
-                                <div class="col-75  col-sm-12 col-xs-12">
-                                        <input type="text" id="job" name="job" placeholder="Search for Job.." required><i
-                                                class="icon fa fa-search" aria-hidden="true"></i>
+                                <div class="col-60 col-xs-12 col-sm-12">
+                                        <input type="text" name="job" placeholder="Search for Job.."
+                                                required><i class="icon fa fa-search" aria-hidden="true"></i>
                                 </div>
-                        </div>
-                      
-                        <div class="row">
-                                <input type="submit" value="FIND JOBS">
-                        </div>
-                </form>
+                                <div class="col-10 col-xs-12 col-sm-12">
+                                        <input type="submit" class="col-xs-12 col-sm-12" value="SEARCH">
+                                </div>
+                        </form>
+                </div>
+              
                 <div class="tit">
                         <h3>POPULAR COMPANIES</h3>
                 </div>

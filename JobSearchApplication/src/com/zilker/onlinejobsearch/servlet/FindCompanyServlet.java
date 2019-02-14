@@ -91,7 +91,7 @@ public class FindCompanyServlet extends HttpServlet {
 						}
 
 					}
-
+				}
 					companyReviews = userDelegate.retrieveReview(company);
 
 					if (companyReviews.isEmpty()) {
@@ -101,8 +101,8 @@ public class FindCompanyServlet extends HttpServlet {
 					for (Company i : companyReviews) {
 						request.setAttribute("displayCompanyReviews", companyReviews);
 					}
-					
-				}
+					//System.out.println(companyReviews);
+				
 			}
 			getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/companydetails.jsp").forward(request,response);
 		} catch (Exception e) {

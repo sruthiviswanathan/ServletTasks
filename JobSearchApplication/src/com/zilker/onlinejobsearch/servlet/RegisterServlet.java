@@ -68,6 +68,13 @@ public class RegisterServlet extends HttpServlet {
 			String companyName = request.getParameter("companyName");
 			String designation = request.getParameter("designation");
 			
+			
+			System.out.println(name);
+			System.out.println(password);
+			System.out.println(confirmPassword);
+			System.out.println(email);
+			System.out.println(companyName);
+			System.out.println(designation);
 			user.setUserName(name);
 			user.setEmail(email);
 			user.setPassword(password);
@@ -93,11 +100,14 @@ public class RegisterServlet extends HttpServlet {
 				   response.sendRedirect("Pages/jsp/login.jsp");
 			}
 			else {
-				response.sendRedirect("Pages/jsp/error.jsp");
+			response.sendRedirect("Pages/jsp/error.jsp");
+		
 			}
 			
 			}catch(Exception e) {
 				response.sendRedirect("Pages/jsp/error.jsp");
+			//	System.out.println("exception");
+				
 			}
 	}
 

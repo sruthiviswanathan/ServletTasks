@@ -1,3 +1,139 @@
+function loginForm(){
+	var email = document.forms["login"]["email"];  
+	 var password = document.forms["login"]["psw"];  
+	 
+	 if (email.value == "")                                   
+	    { 
+	    	 emailError = "Please enter a valid e-mail address.";
+	      	 document.getElementById("log_em_error").innerHTML = emailError;
+	        email.focus(); 
+	        return false; 
+	    } 
+	   
+	    if (email.value.indexOf("@", 0) < 0)                 
+	    { 
+	    	 emailError = "Please enter a valid e-mail address";
+	      	 document.getElementById("log_em_error").innerHTML = emailError;
+	        email.focus(); 
+	        return false; 
+	    } 
+	   
+	    if (email.value.indexOf(".", 0) < 0)                 
+	    { 
+	    	 emailError = "Please enter a valid e-mail address.";
+	      	 document.getElementById("log_em_error").innerHTML = emailError;
+	        email.focus(); 
+	        return false; 
+	    } 
+	   
+	    if (password.value == "")                        
+	    { 
+	    	 passwordError = "Please enter your password";
+	      	 document.getElementById("log_psw_error").innerHTML = passwordError;
+	        password.focus(); 
+	        return false; 
+	    }	 
+	 
+}
+
+
+function registerForm()                                    
+{ 
+    var name = document.forms["signup"]["userName"];               
+    var email = document.forms["signup"]["email"];    
+    var company =  document.forms["signup"]["companyName"];  
+    var designation =  document.forms["signup"]["designation"];  
+    var password = document.forms["signup"]["psw"];  
+    var confirm = document.forms["signup"]["cpsw"];  
+    console.log("validate");
+    if (name.value == "")                                  
+    { 
+  	 nameError = "Please enter your name";
+  	 document.getElementById("reg_name_error").innerHTML = nameError;
+      //  window.alert("Please enter your name."); 
+        name.focus(); 
+        return false; 
+    } 
+    if (email.value == "")                                   
+    { 
+    	 emailError = "Please enter a valid e-mail address.";
+      	 document.getElementById("reg_email_error").innerHTML = emailError;
+       // window.alert("Please enter a valid e-mail address."); 
+        email.focus(); 
+        return false; 
+    } 
+   
+    if (email.value.indexOf("@", 0) < 0)                 
+    { 
+    	 emailError = "Please enter a valid e-mail address";
+      	 document.getElementById("reg_email_error").innerHTML = emailError;
+       // window.alert("Please enter a valid e-mail address."); 
+        email.focus(); 
+        return false; 
+    } 
+   
+    if (email.value.indexOf(".", 0) < 0)                 
+    { 
+    	 emailError = "Please enter a valid e-mail address.";
+      	 document.getElementById("reg_email_error").innerHTML = emailError;
+        //window.alert("Please enter a valid e-mail address."); 
+        email.focus(); 
+        return false; 
+    } 
+   
+    if (password.value == "")                        
+    { 
+    	 passwordError = "Please enter your password";
+      	 document.getElementById("reg_psw_error").innerHTML = passwordError;
+        //window.alert("Please enter your password"); 
+        password.focus(); 
+        return false; 
+    } 
+   
+    if (confirm.value == "")                               
+    { 
+    	 confirmError = "Please reenter your password.";
+      	 document.getElementById("reg_cpsw_error").innerHTML = confirmError;
+       // window.alert("Please reenter your password."); 
+        confirm.focus(); 
+        return false; 
+    } 
+    
+    if(password.value !== confirm.value){
+    	 matchError = "Both password and Confirm password must match";
+      	 document.getElementById("reg_cpsw_error").innerHTML = matchError;
+       // window.alert("Please reenter your password."); 
+        confirm.focus(); 
+        return false; 
+    }
+       
+    if (company.value == "")                  
+    { 
+    	 companyError = "Please Enter a Company Name";
+      document.getElementById("reg_comp_error").innerHTML = companyError;
+        //alert("Please select a Company Name."); 
+        company.focus(); 
+        return false; 
+    } 
+    
+    if (designation.value == "")                  
+    { 
+    	 designationError = "Please Enter your designation";
+      document.getElementById("reg_des_error").innerHTML = designationError;
+        //alert("Please select a Company Name."); 
+        designation.focus(); 
+        return false; 
+    }    
+    return true; 
+}
+
+
+
+
+
+
+
+
 function validateForm()                                    
 { 
     var name = document.forms["admin"]["userName"];               

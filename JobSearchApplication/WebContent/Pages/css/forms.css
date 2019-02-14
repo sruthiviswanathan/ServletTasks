@@ -34,13 +34,20 @@
     .forms{
       margin-top: 50px;
     }
-    .tit {
+   /*  .tit {
         color: dodgerblue;
         text-align: center;
         background-color: #ccc;
         padding:2px;
         margin-top:10px;
-      }
+      } */
+      .tit {
+  color: white;
+  text-align: center;
+  background-color:#039be5;
+  padding:2px;
+   margin-top:10px;
+}
       
   .nav{
     margin: 0px 20px 20px -10px;

@@ -29,6 +29,9 @@
                                         <button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button>
                                         <li>JOB HUNT</li>
                                         <button class="arrow" id="btn" onclick="displaymenu(this.id)"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                                        <a href="${Config.BASE_PATH}LogoutServlet">
+                        <li style="float:right"><i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</li>
+                						</a>
                                 </ul>
                         </div>
       

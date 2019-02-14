@@ -32,7 +32,7 @@
 					<i class="fa fa-bars" aria-hidden="true"></i>
 				</button>
                 <li style="float:left">JOB HUNT</li>
-                <a href="#">
+                <a href="${Config.BASE_PATH}LogoutServlet">
                         <li style="float:right"><i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</li>
                 </a>
             </ul>
