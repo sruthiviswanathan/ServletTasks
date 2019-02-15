@@ -15,13 +15,19 @@
 </head>
 
 <body>
-<div class="bgimage">
-<div class="text">
-<h3>HIRING AND GETTING HIRED JUST GOT EASIER WITH US!!!SIGN IN TO CONTINUE</h3>
-<div class="nav">
-<a href="${Config.BASE_PATH}LoginServlet"><button type="submit">SIGN IN</button></a>
+
+<div class = container>
+	<div class="container__bgimage bgimage--mod ">
+		<div class="bgimage__text text--mod">
+			<h3>HIRING AND GETTING HIRED JUST GOT EASIER WITH US!!!SIGN IN TO CONTINUE</h3>
+				<div class="bgimage__text__nav nav--mod">
+					<a href="${Config.BASE_PATH}LoginServlet">
+					<button class="nav__button button--mod"type="submit">SIGN IN</button>
+					</a>
+				</div>
+		</div>
+	</div>
 </div>
-</div>
-</div>
+
 </body>
 </html>

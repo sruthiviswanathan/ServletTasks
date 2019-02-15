@@ -8,14 +8,14 @@ for (var i = 0; i < btns.length; i++) {
   });
 }
 
-function viewPage(flag){
+/*function viewPage(flag){
 	if(flag === "error"){
 		viewsignup();
 		
 	}else{
 		viewlogin();
 	}
-}
+}*/
 
 
 

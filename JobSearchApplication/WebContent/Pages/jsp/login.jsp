@@ -3,6 +3,7 @@
 <%-- 	<jsp:include page="/RegisterServlet"/>   --%>
 <%@ page import="com.zilker.onlinejobsearch.config.Config"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,134 +17,183 @@
 <title>LOGIN/SIGNUP</title>
 </head>
 
-<body onload="viewPage(<% request.getAttribute("userRegisterationError"); %>)">
 
-				<%= request.getAttribute("userRegisterationError") %>
+<body onload="viewlogin()">
+
 	<div class="container">
  		
-		<div class="navbar">
-			<ul>
-				
+		<div class="container__navbar">
+			<ul class="navbar__list">
 				<li style="float: left"><i class="fa fa-search" aria-hidden="true"></i></li>
-				
 				<li style="float: left">JOB HUNT</li>
 			</ul>
 		</div> 
 
-	<div class="formcontainer">
+	<div class="container__formcontainer">
 
-		<div id="myDIV" class="nav" class="row col-25">
-			<button class="btn active" type="submit" onclick="viewlogin()">LOGIN</button><button class="btn" type="submit" onclick="viewsignup()">SIGNUP</button>
+		<div id="myDIV"  class="formcontainer__nav" class="row col-25">
+			<button class="button btn active col-xs-12 col-md-12" type="submit" onclick="viewlogin()">LOGIN</button><button class="btn button col-xs-12 col-md-12" type="submit" onclick="viewsignup()">SIGNUP</button>
 		</div>
-		<div class="forms">
-			<form action="${Config.BASE_PATH}LoginServlet"id="login" name="login" onsubmit="return loginForm()"	method="post">
+		<div class="formcontainer__forms">
+		
+		
+			<div class="forms__loginform">
+				<form action="${Config.BASE_PATH}LoginServlet" id="login" name="login" onsubmit="return loginForm()"	method="post">
+					
+					<div class="login col-xs-12 col-md-12">
+						
+						<div class="login__field col-xs-12 col-md-12">
+						<label for="email" class="field__entry row col-25"><b>EMAIL*</b></label> <input class="field__entry"
+							 class="row col-75" type="email"
+							placeholder="Your Email ID.." name="email"> 
+							<span class="error"><p id="log_em_error"></p></span> 
+						</div>
+					
+					<div class="login__field col-xs-12 col-md-12">
+							<label for="psw" class="field__entry row col-25"><b>PASSWORD*</b></label> <input
+							 class="field__entry row col-75" type="password"
+							placeholder="Enter Password" name="psw"> 
+							 <span class="error"><p id="log_psw_error"></p></span> 
+					</div>
+					
+					<div class="login__field col-xs-12 col-md-12">
+							<label for="checkbox"><input type="checkbox"checked="checked"
+							name="remember">Remember me</label>
+					</div>
+					<div class="loginform__nav">
+						<button class="button col-xs-12 col-md-12" type="submit">LOGIN</button>
+						<button type="reset"  class="button cancelbtn col-xs-12 col-md-12">CANCEL</button>
+					</div>
 				
-				<div class="login">
-					<label for="email" class="row col-25"><b>EMAIL*</b></label> <input
-						 class="row col-75" type="email"
-						placeholder="Your Email ID.." name="email"> 
-						 <span class="error"><p id="log_em_error"></p></span> 
-						<label for="psw" class="row col-25"><b>PASSWORD*</b></label> <input
-						 class="row col-75" type="password"
-						placeholder="Enter Password" name="psw"> 
-						 <span class="error"><p id="log_psw_error"></p></span> 
-						<label class="col-25"><input type="checkbox" checked="checked"
-						name="remember"> Remember me</label>
-				</div>
-				<div class="nav">
-					<button type="submit">LOGIN</button>
-					<button type="reset"  class="cancelbtn">CANCEL</button>
-				</div>
-			</form>
-		<div id="hideonlogin">
+					</div>
+				</form>
+			</div>
+		
+		
+		<div class="signupforms" id="hideonlogin">
+			
+			
 			<form action="${Config.BASE_PATH}RegisterServlet" id="signup" name="signup" onsubmit="return registerForm()"
 				method="post">
-				<div class="signup">
+				<div class="signupforms__signup">
 				
-			 	<div class="error">
+			 	<%-- <div class="error">
 				<c:if test="${userRegisterationError == 'error'}">
 				<c:out value="duplicate entry"/>
 				</c:if>
-				</div> 
+				</div>  --%>
 				
-					<div id="defaultfields">
-						<label for="uname" class="row col-25"><b>USERNAME*</b></label>
-						 <input	type="text" class="row col-75" name="userName" 
-							placeholder="Your name.."> 
-							 <span class="error"><p id="reg_name_error"></p></span> 
-							<label for="email"
-							class="row col-25"><b>EMAIL*</b></label> <input type="email"
-							class="row col-75" name="email"
-							placeholder="Your email id..">
-							 <span class="error"><p id="reg_email_error"></p></span> 
+				<div id="defaultfields">
+					
+					<div class="signup__field col-xs-12 col-md-12">
+						 <label for="uname" class="field__entry row col-25"><b>USERNAME*</b></label>
+						 <input	type="text" class="field__entry row col-75" name="userName" placeholder="Your name.."> 
+						 <span class="error"><p id="reg_name_error"></p></span> 
+					</div>
+					
+					
+					<div class="signup__field col-xs-12 col-md-12">		 
+							<label for="email" class="field__entry row col-25"><b>EMAIL*</b></label> 
+							<input type="email" class="field__entry row col-75" name="email" placeholder="Your email id..">
+							<span class="error"><p id="reg_email_error"></p></span> 
+					</div>		
+							
+					<div class="signup__field col-xs-12 col-md-12">
 							 <label for="psw"
-							class="row col-25"><b>PASSWORD*</b></label> <input
-							class="row col-75" type="password" placeholder="Enter Password"
+							class="field__entry row col-25"><b>PASSWORD*</b></label> <input
+							class="field__entry row col-75" type="password" placeholder="Enter Password"
 							name="psw"> 
 							 <span class="error"><p id="reg_psw_error"></p></span> 
-							<label for="cpsw" class="row col-25"><b>RETYPE
-								PASSWORD*</b></label> <input class="row col-75" type="password"
+					</div>
+							
+					<div class="signup__field col-xs-12 col-md-12">
+							<label for="cpsw" class="field__entry row col-25"><b>RETYPE PASSWORD*</b></label> 
+							<input class="field__entry row col-75" type="password"
 							placeholder="Reenter Password" name="cpsw">
 							 <span class="error"><p id="reg_cpsw_error"></p></span> 
-						<div class="nav">
+					</div>
+						
+					<div class="signup__nav">
 							<div id="admin">
-								<button type="button" onclick="viewadminfields()">REGISTER
+								<button type="button" class="button field__entry" onclick="viewadminfields()">REGISTER
 									AS ADMIN OF A COMPANY?</button>
 							</div>
-						</div>
-						<label for="cname" class="row col-25"><b>COMPANY NAME*</b></label>
-						<input type="text" class="row col-75" name="companyName" placeholder="Company name..">
-							 <span class="error"><p id="reg_comp_error"></p></span> 
-						<label for="designation" class="row col-25"><b>DESIGNATION*</b></label>
-						<input type="text" class="row col-75" name="designation" placeholder="Your designation..">
-							 <span class="error"><p id="reg_des_error"></p></span> 
-						<label for="skills" class="row col-25"><b>ADD SKILLS
-								TO YOUR PROFILE</b></label>
-
-						<div class="checkbox col-25">
+					</div>
+					
+					<div class="signup__field col-xs-12 col-md-12">
+						<label for="cname" class="field__entry row col-25"><b>COMPANY NAME*</b></label>
+						<input type="text" class="field__entry row col-75" name="companyName" placeholder="Company name..">
+						<span class="error"><p id="reg_comp_error"></p></span> 
+					</div>
+					
+					<div class="signup__field col-xs-12 col-md-12">	
+						<label for="designation" class="field__entry row col-25"><b>DESIGNATION*</b></label>
+						<input type="text" class="field__entry row col-75" name="designation" placeholder="Your designation..">
+						<span class="error"><p id="reg_des_error"></p></span> 
+					</div>
+						
+					<div class="signup__field col-xs-12 col-md-12">
+						<label for="skills" class="field__entry row col-25"><b>ADD SKILLS TO YOUR PROFILE</b></label>
+						<div class="field__entry checkbox col-25">
 							
 							<c:forEach var="tech" items="${technologies}">
-							<input type="checkbox" name="tech" value="${tech.getTechnologyId()}"><c:out
-											value="${tech.getTechnology()}" />
+							<input type="checkbox" name="tech" value="${tech.getTechnologyId()}"><c:out value="${tech.getTechnology()}" />
 							</c:forEach>
 							
 						</div>
-						<div class="nav">
-							<button type="submit">REGISTER</button>
-							<button type="reset"  class="cancelbtn">CANCEL</button>
-						</div>
+					</div>
+					
+					<div class="signup__nav">
+							<button type="submit" class="button col-xs-12 col-md-12">REGISTER</button>
+							<button type="reset"  class="button cancelbtn col-xs-12 col-md-12">CANCEL</button>
+					</div>
+						
 					</div>
 				</div>
 			</form>
-		<%-- 	${Config.BASE_PATH}RegisterAdminServlet --%>
+			
+			
 			<div id="adminoptional">
+				
 				<form action="${Config.BASE_PATH}RegisterAdminServlet"  name="admin" id="signupadmin" onsubmit="return validateForm()" method="post">
-					<!--  <div class="signup">
-                    <form name="admin" action="login.html" id="signupadmin"  onsubmit="return validateForm()" method="post"> -->
+					
 					<div class="signupadmin">
-						<label for="uname" class="row col-25"><b>USERNAME*</b></label> 
-						<input type="text" class="row col-75" name="userName"placeholder="Your name.."> 
-						 <span class="error"><p id="name_error"></p></span> 
-							<label for="email"class="row col-25"><b>EMAIL*</b></label> 
-							<input type="email"class="row col-75" name="email" placeholder="Your email id..">
-						 	 <span class="error"><p id="email_error"></p></span> 
-							<label for="psw" class="row col-25"><b>PASSWORD*</b></label> 
-							<input class="row col-75" type="password" placeholder="Enter Password" name="psw">
-							  <span class="error"><p id="psw_error"></p></span>
-							 <label for="psw" class="row col-25"><b>RETYPE PASSWORD*</b></label>
-							  <input class="row col-75" type="password" placeholder="Reenter Password" name="cpsw">
- 								<span class="error"><p id="cpsw_error"></p></span>
-						<div class="nav">
+						
+						<div class="signupadmin__field col-xs-12 col-md-12">	
+						<label for="uname" class="field__entry row col-25"><b>USERNAME*</b></label> 
+						<input type="text" class="field__entry row col-75" name="userName"placeholder="Your name.."> 
+					    <span class="error"><p id="name_error"></p></span> 
+						</div>
+						
+						<div class="signupadmin__field col-xs-12 col-md-12">	
+						<label for="email"class="field__entry row col-25"><b>EMAIL*</b></label> 
+						<input type="email"class="field__entry row col-75" name="email" placeholder="Your email id..">
+						 <span class="error"><p id="email_error"></p></span> 
+						</div>
+						
+						<div class="signupadmin__field col-xs-12 col-md-12">	
+						<label for="psw" class="field__entry row col-25"><b>PASSWORD*</b></label> 
+						<input class="field__entry row col-75" type="password" placeholder="Enter Password" name="psw">
+						<span class="error"><p id="psw_error"></p></span>
+						</div>
+						
+						<div class="signupadmin__field col-xs-12 col-md-12">	
+						<label for="psw" class="field__entry row col-25"><b>RETYPE PASSWORD*</b></label>
+						<input class="field__entry row col-75" type="password" placeholder="Reenter Password" name="cpsw">
+ 						<span class="error"><p id="cpsw_error"></p></span>
+						</div>
+						
+						<div class="signupadmin__nav">
 							<div id="user">
-								<button type="button" onclick="viewuserfields()">REGISTER
+								<button type="button" class="field__entry button" onclick="viewuserfields()">REGISTER
 									AS USER?</button>
 							</div>
 						</div>
-						<label for="select-company" class="row col-25"><b>COMPANY
-								NAME*</b></label>
-						<div class="tab" style="width: 75%;">
-							<select id="select" name="companyName"
-								oninput="this.className = ''">
+						
+						<div class="signupadmin__field col-xs-12 col-md-12">	
+						<label for="select-company" class="field__entry row col-25"><b>COMPANY NAME*</b></label>
+						
+							<select id="select" class="select field__entry row col-25" name="companyName" oninput="this.className = ''">
 								 <option value=" ">Select a Company Name</option>
 								<c:forEach var="comp" items="${companies}">
 									<option value="${comp.getCompanyId()}"><c:out
@@ -151,26 +201,26 @@
 								</c:forEach>
 								
 							</select>
+							<button class="button field__entry col-xs-12 col-md-12" type="button" id="add" onclick="openForm()">NEW</button>
 							<span class="error"><p id="select_error"></p></span>
-						</div>
-						<div class="nav">
-							<button type="button" id="add" onclick="openForm()">NEW</button>
-						</div>
-						<div class="nav">
 							
-							<input type="submit" value="REGISTER" name="Submit">
-							<button type="reset"  class="cancelbtn">CANCEL</button>
+						
+						</div>
+						
+						<div class="signupadmin__nav">	
+							<button type="submit" class="button col-xs-12 col-md-12">REGISTER</button>
+							<button type="reset"  class="button cancelbtn col-xs-12 col-md-12">CANCEL</button>
 						</div>
 					</div>
 				</form>
 			</div>
+			
 			<br>
 
-</div>
+		</div>
 		</div>
 	</div>
-</div>
-	<div class="form-popup" id="myForm">
+	<div class="container__form-popup" id="myForm">
 		<form action="${Config.BASE_PATH}AddNewCompany" class="form-container" method="post">
 			<h3>ADD NEW COMPANY</h3>
 			<input type="text" placeholder="Enter new Company" name="companyName"
@@ -181,6 +231,8 @@
 			<button type="button" class="cancel btn" onclick="closeForm()">CLOSE</button>
 		</form>
 	</div>
+</div>
+	
 </body>
 <script src="${Config.BASE_PATH}Pages/js/form.js"></script>
 <script src="${Config.BASE_PATH}Pages/js/styles.js"></script>

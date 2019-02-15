@@ -16,33 +16,30 @@
 </head>
 
 <body>
-	<div id="main">
-		<div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-			<a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
+	<div class="maincontainer">
+		
+		<div id="mySidenav" class="container__sidenav">
+			<div class="sidenav__items">
+			  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			  <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
 			  <a href="${Config.BASE_PATH}ViewAppliedUsersServlet">VIEW INTERESTED USERS</a> 
 			  <a href="${Config.BASE_PATH}ViewPublishedJobsServlet">VIEW PUBLISHED JOBS</a>
+			  </div>
 		</div>
-		<div class="navbar">
-			<ul>
-				<button onmouseover="openNav()" class="hambug">
-					<i class="fa fa-bars" aria-hidden="true"></i>
-				</button>
+		<div class="container__navbar">
+			<ul class="navbar__list">
+				<li><button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button></li>			
 				<li>JOB HUNT</li>
-				<a href="${Config.BASE_PATH}LogoutServlet">
-					<li style="float: right"><i class="fa fa-user-circle"
-						aria-hidden="true"></i>LOGOUT</li>
-				</a>
-
+				 <li><a href="${Config.BASE_PATH}LogoutServlet">
+				<li style="float: right"><i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</li></a></li>
 
 			</ul>
 		</div>
-		<div class="tit">
+		<div class="container__title">
 			<h1>YOUR NEXT HIRE IS HERE!!!</h1>
 		</div>
-		<div id="hireimage" class="image">
-		</div>
+		<div class="container__image"></div>
+	</div>
 </body>
 <script src="${Config.BASE_PATH}Pages/js/styles.js"></script>
-
 </html>

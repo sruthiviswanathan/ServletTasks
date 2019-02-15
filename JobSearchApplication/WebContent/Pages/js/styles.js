@@ -18,11 +18,11 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
-function searchByLocation(){
+/*function searchByLocation(){
 	  var ul = document.getElementById("parent");
 	  var liToKill = ul.childNodes[5];
 	  liToKill.parentNode.removeChild( liToKill );
-}
+}*/
 
 function displaymodal(id) {
 	

@@ -4,39 +4,40 @@ body,html {
   margin: 0;
   
 }
+
 *{
 	box-sizing:border-box;
 	overflow-x:hidden;
 }
-.bgimage {
-	background:linear-gradient(0deg,rgba(255,0,150,0.3),rgba(255,0,150,0.3)),url(https://jobs.engie.com/media/images/_crop/crop_msg_1491402501408_visuel-jobs_engie.jpg?v=1491402513438);	
-  /* background-image: url(""); */
+.container {
+  height: 100%;
+  margin: 0;
+  
+}
+.container__bgimage {
+  background:linear-gradient(0deg,rgba(255,0,150,0.3),rgba(255,0,150,0.3)),url(https://www.sixpathtechnologies.com/blog/images/h1.jpg);	
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.overlay{
-	background-color: rgba(0,0,0,0.5);
-	z-index: 2;
-}
 
-.text {
+.bgimage__text {
 		font-family:Arial;
-        color: whitesmoke;
+        color: #212121;
         text-align: center;
         padding:50px;
         margin-top:0px;
         height:100%;
       }
- .nav{
+ .bgimage__text__nav{
     margin: 0px 20px 20px -10px;
     text-align: center;
     width:100%;
     height:10%;
   }
-  button {
+  .nav__button {
    	font-size: 20px;
   	font-weight:bold;
     display: inline-block;
@@ -52,14 +53,14 @@ body,html {
   }      
       
 @media (max-width:319px) {
- .text,.nav,button{
+ .text--mod,.nav--mod,.button--mod{
     width: 100%;
     margin: 0;
   }
 } 
 
 @media (min-width:320px) and (max-width:1025px) {
-  .text,.nav,button{
+  .text--mod,.nav--mod,.button--mod{
     width: 100%;
     margin: 0;
   }

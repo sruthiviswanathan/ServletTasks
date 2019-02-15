@@ -15,106 +15,107 @@
 </head>
 
 <body>
-        <div id="main">
-                <div id="mySidenav" class="sidenav">
+        <div class="maincontainer">
+                <div id="mySidenav" class="container__sidenav">
+                        <div class="sidenav__items">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/searchbylocation.jsp">SEARCH BY LOCATION</a>
                         <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/requestvacancy.jsp">REQUEST A VACANCY</a>
-               
+               			</div>
                 </div>
-                <div class="navbar">
-                        <ul>
-                                <button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button>
-                                <li>JOB HUNT</li>
-                               <a href="${Config.BASE_PATH}LogoutServlet">
-								<li style="float: right"><i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</li>
-								</a>
-
+                <div class="container__navbar">
+                        <ul class="navbar__list">
+					<li><button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button></li>			
+					<li>JOB HUNT</li>
+					 <li><a href="${Config.BASE_PATH}LogoutServlet">
+					<li style="float: right"><i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</li></a></li>
                         </ul>
                 </div>
               
               
               
-                <div class="row">
+                <div class="container__searchbar">
                         <form action="${Config.BASE_PATH}ViewByJob" method="post">
+                  <div class="searchbar__row">               
                                 <div class="col-20 col-xs-12 col-sm-12">
-                                        <label for="job">SEARCH FOR JOB</label>
+                                        <label for="job" class="row__label">SEARCH FOR JOB</label>
                                 </div>
                                 <div class="col-60 col-xs-12 col-sm-12">
-                                        <input type="text" name="job" placeholder="Search for Job.."
+                                        <input type="text" class="row__input" name="job" placeholder="Search for Job.."
                                                 required><i class="icon fa fa-search" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-10 col-xs-12 col-sm-12">
-                                        <input type="submit" class="col-xs-12 col-sm-12" value="SEARCH">
+                                        <input type="submit" class=" row__button col-xs-12 col-sm-12" value="SEARCH">
                                 </div>
+                   </div>
                         </form>
                 </div>
               
-                <div class="tit">
+                <div class="container__title">
                         <h3>POPULAR COMPANIES</h3>
                 </div>
-                <div class="maincard">
-                        <div class="card col-sm-6 col-xs-height">
-                                <div class="container">
+                <div class="container__maincard">
+                        <div class="maincard__card col-sm-6 col-xs-height">
+                                <div class="card__container">
                                         <a href="companydetails.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
                                                         alt="Avatar" style="width:50%"></a>
                                         <h4><b>Company Name</b></h4>
                                         <p>Overall Rating</p>
                                 </div>
                         </div>
-                        <div class="card col-sm-6 col-xs-height">
-                                <div class="container">
+                        <div class="maincard__card col-sm-6 col-xs-height">
+                                <div class="card__container">
                                         <a href="companydetails.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
                                                         alt="Avatar" style="width:50%"></a>
                                         <h4><b>Company Name</b></h4>
                                         <p>Overall Rating</p>
                                 </div>
                         </div>
-                        <div class="card col-sm-6 col-xs-height">
-                                <div class="container">
+                        <div class="maincard__card col-sm-6 col-xs-height">
+                                <div class="card__container">
                                         <a href="companydetails.html"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
                                                         alt="Avatar" style="width:50%"></a>
                                         <h4><b>Company Name</b></h4>
                                         <p>Overall Rating</p>
                                 </div>
                         </div>
-                        <div class="card col-sm-6 col-xs-height">
-                                <div class="container">
+                        <div class="maincard__card col-sm-6 col-xs-height">
+                                <div class="card__container">
                                         <a href="companydetails.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
                                                         alt="Avatar" style="width:50%"></a>
                                         <h4><b>Company Name</b></h4>
                                         <p>Overall Rating</p>
                                 </div>
                         </div>
-                        <div class="card col-sm-6 col-xs-height">
-                                <div class="container">
+                        <div class="maincard__card col-sm-6 col-xs-height">
+                                <div class="card__container">
                                         <a href="companydetails.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
                                                         alt="Avatar" style="width:50%"></a>
                                         <h4><b>Company Name</b></h4>
                                         <p>Overall Rating</p>
                                 </div>
                         </div>
-                        <div class="card col-sm-6 col-xs-height">
-                                <div class="container">
+                        <div class="maincard__card col-sm-6 col-xs-height">
+                                <div class="card__container">
                                         <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
                                                         alt="Avatar" style="width:50%"></a>
                                         <h4><b>Company Name</b></h4>
                                         <p>Overall Rating</p>
                                 </div>
                         </div>
-                        <div class="card col-sm-6 col-xs-height">
-                                <div class="container">
+                        <div class="maincard__card col-sm-6 col-xs-height">
+                                <div class="card__container">
                                         <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
                                                         alt="Avatar" style="width:50%"></a>
                                         <h4><b>Company Name</b></h4>
                                         <p>Overall Rating</p>
                                 </div>
                         </div>
-                        <div class="card col-sm-6 col-xs-height">
-                                <div class="container">
+                        <div class="maincard__card col-sm-6 col-xs-height">
+                                <div class="card__container">
                                         <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
                                                         alt="Avatar" style="width:50%"></a>
                                         <h4><b>Company Name</b></h4>
