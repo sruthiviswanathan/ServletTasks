@@ -45,10 +45,11 @@
                        <select id="job" name="job" oninput="this.className = ''">
 					 <option value="">Select a Job Designation</option>
 						<c:forEach var="job" items="${jobs}">
-							<option value="${job.getJobRole()}"><c:out
+							<option value="${job.getJobId()}"><c:out
 									value="${job.getJobRole()}" /></option>
 						</c:forEach>
 					</select>
+					 <span class="error"><p id="job_error"></p></span>
                 </div>
                 
                <!--  <div class="nav">
@@ -56,8 +57,10 @@
                 </div> -->
                 <label for="location" class="row col-25"><b>LOCATION</b></label>
                 <input type="text" class="row col-75" id="location" name="location" placeholder="Enter Job Location..">
+                <span class="error"><p id="location_error"></p></span>
                 <label for="salary" class="row col-25"><b>SALARY</b></label>
                 <input type="number" class="row col-75" id="salary" name="salary" placeholder="Enter Salary.." step=".01">
+                 <span class="error"><p id="salary_error"></p></span>
         </div><br>
         <div class="nav">
         <input type="submit" value="SAVE JOB" name="Submit">  

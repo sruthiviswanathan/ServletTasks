@@ -1,6 +1,7 @@
 package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
@@ -11,9 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.zilker.onlinejobsearch.beans.Company;
 import com.zilker.onlinejobsearch.beans.Technology;
 import com.zilker.onlinejobsearch.beans.User;
 import com.zilker.onlinejobsearch.beans.UserTechnologyMapping;
+import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
 import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
 
@@ -37,17 +40,29 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		try {
-			//response.getWriter().append("Served at: ").append(request.getContextPath());
-			Technology technology = new Technology();
-			ArrayList<Technology> tech = new ArrayList<Technology>();
-			UserDelegate userDelegate = new UserDelegate();
-			tech = userDelegate.displayTechnologies(technology);
-			request.setAttribute("technologies",tech);
-			response.sendRedirect("Pages/jsp/login.jsp");
-			}catch(Exception e) {
-				
-			}
+		/*
+		 * try {
+		 * //response.getWriter().append("Served at: ").append(request.getContextPath())
+		 * ; Technology technology = new Technology(); ArrayList<Technology> tech = new
+		 * ArrayList<Technology>(); UserDelegate userDelegate = new UserDelegate(); tech
+		 * = userDelegate.displayTechnologies(technology);
+		 * request.setAttribute("technologies",tech);
+		 * //response.sendRedirect("Pages/jsp/login.jsp");
+		 * 
+		 * Company company = new Company(); ArrayList<Company> displayCompanies = new
+		 * ArrayList<Company>(); CompanyDelegate companyDelegate = new
+		 * CompanyDelegate(); displayCompanies =
+		 * companyDelegate.displayCompanies(company); request.setAttribute("companies",
+		 * displayCompanies); RequestDispatcher rd =
+		 * request.getRequestDispatcher("Pages/jsp/login.jsp"); rd.forward(request,
+		 * response);
+		 * 
+		 * 
+		 * 
+		 * }catch(Exception e) {
+		 * 
+		 * }
+		 */
 	}
 
 	/**
@@ -96,15 +111,27 @@ public class RegisterServlet extends HttpServlet {
 						
 				      }
 				   }
-				
 				   response.sendRedirect("Pages/jsp/login.jsp");
 			}
-			else {
-			response.sendRedirect("Pages/jsp/error.jsp");
-		
-			}
 			
-			}catch(Exception e) {
+			
+		} 
+			  
+		
+		
+		
+		/*
+		 * catch (SQLIntegrityConstraintViolationException e) {
+		 * System.out.println("exception here");
+		 * request.setAttribute("userRegisterationError","error");
+		 * System.out.println(request.getAttribute("userRegisterationError"));
+		 * //RequestDispatcher rd = request.getRequestDispatcher("/LoginServlet");
+		 * //rd.forward(request,response); response.sendRedirect("LoginServlet"); //
+		 * getServletConfig().getServletContext().getRequestDispatcher("/LoginServlet").
+		 * forward(request,response); }
+		 */
+			
+			catch(Exception e) {
 				response.sendRedirect("Pages/jsp/error.jsp");
 			//	System.out.println("exception");
 				

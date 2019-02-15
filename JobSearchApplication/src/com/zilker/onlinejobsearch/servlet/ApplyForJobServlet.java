@@ -2,6 +2,7 @@ package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -71,8 +72,9 @@ public class ApplyForJobServlet extends HttpServlet {
 			if(userDelegate.applyForJob(company,user)) {
 				 	out.println("<script type=\"text/javascript\">");
 				 	 out.println("alert('You have applied for this job!!!The Company May contact you any time');");
-				 	 out.println("location='Pages/jsp/findjob.jsp';");
-				   out.println("</script>");
+				 	out.println("location='Pages/jsp/findjob.jsp';");
+				 	 out.println("</script>");				 	 
+				 	 
 			}else {
 				
 			}

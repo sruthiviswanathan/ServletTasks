@@ -16,7 +16,10 @@ import javax.servlet.http.HttpSession;
 
 import com.zilker.onlinejobsearch.beans.Company;
 import com.zilker.onlinejobsearch.beans.JobMapping;
+import com.zilker.onlinejobsearch.beans.User;
+import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
 import com.zilker.onlinejobsearch.delegate.JobDelegate;
+import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
 
 /**
@@ -53,7 +56,6 @@ public class ViewByJob extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			response.setContentType("text/html;charset=UTF-8");
-			PrintWriter out = response.getWriter();
 			ArrayList<String> jobRole = new ArrayList<String>();
 			ArrayList<Company> vacancyDetails = new ArrayList<Company>();
 			JobDelegate jobDelegate = new JobDelegate();
@@ -63,19 +65,18 @@ public class ViewByJob extends HttpServlet {
 			int jobId = 0;
 			
 			String jobDesignation = request.getParameter("job");
-
+			System.out.println(jobDesignation);
+			
 			jobRole.add(jobDesignation);
 			request.setAttribute("job",jobRole);
 			jobmapping.setJobRole(jobDesignation);
+			
 			jobId = jobDelegate.fetchJobId(jobmapping);
-			if (jobId == 0) {
-				 out.println("<script type=\"text/javascript\">");
-				   out.println("alert('No vacancy in this designation!!!');");
-				   out.println("location='Pages/jsp/findjob.jsp';");
-				   out.println("</script>");
-				  // response.sendRedirect("Pages/jsp/findjob.jsp");
-			} else {
-				
+			if(jobId == 0) {
+				response.sendRedirect("Pages/jsp/findjob.jsp");
+			}
+			else {
+			
 				company.setJobId(jobId);
 				vacancyDetails = jobDelegate.retrieveVacancyByJob1(company);
 				if (vacancyDetails.isEmpty()) {
@@ -83,10 +84,11 @@ public class ViewByJob extends HttpServlet {
 				}
 				for (Company i : vacancyDetails) {
 					request.setAttribute("displayVacancy", vacancyDetails);
-					getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/viewjobs.jsp").forward(request,response);
 				}
-
+				getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/viewjobs.jsp").forward(request,response);
 			}
+				
+				
 			
 		} catch (SQLException e) {
 		

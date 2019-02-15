@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<jsp:include page="/RegisterServlet"/>  
+<%-- 	<jsp:include page="/RegisterServlet"/>   --%>
 <%@ page import="com.zilker.onlinejobsearch.config.Config"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -16,8 +16,9 @@
 <title>LOGIN/SIGNUP</title>
 </head>
 
-<body onload="viewlogin()">
+<body onload="viewPage(<% request.getAttribute("userRegisterationError"); %>)">
 
+				<%= request.getAttribute("userRegisterationError") %>
 	<div class="container">
  		
 		<div class="navbar">
@@ -36,6 +37,7 @@
 		</div>
 		<div class="forms">
 			<form action="${Config.BASE_PATH}LoginServlet"id="login" name="login" onsubmit="return loginForm()"	method="post">
+				
 				<div class="login">
 					<label for="email" class="row col-25"><b>EMAIL*</b></label> <input
 						 class="row col-75" type="email"
@@ -57,7 +59,13 @@
 			<form action="${Config.BASE_PATH}RegisterServlet" id="signup" name="signup" onsubmit="return registerForm()"
 				method="post">
 				<div class="signup">
-
+				
+			 	<div class="error">
+				<c:if test="${userRegisterationError == 'error'}">
+				<c:out value="duplicate entry"/>
+				</c:if>
+				</div> 
+				
 					<div id="defaultfields">
 						<label for="uname" class="row col-25"><b>USERNAME*</b></label>
 						 <input	type="text" class="row col-75" name="userName" 

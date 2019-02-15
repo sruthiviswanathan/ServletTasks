@@ -1,6 +1,7 @@
 package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 
 import javax.servlet.RequestDispatcher;
@@ -11,8 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.zilker.onlinejobsearch.beans.Company;
+import com.zilker.onlinejobsearch.beans.Technology;
 import com.zilker.onlinejobsearch.beans.User;
 import com.zilker.onlinejobsearch.beans.UserTechnologyMapping;
+import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
 import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
 /**
@@ -35,7 +39,31 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		try {
+			System.out.println("login");
+			System.out.println(request.getAttribute("userRegisterationError"));
+			//response.getWriter().append("Served at: ").append(request.getContextPath());
+			Technology technology = new Technology();
+			ArrayList<Technology> tech = new ArrayList<Technology>();
+			UserDelegate userDelegate = new UserDelegate();
+			tech = userDelegate.displayTechnologies(technology);
+			request.setAttribute("technologies",tech);
+			//response.sendRedirect("Pages/jsp/login.jsp");
+			
+			Company company = new Company();
+			ArrayList<Company> displayCompanies = new ArrayList<Company>();
+			CompanyDelegate companyDelegate = new CompanyDelegate();
+			displayCompanies = companyDelegate.displayCompanies(company);
+			request.setAttribute("companies", displayCompanies);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
+			rd.forward(request, response);
+			
+			
+			
+			}catch(Exception e) {
+				
+			}
 	}
 
 	/**
@@ -44,6 +72,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+			System.out.println("post");
 			 HttpSession session=request.getSession(); 
 			int role=0;
 			UserDelegate userDelegate = new UserDelegate();

@@ -46,13 +46,8 @@
 			<!--  <form action="#" id="postjob" name="postjob" onsubmit="return validatePostJob()" method="post"> -->
 			<div class="form">
 				<label for="select-job" class="row col-25"><b>JOB
-						DESIGNATION</b></label>
+						DESIGNATION*</b></label>
 				<div class="select-job">
-					<!-- <select id="job" name="job">
-						<option value="0">Select job designation:</option>
-						<option value="1">Java Developer</option>
-						<option value="2">PHP Developer</option>
-					</select> -->
 					 <select id="job" name="job" oninput="this.className = ''">
 					 <option value="">Select a Job Designation</option>
 						<c:forEach var="job" items="${jobs}">
@@ -70,18 +65,18 @@
 					placeholder="Enter Job Location.."> 
 					 <span class="error"><p id="location_error"></p></span>
 					<label for="salary"
-					class="row col-25"><b>SALARY</b></label> 
+					class="row col-25"><b>SALARY*</b></label> 
 					<input type="number"
 					class="row col-75" id="salary" name="salary"
 					placeholder="Enter Salary.." step=".01"> 
 					 <span class="error"><p id="salary_error"></p></span>
 					<label for="count"
-					class="row col-25"><b>COUNT</b></label> <input type="number"
+					class="row col-25"><b>COUNT*</b></label> <input type="number"
 					class="row col-75" id="count" name="count"
 					placeholder="Enter Vacancy Count..">
 					 <span class="error"><p id="count_error"></p></span>
 					 <label
-					for="description" class="row col-25"><b>JOB DESCRIPTION</b></label>
+					for="description" class="row col-25"><b>JOB DESCRIPTION*</b></label>
 				<textarea rows="4" cols="50" name="description"
 					placeholder="Enter Job Description"></textarea>
 					 <span class="error"><p id="desc_error"></p></span>

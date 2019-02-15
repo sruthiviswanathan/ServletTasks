@@ -48,11 +48,14 @@
                 <c:forEach var="data" items="${userData}">
                
                     <label for="uname" class="row col-25"><b>USERNAME*</b></label>
-                    <input type="text" class="row col-75" id="uname" name="username" value="${data.getUserName()}">                      
+                    <input type="text" class="row col-75" id="uname" name="username" value="${data.getUserName()}">  
+                     <span class="error"><p id="name_error"></p></span>                     
                         <label for="cname" class="row col-25"><b>COMPANY NAME*</b></label>
                         <input type="text" class="row col-75" id="cname" name="cname" value="${data.getCompany()}" >
+                         <span class="error"><p id="comp_error"></p></span> 
                         <label for="designation" class="row col-25"><b>DESIGNATION*</b></label>
-                        <input type="text" class="row col-75" id="cname" name="designation" value="${data.getDesignation()}">
+                        <input type="text" class="row col-75" id="desig" name="designation" value="${data.getDesignation()}">
+                        <span class="error"><p id="des_error"></p></span> 
                         <label for="skills" class="row col-25"><b>SKILLS SAVED IN YOUR PROFILE</b></label>
                        
                         <div class="checkbox col-25">
@@ -66,7 +69,7 @@
 					</c:forEach>
                 </div><br>
                 <div class="nav">
-                        <input type="submit" value="UPDATE" name="Submit">  
+                    <input type="submit" value="UPDATE" name="Submit">  
                     <button type="reset" id="cancel" class="cancelbtn">CANCEL</button>
                 </div>
             </form>

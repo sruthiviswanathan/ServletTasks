@@ -68,8 +68,11 @@ public class RequestVacancyServlet extends HttpServlet {
 			String location = request.getParameter("location");
 			String salary = request.getParameter("salary");
 			jobrequest.setEmail(user.getEmail());
-			jobMapping.setJobRole(jobDesignation);
-			jobId = jobDelegate.fetchJobId(jobMapping);
+			/*
+			 * jobMapping.setJobRole(jobDesignation); jobId =
+			 * jobDelegate.fetchJobId(jobMapping);
+			 */
+			jobId = Integer.parseInt(jobDesignation);
 			jobrequest.setJobId(jobId);
 			jobrequest.setLocation(location);
 			jobrequest.setSalary(Float.parseFloat(salary));

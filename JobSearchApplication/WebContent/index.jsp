@@ -19,7 +19,7 @@
 <div class="text">
 <h3>HIRING AND GETTING HIRED JUST GOT EASIER WITH US!!!SIGN IN TO CONTINUE</h3>
 <div class="nav">
-<a href="${Config.BASE_PATH}RegisterAdminServlet"><button type="submit">SIGN IN</button></a>
+<a href="${Config.BASE_PATH}LoginServlet"><button type="submit">SIGN IN</button></a>
 </div>
 </div>
 </div>

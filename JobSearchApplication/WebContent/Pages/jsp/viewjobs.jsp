@@ -97,7 +97,7 @@
 								</h3>
 							</div>
 							<div class="col-60 col-xs-12 col-md-12">
-									<form action="${Config.BASE_PATH}ApplyForJobServlet" method="post">
+								<form action="${Config.BASE_PATH}ApplyForJobServlet" method="post">
 								
 								<input type="hidden" name="companyName" value="${comp.getCompanyName()}">
 								<input type="hidden" name="jobDesignation" value="${job.get(0)}">
@@ -106,7 +106,18 @@
 											aria-hidden="true"></i>
 									</button>
 								
-								</form>
+								</form> 
+								
+									<%-- <form action="${Config.BASE_PATH}ViewByJob" method="post">
+								
+								<input type="hidden" name="companyName" value="${comp.getCompanyName()}">
+								<input type="hidden" name="jobDesignation" value="${job.get(0)}">
+								<button class="col-xs-12" id="button" name="action" type="submit" value="apply">
+										APPLY FOR JOB<i class="dir fa fa-chevron-circle-right"
+											aria-hidden="true"></i>
+									</button>
+								
+								</form> --%>
 							</div>
 
 						</div>

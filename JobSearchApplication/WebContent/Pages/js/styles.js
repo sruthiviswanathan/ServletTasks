@@ -44,6 +44,11 @@ function closeModal(cl) {
 
 function displayjobs(id) {
 	console.log(id);
+	var y = document.getElementsByClassName("rightside");
+	for (var i = 0; i < y.length; i++) {
+		  console.log(y[i]);
+		  y[i].style.display ="none";
+		}
   var x = document.getElementsByClassName(id);
   console.log(x);
   for (var i = 0; i < x.length; i++) {

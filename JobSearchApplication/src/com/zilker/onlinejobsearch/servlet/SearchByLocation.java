@@ -53,15 +53,15 @@ public class SearchByLocation extends HttpServlet {
 				retrieveByLocation = companyDelegate.retrieveVacancyByLocation(company);
 				if (retrieveByLocation.isEmpty()) {
 					System.out.println("No vacancy in this Location as of now!!");
+					response.sendRedirect("Pages/jsp/searchbylocation.jsp");
 					
 				} else {
 					for (Company i : retrieveByLocation) {
 						request.setAttribute("retrieveByLocation", retrieveByLocation);
 					}
-			
+					getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/viewbylocation.jsp").forward(request,response);	
 				}
-//				System.out.println(allDetails);
-				getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/viewbylocation.jsp").forward(request,response);	
+
 		} catch (SQLException e) {
 		
 		}
