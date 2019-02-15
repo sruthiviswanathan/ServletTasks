@@ -36,8 +36,12 @@
                         </ul>
                 </div>
                 
+               
+                
+                
                 <div class="row">
-                        <form action="${Config.BASE_PATH}SearchByLocation" method="post">
+                        <form action="${Config.BASE_PATH}SearchByLocation" onclick= "searchByLocation()" method="post">
+                               <div id="parent">
                                 <div class="col-20 col-xs-12 col-sm-12">
                                         <label for="job">SEARCH BY LOCATION</label>
                                 </div>
@@ -48,8 +52,24 @@
                                 <div class="col-10 col-xs-12 col-sm-12">
                                         <input type="submit" class="col-xs-12 col-sm-12" value="SEARCH">
                                 </div>
+                                 <div>
+                				 <c:out value = "${flag}"/>
+                				</div>
+                				</div>
                         </form>
                 </div>
+               <%--  <c:if test = "${flag != ''}">
+                
+                <c:out value = "${flag}"/>
+                 				<div class="alert">
+  								<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  								<p><c:out value = "${flag}"/><p>
+								</div> 
+         		
+      			</c:if> --%>
+                
+                
+                    		
                <%--  <form action="${Config.BASE_PATH}SearchByLocation" method="post">
                       
                         <div class="row">
