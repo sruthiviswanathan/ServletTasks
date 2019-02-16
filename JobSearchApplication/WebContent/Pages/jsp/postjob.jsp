@@ -19,36 +19,38 @@
 
 <body>
 	<div class="container">
-		 <div id="mySidenav" class="sidenav">
+	
+		 <div id="mySidenav" class="container__sidenav">
+                        <div class="sidenav__items">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                      
                         <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
                         <a href="${Config.BASE_PATH}ViewPublishedJobsServlet">VIEW PUBLISHED JOBS</a>
                         <a href="${Config.BASE_PATH}ViewAppliedUsersServlet">VIEW INTERESTED PEOPLE</a>
                 </div>
-		<div class="navbar">
-			<ul>
-				<button onmouseover="openNav()" class="hambug">
-					<i class="fa fa-bars" aria-hidden="true"></i>
-				</button>
+		</div>
+	
+		<div class="container__navbar">
+			<ul class="navbar__list">
+				<li><button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button></li>			
 				<li>JOB HUNT</li>
-				<a href="${Config.BASE_PATH}LogoutServlet">
-					<li style="float: right"><i class="fa fa-user-circle"
-						aria-hidden="true"></i>LOGOUT</li>
-				</a>
+				<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet"><i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
 			</ul>
 		</div>
-		<div class="tit">
+
+		<div class="container__title">
 			<h3>YOUR NEXT HIRE IS HERE!!!</h3>
 		</div>
+		
+		<div class="container__postjob">
 		<form action="${Config.BASE_PATH}PostJobServlet" id="postjob"
 			name="postjob" onsubmit="return validatePostJob()" method="post">
-			<!--  <form action="#" id="postjob" name="postjob" onsubmit="return validatePostJob()" method="post"> -->
-			<div class="form">
-				<label for="select-job" class="row col-25"><b>JOB
-						DESIGNATION*</b></label>
-				<div class="select-job">
-					 <select id="job" name="job" oninput="this.className = ''">
+		
+		
+				
+				<div class="postjob__field col-xs-12 col-md-12">
+				<label for="select-job" class="field__entry row col-75"><b>JOB DESIGNATION*</b></label>
+			
+					 <select id="job" class="field__entry row col-75" name="job" oninput="this.className = ''">
 					 <option value="">Select a Job Designation</option>
 						<c:forEach var="job" items="${jobs}">
 							<option value="${job.getJobId()}"><c:out
@@ -56,39 +58,47 @@
 						</c:forEach>
 					</select>
 					 <span class="error"><p id="job_error"></p></span>
+				
 				</div>
-				<div class="nav">
-					<button type="button" id="add" onclick="openForm()">NEW</button>
+				<div class="postjob__nav">
+					<button type="button" class="button" id="add" onclick="openForm()">NEW</button>
 				</div>
-				<label for="location" class="row col-25"><b>LOCATION</b></label> <input
-					type="text" class="row col-75" id="location" name="location"
-					placeholder="Enter Job Location.."> 
-					 <span class="error"><p id="location_error"></p></span>
-					<label for="salary"
-					class="row col-25"><b>SALARY*</b></label> 
-					<input type="number"
-					class="row col-75" id="salary" name="salary"
-					placeholder="Enter Salary.." step=".01"> 
-					 <span class="error"><p id="salary_error"></p></span>
-					<label for="count"
-					class="row col-25"><b>COUNT*</b></label> <input type="number"
-					class="row col-75" id="count" name="count"
-					placeholder="Enter Vacancy Count..">
-					 <span class="error"><p id="count_error"></p></span>
-					 <label
-					for="description" class="row col-25"><b>JOB DESCRIPTION*</b></label>
-				<textarea rows="4" cols="50" name="description"
-					placeholder="Enter Job Description"></textarea>
-					 <span class="error"><p id="desc_error"></p></span>
-			</div>
+				
+				<div class="postjob__field col-xs-12 col-md-12">
+				<label for="location" class="field__entry row col-25"><b>LOCATION</b></label>
+				<input type="text" class="field__entry row col-75" id="location" name="location" placeholder="Enter Job Location.."> 
+				<span class="error"><p id="location_error"></p></span>
+				</div>
+				
+				<div class="postjob__field col-xs-12 col-md-12">
+				<label for="salary" class="field__entry row col-25"><b>SALARY*</b></label> 
+				<input type="number" class="field__entry row col-75" id="salary" name="salary" placeholder="Enter Salary.." step=".01"> 
+				<span class="error"><p id="salary_error"></p></span>
+				</div>
+				
+				<div class="postjob__field col-xs-12 col-md-12">
+				<label for="count" class="field__entry row col-25"><b>COUNT*</b></label>
+				<input type="number" class="field__entry row col-75" id="count" name="count" placeholder="Enter Vacancy Count..">
+				<span class="error"><p id="count_error"></p></span>
+				</div>
+					
+				<div class="postjob__field col-xs-12 col-md-12">	
+				<label for="description" class="field__entry row col-75"><b>JOB DESCRIPTION*</b></label>
+				<textarea rows="4" cols="50" name="description" class="field__entry row col-75" placeholder="Enter Job Description"></textarea>
+				<span class="error"><p id="desc_error"></p></span>
+				</div>
+			
 			<br>
-			<div class="nav">
-				<input type="submit" value="PUBLISH" name="Submit">
-				<button type="reset" id="cancel" class="cancelbtn">CANCEL</button>
+			
+			<div class="postjob__nav">
+				<input type="submit" class="button col-xs-12 col-md-12" value="PUBLISH" name="Submit">
+				<button type="reset" id="cancel" class="button cancelbtn col-xs-12 col-md-12">CANCEL</button>
 			</div>
+		
 		</form>
 	</div>
-	<div class="form-popup" id="myForm">
+	
+	<div class="container__form-popup" id="myForm">
 	<form action="${Config.BASE_PATH}AddNewJobDesignationServlet" class="form-container" method="post">
 		<!-- <form action="login.html" class="form-container"> -->
 			<h3>ADD NEW JOB DESIGNATION</h3>
@@ -99,6 +109,7 @@
 			<button type="button" class="cancel btn" onclick="closeForm()">CLOSE</button>
 		</form>
 	</div>
+</div>
 </body>
 <script src="${Config.BASE_PATH}Pages/js/styles.js"></script>
 <script src="${Config.BASE_PATH}Pages/js/validate.js"></script>

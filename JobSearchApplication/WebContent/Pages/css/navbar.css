@@ -8,31 +8,31 @@ body{
 *{
     box-sizing: border-box;
   }
-
-ul {
+  
+.navbar__list {
     list-style-type: none;
-    margin: 0px;
-    padding: 1px;
+    margin: 0;
+    padding: 6px;
     overflow: hidden;
-     background-color:  #212121;
-    /*  background-color: #1a237e; */
+    background-color:  #212121;
     font-weight: bold;
-    
+	height:45px;    
 }
+
 li {
     float: left;
-    margin-top: 15px;
-    margin-left: 25px;
+    margin-top: 13px;
+    margin-left: 8px;
     color: white;
 }
 
 li a {
     display: block;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
     background-color: #212121;
     border: transparent;
+    color: white;
 }
 
 li a:hover {
@@ -42,69 +42,64 @@ li a:hover {
 a:active, a:hover {
     opacity: 0.8;
 }
-.icon {
-    color:#212121;
-    float:right;
-    position:relative;
-    top: -29px;
-    right: 10px;
-  }
-  .fa-user-circle,.fa-pencil-square-o{
+
+.fa-user-circle,.fa-pencil-square-o{
     margin-right: 6px;
   }
-
-    .fa-bars{
+    
+    /*  .fa-bars{
         float: left;
-        margin-top: 13px;
-        margin-left: 5px;
+        margin-top: -14px;
+        margin-left: -16px;
     
-      }
-    
-      .sidenav {
-        height: 100%;
+      } */
+    .fa-bars {
+    float: left;
+    margin-top: -2px;
+    margin-left: 0px;
+}
+      
+      .container__sidenav{
+      	height: 100%;
         width: 0;
         position: absolute;
         z-index: 1;
         top: 45px;
         left: 0;
-        background-color: lightskyblue;
+        background-color: #757575;
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 60px;
       }
       
-      .sidenav a {
-        overflow: hidden;
+      .sidenav__items a{
+       overflow: hidden;
         padding: 8px 8px 8px 32px;
         text-decoration: none;
         font-size: 16px;
         display: block;
         transition: 0.3s;
         color: black;
+      
       }
       
-      .sidenav a:hover {
-        color: #f1f1f1;
+      .sidenav__items a:hover {
+       color: #f1f1f1;
       }
       
-      .sidenav .closebtn {
+      .sidenav__items .closebtn {
         position: absolute;
         top: 0;
         right: 25px;
         font-size: 36px;
         margin-left: 50px;
       }
-    
-      ul button{
-          border:none;
-      }
+      
     
       .hambug{
-          width:2%;
           float:left;
           background-color: #212121 ;
           font-size: 18px;
           color: white;
-          cursor: pointer;
-          margin-top: -15px;
-      }  
+          border:none;
+      }

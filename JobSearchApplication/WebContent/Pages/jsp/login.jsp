@@ -34,6 +34,7 @@
 		<div id="myDIV"  class="formcontainer__nav" class="row col-25">
 			<button class="button btn active col-xs-12 col-md-12" type="submit" onclick="viewlogin()">LOGIN</button><button class="btn button col-xs-12 col-md-12" type="submit" onclick="viewsignup()">SIGNUP</button>
 		</div>
+		
 		<div class="formcontainer__forms">
 		
 		
