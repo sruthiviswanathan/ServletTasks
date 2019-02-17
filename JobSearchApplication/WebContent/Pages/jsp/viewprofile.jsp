@@ -18,59 +18,71 @@
 <body>
 
     <div class="container">
-          <div id="mySidenav" class="sidenav">
+          <div id="mySidenav" class="container__sidenav">
+          	<div class="sidenav__items">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
                          <a href="${Config.BASE_PATH}Pages/jsp/searchbylocation.jsp">SEARCH BY LOCATION</a>
                         <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/requestvacancy.jsp">REQUEST A VACANCY</a>
-           </div> 
-        <div class="navbar">
-            <ul>
-            <button onmouseover="openNav()" class="hambug">
-					<i class="fa fa-bars" aria-hidden="true"></i>
-				</button>
-                <li style="float:left">JOB HUNT</li>
-                <a href="${Config.BASE_PATH}LogoutServlet">
-                        <li style="float:right"><i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</li>
-                </a>
-            </ul>
+           </div>
+          </div> 
+        <div class="container__navbar">
+            <ul class="navbar__list">
+					
+					<li><button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button></li>			
+					<li>JOB HUNT</li>
+					<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet">
+					<i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
+                    
+                    </ul>
         </div>
 						
-		<div class="tit">
+		<div class="container__title">
 			<h3>YOUR PROFILE!!!</h3>
 		</div>						
 
-        <div class="forms">
+        <div class="container__profile">
             <form action="${Config.BASE_PATH}UserProfileServlet" name ="update" id="update"  onsubmit="return updateUser()" method="post">
-                <div class="update">
-                <c:forEach var="data" items="${userData}">
                
-                    <label for="uname" class="row col-25"><b>USERNAME*</b></label>
-                    <input type="text" class="row col-75" id="uname" name="username" value="${data.getUserName()}">  
+             
+          
+                <c:forEach var="data" items="${userData}">
+             <div class="profile__field col-xs-12 col-md-12">     
+                    <label for="uname" class="field__entry row col-25"><b>USERNAME*</b></label>
+                    <input type="text" class="field__entry row col-75" id="uname" name="username" value="${data.getUserName()}">  
                      <span class="error"><p id="name_error"></p></span>                     
-                        <label for="cname" class="row col-25"><b>COMPANY NAME*</b></label>
-                        <input type="text" class="row col-75" id="cname" name="cname" value="${data.getCompany()}" >
+                    </div>
+                    
+             <div class="profile__field col-xs-12 col-md-12">          
+                        <label for="cname" class="field__entry row col-25"><b>COMPANY NAME*</b></label>
+                        <input type="text" class="field__entry row col-75" id="cname" name="cname" value="${data.getCompany()}" >
                          <span class="error"><p id="comp_error"></p></span> 
-                        <label for="designation" class="row col-25"><b>DESIGNATION*</b></label>
-                        <input type="text" class="row col-75" id="desig" name="designation" value="${data.getDesignation()}">
+                    </div>
+                    
+                       <div class="profile__field col-xs-12 col-md-12">
+                        <label for="designation" class="field__entry row col-25"><b>DESIGNATION*</b></label>
+                        <input type="text" class="field__entry row col-75" id="desig" name="designation" value="${data.getDesignation()}">
                         <span class="error"><p id="des_error"></p></span> 
-                        <label for="skills" class="row col-25"><b>SKILLS SAVED IN YOUR PROFILE</b></label>
+                   	 </div>
+                       <div class="profile__field col-xs-12 col-md-12">
+                        <label for="skills" class="field__entry row col-25"><b>SKILLS SAVED IN YOUR PROFILE</b></label>
                        
-                        <div class="checkbox col-25">
+                        <div class="field__entry checkbox col-25">
 							
 							<c:forEach var="tech" items="${technologies}">
 							<input type="checkbox" name="tech" value="${tech.getTechnologyId()}"><c:out
 											value="${tech.getTechnology()}" />
-						</c:forEach>
+							</c:forEach>
 							
 						</div>
+						</div>
 					</c:forEach>
-                </div><br>
-                <div class="nav">
-                    <input type="submit" value="UPDATE" name="Submit">  
-                    <button type="reset" id="cancel" class="cancelbtn">CANCEL</button>
+             
+                <div class="profile__nav">
+                    <input type="submit" class="button col-xs-12 col-md-12" value="UPDATE" name="Submit">  
+                    <button type="reset" id="cancel" class="button cancelbtn col-xs-12 col-md-12">CANCEL</button>
                 </div>
             </form>
         </div>

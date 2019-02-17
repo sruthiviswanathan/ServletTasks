@@ -32,8 +32,8 @@
                       <ul class="navbar__list">
 					<li><button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button></li>			
 					<li>JOB HUNT</li>
-					 <li><a href="${Config.BASE_PATH}LogoutServlet">
-					<li style="float: right"><i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</li></a></li>
+					<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet">
+					<i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
                         </ul>
                 </div>
 

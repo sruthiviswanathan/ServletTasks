@@ -16,35 +16,34 @@
 <body>
 
     <div class="container">
-       <div id="mySidenav" class="sidenav">
+       <div id="mySidenav" class="container__sidenav">
+       	<div class="sidenav__items">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			<a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
 			  <a href="${Config.BASE_PATH}ViewAppliedUsersServlet">VIEW INTERESTED USERS</a> 
 			  <a href="${Config.BASE_PATH}ViewPublishedJobsServlet">VIEW PUBLISHED JOBS</a>
 		</div>
-		<div class="navbar">
-			<ul>
-				<button onmouseover="openNav()" class="hambug">
-					<i class="fa fa-bars" aria-hidden="true"></i>
-				</button>
+		</div>
+		<div class="container__navbar">
+			<ul class="navbar__list">
+				<li><button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button></li>			
 				<li>JOB HUNT</li>
-				<a href="${Config.BASE_PATH}LogoutServlet">
-					<li style="float: right"><i class="fa fa-user-circle"
-						aria-hidden="true"></i>LOGOUT</li>
-				</a>
-
+				<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet">
+				<i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
 
 			</ul>
 		</div>
-		<div class="tit">
+		<div class="container__title">
 			<h3>YOUR NEXT HIRE IS HERE!!!</h3>
 		</div>
-<table class="customers">
+		<table class="container__customers">
+			
   				<tr>
     				<th>USERNAME</th>
     				<th>EMAIL</th>
     				<th>JOB DESIGNATION</th>
   			    </tr>
+  			 
 					 <c:forEach var="user" items="${appliedUsers}">
 						<tr>
 							<td>	<c:out value="${user.getUserName()}" /> </td>
@@ -52,7 +51,7 @@
 							<td>	<c:out value="${user.getJobRole()}" /> </td> 
 						</tr>	
 					</c:forEach>
-</table>
+		</table>
 </div>
 </body>
 <script src="${Config.BASE_PATH}Pages/js/styles.js"></script>

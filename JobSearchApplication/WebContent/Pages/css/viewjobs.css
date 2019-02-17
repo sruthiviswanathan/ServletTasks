@@ -52,42 +52,16 @@ body {
 }
 
 .rightside {
-  display: none;
-  background:white;
+	/*  background-image:url(https://hr.sparkhire.com/wp-content/uploads/2014/04/Globalization-Initializing-Your-Recruitment-Process-Overseas-Guest-Post-300x225.jpg);
+	 height: 100%;
+ 	 background-position: center;
+  	 background-repeat: no-repeat;
+  	 background-size: cover; */
+	
+ 	  display: none;
+  	background:white; 
 } 
 
-/* input[type=text] {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
-}
-
-label {
-  padding: 12px 12px 12px 0;
-  display: inline-block;
-  color: dodgerblue;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-weight: bold;
-  margin-right:5px;
-}
-
-input[type=submit] {
-  background-color: dodgerblue;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  float: right;
-  margin:0px 0px 15px 10px;
-}
-
-input[type=submit]:hover {
-  opacity: 0.8;
-}
- */
  
 .icon {
 color:dodgerblue;
@@ -165,13 +139,126 @@ button {
 }
 
 .right__content {
- padding: 16px; 
-    background-color:white;
+  padding: 16px; 
+  background-color:white;
   color: black;
   overflow: auto;
   height: 55%;
  
 }
+.right__form {
+   
+    padding: 16px;
+    color: white;
+    overflow-y: scroll;
+    height: 95vh;
+  
+  }
+body{
+    margin:0;
+    height:100vh;
+   
+}
+
+*{
+    box-sizing: border-box;
+  }
+  
+.navbar__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 6px;
+    overflow: hidden;
+    background-color:  #212121;
+    font-weight: bold;
+	height:45px;    
+}
+
+li {
+    float: left;
+    margin-top: 13px;
+    margin-left: 8px;
+    color: white;
+}
+
+li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background-color: #212121;
+    border: transparent;
+    color: white;
+}
+
+li a:hover {
+    opacity: 0.8;
+}
+
+a:active, a:hover {
+    opacity: 0.8;
+}
+
+.fa-user-circle,.fa-pencil-square-o{
+    margin-right: 6px;
+  }
+    
+    /*  .fa-bars{
+        float: left;
+        margin-top: -14px;
+        margin-left: -16px;
+    
+      } */
+    .fa-bars {
+    float: left;
+    margin-top: -13px;
+    margin-left: 0px;
+}
+      
+      .container__sidenav{
+      	height: 100%;
+        width: 0;
+        position: absolute;
+        z-index: 1;
+        top: 45px;
+        left: 0;
+        background-color: #757575;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+      }
+      
+      .sidenav__items a{
+       overflow: hidden;
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 16px;
+        display: block;
+        transition: 0.3s;
+        color: black;
+      
+      }
+      
+      .sidenav__items a:hover {
+       color: #f1f1f1;
+      }
+      
+      .sidenav__items .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+      
+    
+      .hambug{
+          float:left;
+          background-color: #212121 ;
+          font-size: 18px;
+          color: white;
+          border:none;
+      }
+
 
 @media (max-width:320px){ 
       .col-xs-12 {

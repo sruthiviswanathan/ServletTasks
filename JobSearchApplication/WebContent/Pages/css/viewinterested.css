@@ -1,37 +1,37 @@
 @charset "UTF-8";
-.customers {
+.container__customers {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
     margin-top:50px;
   }
   
-  .customers td, .customers th {
+  .container__customers td, .container__customers th {
     border: 1px solid #ddd;
     padding: 8px;
   }
   
-  .customers tr:nth-child(even){background-color: #f2f2f2;}
+  .container__customers tr:nth-child(even){background-color: #f2f2f2;}
   
-  .customers tr:hover {background-color: #ddd;}
+  .container__customers tr:hover {background-color: #ddd;}
   
-  .customers th {
+  .container__customers th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: dodgerblue;
+    background-color: #212121;
     color: white;
   }
-   .tit {
-        color: dodgerblue;
-        text-align: center;
-        background-color: #ccc;
-        padding:2px;
-        margin-top:10px;
-      }
+  .container__title {
+  color: white;
+  text-align: center;
+  background-color:#212121;
+  padding:2px;
+  margin-top:10px;
+}
       
   @media (max-width:319px) {
-.tit,.customers{
+.container__customers{
     width: 100%;
     margin: 0;
   }
@@ -39,7 +39,7 @@
 } 
 
 @media (min-width:320px) and (max-width:1025px) {
-.tit,.customers{
+.container__customers{
     width: 100%;
     margin: 0;
   }

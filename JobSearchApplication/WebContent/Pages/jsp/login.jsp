@@ -194,7 +194,7 @@
 						<div class="signupadmin__field col-xs-12 col-md-12">	
 						<label for="select-company" class="field__entry row col-25"><b>COMPANY NAME*</b></label>
 						
-							<select id="select" class="select field__entry row col-25" name="companyName" oninput="this.className = ''">
+							<select id="select" class="select field__entry row col-25" name="companyName">
 								 <option value=" ">Select a Company Name</option>
 								<c:forEach var="comp" items="${companies}">
 									<option value="${comp.getCompanyId()}"><c:out

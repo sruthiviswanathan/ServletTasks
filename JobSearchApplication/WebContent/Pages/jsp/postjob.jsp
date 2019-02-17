@@ -50,14 +50,13 @@
 				<div class="postjob__field col-xs-12 col-md-12">
 				<label for="select-job" class="field__entry row col-75"><b>JOB DESIGNATION*</b></label>
 			
-					 <select id="job" class="field__entry row col-75" name="job" oninput="this.className = ''">
+					 <select id="job" class="field__entry row col-75" name="job">
 					 <option value="">Select a Job Designation</option>
 						<c:forEach var="job" items="${jobs}">
 							<option value="${job.getJobId()}"><c:out
 									value="${job.getJobRole()}" /></option>
 						</c:forEach>
 					</select>
-					 <span class="error"><p id="job_error"></p></span>
 				
 				</div>
 				<div class="postjob__nav">
