@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%-- 	<jsp:include page="/RegisterServlet"/>   --%>
+<%-- <jsp:include page="/GetDataServlet"/> --%>
 <%@ page import="com.zilker.onlinejobsearch.config.Config"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -39,9 +39,17 @@
 		
 		
 			<div class="forms__loginform">
-				<form action="${Config.BASE_PATH}LoginServlet" id="login" name="login" onsubmit="return loginForm()"	method="post">
+				<form action="${Config.BASE_PATH}LoginServlet" id="login" name="login" onsubmit="return loginForm()" method="post">
 					
 					<div class="login col-xs-12 col-md-12">
+						
+						<div class="success">
+						<c:if test="${registerSuccess == 'yes'}">
+						<c:out value="CONGRATS YOU ARE REGISTERED WITH US!! LOGIN IN NOW "/>
+						</c:if>
+						</div>
+						
+						
 						
 						<div class="login__field col-xs-12 col-md-12">
 						<label for="email" class="field__entry row col-25"><b>EMAIL*</b></label> <input class="field__entry"
@@ -50,11 +58,17 @@
 							<span class="error"><p id="log_em_error"></p></span> 
 						</div>
 					
-					<div class="login__field col-xs-12 col-md-12">
+						<div class="login__field col-xs-12 col-md-12">
 							<label for="psw" class="field__entry row col-25"><b>PASSWORD*</b></label> <input
 							 class="field__entry row col-75" type="password"
 							placeholder="Enter Password" name="psw"> 
 							 <span class="error"><p id="log_psw_error"></p></span> 
+						</div>
+					
+					<div class="error" id="loginError">
+					<c:if test="${loginError == 'error'}">
+					<c:out value="USERNAME OR PASSWORD INCORRECT!!!"/>
+					</c:if>
 					</div>
 					
 					<div class="login__field col-xs-12 col-md-12">
@@ -78,13 +92,17 @@
 				method="post">
 				<div class="signupforms__signup">
 				
-			 	<%-- <div class="error">
-				<c:if test="${userRegisterationError == 'error'}">
-				<c:out value="duplicate entry"/>
-				</c:if>
-				</div>  --%>
+			 	
 				
 				<div id="defaultfields">
+					
+					<div class="signup__nav">
+							<div id="admin">
+								<button type="button" class="button field__entry" onclick="viewadminfields()">REGISTER
+									AS ADMIN OF A COMPANY?</button>
+							</div>
+					</div>
+					
 					
 					<div class="signup__field col-xs-12 col-md-12">
 						 <label for="uname" class="field__entry row col-25"><b>USERNAME*</b></label>
@@ -114,12 +132,7 @@
 							 <span class="error"><p id="reg_cpsw_error"></p></span> 
 					</div>
 						
-					<div class="signup__nav">
-							<div id="admin">
-								<button type="button" class="button field__entry" onclick="viewadminfields()">REGISTER
-									AS ADMIN OF A COMPANY?</button>
-							</div>
-					</div>
+					
 					
 					<div class="signup__field col-xs-12 col-md-12">
 						<label for="cname" class="field__entry row col-25"><b>COMPANY NAME*</b></label>
@@ -160,6 +173,13 @@
 					
 					<div class="signupadmin">
 						
+						<div class="signupadmin__nav">
+							<div id="user">
+								<button type="button" class="field__entry button" onclick="viewuserfields()">REGISTER
+									AS USER?</button>
+							</div>
+						</div>
+						
 						<div class="signupadmin__field col-xs-12 col-md-12">	
 						<label for="uname" class="field__entry row col-25"><b>USERNAME*</b></label> 
 						<input type="text" class="field__entry row col-75" name="userName"placeholder="Your name.."> 
@@ -184,12 +204,6 @@
  						<span class="error"><p id="cpsw_error"></p></span>
 						</div>
 						
-						<div class="signupadmin__nav">
-							<div id="user">
-								<button type="button" class="field__entry button" onclick="viewuserfields()">REGISTER
-									AS USER?</button>
-							</div>
-						</div>
 						
 						<div class="signupadmin__field col-xs-12 col-md-12">	
 						<label for="select-company" class="field__entry row col-25"><b>COMPANY NAME*</b></label>

@@ -16,6 +16,7 @@ import com.zilker.onlinejobsearch.beans.Company;
 import com.zilker.onlinejobsearch.beans.Technology;
 import com.zilker.onlinejobsearch.beans.User;
 import com.zilker.onlinejobsearch.beans.UserTechnologyMapping;
+import com.zilker.onlinejobsearch.config.Config;
 import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
 import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
@@ -40,29 +41,28 @@ public class RegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*
-		 * try {
-		 * //response.getWriter().append("Served at: ").append(request.getContextPath())
-		 * ; Technology technology = new Technology(); ArrayList<Technology> tech = new
-		 * ArrayList<Technology>(); UserDelegate userDelegate = new UserDelegate(); tech
-		 * = userDelegate.displayTechnologies(technology);
-		 * request.setAttribute("technologies",tech);
-		 * //response.sendRedirect("Pages/jsp/login.jsp");
-		 * 
-		 * Company company = new Company(); ArrayList<Company> displayCompanies = new
-		 * ArrayList<Company>(); CompanyDelegate companyDelegate = new
-		 * CompanyDelegate(); displayCompanies =
-		 * companyDelegate.displayCompanies(company); request.setAttribute("companies",
-		 * displayCompanies); RequestDispatcher rd =
-		 * request.getRequestDispatcher("Pages/jsp/login.jsp"); rd.forward(request,
-		 * response);
-		 * 
-		 * 
-		 * 
-		 * }catch(Exception e) {
-		 * 
-		 * }
-		 */
+		try {
+			System.out.println("signup");
+			request.setAttribute("userRegistrationError","error");
+		
+			Technology technology = new Technology();
+			ArrayList<Technology> tech = new ArrayList<Technology>();
+			UserDelegate userDelegate = new UserDelegate();
+			tech = userDelegate.displayTechnologies(technology);
+			request.setAttribute("technologies",tech);
+			
+			Company company = new Company();
+			ArrayList<Company> displayCompanies = new ArrayList<Company>();
+			CompanyDelegate companyDelegate = new CompanyDelegate();
+			displayCompanies = companyDelegate.displayCompanies(company);
+			request.setAttribute("companies", displayCompanies);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/signup.jsp");
+			rd.forward(request, response);
+			
+			}catch(Exception e) {
+				
+			}
 	}
 
 	/**
@@ -97,9 +97,11 @@ public class RegisterServlet extends HttpServlet {
 			user.setDesignation(designation);
 			
 			if(userDelegate.register(user)) {
+
 				userId = userDelegate.fetchUserId(user);
 				user.setUserId(userId);
 				userDelegate.insertIntoUser(user);
+				
 				technology = request.getParameterValues("tech");
 				   if (technology != null) 
 				   {
@@ -111,25 +113,24 @@ public class RegisterServlet extends HttpServlet {
 						
 				      }
 				   }
-				   response.sendRedirect("Pages/jsp/login.jsp");
+				   request.setAttribute("registerSuccess","yes");
+				   RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
+				   rd.forward(request, response);
 			}
 			
 			
 		} 
 			  
 		
-		
-		
-		/*
-		 * catch (SQLIntegrityConstraintViolationException e) {
-		 * System.out.println("exception here");
-		 * request.setAttribute("userRegisterationError","error");
-		 * System.out.println(request.getAttribute("userRegisterationError"));
-		 * //RequestDispatcher rd = request.getRequestDispatcher("/LoginServlet");
-		 * //rd.forward(request,response); response.sendRedirect("LoginServlet"); //
-		 * getServletConfig().getServletContext().getRequestDispatcher("/LoginServlet").
-		 * forward(request,response); }
-		 */
+		  catch (SQLIntegrityConstraintViolationException e) {
+		  System.out.println("exception here");
+		  request.setAttribute("userRegistrationError","error");
+		  //RequestDispatcher rd = request.getRequestDispatcher("RegisterServlet");
+		  //rd.forward(request,response); 
+		  response.sendRedirect("RegisterServlet"); 
+		  
+		  }
+		 
 			
 			catch(Exception e) {
 				response.sendRedirect("Pages/jsp/error.jsp");

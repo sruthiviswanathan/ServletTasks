@@ -60,7 +60,12 @@
       margin-right:30px;
     }
  
-      
+   .success {
+    font-size:16px;
+  	color: #cddc39;
+  	font-weight:bold;
+    display: block;
+   }
  
   .col-25 {
     display:block;

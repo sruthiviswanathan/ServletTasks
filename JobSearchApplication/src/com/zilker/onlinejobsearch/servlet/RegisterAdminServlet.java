@@ -12,11 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.zilker.onlinejobsearch.beans.Company;
-import com.zilker.onlinejobsearch.beans.JobMapping;
+import com.zilker.onlinejobsearch.beans.Technology;
 import com.zilker.onlinejobsearch.beans.User;
 
 import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
-import com.zilker.onlinejobsearch.delegate.JobDelegate;
 import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
 /**
@@ -40,7 +39,28 @@ public class RegisterAdminServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		try {
+			System.out.println("signup");
+			request.setAttribute("adminRegistrationError","error");
+		
+			Technology technology = new Technology();
+			ArrayList<Technology> tech = new ArrayList<Technology>();
+			UserDelegate userDelegate = new UserDelegate();
+			tech = userDelegate.displayTechnologies(technology);
+			request.setAttribute("technologies",tech);
+			
+			Company company = new Company();
+			ArrayList<Company> displayCompanies = new ArrayList<Company>();
+			CompanyDelegate companyDelegate = new CompanyDelegate();
+			displayCompanies = companyDelegate.displayCompanies(company);
+			request.setAttribute("companies", displayCompanies);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/signup.jsp");
+			rd.forward(request, response);
+			
+			}catch(Exception e) {
+				
+			}
 		
 	}
 
@@ -86,22 +106,28 @@ public class RegisterAdminServlet extends HttpServlet {
 					flag = userDelegate.insertIntoAdmin(user, company);
 //					CompanyDelegate.insertIntoCompanyDetails(user, company);
 					if (flag == 1) {
+						request.setAttribute("registerSuccess","yes");
 						RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
 						rd.forward(request, response);
 					}
 				}
-				 response.sendRedirect("Pages/jsp/login.jsp");
+				
+				 //response.sendRedirect("Pages/jsp/login.jsp");
+				/*
+				 * RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
+				 * rd.forward(request, response);
+				 */
 			} 
 
 		} 
 		
-			/*
-			 * catch (SQLIntegrityConstraintViolationException e) {
-			 * request.setAttribute("adminRegistrationError","This email id already exists"
-			 * ); RequestDispatcher rd =
-			 * request.getRequestDispatcher("Pages/jsp/login.jsp"); rd.forward(request,
-			 * response); }
-			 */
+		 catch (SQLIntegrityConstraintViolationException e) {
+			  System.out.println("exception here");
+			  request.setAttribute("adminRegistrationError","error");
+			  response.sendRedirect("RegisterAdminServlet"); 
+			  
+			  }
+			
 
 		catch (Exception e) {
 //				response.sendRedirect("/Pages/Retry.jsp");

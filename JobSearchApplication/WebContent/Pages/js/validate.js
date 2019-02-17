@@ -1,7 +1,7 @@
 function loginForm(){
 	var email = document.forms["login"]["email"];  
 	 var password = document.forms["login"]["psw"];  
-	 
+	  
 	 if (email.value == "")                                   
 	    { 
 	    	 emailError = "Please enter a valid e-mail address.";
@@ -32,10 +32,29 @@ function loginForm(){
 	      	 document.getElementById("log_psw_error").innerHTML = passwordError;
 	        password.focus(); 
 	        return false; 
-	    }	 
-	 
+	    }
+	   removeLoginError();
+	    
+	 return true;
+}
+function removeLoginError() {
+   var elem = document.getElementById("loginError");
+   elem.parentNode.removeChild(elem);
+	
 }
 
+
+function removeRegisterError() {
+   var elem = document.getElementById("RegisterError");
+   elem.parentNode.removeChild(elem);
+	
+}
+
+function removeAdminRegisterError() {
+   var elem = document.getElementById("adminRegisterError");
+   elem.parentNode.removeChild(elem);
+	
+}
 
 function registerForm()                                    
 { 
@@ -46,6 +65,8 @@ function registerForm()
     var password = document.forms["signup"]["psw"];  
     var confirm = document.forms["signup"]["cpsw"];  
     console.log("validate");
+    
+    
     if (name.value == "")                                  
     { 
   	    nameError = "Please enter your name";
@@ -114,7 +135,9 @@ function registerForm()
     	 document.getElementById("reg_des_error").innerHTML = designationError;
         designation.focus(); 
         return false; 
-    }    
+    }  
+    removeRegisterError();
+	   
     return true; 
 }
 
@@ -188,7 +211,7 @@ function validateForm()
         what.focus(); 
         return false; 
     } 
-   
+    removeAdminRegisterError();
     return true; 
 }
 
