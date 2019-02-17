@@ -2,7 +2,6 @@ package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

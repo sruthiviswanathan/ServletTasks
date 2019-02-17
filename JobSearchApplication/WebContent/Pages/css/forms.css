@@ -6,7 +6,7 @@
   body{
      font-family: Arial, Helvetica, sans-serif;
      color:black;
-      background-image:url(https://www.sixpathtechnologies.com/blog/images/h1.jpg);
+      background-image:url(http://www.metro-check.com/wp-content/uploads/2018/01/pexels-photo-733856.jpg);
 	 height: 100%;
  	 background-position: center;
   	 background-repeat: no-repeat;
@@ -169,33 +169,6 @@
 }
 
 
-/* @media (max-width:319px) {
-  .col-25, .col-75, input[type=submit], .nav ,input[type=text] 
-  ,input[type=email],input[type=password],.label,.cancelbtn,input[type="number"],input[type="file"],textarea,select,.tit, .error{
-    width: 100%;
-    margin: 0;
-  }
-   .col-25,.col-75,.col-xs-12,.field__entry{
-   width: 100%;
-    margin: 0;
-  }
-  
-} 
-
-@media (min-width:320px) and (max-width:1025px) {
-  .col-25, .col-75, input[type=submit],.nav,input[type=text] 
-  ,input[type=email],input[type=password],.label,button,.cancelbtn,input[type="number"],input[type="file"],textarea,select,.tit,.error{
-    width: 100%;
-    margin: 0;
-  }
-   .col-25,.col-75,.col-xs-12,.field__entry{
-   width: 100%;
-    margin: 0;
-  }
-  
- 
-} 
- */
  @media (max-width:319px) {
 
   .col-25,.col-75,.col-xs-12,.field__entry{

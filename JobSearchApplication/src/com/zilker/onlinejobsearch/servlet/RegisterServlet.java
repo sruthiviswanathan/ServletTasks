@@ -3,7 +3,7 @@ package com.zilker.onlinejobsearch.servlet;
 import java.io.IOException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
-import java.util.logging.Level;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,7 +16,6 @@ import com.zilker.onlinejobsearch.beans.Company;
 import com.zilker.onlinejobsearch.beans.Technology;
 import com.zilker.onlinejobsearch.beans.User;
 import com.zilker.onlinejobsearch.beans.UserTechnologyMapping;
-import com.zilker.onlinejobsearch.config.Config;
 import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
 import com.zilker.onlinejobsearch.delegate.UserDelegate;
 

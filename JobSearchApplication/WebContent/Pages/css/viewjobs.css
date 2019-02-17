@@ -3,7 +3,12 @@ body {
   font-family: Arial;
   width:100%;
   margin: 0 ;
-  height:100vh;
+  height:100vh;/* 
+ */   background-image:url(https://images.unsplash.com/photo-1518081461904-9d8f136351c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
+	height: 100%;
+ 	 background-position: center;
+  	 background-repeat: no-repeat;
+  	 background-size: cover;
 
 
 }
@@ -52,17 +57,17 @@ body {
 }
 
 .rightside {
-	/*  background-image:url(https://hr.sparkhire.com/wp-content/uploads/2014/04/Globalization-Initializing-Your-Recruitment-Process-Overseas-Guest-Post-300x225.jpg);
-	 height: 100%;
- 	 background-position: center;
-  	 background-repeat: no-repeat;
-  	 background-size: cover; */
-	
- 	  display: none;
-  	background:white; 
-} 
+	background-image:
+		url(http://www.metro-check.com/wp-content/uploads/2018/01/pexels-photo-733856.jpg);
+	height: 100%;
+	display: none;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	/* background:white; */
+	margin-right: 10px;
+}
 
- 
 .icon {
 color:dodgerblue;
 float:right;

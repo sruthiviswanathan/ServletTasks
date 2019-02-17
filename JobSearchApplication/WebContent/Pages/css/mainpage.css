@@ -1,6 +1,8 @@
 @charset "UTF-8";
+
+/*Styling for admin,findcompany,findjob,searchbylocation */
 body{
- 	 background-image:url(https://www.sixpathtechnologies.com/blog/images/h1.jpg);
+ 	 background-image:url(http://www.metro-check.com/wp-content/uploads/2018/01/pexels-photo-733856.jpg);
 	 height: 100vh;
  	 background-position: center;
   	 background-repeat: no-repeat;

@@ -60,9 +60,9 @@ public class RequestVacancyServlet extends HttpServlet {
 			String email = (String) session.getAttribute("email");
 			User user= new User();
 			UserDelegate userDelegate = new UserDelegate();
-			JobDelegate jobDelegate = new JobDelegate();
+			//JobDelegate jobDelegate = new JobDelegate();
 			JobRequest jobrequest = new JobRequest();
-			JobMapping jobMapping = new JobMapping();
+			//JobMapping jobMapping = new JobMapping();
 			user.setEmail(email);
 			String jobDesignation = request.getParameter("job");
 			String location = request.getParameter("location");

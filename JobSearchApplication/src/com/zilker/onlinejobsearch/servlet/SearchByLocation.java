@@ -3,7 +3,7 @@ package com.zilker.onlinejobsearch.servlet;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,8 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.zilker.onlinejobsearch.beans.Company;
 import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
-import com.zilker.onlinejobsearch.delegate.JobDelegate;
-import com.zilker.onlinejobsearch.delegate.UserDelegate;
+
 
 /**
  * Servlet implementation class SearchByLocation
