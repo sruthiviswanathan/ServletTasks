@@ -1,9 +1,19 @@
 @charset "UTF-8";
+
+body {
+	 background-image:url(http://www.metro-check.com/wp-content/uploads/2018/01/pexels-photo-733856.jpg);
+	 height: 100%;
+ 	 background-position: center;
+  	 background-repeat: no-repeat;
+  	 background-size: cover;  
+}
+
+
 .container__customers {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
-    margin-top:50px;
+    width: 75%;
+    margin:50px 0px 0px 150px;
   }
   
   .container__customers td, .container__customers th {

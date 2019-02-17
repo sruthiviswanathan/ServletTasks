@@ -113,17 +113,7 @@ public class CompanyDelegate {
 		}
 		return comp;
 	}
-	public ArrayList<Company> retrieveVacancyByLocationAndJob(Company company) throws SQLException {
-		// TODO Auto-generated method stub
-		ArrayList<Company> comp = new ArrayList<Company>();
-		try {
-			CompanyDAO companyDao = new CompanyDAO();
-			comp = companyDao.retrieveVacancyByLocationAndJob(company);
-		} catch (SQLException e) {
-			throw e;
-		}
-		return comp;
-	}
+
 
 	public boolean addNewCompany(Company company) throws SQLException {
 		// TODO Auto-generated method stub

@@ -78,10 +78,14 @@ public class UserProfileServlet extends HttpServlet {
 		try {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
+		String[] technology;
+		UserTechnologyMapping usertechnology = new UserTechnologyMapping();
+		UserTechnologyMapping userTechnologyMapping = new UserTechnologyMapping();
+		 ArrayList<UserTechnologyMapping> userTechnology = new ArrayList<UserTechnologyMapping>();
 		UserDelegate userDelegate = new UserDelegate();
 		User user= new User();
 		user.setEmail(email);
-		int userId=0;
+		int userId=0,flag=0;
 		userId = userDelegate.fetchUserId(user);
 		user.setUserId(userId);
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -102,7 +106,30 @@ public class UserProfileServlet extends HttpServlet {
 		if(userDelegate.updateUserDesignation(user)) {
 			System.out.println("updated designation");
 		}
+		
+		
+		
+		technology = request.getParameterValues("tech");
+		   if (technology != null) 
+		   {
+			  
+				userTechnology = userDelegate.displayUserTechnologies(userTechnologyMapping, user);
+				if(userTechnology.isEmpty()) {
+				}else {
+				userDelegate.deleteTechnologyDetails(userTechnologyMapping,user);
+				}
+				
+		      for (int i = 0; i < technology.length; i++) 
+		      {
+		    	    usertechnology.setUserId(user.getUserId());
+					usertechnology.setTechnologyId(Integer.parseInt(technology[i]));
+					flag = userDelegate.addTechnologyDetails(usertechnology);	
+				
+		      }
+		   }
+		
 		response.sendRedirect("UserProfileServlet");
+		
 		}catch(Exception e) {
 			
 		}

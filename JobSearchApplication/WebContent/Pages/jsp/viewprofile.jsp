@@ -69,13 +69,57 @@
                        <div class="profile__field col-xs-12 col-md-12">
                         <label for="skills" class="field__entry row col-25"><b>SKILLS SAVED IN YOUR PROFILE</b></label>
                        
-                        <div class="field__entry checkbox col-25">
+                        <div class="field__entry checkbox col-75">
 							
-							<c:forEach var="tech" items="${technologies}">
+							
+							<%-- <c:forEach var="tech" items="${technologies}">	
+																				
 							<input type="checkbox" name="tech" value="${tech.getTechnologyId()}"><c:out
-											value="${tech.getTechnology()}" />
+											value="${tech.getTechnology()}" />	
+							</c:forEach> --%>
+								<%-- <%@ page import="com.zilker.onlinejobsearch.beans.UserTechnologyMapping"%>  
+								<%@page import="java.util.ArrayList" %>
+
+									<%  
+									ArrayList<UserTechnologyMapping> list = new ArrayList<UserTechnologyMapping>();
+									list = (ArrayList<UserTechnologyMapping>) request.getAttribute("userTech");
+									%>  --%>
+								
+									
+						
+							 
+								<c:forEach var="tech" items="${technologies}">
+						
+									<c:forEach var="user" items="${userTech}"> 		
+									
+									<c:set var="tech1" value="${user.getTechnologyId()}" />	
+									<c:set var="tech2" value="${tech.getTechnologyId()}" />
+									
+									<c:choose>
+									<c:when test="${tech1 == tech2}">
+										<input type="checkbox" name="tech"
+											value="${tech.getTechnologyId()}" checked="checked">
+										<c:out value="${tech.getTechnology()}" />
+									</c:when>
+									</c:choose>
+									</c:forEach>
+									
+									
+									<c:set var="tech1" value="${user.getTechnologyId()}" />	
+									<c:set var="tech2" value="${tech.getTechnologyId()}" />
+									
+									<c:choose>
+									<c:when test="${tech1 != tech2}">
+										<input type="checkbox" name="tech"
+											value="${tech.getTechnologyId()}">
+										<c:out value="${tech.getTechnology()}" />
+									</c:when>
+									</c:choose>
+								
+								
 							</c:forEach>
-							
+
+
 						</div>
 						</div>
 					</c:forEach>

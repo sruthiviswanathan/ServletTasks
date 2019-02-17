@@ -339,6 +339,18 @@ public class UserDelegate {
 		return flag;
 	}
 
+	public boolean deleteTechnologyDetails(UserTechnologyMapping userTechnology, User user)throws SQLException {
+		// TODO Auto-generated method stub
+		boolean flag = false;
+		try {
+			UserDAO userDao = new UserDAO();
+			flag = userDao.deleteTechnologyDetails(userTechnology,user);
+		} catch (SQLException e) {
+			throw e;
+		}
+		return flag;
+	}
+
 
 }
 

@@ -453,37 +453,7 @@ public class CompanyDAO {
 
 	}
 	
-	public ArrayList<Company> retrieveVacancyByLocationAndJob(Company company) throws SQLException {
-		// TODO Auto-generated method stub
-		ArrayList<Company> comp = new ArrayList<Company>();
-		try {
-
-			connection = DButils.getConnection();
-			preparestatement = connection.prepareStatement(QueryConstants.RETRIEVECOMPANYBYLOCATIONANDJOB);
-			preparestatement.setString(1, company.getLocation());
-			preparestatement.setString(2,company.getJobRole());
-			resultset = preparestatement.executeQuery();
-			while (resultset.next()) {
-				Company c = new Company();
-				c.setLocation(resultset.getString(3));
-				c.setJobDescription(resultset.getString(4));
-				c.setSalary(resultset.getFloat(5));
-				c.setVacancyCount(resultset.getInt(6));
-				c.setCompanyId(resultset.getInt(1));
-				c.setJobId(resultset.getInt(2));
-				comp.add(c);
-			}
-		} catch (SQLException e) {
-			throw e;
-
-		} finally {
-			DButils.closeConnection(connection, preparestatement, resultset);
-			DButils.closeConnection(connection, preparestatement1, resultset1);
-			DButils.closeConnection(connection, preparestatement2, resultset2);
-		}
-		return comp;
-
-	}
+	
 
 
 	public boolean updateVacancyJobId(Company company, User user) throws SQLException {

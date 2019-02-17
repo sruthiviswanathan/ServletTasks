@@ -112,9 +112,10 @@ public class RegisterServlet extends HttpServlet {
 						
 				      }
 				   }
-				   request.setAttribute("registerSuccess","yes");
-				   RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
-				   rd.forward(request, response);
+				   //request.setAttribute("registerSuccess","yes");
+				   //RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
+				   //rd.forward(request, response);
+				   response.sendRedirect("GetAllDataServlet"); 
 			}
 			
 			

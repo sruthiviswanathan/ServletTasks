@@ -718,6 +718,25 @@ public class UserDAO {
 		return flag;
 	}
 
+	public boolean deleteTechnologyDetails(UserTechnologyMapping userTechnology, User user)throws SQLException {
+		// TODO Auto-generated method stub
+		boolean flag = false;
+		try {
+			connection = DButils.getConnection();
+			preparestatement = connection.prepareStatement(QueryConstants.DELETEUSERTECHNOLOGY);
+			preparestatement.setInt(1, user.getUserId());
+			preparestatement.executeUpdate();
+			flag = true;
+
+		} catch (SQLException e) {
+			throw e;
+
+		} finally {
+			DButils.closeConnection(connection, preparestatement, resultset);
+		}
+		return flag;
+	}
+
 	
 
 	

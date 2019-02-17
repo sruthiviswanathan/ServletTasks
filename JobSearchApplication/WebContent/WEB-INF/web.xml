@@ -200,7 +200,15 @@
 		<servlet-name>LogoutServlet</servlet-name>
 		<url-pattern>/LogoutServlet</url-pattern>
 	</servlet-mapping>
-	
+	<servlet>
+		<servlet-name>GetAllDataServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.GetAllDataServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>GetAllDataServlet</servlet-name>
+		<url-pattern>/GetAllDataServlet</url-pattern>
+	</servlet-mapping>
 </element>
 
 
