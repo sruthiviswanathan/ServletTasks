@@ -2,7 +2,7 @@
 
 /*Styling for admin,findcompany,findjob,searchbylocation */
 body{
- 	 background-image:url(http://www.metro-check.com/wp-content/uploads/2018/01/pexels-photo-733856.jpg);
+	  background:url(https://images.unsplash.com/photo-1521020773588-3b28297b1e70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
 	 height: 100vh;
  	 background-position: center;
   	 background-repeat: no-repeat;
@@ -27,7 +27,7 @@ body{
   text-align: center;
   background-color: #212121;
   padding:5px;
-  margin-top:10px;
+  margin-top:0px;
 }
 
 

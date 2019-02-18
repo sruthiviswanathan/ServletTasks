@@ -21,7 +21,7 @@
 			}
 		%> 
          <div class="maincontainer">
-             <div id="mySidenav" class="container__sidenav">
+      		<div id="mySidenav" class="container__sidenav">
                         <div class="sidenav__items">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>

@@ -20,7 +20,7 @@
 			}
 		%> 
     <div class="container">
-       <div id="mySidenav" class="container__sidenav">
+     <div id="mySidenav" class="container__sidenav">
        	<div class="sidenav__items">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			<a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
@@ -36,7 +36,7 @@
 				<i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
 
 			</ul>
-		</div>
+		</div> 
 		<div class="container__title">
 			<h3>YOUR NEXT HIRE IS HERE!!!</h3>
 		</div>

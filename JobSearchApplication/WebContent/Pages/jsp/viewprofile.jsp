@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/forms.css">
-    <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/navbar.css">
+  <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>LOGIN/SIGNUP</title>
 </head>
@@ -22,7 +22,7 @@
 			}
 		%> 
     <div class="container">
-          <div id="mySidenav" class="container__sidenav">
+        <div id="mySidenav" class="container__sidenav">
           	<div class="sidenav__items">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
@@ -41,7 +41,7 @@
 					<i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
                     
                     </ul>
-        </div>
+        </div> 
 						
 		<div class="container__title">
 			<h3>YOUR PROFILE!!!</h3>

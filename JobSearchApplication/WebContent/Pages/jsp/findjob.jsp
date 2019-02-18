@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
     <%@ page import="com.zilker.onlinejobsearch.config.Config"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%--  <jsp:include page="${Config.BASE_PATH}Pages/jsp/usernavbar.jsp"/> --%>
+ <%@ include file = "usernavbar.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +25,9 @@
 			}
 		%> 
         <div class="maincontainer">
-                <div id="mySidenav" class="container__sidenav">
+        
+       <%--   <jsp:include page="${Config.BASE_PATH}Pages/jsp/usernavbar.jsp"/> --%>
+                <%--  <div id="mySidenav" class="container__sidenav">
                         <div class="sidenav__items">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
@@ -42,8 +46,8 @@
 					<i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
                     
                     </ul>
-                </div>
-              
+                </div> 
+               --%>
               
               
                 <div class="container__searchbar">

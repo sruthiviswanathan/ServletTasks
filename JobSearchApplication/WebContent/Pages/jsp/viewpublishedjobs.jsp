@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ page import="com.zilker.onlinejobsearch.config.Config"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file = "usernavbar.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 

@@ -48,7 +48,7 @@
 					<li style="float: right" ><button class="arrow" id="btn" onclick="displaymenu(this.id)">
 					<i class="fa fa-arrow-left" aria-hidden="true"></i></button></li>
 			</ul>
-		</div>
+		</div> 
 		
 		
 		
