@@ -39,6 +39,10 @@ public class UpdateVacancyServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+		if(session.getAttribute("email")==null){
+			response.sendRedirect("index.jsp");
+		}
 	}
 
 	/**
@@ -114,7 +118,7 @@ public class UpdateVacancyServlet extends HttpServlet {
 			if(companyDelegate.updateVacancyCount(company, user)) {
 				System.out.println(vacancyCount);
 			}
-			
+			//response.sendRedirect("ViewPublishedJobsServlet");
 		} else if ("DELETE".equals(action)) {
 		    System.out.println("delete action");
 			company.setJobId(oldJobId);
@@ -122,6 +126,8 @@ public class UpdateVacancyServlet extends HttpServlet {
 				System.out.println("vacancy deleted");
 			}
 		}
+		
+		response.sendRedirect("ViewPublishedJobsServlet");
 		}catch(Exception e) {
 			
 		}

@@ -16,6 +16,14 @@
 </head>
 
 <body>
+
+		 <%
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("http://localhost:8080/JobSearchApplication/index.jsp");
+			} else {
+				System.out.println("session attribute "+session.getAttribute("email"));
+			}
+		%> 
 	<div class="maincontainer">
 		
 		<div id="mySidenav" class="container__sidenav">
@@ -39,6 +47,12 @@
 			<h1>YOUR NEXT HIRE IS HERE!!!</h1>
 		</div>
 		<div class="container__image"></div>
+		<span class="error col-40 col-xs-12 col-sm-12" id="vacancyError">                        
+               <c:if test="${noVacancy == 'yes'}">
+               <%-- <c:out value="YOU HAVE NOT PUBLISHED ANY JOB VACANCIES"></c:out> --%>
+               <h3>YOU HAVE NOT PUBLISHED ANY JOB VACANCIES</h3>
+               </c:if>
+        </span>
 	</div>
 </body>
 <script src="${Config.BASE_PATH}Pages/js/styles.js"></script>

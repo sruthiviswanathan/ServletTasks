@@ -41,7 +41,11 @@ public class UserProfileServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		try {
+			
 		HttpSession session = request.getSession();
+		if(session.getAttribute("email")==null){
+			response.sendRedirect("index.jsp");
+		}
 		String email = (String) session.getAttribute("email");
 		UserDelegate userDelegate = new UserDelegate();
 		User user= new User();

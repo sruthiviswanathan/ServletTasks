@@ -38,6 +38,14 @@ public class RequestVacancyServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			//response.getWriter().append("Served at: ").append(request.getContextPath());
+			HttpSession session = request.getSession();
+			String email = (String) session.getAttribute("email");
+			User user= new User();
+			user.setEmail(email);
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("index.jsp");
+			}
+			
 			JobMapping jobMapping = new JobMapping();
 			ArrayList<JobMapping> job = new ArrayList<JobMapping>();
 			JobDelegate jobDelegate = new JobDelegate();

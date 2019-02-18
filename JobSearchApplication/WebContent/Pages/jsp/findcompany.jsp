@@ -15,6 +15,11 @@
 </head>
 
 <body>
+		<%
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("http://localhost:8080/JobSearchApplication/index.jsp");
+			}
+		%> 
         <div id="maincontainer">
         
                <div id="mySidenav" class="container__sidenav">
@@ -38,18 +43,26 @@
                 </div>
 
  				<div class="container__searchbar">
-                        <form action="${Config.BASE_PATH}FindCompanyServlet" method="post">
-               <div class="searchbar__row">                  
+                        <form action="${Config.BASE_PATH}FindCompanyServlet" id="findCompany" onsubmit="submitFindCompany()" method="post">
+               					<div class="searchbar__row">                  
                                 <div class="col-20 col-xs-12 col-sm-12">
                                         <label for="job" class="row__label">SEARCH FOR COMPANY</label>
                                 </div>
                                 <div class="col-60 col-xs-12 col-sm-12">
-                                        <input type="text" class="row__input" name="companyName" placeholder="Search for Company.."
+                                        <input type="text" class="row__input"  oninput ="return removeCompanyErrors();" name="companyName" placeholder="Search for Company.."
                                                 required><i class="icon fa fa-search" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-10 col-xs-12 col-sm-12">
                                         <input type="submit" class="row__button col-xs-12 col-sm-12" value="SEARCH">
                                 </div>
+                                 <span class="error col-40 col-xs-12 col-sm-12" id="companyError">
+                                       <c:if test="${noCompany == 'yes'}">
+                                       <c:out value="This company is not registered with us!!!"></c:out>
+                                       </c:if>
+                                       <c:if test="${noVacancy == 'yes'}">
+                                       <c:out value="There is no Vacancy in this Company as of now"></c:out>
+                                       </c:if>
+                                </span>
                                </div>
                         </form>
                 </div>

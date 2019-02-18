@@ -4,13 +4,18 @@ import java.io.IOException;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.zilker.onlinejobsearch.beans.Company;
 import com.zilker.onlinejobsearch.beans.JobMapping;
+import com.zilker.onlinejobsearch.beans.User;
 import com.zilker.onlinejobsearch.delegate.JobDelegate;
 
 
@@ -38,6 +43,12 @@ public class ViewByJob extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+		if(session.getAttribute("email")==null){
+			response.sendRedirect("index.jsp");
+		}else {
+			System.out.println("session attribute "+session.getAttribute("email"));
+		}
 	}
 
 	/**
@@ -49,6 +60,13 @@ public class ViewByJob extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			response.setContentType("text/html;charset=UTF-8");
+			HttpSession session = request.getSession();
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("index.jsp");
+			}else {
+			String email = (String) session.getAttribute("email");
+			User user= new User();
+			user.setEmail(email);
 			ArrayList<String> jobRole = new ArrayList<String>();
 			ArrayList<Company> vacancyDetails = new ArrayList<Company>();
 			JobDelegate jobDelegate = new JobDelegate();
@@ -57,32 +75,36 @@ public class ViewByJob extends HttpServlet {
 
 			int jobId = 0;
 			
-			String jobDesignation = request.getParameter("job");
-			System.out.println(jobDesignation);
-			
+			String jobDesignation = request.getParameter("job");			
 			jobRole.add(jobDesignation);
 			request.setAttribute("job",jobRole);
 			jobmapping.setJobRole(jobDesignation);
 			
 			jobId = jobDelegate.fetchJobId(jobmapping);
 			if(jobId == 0) {
-				response.sendRedirect("Pages/jsp/findjob.jsp");
+				request.setAttribute("noJobDesignation","yes");
+				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/findjob.jsp");
+				rd.forward(request, response);
 			}
 			else {
 			
 				company.setJobId(jobId);
 				vacancyDetails = jobDelegate.retrieveVacancyByJob1(company);
 				if (vacancyDetails.isEmpty()) {
-					System.out.println("***No vacancy in this designation!!!***");
+					request.setAttribute("noVacancy","yes");
+					RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/findjob.jsp");
+					rd.forward(request, response);
 				}
+				else {
 				for (Company i : vacancyDetails) {
 					request.setAttribute("displayVacancy", vacancyDetails);
 				}
 				getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/viewjobs.jsp").forward(request,response);
-			}
-				
-				
 			
+				}
+		}
+				
+			}	
 		} catch (SQLException e) {
 		
 		}

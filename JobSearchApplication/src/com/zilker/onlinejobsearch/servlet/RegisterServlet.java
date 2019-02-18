@@ -41,7 +41,7 @@ public class RegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-			System.out.println("signup");
+			//System.out.println("signup");
 			request.setAttribute("userRegistrationError","error");
 		
 			Technology technology = new Technology();

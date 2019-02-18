@@ -18,6 +18,14 @@
 </head>
 
 <body>
+<%
+//response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("http://localhost:8080/JobSearchApplication/index.jsp");
+			}else {
+				System.out.println("session attribute "+session.getAttribute("email"));
+			}
+		%> 
 	<div class="container">
 		 <div id="mySidenav" class="container__sidenav">
 		 		<div class="sidenav__items">

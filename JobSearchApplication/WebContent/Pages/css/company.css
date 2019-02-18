@@ -33,7 +33,18 @@ body{
     font-weight: bold;
     margin-right:5px;
 }
-
+ .col-40 {
+    width: 50%;
+    margin-top: 20px;
+    margin-left:400px;
+  }
+.error {
+  	font-size:30px;
+  	background-color:#ffe57f;
+  	color:black;
+  	font-weight:bold;
+    display: block;
+  }
 
   ul {
     list-style-type: none;

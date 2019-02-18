@@ -37,8 +37,12 @@ public class ViewAppliedUsersServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		try {
+			HttpSession session=request.getSession(); 
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("index.jsp");
+			}
 			ArrayList<Company> appliedUsers = new ArrayList<Company>();
-			HttpSession session = request.getSession();
+			//HttpSession session = request.getSession();
 			String email = (String) session.getAttribute("email");
 			User user= new User();
 			Company company = new Company();

@@ -3,13 +3,16 @@ package com.zilker.onlinejobsearch.servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.zilker.onlinejobsearch.beans.Company;
+import com.zilker.onlinejobsearch.beans.User;
 import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
 import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
@@ -35,7 +38,10 @@ public class FindCompanyServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+			HttpSession session=request.getSession(); 
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("index.jsp");
+			}
 		}
 
 	/**
@@ -47,7 +53,10 @@ public class FindCompanyServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			int companyId = 0;
-			
+			HttpSession session = request.getSession();
+			String email = (String) session.getAttribute("email");
+			User user= new User();
+			user.setEmail(email);
 			ArrayList<Company> companyDetails = new ArrayList<Company>();
 			ArrayList<Company> vacancyDetails = new ArrayList<Company>();
 			ArrayList<Company> companyReviews = new ArrayList<Company>();
@@ -59,22 +68,30 @@ public class FindCompanyServlet extends HttpServlet {
 			company.setCompanyName(companyName);
 			companyId = companyDelegate.fetchCompanyId(company);
 			if (companyId == 0) {
-				response.sendRedirect("Pages/jsp/findcompany.jsp");
+				//response.sendRedirect("Pages/jsp/findcompany.jsp");
+				request.setAttribute("noCompany","yes");
+				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/findcompany.jsp");
+				rd.forward(request, response);
+				
 			} else {
 				company.setCompanyId(companyId);
 				companyDetails = companyDelegate.retrieveVacancyByCompany(company);
-				if (companyDetails.isEmpty()) {
-					System.out.println("***No Vacancy in this Company!!!***");
-
-				}
+				/*
+				 * if (companyDetails.isEmpty()) {
+				 * System.out.println("***No Vacancy in this Company!!!***");
+				 * 
+				 * }
+				 */
 				for (Company j : companyDetails) {
 					request.setAttribute("displayCompany", companyDetails);
 				}
 				vacancyDetails = companyDelegate.retrieveVacancyByCompany1(company);
 
 				if (vacancyDetails.isEmpty()) {
-					System.out.println("***No Vacancy in this Company!!!***");
-
+					//System.out.println("***No Vacancy in this Company!!!***");
+					request.setAttribute("noVacancy","yes");
+					RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/companydetails.jsp");
+					rd.forward(request, response);
 				} else {
 					for (Company i : vacancyDetails) {
 						int jobId = i.getJobId();

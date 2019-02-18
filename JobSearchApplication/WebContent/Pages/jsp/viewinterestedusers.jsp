@@ -14,7 +14,11 @@
   <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/navbar.css">
 </head>
 <body>
-
+<%
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("http://localhost:8080/JobSearchApplication/index.jsp");
+			}
+		%> 
     <div class="container">
        <div id="mySidenav" class="container__sidenav">
        	<div class="sidenav__items">

@@ -15,6 +15,13 @@
 </head>
 
 <body>
+		<%
+		//response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+			if(session.getAttribute("email")==null){
+				
+				response.sendRedirect("http://localhost:8080/JobSearchApplication/index.jsp");
+			}
+		%> 
         <div class="maincontainer">
                 <div id="mySidenav" class="container__sidenav">
                         <div class="sidenav__items">
@@ -40,18 +47,26 @@
               
               
                 <div class="container__searchbar">
-                        <form action="${Config.BASE_PATH}ViewByJob" method="post">
+                        <form action="${Config.BASE_PATH}ViewByJob" id="findJob" onsubmit="submitFindJob()" method="post">
                   <div class="searchbar__row">               
                                 <div class="col-20 col-xs-12 col-sm-12">
                                         <label for="job" class="row__label">SEARCH FOR JOB</label>
                                 </div>
                                 <div class="col-60 col-xs-12 col-sm-12">
-                                        <input type="text" class="row__input" name="job" placeholder="Search for Job.."
+                                        <input type="text" class="row__input"  oninput ="return removeErrors();" name="job" placeholder="Search for Job.."
                                                 required><i class="icon fa fa-search" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-10 col-xs-12 col-sm-12">
                                         <input type="submit" class=" row__button col-xs-12 col-sm-12" value="SEARCH">
                                 </div>
+                                <span class="error col-40 col-xs-12 col-sm-12" id="jobError">
+                                       <c:if test="${noJobDesignation == 'yes'}">
+                                       <c:out value="Please enter a valid job Designation"></c:out>
+                                       </c:if>
+                                        <c:if test="${noVacancy == 'yes'}">
+                                       <c:out value="There is no Vacancy in this Job Designation as of now"></c:out>
+                                       </c:if>
+                                </span>
                    </div>
                         </form>
                 </div>

@@ -40,6 +40,13 @@ public class RateServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
 		try {
+			HttpSession session = request.getSession();
+			String email = (String) session.getAttribute("email");
+			User user= new User();
+			user.setEmail(email);
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("index.jsp");
+			}
 			String companyName = request.getParameter("companyname");
 			System.out.println(companyName);
 			request.setAttribute("companyname", companyName);

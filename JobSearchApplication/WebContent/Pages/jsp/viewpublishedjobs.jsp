@@ -16,6 +16,11 @@
 </head>
 
 <body>
+		<%
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("http://localhost:8080/JobSearchApplication/index.jsp");
+			}
+		%> 
         <div class="container">
             
             <div id="mySidenav" class="container__sidenav">
@@ -68,7 +73,7 @@
                             	    <div class="container__split split--right rightside btn${loop.count}">
                            				 <div class="right__form">
                                 			
-                                			<form action="${Config.BASE_PATH}UpdateVacancyServlet" id="postjob" name="postjob" onsubmit="return validatePostJob()" method="post">
+                                			<form action="${Config.BASE_PATH}UpdateVacancyServlet" name="postjob" method="post">
                                     		<input type="hidden" name="jobdesignation" value="${vac.getJobRole()}">
                                         		
                                         		<div class="content__updatejobs">
@@ -76,9 +81,9 @@
                                                 <div class="updatejobs__field col-xs-12 col-md-12">
                                                 <label for="select-job" class="field__entry row col-75"><b>JOB DESIGNATION</b></label>
                                                
-                                                        <select id="job" name="job" class="field__entry row col-75">
+                                                        <select id="job" name="job" class="field__entry row col-75" required>
                                                       		
-                                                               <option value="${vac.getJobRole()}">${vac.getJobRole()}</option> 
+                                                               <option value="${vac.getJobId()}">${vac.getJobRole()}</option> 
                                                                <c:forEach var="job" items="${jobs}">
 																	<option value="${job.getJobId()}"><c:out value="${job.getJobRole()}" /></option>
 																</c:forEach> 
@@ -92,26 +97,26 @@
                                                
                                                 <div class="updatejobs__field col-xs-12 col-md-12">
                                                 <label  for="location" class="field__entry row col-25"><b>LOCATION</b></label>
-                                                <input type="text" class="field__entry row col-75" id="location" name="location" value="${vac.getLocation()}">
+                                                <input type="text" class="field__entry row col-75" id="location" name="location" value="${vac.getLocation()}" required>
                                                <span class="error"><p id="location_error"></p></span>
                                                </div>
                                                
                                                 <div class="updatejobs__field col-xs-12 col-md-12">
                                                 <label  for="salary" class="field__entry row col-25"><b>SALARY</b></label>
                                                 <input type="number" class="field__entry row col-75" id="salary" name="salary" value="${vac.getSalary()}"
-                                                        step=".01">
+                                                        step=".01" required>
                                                  <span class="error"><p id="salary_error"></p></span>
                                                  </div>
                                                     
                                                  <div class="updatejobs__field col-xs-12 col-md-12">
                                                 <label  for="count" class="field__entry row col-25"><b>COUNT</b></label>
-                                                <input type="number" class="field__entry row col-75" id="count" name="count" value="${vac.getVacancyCount()}"">
+                                                <input type="number" class="field__entry row col-75" id="count" name="count" value="${vac.getVacancyCount()}"required>
                                                <span class="error"><p id="count_error"></p></span>
                                                </div>
                                                
                                                 <div class="updatejobs__field col-xs-12 col-md-12">
                                                 <label for="description" class="field__entry row col-75"><b>JOB DESCRIPTION</b></label>
-                                                <textarea rows="4" cols="50" class="field__entry row col-75" name="description">${vac.getJobDescription()}</textarea>
+                                                <textarea rows="4" cols="50" class="field__entry row col-75" name="description" required>${vac.getJobDescription()}</textarea>
                                        			<span class="error"><p id="desc_error"></p></span>
                                        			</div>
 
@@ -131,7 +136,7 @@
 
 						</c:forEach>
                             <div class="container__form-popup" id="myForm">
-                                    <form action="login.html" class="form-container">
+                                    <form action="${Config.BASE_PATH}ViewPublishedJobsServlet" class="form-container" method="post">
                                             <h3>ADD NEW JOB DESIGNATION</h3>
                                             <input type="text" placeholder="Enter new Job designation" name="newjob" required>
                                             <button type="submit" id="addjob" class="btn">ADD DESIGNATION</button>

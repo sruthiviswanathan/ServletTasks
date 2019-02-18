@@ -31,7 +31,13 @@ public class LogoutServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		try {
 			HttpSession session = request.getSession();
+			
 			if (session != null) {
+			    //response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+			    response.setHeader("Cache-Control", "no-cache");
+			    response.setHeader("Pragma","no-cache");
+			    response.setDateHeader("max-age",0);
+			    response.setDateHeader("Expires",0);
 			    session.invalidate();
 			    response.sendRedirect("index.jsp");
 			}

@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.zilker.onlinejobsearch.beans.Company;
 import com.zilker.onlinejobsearch.beans.Technology;
@@ -40,9 +41,8 @@ public class RegisterAdminServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			System.out.println("signup");
+			
 			request.setAttribute("adminRegistrationError","error");
-		
 			Technology technology = new Technology();
 			ArrayList<Technology> tech = new ArrayList<Technology>();
 			UserDelegate userDelegate = new UserDelegate();

@@ -39,6 +39,12 @@ public class PostJobServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+			HttpSession session=request.getSession(); 
+			response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("index.jsp");
+			}
+			
 			JobMapping jobMapping = new JobMapping();
 			ArrayList<JobMapping> job = new ArrayList<JobMapping>();
 			JobDelegate jobDelegate = new JobDelegate();
@@ -62,6 +68,9 @@ public class PostJobServlet extends HttpServlet {
 			String email = (String) session.getAttribute("email");
 			User user= new User();
 			user.setEmail(email);
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("index.jsp");
+			}
 			Company company = new Company();
 			UserDelegate userDelegate = new UserDelegate();
 			CompanyDelegate companyDelegate = new CompanyDelegate();

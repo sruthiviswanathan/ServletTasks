@@ -36,9 +36,8 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-			System.out.println("login");
-			System.out.println(request.getAttribute("userRegisterationError"));
-			
+		
+	
 			Technology technology = new Technology();
 			ArrayList<Technology> tech = new ArrayList<Technology>();
 			UserDelegate userDelegate = new UserDelegate();
@@ -65,8 +64,9 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-			System.out.println("post");
+			
 			HttpSession session=request.getSession(); 
+			//response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 			int role=0;
 			UserDelegate userDelegate = new UserDelegate();
 			User user = new User();

@@ -69,3 +69,36 @@ function displaymenu(id) {
 	  x[i].style.display ="none";
 	}
 }
+
+function removeErrors(){
+	var elem = document.getElementById('jobError').remove();;
+    //elem.parentNode.removeChild(elem);
+    return false;
+}
+function submitFindJob(){
+
+var elem = document.getElementById('jobError').remove();	
+document.getElementById("findJob").submit();
+
+}
+function removeLocationErrors(){
+	var elem1 = document.getElementById('locationError').remove();;
+    return false;
+}
+function submitFindLocation(){
+
+	var elem = document.getElementById('locationError').remove();	
+	document.getElementById("findLocation").submit();
+
+	}
+
+function removeCompanyErrors(){
+	var elem1 = document.getElementById('companyError').remove();;
+    return false;
+}
+function submitFindCompany(){
+
+	var elem = document.getElementById('companyError').remove();	
+	document.getElementById("findCompany").submit();
+
+	}

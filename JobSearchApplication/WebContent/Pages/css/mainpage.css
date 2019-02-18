@@ -14,28 +14,13 @@ body{
     overflow-x: hidden;
   }
 
+ .error {
+  	font-size:16px;
+  	color:red;
+  	font-weight:bold;
+    display: block;
+  }
 
-/* alert */
-/* .alert {
-  padding: 20px;
-  background-color: #f44336;
-  color: white;
-}
-
-.closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.closebtn:hover {
-  color: black;
-} */
 
 .container__title {
   color: white;
@@ -136,6 +121,12 @@ a:active, a:hover {
     width: 20%;
     margin-top: 20px;
     margin-left:20px;
+  }
+  
+  .col-40 {
+    width: 50%;
+    margin-top: 20px;
+    margin-left:380px;
   }
   
   .col-60 {

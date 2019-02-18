@@ -35,6 +35,10 @@ public class AddNewJobDesignationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+		if(session.getAttribute("email")==null){
+			response.sendRedirect("index.jsp");
+		}
 	}
 
 	/**
@@ -45,7 +49,7 @@ public class AddNewJobDesignationServlet extends HttpServlet {
 		try {
 			HttpSession session = request.getSession();
 			String email = (String) session.getAttribute("email");
-			System.out.println(email);
+			//System.out.println(email);
 			UserDelegate userDelegate = new UserDelegate();
 			User user= new User();
 			user.setEmail(email);

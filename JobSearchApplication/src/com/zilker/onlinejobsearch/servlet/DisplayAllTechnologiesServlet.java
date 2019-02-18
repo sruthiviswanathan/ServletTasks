@@ -9,6 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.zilker.onlinejobsearch.beans.Technology;
 import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
@@ -34,6 +36,10 @@ public class DisplayAllTechnologiesServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			//response.getWriter().append("Served at: ").append(request.getContextPath());
+			HttpSession session = request.getSession();
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("index.jsp");
+			}
 			Technology technology = new Technology();
 			ArrayList<Technology> tech = new ArrayList<Technology>();
 			UserDelegate userDelegate = new UserDelegate();

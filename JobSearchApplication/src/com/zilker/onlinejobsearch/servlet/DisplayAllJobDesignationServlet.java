@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.zilker.onlinejobsearch.beans.JobMapping;
 import com.zilker.onlinejobsearch.delegate.JobDelegate;
@@ -34,6 +35,10 @@ public class DisplayAllJobDesignationServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			//response.getWriter().append("Served at: ").append(request.getContextPath());
+			HttpSession session = request.getSession();
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("index.jsp");
+			}
 			JobMapping jobMapping = new JobMapping();
 			ArrayList<JobMapping> job = new ArrayList<JobMapping>();
 			JobDelegate jobDelegate = new JobDelegate();
