@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.zilker.onlinejobsearch.beans.Company;
 import com.zilker.onlinejobsearch.beans.Technology;
@@ -70,6 +71,7 @@ public class RegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+			HttpSession session=request.getSession(); 
 			String[] technology;
 			int userId=0,flag=0;
 			UserDelegate userDelegate = new UserDelegate();
@@ -112,10 +114,11 @@ public class RegisterServlet extends HttpServlet {
 						
 				      }
 				   }
-				   //request.setAttribute("registerSuccess","yes");
-				   //RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
-				   //rd.forward(request, response);
-				   response.sendRedirect("GetAllDataServlet"); 
+				   session.setAttribute("email",email); 
+				   request.setAttribute("registerSuccess","yes");
+				   RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/findjob.jsp");
+				   rd.forward(request, response);
+				   //response.sendRedirect("GetAllDataServlet"); 
 			}
 			
 			

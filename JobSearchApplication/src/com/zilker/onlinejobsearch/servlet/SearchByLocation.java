@@ -58,18 +58,12 @@ public class SearchByLocation extends HttpServlet {
 			Company company = new Company();	
 			CompanyDelegate companyDelegate = new CompanyDelegate();
 			String location = request.getParameter("location");
-			//String flag="";
 				company.setLocation(location);
 				retrieveByLocation = companyDelegate.retrieveVacancyByLocation(company);
 				if (retrieveByLocation.isEmpty()) {
-					//System.out.println("No vacancy in this Location as of now!!");
-					// flag="No vacancy in this Location as of now!!";
-					//request.setAttribute("flag",flag);
-					//response.sendRedirect("Pages/jsp/searchbylocation.jsp");
 					request.setAttribute("noVacancy","yes");
-					RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/searchbylocation.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/errorlocationresults.jsp");
 					rd.forward(request, response);
-					//getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/searchbylocation.jsp").forward(request,response);	
 					
 				} else {
 					for (Company i : retrieveByLocation) {

@@ -25,27 +25,6 @@
 		%> 
 	<div id="maincontainer">
 		
-		<%--  <div id="mySidenav" class="container__sidenav">
-		 		   <div class="sidenav__items">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
-                         <a href="${Config.BASE_PATH}Pages/jsp/searchbylocation.jsp">SEARCH BY LOCATION</a>        
-                        <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/requestvacancy.jsp">REQUEST A VACANCY</a>
-               
-               		 </div>
-          </div>
-	
-		<div class="container__navbar">
-			  <ul class="navbar__list">
-					<li><button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button></li>			
-					<li>JOB HUNT</li>
-					 <li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet">
-					<i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
-                        </ul>
-		</div> --%>
-		
 		<div class="container__searchbar">
 			<form action="${Config.BASE_PATH}FindCompanyServlet" method="post">
 				<div class="searchbar__row">
@@ -98,9 +77,14 @@
 						<label for="rating" class="display__row__label">OVERALL RATING</label>
 					</div>
 					
-					<div class="row__content col-20 col-xs-12 col-sm-12">
+					<div class="row__content col-60 col-xs-12 col-sm-12">
 						<div class="content__value">
+							<c:if test="${comp.getAverageRating() != 0}">
 							<c:out value="${comp.getAverageRating()}" />
+							</c:if>
+							<c:if test="${comp.getAverageRating() == 0}">
+							<c:out value="***No Rating For This Company***" />
+							</c:if>
 						</div>
 					</div>
 				
@@ -118,30 +102,38 @@
 			</div>
 			
 			<div class="display__reviews">
+				
+				<c:choose>
+    			
+    			  <c:when test="${noReviews == 'yes'}">
+    			  <div class="error col-60 col-xs-12 col-sm-12">
+                          <c:out value="***No Reviews have been given yet***"></c:out>
+                    </div>
+                  </c:when>
 					
+				<c:otherwise>
 					<div class="content__value col-20 col-xs-12 col-sm-12">
 						<label for="companyname">NAME :</label>	
-							<c:out value="${displayCompanyReviews[0].getUserName()}" />
-						
+						<c:out value="${displayCompanyReviews[0].getUserName()}" />						
 					</div>
 					
 					<div class="content__value col-20 col-xs-12 col-sm-12">
 					
-						<label for="review">REVIEW :</label>
-							<c:out value="${displayCompanyReviews[0].getReview()}" />
-					
+							<label for="review">REVIEW :</label>
+							<c:out value="${displayCompanyReviews[0].getReview()}" /> 			
 					</div>
 					
 					<div class="content__value col-10 col-xs-12 col-sm-12">
 					
-						<label for="rating">RATING :</label>
-							<c:out value="${displayCompanyReviews[0].getRating()}" />
-					
-					</div>
-					
+							<label for="rating">RATING :</label>
+							 <c:out value="${displayCompanyReviews[0].getRating()}" /> 
+					</div> 
+				</c:otherwise>	
+				
+				</c:choose>
+				
 					<div class="col-20 col-xs-12 col-sm-12">
 							<input type="submit" class="row__button col-xs-12 col-sm-12" value="VIEW ALL REVIEWS">
-						<!-- <button class="row__button" type="submit" value="VIEW ALL REVIEWS"></button></a> -->
 					</div>
 			</div>
 				

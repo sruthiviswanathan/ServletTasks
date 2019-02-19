@@ -82,7 +82,7 @@
                                                 <div class="updatejobs__field col-xs-12 col-md-12">
                                                 <label for="select-job" class="field__entry row col-75"><b>JOB DESIGNATION</b></label>
                                                
-                                                        <select id="job" name="job" class="field__entry row col-75" required>
+                                                        <select id="job" name="job" class="select row col-75" required>
                                                       		
                                                                <option value="${vac.getJobId()}">${vac.getJobRole()}</option> 
                                                                <c:forEach var="job" items="${jobs}">
@@ -98,26 +98,26 @@
                                                
                                                 <div class="updatejobs__field col-xs-12 col-md-12">
                                                 <label  for="location" class="field__entry row col-25"><b>LOCATION</b></label>
-                                                <input type="text" class="field__entry row col-75" id="location" name="location" value="${vac.getLocation()}" required>
+                                                <input type="text" class="field__input row col-75" id="location" name="location" value="${vac.getLocation()}" required>
                                                <span class="error"><p id="location_error"></p></span>
                                                </div>
                                                
                                                 <div class="updatejobs__field col-xs-12 col-md-12">
                                                 <label  for="salary" class="field__entry row col-25"><b>SALARY</b></label>
-                                                <input type="number" class="field__entry row col-75" id="salary" name="salary" value="${vac.getSalary()}"
+                                                <input type="number" class="field__input row col-75" id="salary" name="salary" value="${vac.getSalary()}"
                                                         step=".01" required>
                                                  <span class="error"><p id="salary_error"></p></span>
                                                  </div>
                                                     
                                                  <div class="updatejobs__field col-xs-12 col-md-12">
                                                 <label  for="count" class="field__entry row col-25"><b>COUNT</b></label>
-                                                <input type="number" class="field__entry row col-75" id="count" name="count" value="${vac.getVacancyCount()}"required>
+                                                <input type="number" class="field__input row col-75" id="count" name="count" value="${vac.getVacancyCount()}"required>
                                                <span class="error"><p id="count_error"></p></span>
                                                </div>
                                                
                                                 <div class="updatejobs__field col-xs-12 col-md-12">
                                                 <label for="description" class="field__entry row col-75"><b>JOB DESCRIPTION</b></label>
-                                                <textarea rows="4" cols="50" class="field__entry row col-75" name="description" required>${vac.getJobDescription()}</textarea>
+                                                <textarea rows="4" cols="50" class="field__input row col-75" name="description" required>${vac.getJobDescription()}</textarea>
                                        			<span class="error"><p id="desc_error"></p></span>
                                        			</div>
 

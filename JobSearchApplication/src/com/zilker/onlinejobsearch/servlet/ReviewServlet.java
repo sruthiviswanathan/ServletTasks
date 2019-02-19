@@ -64,19 +64,23 @@ public class ReviewServlet extends HttpServlet {
 		companyId = companyDelegate.fetchCompanyId(company);
 		company.setCompanyId(companyId);
 		companyDetails = companyDelegate.retrieveVacancyByCompany(company);
-		if (companyDetails.isEmpty()) {
-			System.out.println("***No Vacancy in this Company!!!***");
-
-		}
+			/*
+			 * if (companyDetails.isEmpty()) {
+			 * System.out.println("***No Vacancy in this Company!!!***");
+			 * 
+			 * }
+			 */
 		for (Company j : companyDetails) {
 			request.setAttribute("displayCompany", companyDetails);
 		}
 		companyReviews = userDelegate.retrieveReview(company);
 		if (companyReviews.isEmpty()) {
-			System.out.println("***No Reviews for this Company!!!***");
-		}
+			request.setAttribute("noReviews", "yes");
+			//System.out.println("***No Reviews for this Company!!!***");
+		}else {
 		for (Company i : companyReviews) {
 			request.setAttribute("displayCompanyReviews", companyReviews);
+		}
 		}
 		getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/viewallreviews.jsp").forward(request,response);
 		}catch(Exception e) {

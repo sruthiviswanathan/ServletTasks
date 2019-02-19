@@ -23,22 +23,24 @@
 			}
 		%> 
         <div class="maincontainer">
-                   
-                   		<div class="success">
-						<c:if test="${registerSuccess == 'yes'}">
-						<c:out value="CONGRATS YOU ARE REGISTERED WITH US!!"/>
-						</c:if>
-						</div>
-                   
-                     
+               	
+               	<div class="container__error__title" id="jobError">
+                        <c:if test="${noJobDesignation == 'yes'}">
+                        <c:out value="PLEASE ENTER A VALID JOB DESIGNATION!!!"></c:out>
+                        </c:if>
+                        <c:if test="${noVacancy == 'yes'}">
+                        <c:out value="THERE IS NO VACANCY IN THIS DESIGNATION AS OF NOW!!!"></c:out>
+                        </c:if>
+                </div>   
+                
                 <div class="container__searchbar">
-                        <form action="${Config.BASE_PATH}ViewByJob" method="post">
+                        <form action="${Config.BASE_PATH}ViewByJob" id="findJob" onsubmit="submitFindJob()" method="post">
                   <div class="searchbar__row">               
                                 <div class="col-20 col-xs-12 col-sm-12">
                                         <label for="job" class="row__label">SEARCH FOR JOB</label>
                                 </div>
                                 <div class="col-60 col-xs-12 col-sm-12">
-                                        <input type="text" class="row__input" name="job" placeholder="Search for Job.."
+                                        <input type="text" class="row__input"  oninput ="return removeErrors();" name="job" placeholder="Search for Job.."
                                                 required><i class="icon fa fa-search" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-10 col-xs-12 col-sm-12">

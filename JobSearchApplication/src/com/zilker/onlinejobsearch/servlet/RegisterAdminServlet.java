@@ -72,7 +72,7 @@ public class RegisterAdminServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-
+			HttpSession session=request.getSession(); 
 			int userId = 0, flag = 0;
 			UserDelegate userDelegate = new UserDelegate();
 			CompanyDelegate companyDelegate = new CompanyDelegate();
@@ -106,17 +106,13 @@ public class RegisterAdminServlet extends HttpServlet {
 					flag = userDelegate.insertIntoAdmin(user, company);
 //					CompanyDelegate.insertIntoCompanyDetails(user, company);
 					if (flag == 1) {
+						 session.setAttribute("email",email);
 						request.setAttribute("registerSuccess","yes");
-						RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
+						RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/admin.jsp");
 						rd.forward(request, response);
 					}
 				}
-				
-				 //response.sendRedirect("Pages/jsp/login.jsp");
-				/*
-				 * RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/login.jsp");
-				 * rd.forward(request, response);
-				 */
+
 			} 
 
 		} 

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@ page import="com.zilker.onlinejobsearch.config.Config"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@ include file = "usernavbar.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,31 +22,10 @@
 			}
 		%> 
          <div class="maincontainer">
-      		<div id="mySidenav" class="container__sidenav">
-                        <div class="sidenav__items">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
-                         <a href="${Config.BASE_PATH}Pages/jsp/searchbylocation.jsp">SEARCH BY LOCATION</a>
-                        <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/requestvacancy.jsp">REQUEST A VACANCY</a>
-                      </div>
-                </div>
-               <div class="container__navbar">
-                       <ul class="navbar__list">
-                               <li><button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button></li>			
-					<li>JOB HUNT</li>
-					 	<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet">
-						<i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
-                        </ul>
-                        
-                </div>
-                
-               
-                
+         
                  <div class="container__searchbar">
                
-                        <form action="${Config.BASE_PATH}SearchByLocation" id="findLocation" onsubmit="submitFindLocation()" method="post">
+                        <form action="${Config.BASE_PATH}SearchByLocation"  method="post">
                                
                                 <div class="searchbar__row">   
                                  
@@ -54,7 +34,7 @@
                                 </div>
  
                                 <div class="col-60 col-xs-12 col-sm-12">
-                                        <input type="text" class="row__input" oninput ="return removeLocationErrors();" name="location"  placeholder="Enter a Location.."
+                                        <input type="text" class="row__input" name="location"  placeholder="Enter a Location.."
                                                 required><i class="icon fa fa-map-marker" aria-hidden="true"></i>
                                 </div>
  
@@ -62,16 +42,6 @@
                                         <input type="submit" class="row__button col-xs-12 col-sm-12" value="SEARCH">
                                 </div>
                                 
-                                <span class="error col-40 col-xs-12 col-sm-12" id="locationError">
-                                       <%-- <c:if test="${noLocation == 'yes'}">
-                                       <c:out value="Please enter a valid Location"></c:out>
-                                       </c:if> --%>
-                                        <c:if test="${noVacancy == 'yes'}">
-                                       <c:out value="There is no Vacancy in this Location as of now"></c:out>
-                                       </c:if>
-                                </span> 
-                               
-                				
                 				</div>
                 				
                 			

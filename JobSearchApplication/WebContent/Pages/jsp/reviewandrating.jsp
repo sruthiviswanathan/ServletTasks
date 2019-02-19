@@ -22,26 +22,6 @@
 			}
 		%> 
 <div class="maincontainer">
-
-    <%--  <div id="mySidenav" class="container__sidenav">
-                  <div class="sidenav__items">      
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/searchbylocation.jsp">SEARCH BY LOCATION</a>
-                        <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/requestvacancy.jsp">REQUEST A VACANCY</a>
-                  </div>
-      </div>
-	
-	<div class="container__navbar">
-        <ul class="navbar__list">
-                <li><button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button></li>			
-					<li>JOB HUNT</li>
-					<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet">
-					<i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
-        </ul>
-	</div> --%>
 	
 	<div class="container__forms">
     <form id="reviewForm" action="${Config.BASE_PATH}RateServlet" method="post">

@@ -16,35 +16,42 @@
 </head>
 
 <body>
-		<%
+<%
 			if(session.getAttribute("email")==null){
-				
 				response.sendRedirect("http://localhost:8080/JobSearchApplication/index.jsp");
 			}
 		%> 
-        <div class="maincontainer">
-                   
-                   		<div class="success">
-						<c:if test="${registerSuccess == 'yes'}">
-						<c:out value="CONGRATS YOU ARE REGISTERED WITH US!!"/>
-						</c:if>
-						</div>
-                   
-                     
-                <div class="container__searchbar">
-                        <form action="${Config.BASE_PATH}ViewByJob" method="post">
-                  <div class="searchbar__row">               
+         <div class="maincontainer">
+         
+         				<div class="container__error__title" id="locationError">
+         							<c:if test="${noVacancy == 'yes'}">
+                                    <c:out value="There is no Vacancy in this Location as of now"></c:out>
+                                    </c:if>
+         				</div>
+         
+         
+                 <div class="container__searchbar">
+               
+                        <form action="${Config.BASE_PATH}SearchByLocation" id="findLocation" onsubmit="submitFindLocation()" method="post">
+                               
+                                <div class="searchbar__row">   
+                                 
                                 <div class="col-20 col-xs-12 col-sm-12">
-                                        <label for="job" class="row__label">SEARCH FOR JOB</label>
+                                        <label for="job" class="row__label">SEARCH BY LOCATION</label>
                                 </div>
+ 
                                 <div class="col-60 col-xs-12 col-sm-12">
-                                        <input type="text" class="row__input" name="job" placeholder="Search for Job.."
-                                                required><i class="icon fa fa-search" aria-hidden="true"></i>
+                                        <input type="text" class="row__input" oninput ="return removeLocationErrors();" name="location"  placeholder="Enter a Location.."
+                                                required><i class="icon fa fa-map-marker" aria-hidden="true"></i>
                                 </div>
+ 
                                 <div class="col-10 col-xs-12 col-sm-12">
-                                        <input type="submit" class=" row__button col-xs-12 col-sm-12" value="SEARCH">
+                                        <input type="submit" class="row__button col-xs-12 col-sm-12" value="SEARCH">
                                 </div>
-                   </div>
+                				
+                				</div>
+                				
+                			
                         </form>
                 </div>
               

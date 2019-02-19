@@ -26,13 +26,27 @@
         
     }
 .field__entry{
-	 width: 50%;
+	color:white;
+	width: 50%;
+    padding: 12px;
+    border-radius: 4px;
+ 
+ }
+ 
+ .field__input{
+ 	font-weight: bold;
+	color:black;
+	width: 50%;
+	font-size: 15px;
     padding: 12px;
     border-radius: 4px;
  
  }
  .select {
  color:black;
+ width: 50%;
+ padding: 12px;
+ border-radius: 4px;
  background-color:white;
  }
 

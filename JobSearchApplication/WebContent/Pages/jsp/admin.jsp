@@ -43,6 +43,14 @@
 
 			</ul>
 		</div>
+		
+						<div class="success">
+						<c:if test="${registerSuccess == 'yes'}">
+						<c:out value="CONGRATS YOU ARE REGISTERED WITH US!!"/>
+						</c:if>
+						</div>
+		
+		
 		<div class="container__title">
 			<h1>YOUR NEXT HIRE IS HERE!!!</h1>
 		</div>

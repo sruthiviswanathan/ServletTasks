@@ -55,19 +55,19 @@
                 <c:forEach var="data" items="${userData}">
              <div class="profile__field col-xs-12 col-md-12">     
                     <label for="uname" class="field__entry row col-25"><b>USERNAME*</b></label>
-                    <input type="text" class="field__entry row col-75" id="uname" name="username" value="${data.getUserName()}">  
+                    <input type="text" class="field__input row col-75" id="uname" name="username" value="${data.getUserName()}">  
                      <span class="error"><p id="name_error"></p></span>                     
                     </div>
                     
              <div class="profile__field col-xs-12 col-md-12">          
                         <label for="cname" class="field__entry row col-25"><b>COMPANY NAME*</b></label>
-                        <input type="text" class="field__entry row col-75" id="cname" name="cname" value="${data.getCompany()}" >
+                        <input type="text" class="field__input row col-75" id="cname" name="cname" value="${data.getCompany()}" >
                          <span class="error"><p id="comp_error"></p></span> 
                     </div>
                     
                        <div class="profile__field col-xs-12 col-md-12">
                         <label for="designation" class="field__entry row col-25"><b>DESIGNATION*</b></label>
-                        <input type="text" class="field__entry row col-75" id="desig" name="designation" value="${data.getDesignation()}">
+                        <input type="text" class="field__input row col-75" id="desig" name="designation" value="${data.getDesignation()}">
                         <span class="error"><p id="des_error"></p></span> 
                    	 </div>
                        <div class="profile__field col-xs-12 col-md-12">

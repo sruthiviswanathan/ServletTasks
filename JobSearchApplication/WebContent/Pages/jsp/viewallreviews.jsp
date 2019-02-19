@@ -23,26 +23,7 @@
 			}
 		%> 
 <div class="maincontainer">
-
-	 <%-- <div id="mySidenav" class="container__sidenav">
-	 		<div class="sidenav__items">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/searchbylocation.jsp">SEARCH BY LOCATION</a>
-                        <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/requestvacancy.jsp">REQUEST A VACANCY</a>
-            </div>
-      </div>
-	<div class="container__navbar">
-			 <ul class="navbar__list">
-					<li><button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button></li>			
-					<li>JOB HUNT</li>
-					<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet">
-					<i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
-             </ul>
-	</div> --%>
-			
+		
 		<div class="container__searchbar">
 			<form action="${Config.BASE_PATH}FindCompanyServlet" method="post">
 				<div class="searchbar__row">
@@ -95,8 +76,14 @@
 			</div>
 		
 			<div class="row__content col-60 col-xs-12 col-sm-12">
+						
 						<div class="content__value">
+							<c:if test="${comp.getAverageRating() != 0}">
 							<c:out value="${comp.getAverageRating()}" />
+							</c:if>
+							<c:if test="${comp.getAverageRating() == 0}">
+							<c:out value="No Rating For This Company!Be The First to Rate This Company" />
+							</c:if>
 						</div>
 			</div>
 		
@@ -115,6 +102,15 @@
 		</div>
 			
 		<div class="display__reviews">
+		
+		 	<c:choose>
+		 	<c:when test="${noReviews == 'yes'}">
+    		<div class="error col-60 col-xs-12 col-sm-12">
+                 <c:out value="***No Reviews have been given yet***"></c:out>
+             </div>
+             </c:when>
+		
+			<c:otherwise>
 			<c:forEach items="${displayCompanyReviews}" var="rev"> 
 			
 				<div class="content__value col-60 col-xs-12 col-sm-12">
@@ -134,6 +130,10 @@
 							<c:out value="${rev.getRating()}" />	
 				</div>	
 			</c:forEach> 
+			</c:otherwise>
+			
+			</c:choose>
+			
 		</div>
 	</form>
 	</div>

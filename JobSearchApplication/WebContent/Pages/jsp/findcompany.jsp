@@ -23,48 +23,19 @@
 		%> 
         <div id="maincontainer">
         
-        <%-- <jsp:include page="${Config.BASE_PATH}Pages/jsp/usernavbar.jsp"/> --%>
-               <%-- <div id="mySidenav" class="container__sidenav">
-                <div class="sidenav__items">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
-                         <a href="${Config.BASE_PATH}Pages/jsp/searchbylocation.jsp">SEARCH BY LOCATION</a>
-                        <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/requestvacancy.jsp">REQUEST A VACANCY</a>
-                 </div>
-                </div>
-                
-                <div class="container__navbar">
-                      <ul class="navbar__list">
-					<li><button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button></li>			
-					<li>JOB HUNT</li>
-					<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet">
-					<i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
-                        </ul>
-                </div>
- --%>
  				<div class="container__searchbar">
-                        <form action="${Config.BASE_PATH}FindCompanyServlet" id="findCompany" onsubmit="submitFindCompany()" method="post">
+                        <form action="${Config.BASE_PATH}FindCompanyServlet" method="post">
                					<div class="searchbar__row">                  
                                 <div class="col-20 col-xs-12 col-sm-12">
                                         <label for="job" class="row__label">SEARCH FOR COMPANY</label>
                                 </div>
                                 <div class="col-60 col-xs-12 col-sm-12">
-                                        <input type="text" class="row__input"  oninput ="return removeCompanyErrors();" name="companyName" placeholder="Search for Company.."
+                                        <input type="text" class="row__input" name="companyName" placeholder="Search for Company.."
                                                 required><i class="icon fa fa-search" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-10 col-xs-12 col-sm-12">
                                         <input type="submit" class="row__button col-xs-12 col-sm-12" value="SEARCH">
                                 </div>
-                                 <span class="error col-40 col-xs-12 col-sm-12" id="companyError">
-                                       <c:if test="${noCompany == 'yes'}">
-                                       <c:out value="This company is not registered with us!!!"></c:out>
-                                       </c:if>
-                                       <c:if test="${noVacancy == 'yes'}">
-                                       <c:out value="There is no Vacancy in this Company as of now"></c:out>
-                                       </c:if>
-                                </span>
                                </div>
                         </form>
                 </div>
