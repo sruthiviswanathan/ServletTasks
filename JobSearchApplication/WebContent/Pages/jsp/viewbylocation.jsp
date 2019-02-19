@@ -86,6 +86,12 @@
 		
 		<c:otherwise>
 		
+						<c:if test="${applied == 'yes'}">
+                       	<div class="success" id="successMessage">
+                        <c:out value="You have applied for this job!!!The Company May contact you any time!!!"></c:out>
+                        </div>
+                        </c:if>
+		
 		<div class="container__split split--left">
 			
 			<div class="left__jobs">
@@ -141,7 +147,7 @@
 							<div class="col-60 col-xs-12 col-md-12">
 								
 									<form action="${Config.BASE_PATH}ApplyForJobServlet" method="post">
-								
+									<input type="hidden" name="location" value="${location.getLocation()}">
 									<input type="hidden" name="companyName" value="${location.getCompanyName()}">
 									<input type="hidden" name="jobDesignation" value="${location.getJobRole()}">
 									<button class="col-xs-12" id ="button" type="submit">

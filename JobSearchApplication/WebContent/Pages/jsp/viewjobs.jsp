@@ -85,6 +85,12 @@
 	
 		
 		<c:otherwise>
+						<c:if test="${applied == 'yes'}">
+                       	<div class="success" id="successMessage">
+                        <c:out value="You have applied for this job!!!The Company May contact you any time!!!"></c:out>
+                        </div>
+                        </c:if>
+		
 		<div class="container__split split--left">
 			<div class="left__jobs">
 				<div class="jobs__row jobs--row1">

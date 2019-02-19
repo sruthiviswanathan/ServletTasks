@@ -2,6 +2,7 @@ package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -20,16 +21,16 @@ import com.zilker.onlinejobsearch.delegate.JobDelegate;
 import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
 /**
- * Servlet implementation class ApplyForJobServlet
+ * Servlet implementation class ApplyForJobLocationServlet
  */
-@WebServlet("/ApplyForJobServlet")
-public class ApplyForJobServlet extends HttpServlet {
+@WebServlet("/ApplyForJobLocationServlet")
+public class ApplyForJobLocationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ApplyForJobServlet() {
+    public ApplyForJobLocationServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,48 +41,32 @@ public class ApplyForJobServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-		HttpSession session = request.getSession();
-		ArrayList<String> jobRole = new ArrayList<String>();
-		ArrayList<Company> vacancyDetails = new ArrayList<Company>();
-		JobDelegate jobDelegate = new JobDelegate();
-		Company company = new Company();
-		JobMapping jobmapping = new JobMapping();
-		if(session.getAttribute("email")==null){
-			response.sendRedirect("index.jsp");
-		}
-		int jobId=0;
-		String jobDesignation = (String) session.getAttribute("jobDesignation");
-		System.out.println(jobDesignation);		
-		jobRole.add(jobDesignation);
-		request.setAttribute("job",jobRole);
-		jobmapping.setJobRole(jobDesignation);
+			HttpSession session = request.getSession();
+			String email = (String) session.getAttribute("email");
+			User user= new User();
+			user.setEmail(email);
+			ArrayList<Company> retrieveByLocation = new ArrayList<Company>();
+			Company company = new Company();	
+			CompanyDelegate companyDelegate = new CompanyDelegate();
+			//String location = request.getParameter("location");
+			String location = (String) session.getAttribute("location");
+				company.setLocation(location);
+				retrieveByLocation = companyDelegate.retrieveVacancyByLocation(company);
+				if (retrieveByLocation.isEmpty()) {
+					request.setAttribute("noVacancy","yes");
+					RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/viewbylocation.jsp");
+					rd.forward(request, response);
+					
+				} else {
+					for (Company i : retrieveByLocation) {
+						request.setAttribute("retrieveByLocation", retrieveByLocation);
+					}
+					request.setAttribute("applied","yes");
+					getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/viewbylocation.jsp").forward(request,response);	
+				}
+
+		} catch (SQLException e) {
 		
-		jobId = jobDelegate.fetchJobId(jobmapping);
-		if(jobId == 0) {
-			request.setAttribute("noJobDesignation","yes");
-			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/viewjobs.jsp");
-			rd.forward(request, response);
-		}
-		else {
-		
-			company.setJobId(jobId);
-			vacancyDetails = jobDelegate.retrieveVacancyByJob1(company);
-			if (vacancyDetails.isEmpty()) {
-				request.setAttribute("noVacancy","yes");
-				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/viewjobs.jsp");
-				rd.forward(request, response);
-			}
-			else {
-			for (Company i : vacancyDetails) {
-				request.setAttribute("displayVacancy", vacancyDetails);
-			}
-			request.setAttribute("applied","yes");
-			getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/viewjobs.jsp").forward(request,response);
-		
-			}
-	}
-		}catch(Exception e) {
-			
 		}
 	}
 
@@ -107,6 +92,7 @@ public class ApplyForJobServlet extends HttpServlet {
 			user.setUserId(userId);
 			String companyName = request.getParameter("companyName");
 			String jobDesignation = request.getParameter("jobDesignation");
+			String location = request.getParameter("location");
 			company.setCompanyName(companyName);
 			companyId = companyDelegate.fetchCompanyId(company);
 			jobMapping.setJobRole(jobDesignation);
@@ -114,8 +100,8 @@ public class ApplyForJobServlet extends HttpServlet {
 			company.setCompanyId(companyId);
 			company.setJobId(jobId);
 			if(userDelegate.applyForJob(company,user)) {		 	 
-				session.setAttribute("jobDesignation",jobDesignation); 
-				response.sendRedirect("ApplyForJobServlet");
+				session.setAttribute("location",location); 
+				response.sendRedirect("ApplyForJobLocationServlet");
 			}else {
 				
 			}

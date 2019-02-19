@@ -46,7 +46,11 @@
 				</div>
 			</form>
 		</div>
-
+						<c:if test="${applied == 'yes'}">
+                       	<div class="success" id="successMessage">
+                        <c:out value="You have applied for this job!!!The Company May contact you any time!!!"></c:out>
+                        </div>
+                        </c:if>
 	<div class="container__display">
 		<form action="${Config.BASE_PATH}ReviewServlet" method="post">
 			<c:forEach items="${displayCompany}" var="comp">
@@ -186,7 +190,7 @@
 							</div>
 							
 							<div class="col-20 col-xs-12 col-sm-12">
-								<form action="${Config.BASE_PATH}ApplyForJobServlet" method="post">
+								<form action="${Config.BASE_PATH}ApplyForJobCompanyServlet" method="post">
 								<input type="hidden" name="companyName" value="${vac.getCompanyName()}">
 								<input type="hidden" name="jobDesignation" value="${vac.getJobRole()}">
 								<button class="row__button" type="submit">

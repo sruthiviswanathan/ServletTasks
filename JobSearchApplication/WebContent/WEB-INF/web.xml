@@ -209,6 +209,24 @@
 		<servlet-name>GetAllDataServlet</servlet-name>
 		<url-pattern>/GetAllDataServlet</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>ApplyForJobCompanyServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.ApplyForJobCompanyServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ApplyForJobCompanyServlet</servlet-name>
+		<url-pattern>/ApplyForJobCompanyServlet</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ApplyForJobLocationServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.ApplyForJobLocationServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ApplyForJobLocationServlet</servlet-name>
+		<url-pattern>/ApplyForJobLocationServlet</url-pattern>
+	</servlet-mapping>
 </element>
 
 
