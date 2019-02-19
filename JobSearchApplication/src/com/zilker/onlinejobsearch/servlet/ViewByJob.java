@@ -83,7 +83,7 @@ public class ViewByJob extends HttpServlet {
 			jobId = jobDelegate.fetchJobId(jobmapping);
 			if(jobId == 0) {
 				request.setAttribute("noJobDesignation","yes");
-				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/errorjobresults.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/viewjobs.jsp");
 				rd.forward(request, response);
 			}
 			else {
@@ -92,7 +92,7 @@ public class ViewByJob extends HttpServlet {
 				vacancyDetails = jobDelegate.retrieveVacancyByJob1(company);
 				if (vacancyDetails.isEmpty()) {
 					request.setAttribute("noVacancy","yes");
-					RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/errorjobresults.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/viewjobs.jsp");
 					rd.forward(request, response);
 				}
 				else {

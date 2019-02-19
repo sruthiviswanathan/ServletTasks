@@ -13,13 +13,11 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/viewjobs.css">
-
-
+<link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/mainpage.css">
 </head>
 
 <body>
 <%
-//response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 			if(session.getAttribute("email")==null){
 				response.sendRedirect("http://localhost:8080/JobSearchApplication/index.jsp");
 			}else {
@@ -50,9 +48,43 @@
 			</ul>
 		</div> 
 		
+                
+                <div class="container__searchbar">
+                        <form action="${Config.BASE_PATH}ViewByJob" id="findJob" onsubmit="submitFindJob()" method="post">
+                  <div class="searchbar__row">               
+                                <div class="col-20 col-xs-12 col-sm-12">
+                                        <label for="job" class="row__label">SEARCH FOR JOB</label>
+                                </div>
+                                <div class="col-60 col-xs-12 col-sm-12">
+                                        <input type="text" class="row__input"  oninput ="return removeErrors();" name="job" placeholder="Search for Job.."
+                                                required><i class="icon fa fa-search" aria-hidden="true"></i>
+                                </div>
+                                <div class="col-10 col-xs-12 col-sm-12">
+                                        <input type="submit" class=" row__button col-xs-12 col-sm-12" value="SEARCH">
+                                </div>
+                   </div>
+                        </form>
+                </div>
+	
+	
+	    <c:choose>
 		
 		
 		
+						<c:when test="${noJobDesignation == 'yes'}">
+                       <div class="container__noresults">
+                        <c:out value="PLEASE ENTER A VALID JOB DESIGNATION!!!"></c:out>
+                        </div>
+                        </c:when>
+                        <c:when test="${noVacancy == 'yes'}">
+                        <div class="container__noresults">
+                        <c:out value="THERE IS NO VACANCY IN THIS DESIGNATION AS OF NOW!!!"></c:out>
+                        </div>
+                        </c:when>
+		
+	
+		
+		<c:otherwise>
 		<div class="container__split split--left">
 			<div class="left__jobs">
 				<div class="jobs__row jobs--row1">
@@ -112,16 +144,6 @@
 								
 								</form> 
 								
-									<%-- <form action="${Config.BASE_PATH}ViewByJob" method="post">
-								
-								<input type="hidden" name="companyName" value="${comp.getCompanyName()}">
-								<input type="hidden" name="jobDesignation" value="${job.get(0)}">
-								<button class="col-xs-12" id="button" name="action" type="submit" value="apply">
-										APPLY FOR JOB<i class="dir fa fa-chevron-circle-right"
-											aria-hidden="true"></i>
-									</button>
-								
-								</form> --%>
 							</div>
 
 						</div>
@@ -151,6 +173,11 @@
 
 			
 		</c:forEach>
+		</c:otherwise>
+		</c:choose>
+		
+		
+		
 		</div>
 
 </body>

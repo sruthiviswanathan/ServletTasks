@@ -76,7 +76,7 @@ public class ViewPublishedJobsServlet extends HttpServlet {
 			
 			
 			request.setAttribute("noVacancy","yes");
-			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/admin.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/viewpublishedjobs.jsp");
 			rd.forward(request, response);
 			//out.println("<script type=\"text/javascript\">");
 		 	//out.println("alert('You have not published any vacancies till now');");

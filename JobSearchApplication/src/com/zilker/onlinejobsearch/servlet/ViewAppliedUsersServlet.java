@@ -3,6 +3,7 @@ package com.zilker.onlinejobsearch.servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -56,7 +57,8 @@ public class ViewAppliedUsersServlet extends HttpServlet {
 			company.setCompanyId(companyId);
 			appliedUsers=companyDelegate.viewAppliedUsers(company);
 			if (appliedUsers.isEmpty()) {
-				System.out.println("No interested users!!");
+				//System.out.println("No interested users!!");
+				request.setAttribute("noInterestedUsers","yes");
 				
 			} else {
 				for (Company i : appliedUsers) {

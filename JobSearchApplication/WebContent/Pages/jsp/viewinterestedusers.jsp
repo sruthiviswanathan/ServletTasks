@@ -40,6 +40,13 @@
 		<div class="container__title">
 			<h3>YOUR NEXT HIRE IS HERE!!!</h3>
 		</div>
+					<c:choose>
+						<c:when test="${noInterestedUsers == 'yes'}">
+						<div class="success">
+						<c:out value="NO INTERESTED CANDIDATES!!"/>
+						</div>
+						</c:when>
+		<c:otherwise>
 		<table class="container__customers">
 			
   				<tr>
@@ -56,6 +63,8 @@
 						</tr>	
 					</c:forEach>
 		</table>
+		</c:otherwise>
+		</c:choose>
 </div>
 </body>
 <script src="${Config.BASE_PATH}Pages/js/styles.js"></script>

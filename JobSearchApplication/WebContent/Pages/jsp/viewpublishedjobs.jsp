@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
     <%@ page import="com.zilker.onlinejobsearch.config.Config"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file = "usernavbar.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +46,15 @@
 				
 							</ul>
 						</div>
-      
+      					<c:choose>
+      					
+						<c:when test="${noVacancy == 'yes'}">
+						<div class="success">
+               			<c:out value="YOU HAVE NOT PUBLISHED ANY JOB VACANCIES"></c:out>
+              			</div>
+              			</c:when>
+						
+		<c:otherwise>
      		 <div class="container__split split--left">        
                        
                                 <div class="left__jobs">
@@ -136,6 +143,8 @@
                             </div>
 
 						</c:forEach>
+						</c:otherwise>
+						</c:choose>
                             <div class="container__form-popup" id="myForm">
                                     <form action="${Config.BASE_PATH}ViewPublishedJobsServlet" class="form-container" method="post">
                                             <h3>ADD NEW JOB DESIGNATION</h3>

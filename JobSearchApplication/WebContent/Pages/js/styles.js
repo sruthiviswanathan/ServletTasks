@@ -93,12 +93,19 @@ function submitFindLocation(){
 	}
 
 function removeCompanyErrors(){
-	var elem1 = document.getElementById('companyError').remove();;
-    return false;
+	var elem1 = document.getElementById('companyError');
+	if(elem1){
+		console.log(elem1);	
+		elem1.parentNode.removeChild(elem1);
+	}
+ /*   return false;*/
 }
 function submitFindCompany(){
 
-	var elem = document.getElementById('companyError').remove();	
-	document.getElementById("findCompany").submit();
-
+	var elem = document.getElementById('companyError');	
+	//document.getElementById("findCompany").submit();
+	if(elem){
+		console.log(elem);	
+		elem.parentNode.removeChild(elem);
+	}
 	}

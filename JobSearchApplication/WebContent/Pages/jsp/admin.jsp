@@ -11,8 +11,8 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Find Jobs</title>
 <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/mainpage.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/navbar.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -44,23 +44,16 @@
 			</ul>
 		</div>
 		
-						<div class="success">
+					 	<div class="success">
 						<c:if test="${registerSuccess == 'yes'}">
 						<c:out value="CONGRATS YOU ARE REGISTERED WITH US!!"/>
 						</c:if>
-						</div>
-		
+						</div> 
 		
 		<div class="container__title">
 			<h1>YOUR NEXT HIRE IS HERE!!!</h1>
 		</div>
 		<div class="container__image"></div>
-		<span class="error col-40 col-xs-12 col-sm-12" id="vacancyError">                        
-               <c:if test="${noVacancy == 'yes'}">
-               <%-- <c:out value="YOU HAVE NOT PUBLISHED ANY JOB VACANCIES"></c:out> --%>
-               <h3>YOU HAVE NOT PUBLISHED ANY JOB VACANCIES</h3>
-               </c:if>
-        </span>
 	</div>
 </body>
 <script src="${Config.BASE_PATH}Pages/js/styles.js"></script>

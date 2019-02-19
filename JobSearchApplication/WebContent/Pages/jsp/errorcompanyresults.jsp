@@ -24,7 +24,7 @@
         <div id="maincontainer">
         						<div class="container__error__title" id="companyError">
         			 					<c:if test="${noCompany == 'yes'}">
-                                       <c:out value="This company is not registered with us!!!"></c:out>
+                                       <c:out value="THIS COMPANY IS NOT REGISTERED WITH US!!!"></c:out>
                                        </c:if>
         						</div>
         
@@ -35,7 +35,7 @@
                                         <label for="job" class="row__label">SEARCH FOR COMPANY</label>
                                 </div>
                                 <div class="col-60 col-xs-12 col-sm-12">
-                                        <input type="text" class="row__input"  oninput ="return removeCompanyErrors();" name="companyName" placeholder="Search for Company.."
+                                        <input type="text" class="row__input"  oninput ="removeCompanyErrors();" name="companyName" placeholder="Search for Company.."
                                                 required><i class="icon fa fa-search" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-10 col-xs-12 col-sm-12">

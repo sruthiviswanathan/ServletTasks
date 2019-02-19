@@ -14,6 +14,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/viewjobs.css">
+<link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/mainpage.css">
 
 
 </head>
@@ -47,6 +48,43 @@
 			</ul>
 		</div>
 		
+		 <div class="container__searchbar">
+               
+                        <form action="${Config.BASE_PATH}SearchByLocation" id="findLocation" onsubmit="submitFindLocation()" method="post">
+                               
+                                <div class="searchbar__row">   
+                                 
+                                <div class="col-20 col-xs-12 col-sm-12">
+                                        <label for="job" class="row__label">SEARCH BY LOCATION</label>
+                                </div>
+ 
+                                <div class="col-60 col-xs-12 col-sm-12">
+                                        <input type="text" class="row__input" oninput ="return removeLocationErrors();" name="location"  placeholder="Enter a Location.."
+                                                required><i class="icon fa fa-map-marker" aria-hidden="true"></i>
+                                </div>
+ 
+                                <div class="col-10 col-xs-12 col-sm-12">
+                                        <input type="submit" class="row__button col-xs-12 col-sm-12" value="SEARCH">
+                                </div>
+                				
+                				</div>
+                				
+                			
+                        </form>
+                </div>
+		
+		
+		 						<c:choose>
+							
+         							<c:when test="${noVacancy == 'yes'}">
+         							<div class="container__noresults" id="locationError">
+                                    <c:out value="There is no Vacancy in this Location as of now"></c:out>
+                                    </div>
+                                    </c:when>
+         					
+		
+		
+		<c:otherwise>
 		
 		<div class="container__split split--left">
 			
@@ -140,10 +178,12 @@
 					</div>
 				</div>
 
-			
+		
 		</c:forEach>
+			</c:otherwise>
+		</c:choose>
 		</div>
-
+	
 </body>
 <script src="${Config.BASE_PATH}Pages/js/styles.js"></script>
 

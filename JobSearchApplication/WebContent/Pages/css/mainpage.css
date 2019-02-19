@@ -223,7 +223,7 @@ background-color:#424242;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
 
-  .fa-user-circle,.fa-pencil-square-o{
+  /* .fa-user-circle,.fa-pencil-square-o{
     margin-right: 6px;
   }
     
@@ -279,7 +279,7 @@ background-color:#424242;
           color: white;
           border:none;
       }
-    
+ */    
       @media (max-width:320px){ 
         .col-xs-height {
           height: 60%;

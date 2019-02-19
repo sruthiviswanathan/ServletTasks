@@ -21,28 +21,59 @@ body {
 	width: 100%;
 }
 
+ 
+
+
 .container__split {
 	position: fixed;
 	overflow-x: hidden;
 	height: 100%;
 	margin-left: -23px;
 }
+.container__noresults{
+	
+        background-color: white;
+        position:fixed;
+        margin:auto;
+		color:black;
+		text-align:center;
+		font-size:30px;
+        width:100%;
+        height:100%;
+        overflow:auto;
+}
 
+
+.success {
+    font-size:16px;
+  	font-weight:bold;
+    display: block;
+  	color: #cddc39;
+ 	text-align: center;
+ 	background-color: #424242;
+ 	padding:5px;
+  	margin-top:0px;
+   }
 .split--left {
 	left: 0;
 	width: 30%;
 	overflow-x: hidden;
+	height:100%;
+	padding-bottom:8%;
 }
 
 .left__jobs {
-	overflow-y: scroll;
-	max-height: 850px;
+	/* overflow-y: scroll; */
+	/* max-height: 850px; */
+	overflow:auto;
+	height:100%;
 }
 
 .split--right {
 	right: 0;
 	width: 70%;
 	height: 100%;
+	
 }
 
 .arrow {
@@ -67,13 +98,6 @@ body {
 	margin-right: 10px;
 }
 
-.icon {
-	color: dodgerblue;
-	float: right;
-	position: relative;
-	top: -29px;
-	right: 10px;
-}
 
 .col-25 {
 	float: left;
@@ -149,7 +173,7 @@ button {
 	background-color: white;
 	color: black;
 	overflow: auto;
-	height: 55%;
+	height: 45%;
 }
 
 .right__form {
@@ -157,15 +181,6 @@ button {
 	color: white;
 	overflow-y: scroll;
 	height: 95vh;
-}
-
-body {
-	margin: 0;
-	height: 100vh;
-}
-
-* {
-	box-sizing: border-box;
 }
 
 .navbar__list {

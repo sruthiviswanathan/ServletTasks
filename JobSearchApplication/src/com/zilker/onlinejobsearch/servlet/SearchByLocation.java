@@ -62,7 +62,7 @@ public class SearchByLocation extends HttpServlet {
 				retrieveByLocation = companyDelegate.retrieveVacancyByLocation(company);
 				if (retrieveByLocation.isEmpty()) {
 					request.setAttribute("noVacancy","yes");
-					RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/errorlocationresults.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/viewbylocation.jsp");
 					rd.forward(request, response);
 					
 				} else {
