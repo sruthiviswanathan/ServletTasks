@@ -24,6 +24,13 @@ function closeForm() {
 	  liToKill.parentNode.removeChild( liToKill );
 }*/
 
+function successMessage(){
+	 var x = document.getElementById("snackbar");
+	  x.className = "show";
+	  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+	
+}
+
 function displaymodal(id) {
 	
 	  console.log(id);

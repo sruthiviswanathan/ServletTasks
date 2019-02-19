@@ -87,7 +87,7 @@
 		<c:otherwise>
 		
 						<c:if test="${applied == 'yes'}">
-                       	<div class="success" id="successMessage">
+                       	<div  id="snackbar">
                         <c:out value="You have applied for this job!!!The Company May contact you any time!!!"></c:out>
                         </div>
                         </c:if>
@@ -150,7 +150,7 @@
 									<input type="hidden" name="location" value="${location.getLocation()}">
 									<input type="hidden" name="companyName" value="${location.getCompanyName()}">
 									<input type="hidden" name="jobDesignation" value="${location.getJobRole()}">
-									<button class="col-xs-12" id ="button" type="submit">
+									<button class="col-xs-12" id ="button" onclick="successMessage();" type="submit">
 										APPLY FOR JOB<i class="dir fa fa-chevron-circle-right"
 											aria-hidden="true"></i>
 									</button>

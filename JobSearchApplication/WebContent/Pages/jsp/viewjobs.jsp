@@ -86,7 +86,7 @@
 		
 		<c:otherwise>
 						<c:if test="${applied == 'yes'}">
-                       	<div class="success" id="successMessage">
+                       	<div id="snackbar">
                         <c:out value="You have applied for this job!!!The Company May contact you any time!!!"></c:out>
                         </div>
                         </c:if>

@@ -47,7 +47,7 @@
 			</form>
 		</div>
 						<c:if test="${applied == 'yes'}">
-                       	<div class="success" id="successMessage">
+                       	<div id="snackbar">
                         <c:out value="You have applied for this job!!!The Company May contact you any time!!!"></c:out>
                         </div>
                         </c:if>
@@ -193,7 +193,7 @@
 								<form action="${Config.BASE_PATH}ApplyForJobCompanyServlet" method="post">
 								<input type="hidden" name="companyName" value="${vac.getCompanyName()}">
 								<input type="hidden" name="jobDesignation" value="${vac.getJobRole()}">
-								<button class="row__button" type="submit">
+								<button class="row__button" type="submit" onclick="successMessage();">
 										APPLY FOR JOB<i class="dir fa fa-chevron-circle-right"
 											aria-hidden="true"></i></button>
 								</form>
