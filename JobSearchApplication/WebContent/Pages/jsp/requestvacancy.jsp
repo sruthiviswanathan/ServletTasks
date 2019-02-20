@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <jsp:include page="/RequestVacancyServlet"/>  
+ <%--    <jsp:include page="/RequestVacancyServlet"/>   --%>
     	<%@ page import="com.zilker.onlinejobsearch.config.Config"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -29,7 +29,7 @@
                         <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
                          <a href="${Config.BASE_PATH}Pages/jsp/searchbylocation.jsp">SEARCH BY LOCATION</a>
                         <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
-                        <a href="${Config.BASE_PATH}Pages/jsp/requestvacancy.jsp">REQUEST A VACANCY</a>
+                        <a href="${Config.BASE_PATH}RequestVacancyServlet">REQUEST A VACANCY</a>
                         <a href="${Config.BASE_PATH}ViewAppliedJobsServlet">VIEW APPLIED JOBS</a>
                       </div>
                 </div>
@@ -47,23 +47,37 @@
         <div class="container__title">
                 <h3>REQUEST FOR A VACANCY!! GET NOTIFIED!!</h3>
         </div>
-        
+        <div id="snackbar">
+                        
+        </div>
+        <script>
+        				function displaySuccessMessage(){
+        					 var para = document.createElement("p");
+        					  var node = document.createTextNode("YOUR REQUEST IS SAVED!!YOU WILL BE NOTIFIED WHEN YOUR REQUIREMENT MATCHES ANY VACANCIES!!");
+        					  para.appendChild(node);
+        					  var element = document.getElementById("snackbar");
+        					  element.className="show";
+        					  element.appendChild(para);
+        					  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
+        				}
+        				
+		</script>
         				<c:if test="${saved == 'yes'}">
-						<div id="snackbar">
-						<c:out value="YOUR REQUEST IS SAVED!!YOU WILL BE NOTIFIED WHEN YOUR REQUIREMENT MATCHES ANY VACANCIES"/>
-						</div>
+        				<script>
+        				displaySuccessMessage();
+        				</script>
 						</c:if>
-        
+        				
         
       <div class="container__requestvacancy">
 						        
-    		<form action="${Config.BASE_PATH}RequestVacancyServlet" id="requestvacancy" name="requestvacancy"onsubmit="return validateRequestVacancy()" method="post" >
+    		<form action="${Config.BASE_PATH}RequestVacancyServlet" id="requestvacancy" name="requestvacancy" onsubmit="return validateRequestVacancy()" method="post" >
         
         
         		<div class="requestvacancy__field col-xs-12 col-md-12">
                 <label for="select-job" class="field__entry row col-75"><b>JOB DESIGNATION</b></label>
                             
-                       <select id="job" name="job" class="select row col-75" onclick="removeSuccessMessage();">
+                       <select id="job" name="job" class="select row col-75">
 					 	<option value="">Select a Job Designation</option>
 						<c:forEach var="job" items="${jobs}">
 							<option value="${job.getJobId()}"><c:out value="${job.getJobRole()}" /></option>
@@ -95,6 +109,7 @@
 </div>
 
 </body>
+
 <script src="${Config.BASE_PATH}Pages/js/styles.js"></script>
 <script src="${Config.BASE_PATH}Pages/js/validate.js"></script>
 </html>

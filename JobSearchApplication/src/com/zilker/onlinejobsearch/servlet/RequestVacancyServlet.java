@@ -3,6 +3,7 @@ package com.zilker.onlinejobsearch.servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -51,7 +52,9 @@ public class RequestVacancyServlet extends HttpServlet {
 			JobDelegate jobDelegate = new JobDelegate();
 			job = jobDelegate.displayJobs(jobMapping);
 			request.setAttribute("jobs", job); 
-			response.sendRedirect("Pages/jsp/requestvacancy.jsp");
+			//response.sendRedirect("Pages/jsp/requestvacancy.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/requestvacancy.jsp");
+			rd.forward(request, response);
 			}catch(Exception e) {
 				
 			}
@@ -86,9 +89,17 @@ public class RequestVacancyServlet extends HttpServlet {
 			jobrequest.setSalary(Float.parseFloat(salary));
 			userId = userDelegate.fetchUserId(user);
 			user.setUserId(userId);
+			JobMapping jobMapping = new JobMapping();
+			ArrayList<JobMapping> job = new ArrayList<JobMapping>();
+			JobDelegate jobDelegate = new JobDelegate();
+			job = jobDelegate.displayJobs(jobMapping);
+			request.setAttribute("jobs", job); 
 			if(userDelegate.requestNewVacancy(jobrequest, user)) {
 				request.setAttribute("saved","yes");
-				response.sendRedirect("Pages/jsp/requestvacancy.jsp");
+				System.out.println("saved");
+				//response.sendRedirect("Pages/jsp/requestvacancy.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/requestvacancy.jsp");
+				rd.forward(request, response);
 			}else {
 				response.sendRedirect("Pages/jsp/error.jsp");
 			}

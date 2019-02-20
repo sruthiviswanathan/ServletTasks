@@ -116,7 +116,6 @@ function apply(event,id){
 	console.log(event);
 
 	    var formEl = $(event);
-	   /* var submitButton = $('input[type=submit]', formEl);*/
 	    var submit = document.getElementById(id);
 	    $.ajax({
 	      type: 'POST',
@@ -148,4 +147,15 @@ function apply(event,id){
 	    });
 
 return false;
+}
+
+function displaySuccessMessage(){
+	 console.log("hi");
+	 var para = document.createElement("p");
+	  var node = document.createTextNode("YOUR REQUEST IS SAVED!!YOU WILL BE NOTIFIED WHEN YOUR REQUIREMENT MATCHES ANY VACANCIES!!");
+	  para.appendChild(node);
+	  var element = document.getElementById("snackbar");
+	  element.className="show";
+	  element.appendChild(para);
+	  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
 }
