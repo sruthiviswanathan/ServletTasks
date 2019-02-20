@@ -15,7 +15,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/viewjobs.css">
 <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/mainpage.css">
-
+<script src="${Config.BASE_PATH}Pages/js/jquery-3.3.1.min.js"></script>
 
 </head>
 
@@ -146,11 +146,11 @@
 							
 							<div class="col-60 col-xs-12 col-md-12">
 								
-									<form action="${Config.BASE_PATH}ApplyForJobServlet" method="post">
+									<form action="${Config.BASE_PATH}ApplyForJobServlet" id="apply${loop.count}" onsubmit="event.preventDefault(); apply(this);" method="post">
 									<input type="hidden" name="location" value="${location.getLocation()}">
 									<input type="hidden" name="companyName" value="${location.getCompanyName()}">
 									<input type="hidden" name="jobDesignation" value="${location.getJobRole()}">
-									<button class="col-xs-12" id ="button" onclick="successMessage();" type="submit">
+									<button class="col-xs-12" id ="button" type="submit">
 										APPLY FOR JOB<i class="dir fa fa-chevron-circle-right"
 											aria-hidden="true"></i>
 									</button>

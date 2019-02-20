@@ -24,10 +24,10 @@ function closeForm() {
 	  liToKill.parentNode.removeChild( liToKill );
 }*/
 
-function successMessage(){
+function removeSuccessMessage(){
 	 var x = document.getElementById("snackbar");
 	  x.className = "show";
-	  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+	  setTimeout(function(){ x.className = x.className.replace("show", "hide"); }, 3000);
 	
 }
 
@@ -114,5 +114,30 @@ function submitFindCompany(){
 	if(elem){
 		console.log(elem);	
 		elem.parentNode.removeChild(elem);
-	}
-	}
+  }
+}
+
+function apply(event){
+	console.log(event);
+
+	    var formEl = $(event);
+	    var submitButton = $('input[type=submit]', formEl);
+
+	    $.ajax({
+	      type: 'POST',
+	      url: formEl.prop('action'),
+	      accept: {
+	        javascript: 'application/javascript'
+	      },
+	      data: formEl.serialize(),
+	      beforeSend: function() {
+	        submitButton.prop('disabled', 'disabled');
+	      }
+	    }).done(function(data) {
+	      submitButton.prop('disabled','disabled');
+	     // submitButton.innerHTML("APPLIED");
+	     /* $(".submit-btn").html("Accepted"); */
+	    });
+
+return false;
+}

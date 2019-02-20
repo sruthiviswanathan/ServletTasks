@@ -47,14 +47,23 @@
                 <h3>REQUEST FOR A VACANCY!! GET NOTIFIED!!</h3>
         </div>
         
-      <div class="container__requestvacancy">  
-    <form action="${Config.BASE_PATH}RequestVacancyServlet" id="requestvacancy" name="requestvacancy"onsubmit="return validateRequestVacancy()" method="post" >
+      <div class="container__requestvacancy">
+      					
+      					
+						<c:if test="${saved == 'yes'}">
+						<div id="snackbar">
+						<c:out value="YOUR REQUEST IS SAVED!!YOU WILL BE NOTIFIED WHEN YOUR REQUIREMENT MATCHES ANY VACANCIES"/>
+						</div>
+						</c:if>
+						
+						        
+    		<form action="${Config.BASE_PATH}RequestVacancyServlet" id="requestvacancy" name="requestvacancy"onsubmit="return validateRequestVacancy()" method="post" >
         
         
         		<div class="requestvacancy__field col-xs-12 col-md-12">
                 <label for="select-job" class="field__entry row col-75"><b>JOB DESIGNATION</b></label>
                             
-                       <select id="job" name="job" class="select row col-75">
+                       <select id="job" name="job" class="select row col-75" onclick="removeSuccessMessage();">
 					 	<option value="">Select a Job Designation</option>
 						<c:forEach var="job" items="${jobs}">
 							<option value="${job.getJobId()}"><c:out value="${job.getJobRole()}" /></option>

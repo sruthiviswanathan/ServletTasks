@@ -114,8 +114,9 @@ public class ApplyForJobServlet extends HttpServlet {
 			company.setCompanyId(companyId);
 			company.setJobId(jobId);
 			if(userDelegate.applyForJob(company,user)) {		 	 
-				session.setAttribute("jobDesignation",jobDesignation); 
-				response.sendRedirect("ApplyForJobServlet");
+				//session.setAttribute("jobDesignation",jobDesignation); 
+				//response.sendRedirect("ApplyForJobServlet");
+				System.out.println("applied");
 			}else {
 				
 			}

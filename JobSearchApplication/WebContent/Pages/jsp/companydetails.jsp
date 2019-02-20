@@ -10,11 +10,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" type="text/css"
-	href="${Config.BASE_PATH}Pages/css/company.css ">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>company details</title>
+<link rel="stylesheet" type="text/css" href="${Config.BASE_PATH}Pages/css/company.css ">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="${Config.BASE_PATH}Pages/js/jquery-3.3.1.min.js"></script>
+
+
 </head>
 
 <body>
@@ -190,10 +191,10 @@
 							</div>
 							
 							<div class="col-20 col-xs-12 col-sm-12">
-								<form action="${Config.BASE_PATH}ApplyForJobCompanyServlet" method="post">
+								<form action="${Config.BASE_PATH}ApplyForJobServlet"  id="apply${loop.count}" onsubmit="event.preventDefault(); apply(this);"  method="post">
 								<input type="hidden" name="companyName" value="${vac.getCompanyName()}">
 								<input type="hidden" name="jobDesignation" value="${vac.getJobRole()}">
-								<button class="row__button" type="submit" onclick="successMessage();">
+								<button class="row__button" type="submit">
 										APPLY FOR JOB<i class="dir fa fa-chevron-circle-right"
 											aria-hidden="true"></i></button>
 								</form>

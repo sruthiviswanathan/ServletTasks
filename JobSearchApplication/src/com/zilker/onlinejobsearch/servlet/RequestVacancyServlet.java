@@ -87,6 +87,7 @@ public class RequestVacancyServlet extends HttpServlet {
 			userId = userDelegate.fetchUserId(user);
 			user.setUserId(userId);
 			if(userDelegate.requestNewVacancy(jobrequest, user)) {
+				request.setAttribute("saved","yes");
 				response.sendRedirect("Pages/jsp/requestvacancy.jsp");
 			}else {
 				response.sendRedirect("Pages/jsp/error.jsp");
