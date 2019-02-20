@@ -24,12 +24,7 @@ function closeForm() {
 	  liToKill.parentNode.removeChild( liToKill );
 }*/
 
-function removeSuccessMessage(){
-	 var x = document.getElementById("snackbar");
-	  x.className = "show";
-	  setTimeout(function(){ x.className = x.className.replace("show", "hide"); }, 3000);
-	
-}
+
 
 function displaymodal(id) {
 	
@@ -136,6 +131,14 @@ function apply(event,id){
 	      dataType:"text",
 	      success:function(msg){
 	    	  console.log(msg);
+	    	  var para = document.createElement("p");
+	    	  var node = document.createTextNode("YOU HAVE APPLIED FOR THIS JOB!!COMPANY MAY CONTACT YOU ANY TIME");
+	    	  para.appendChild(node);
+	    	  var element = document.getElementById("snackbar");
+	    	  element.className="show";
+	    	  element.appendChild(para);
+	    	  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
+	    	  
 	      }
 	    }).done(function(data) {
 	    	console.log(submit);

@@ -47,11 +47,9 @@
 				</div>
 			</form>
 		</div>
-						<c:if test="${applied == 'yes'}">
-                       	<div id="snackbar">
-                        <c:out value="You have applied for this job!!!The Company May contact you any time!!!"></c:out>
-                        </div>
-                        </c:if>
+						 	<div id="snackbar">
+                        
+                        	</div>
 	<div class="container__display">
 		<form action="${Config.BASE_PATH}ReviewServlet" method="post">
 			<c:forEach items="${displayCompany}" var="comp">
