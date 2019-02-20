@@ -19,6 +19,16 @@ body{
 	color:black;
 }
 
+.disabled{
+	background-color: #212121;
+	color:white;
+    cursor:not-allowed;
+    width: 45%;
+	padding: 12px 20px;
+	border: none;
+ }
+
+
 .container__title {
   color: white;
   text-align: center;

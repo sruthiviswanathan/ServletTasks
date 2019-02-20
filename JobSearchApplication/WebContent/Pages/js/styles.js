@@ -117,12 +117,12 @@ function submitFindCompany(){
   }
 }
 
-function apply(event){
+function apply(event,id){
 	console.log(event);
 
 	    var formEl = $(event);
-	    var submitButton = $('input[type=submit]', formEl);
-
+	   /* var submitButton = $('input[type=submit]', formEl);*/
+	    var submit = document.getElementById(id);
 	    $.ajax({
 	      type: 'POST',
 	      url: formEl.prop('action'),
@@ -131,12 +131,17 @@ function apply(event){
 	      },
 	      data: formEl.serialize(),
 	      beforeSend: function() {
-	        submitButton.prop('disabled', 'disabled');
+	    	  console.log(submit);
+	      },
+	      dataType:"text",
+	      success:function(msg){
+	    	  console.log(msg);
 	      }
 	    }).done(function(data) {
-	      submitButton.prop('disabled','disabled');
-	     // submitButton.innerHTML("APPLIED");
-	     /* $(".submit-btn").html("Accepted"); */
+	    	console.log(submit);
+	    	submit.disabled=true;
+	    	submit.className = "disabled";
+	    	submit.value="APPLIED";
 	    });
 
 return false;

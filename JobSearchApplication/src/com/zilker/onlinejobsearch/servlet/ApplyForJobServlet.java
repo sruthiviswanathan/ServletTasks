@@ -39,36 +39,7 @@ public class ApplyForJobServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*
-		 * try { HttpSession session = request.getSession(); ArrayList<String> jobRole =
-		 * new ArrayList<String>(); ArrayList<Company> vacancyDetails = new
-		 * ArrayList<Company>(); JobDelegate jobDelegate = new JobDelegate(); Company
-		 * company = new Company(); JobMapping jobmapping = new JobMapping();
-		 * if(session.getAttribute("email")==null){ response.sendRedirect("index.jsp");
-		 * } int jobId=0; String jobDesignation = (String)
-		 * session.getAttribute("jobDesignation"); System.out.println(jobDesignation);
-		 * jobRole.add(jobDesignation); request.setAttribute("job",jobRole);
-		 * jobmapping.setJobRole(jobDesignation);
-		 * 
-		 * jobId = jobDelegate.fetchJobId(jobmapping); if(jobId == 0) {
-		 * request.setAttribute("noJobDesignation","yes"); RequestDispatcher rd =
-		 * request.getRequestDispatcher("Pages/jsp/viewjobs.jsp"); rd.forward(request,
-		 * response); } else {
-		 * 
-		 * company.setJobId(jobId); vacancyDetails =
-		 * jobDelegate.retrieveVacancyByJob1(company); if (vacancyDetails.isEmpty()) {
-		 * request.setAttribute("noVacancy","yes"); RequestDispatcher rd =
-		 * request.getRequestDispatcher("Pages/jsp/viewjobs.jsp"); rd.forward(request,
-		 * response); } else { for (Company i : vacancyDetails) {
-		 * request.setAttribute("displayVacancy", vacancyDetails); }
-		 * request.setAttribute("applied","yes");
-		 * getServletConfig().getServletContext().getRequestDispatcher(
-		 * "/Pages/jsp/viewjobs.jsp").forward(request,response);
-		 * 
-		 * } } }catch(Exception e) {
-		 * 
-		 * }
-		 */
+		
 	}
 
 	/**
@@ -101,7 +72,11 @@ public class ApplyForJobServlet extends HttpServlet {
 			company.setCompanyId(companyId);
 			company.setJobId(jobId);
 			company.setLocation(location);
-			if(userDelegate.applyForJob(company,user)) {		 	 
+			if(userDelegate.applyForJob(company,user)) {
+				//request.setAttribute("applied","yes");
+				response.setContentType("application/json");
+				out.print("success");
+				out.flush();
 				//session.setAttribute("jobDesignation",jobDesignation); 
 				//response.sendRedirect("ApplyForJobServlet");
 				System.out.println("applied");

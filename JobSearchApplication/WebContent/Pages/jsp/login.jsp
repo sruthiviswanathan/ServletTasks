@@ -45,15 +45,15 @@
 						
 						
 						<div class="login__field col-xs-12 col-md-12">
-						<label for="email" class="field__entry row col-25"><b>EMAIL*</b></label> <input class="field__input"
-							 class="row col-75" type="email"
+						<label for="email" class="field__entry row col-25"><b>EMAIL*</b></label> 
+						<input class="field__input row col-75" type="email"
 							placeholder="Your Email ID.." name="email"> 
 							<span class="error"><p id="log_em_error"></p></span> 
 						</div>
 					
 						<div class="login__field col-xs-12 col-md-12">
-							<label for="psw" class="field__entry row col-25"><b>PASSWORD*</b></label> <input
-							 class="field__input row col-75" type="password"
+							<label for="psw" class="field__entry row col-25"><b>PASSWORD*</b></label> 
+							<input class="field__input row col-75" type="password"
 							placeholder="Enter Password" name="psw"> 
 							 <span class="error"><p id="log_psw_error"></p></span> 
 						</div>

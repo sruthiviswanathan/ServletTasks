@@ -191,15 +191,12 @@
 							</div>
 							
 							<div class="col-20 col-xs-12 col-sm-12">
-								<form action="${Config.BASE_PATH}ApplyForJobServlet"  id="apply${loop.count}" onsubmit="event.preventDefault(); apply(this);"  method="post">
+								<form action="${Config.BASE_PATH}ApplyForJobServlet"  id="apply${loop.count}" onsubmit="event.preventDefault(); apply(this,'button${loop.count}');"  method="post">
 									<input type="hidden" name="location" value="${vac.getLocation()}">
 								<input type="hidden" name="companyName" value="${vac.getCompanyName()}">
 								<input type="hidden" name="jobDesignation" value="${vac.getJobRole()}">
-								<button class="row__button" type="submit">
-										APPLY FOR JOB<i class="dir fa fa-chevron-circle-right"
-											aria-hidden="true"></i></button>
-								</form>
-									
+								<input class="row__button" id="button${loop.count}" type="submit" value="APPLY FOR JOB"/>
+								</form>	
 							</div>
 							
 							<div class="col-60 col-xs-12 col-sm-12">

@@ -147,14 +147,11 @@
 							
 							<div class="col-60 col-xs-12 col-md-12">
 								
-									<form action="${Config.BASE_PATH}ApplyForJobServlet" id="apply${loop.count}" onsubmit="event.preventDefault(); apply(this);" method="post">
+									<form action="${Config.BASE_PATH}ApplyForJobServlet" id="apply${loop.count}" onsubmit="event.preventDefault(); apply(this,'button${loop.count}');" method="post">
 									<input type="hidden" name="location" value="${location.getLocation()}">
 									<input type="hidden" name="companyName" value="${location.getCompanyName()}">
 									<input type="hidden" name="jobDesignation" value="${location.getJobRole()}">
-									<button class="col-xs-12" id ="button" type="submit">
-										APPLY FOR JOB<i class="dir fa fa-chevron-circle-right"
-											aria-hidden="true"></i>
-									</button>
+									<input class="button col-xs-12" id="button${loop.count}" type="submit" value="APPLY FOR JOB"/>
 								
 								</form>
 							</div>
