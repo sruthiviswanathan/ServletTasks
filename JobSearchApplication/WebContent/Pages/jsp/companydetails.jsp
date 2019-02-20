@@ -192,6 +192,7 @@
 							
 							<div class="col-20 col-xs-12 col-sm-12">
 								<form action="${Config.BASE_PATH}ApplyForJobServlet"  id="apply${loop.count}" onsubmit="event.preventDefault(); apply(this);"  method="post">
+									<input type="hidden" name="location" value="${vac.getLocation()}">
 								<input type="hidden" name="companyName" value="${vac.getCompanyName()}">
 								<input type="hidden" name="jobDesignation" value="${vac.getJobRole()}">
 								<button class="row__button" type="submit">

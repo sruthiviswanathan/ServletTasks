@@ -33,9 +33,9 @@
                         <a href="${Config.BASE_PATH}Pages/jsp/findjob.jsp">FIND JOB</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/findcompany.jsp">FIND COMPANY</a>
                          <a href="${Config.BASE_PATH}Pages/jsp/searchbylocation.jsp">SEARCH BY LOCATION</a>
-                  
                         <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/requestvacancy.jsp">REQUEST A VACANCY</a>
+                        <a href="${Config.BASE_PATH}ViewAppliedJobsServlet">VIEW APPLIED JOBS</a>
                  </div>
                 </div>
 		
@@ -142,7 +142,7 @@
 							</div>
 							<div class="col-60 col-xs-12 col-md-12">
 								<form action="${Config.BASE_PATH}ApplyForJobServlet" id="apply${loop.count}" onsubmit="event.preventDefault(); apply(this);" method="post">
-								
+								<input type="hidden" name="location" value="${comp.getLocation()}">
 								<input type="hidden" name="companyName" value="${comp.getCompanyName()}">
 								<input type="hidden" name="jobDesignation" value="${job.get(0)}">
 								<button class="col-xs-12" id="button" type="submit">

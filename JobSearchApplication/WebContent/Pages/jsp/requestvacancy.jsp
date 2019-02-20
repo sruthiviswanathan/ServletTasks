@@ -30,6 +30,7 @@
                          <a href="${Config.BASE_PATH}Pages/jsp/searchbylocation.jsp">SEARCH BY LOCATION</a>
                         <a href="${Config.BASE_PATH}UserProfileServlet">YOUR PROFILE</a>
                         <a href="${Config.BASE_PATH}Pages/jsp/requestvacancy.jsp">REQUEST A VACANCY</a>
+                        <a href="${Config.BASE_PATH}ViewAppliedJobsServlet">VIEW APPLIED JOBS</a>
                       </div>
                 </div>
             
@@ -47,15 +48,14 @@
                 <h3>REQUEST FOR A VACANCY!! GET NOTIFIED!!</h3>
         </div>
         
-      <div class="container__requestvacancy">
-      					
-      					
-						<c:if test="${saved == 'yes'}">
+        				<c:if test="${saved == 'yes'}">
 						<div id="snackbar">
 						<c:out value="YOUR REQUEST IS SAVED!!YOU WILL BE NOTIFIED WHEN YOUR REQUIREMENT MATCHES ANY VACANCIES"/>
 						</div>
 						</c:if>
-						
+        
+        
+      <div class="container__requestvacancy">
 						        
     		<form action="${Config.BASE_PATH}RequestVacancyServlet" id="requestvacancy" name="requestvacancy"onsubmit="return validateRequestVacancy()" method="post" >
         

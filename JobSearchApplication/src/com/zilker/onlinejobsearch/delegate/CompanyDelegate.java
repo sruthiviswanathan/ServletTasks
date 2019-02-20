@@ -156,6 +156,7 @@ public class CompanyDelegate {
 	public void compareVacancyWithRequest(Company company) throws SQLException {
 		// TODO Auto-generated method stub
 		try {
+			System.out.println("hi");
 			CompanyDAO companyDao = new CompanyDAO();
 			companyDao.compareVacancyWithRequest(company);
 		} catch (SQLException e) {
@@ -265,6 +266,19 @@ public class CompanyDelegate {
 		try {
 			CompanyDAO companyDao = new CompanyDAO();
 			comp = companyDao.viewAppliedUsers(company);
+		} catch (SQLException e) {
+			throw e;
+		}
+		return comp;
+	}
+
+
+	public ArrayList<Company> viewAppliedJobs(User user) throws SQLException {
+		// TODO Auto-generated method stub
+		ArrayList<Company> comp = new ArrayList<Company>();
+		try {
+			CompanyDAO companyDao = new CompanyDAO();
+			comp = companyDao.viewAppliedJobs(user);
 		} catch (SQLException e) {
 			throw e;
 		}

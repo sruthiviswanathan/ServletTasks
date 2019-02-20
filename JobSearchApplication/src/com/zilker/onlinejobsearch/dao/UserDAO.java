@@ -704,8 +704,9 @@ public class UserDAO {
 			preparestatement.setString(2, user.getEmail());
 			preparestatement.setInt(3, company.getCompanyId());
 			preparestatement.setInt(4, company.getJobId());
-			preparestatement.setInt(5, user.getUserId());
+			preparestatement.setString(5, company.getLocation());
 			preparestatement.setInt(6, user.getUserId());
+			preparestatement.setInt(7, user.getUserId());
 			preparestatement.executeUpdate();
 			flag = true;
 

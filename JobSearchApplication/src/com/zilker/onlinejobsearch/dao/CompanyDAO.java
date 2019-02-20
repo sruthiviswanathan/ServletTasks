@@ -28,15 +28,19 @@ public class CompanyDAO {
 	public void compareVacancyWithRequest(Company company) throws SQLException {
 			NotifyUser notifyuser = new NotifyUser();
 		try {
+			System.out.println("hi");
 			connection = DButils.getConnection();
 			statement = connection.createStatement();
 			resultset = statement.executeQuery(QueryConstants.RETRIEVEJOBREQUESTS);
 			int jobId = company.getJobId();
 			String location = company.getLocation();
+			System.out.println("I am Here...");
 			while (resultset.next()) {
 				if ((jobId == resultset.getInt(2)) && location.equals(resultset.getString(3))) {
+					System.out.println("hi");
 					String email = resultset.getString(1);
 					notifyuser.sendNotification(email);
+					System.out.println("hi");
 				}
 			}
 
@@ -612,6 +616,7 @@ public class CompanyDAO {
 				c.setUserName(resultset.getString(1));
 				c.setJobRole(resultset.getString(3));
 				c.setEmail(resultset.getString(4));	
+				c.setLocation(resultset.getString(5));
 				comp.add(c);
 						
 
@@ -625,6 +630,33 @@ public class CompanyDAO {
 		}
 		return comp;
 
+	}
+
+	public ArrayList<Company> viewAppliedJobs(User user)throws SQLException {
+		// TODO Auto-generated method stub
+		ArrayList<Company> comp = new ArrayList<Company>();
+		try {
+			connection = DButils.getConnection();
+			preparestatement = connection.prepareStatement(QueryConstants.VIEWAPPLIEDJOBS);
+			preparestatement.setInt(1, user.getUserId());
+			resultset = preparestatement.executeQuery();
+			while (resultset.next()) {
+				Company c = new Company();
+				c.setCompanyName(resultset.getString(1));
+				c.setJobRole(resultset.getString(2));
+				c.setLocation(resultset.getString(3));
+				comp.add(c);
+						
+
+			}					
+		
+		} catch (SQLException e) {
+			throw e;
+
+		} finally {
+			DButils.closeConnection(connection, preparestatement, resultset);
+		}
+		return comp;
 	}
 
 }

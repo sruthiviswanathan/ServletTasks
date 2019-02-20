@@ -98,7 +98,7 @@ public class PostJobServlet extends HttpServlet {
 			job = jobDelegate.displayJobs(jobMapping);
 			request.setAttribute("jobs", job); 
 			if(companyDelegate.publishVacancy(company, user)) {
-//				companyDelegate.compareVacancyWithRequest(company);
+			companyDelegate.compareVacancyWithRequest(company);
 				
 				getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/postjob.jsp").forward(request,response);
 				//response.sendRedirect("Pages/jsp/postjob.jsp");
@@ -108,7 +108,7 @@ public class PostJobServlet extends HttpServlet {
 			
 			
 		}catch(Exception e) {
-			
+			System.out.println(e);
 		}
 	}
 
