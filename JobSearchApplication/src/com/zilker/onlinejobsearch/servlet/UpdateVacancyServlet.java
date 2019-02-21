@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -67,17 +68,15 @@ public class UpdateVacancyServlet extends HttpServlet {
 		user.setCurrentTime(dtf.format(now));
 		String action = request.getParameter("action");
 		String jobDesignation = request.getParameter("jobdesignation");
-		System.out.println(jobDesignation);
+		
 		jobMapping.setJobRole(jobDesignation);
 		oldJobId = jobDelegate.fetchJobId(jobMapping);
 		userId = userDelegate.fetchUserId(user);
-		System.out.println(userId);
 		user.setUserId(userId);
 		companyId = userDelegate.fetchCompanyIdByAdmin(user);
-		System.out.println(companyId);
 		company.setCompanyId(companyId);
 		if ("UPDATE".equals(action)) {
-			System.out.println("update action");
+		
 			company.setOldJobId(oldJobId);
 			String newJobDesignation = request.getParameter("job");
 			//jobMapping.setJobRole(newJobDesignation);
@@ -85,26 +84,27 @@ public class UpdateVacancyServlet extends HttpServlet {
 			newJobId = Integer.parseInt(newJobDesignation);
 			company.setJobId(newJobId);
 			if(companyDelegate.updateVacancyJobId(company, user)) {
-				System.out.println(newJobDesignation);
+				request.setAttribute("status","updated");
 				
 			}
 			
 			String location = request.getParameter("location");
 			company.setLocation(location);
 			if(companyDelegate.updateVacancyLocation(company, user)) {
-				System.out.println(location);
+				request.setAttribute("status","updated");
 			}
 			
 			String jobDescription = request.getParameter("description");
 			company.setJobDescription(jobDescription);
 			if(companyDelegate.updateVacancyDescription(company, user)) {
-				System.out.println(jobDescription);
+				request.setAttribute("status","updated");
 			}
 			
 			String salary = request.getParameter("salary");
 			company.setSalary(Float.parseFloat(salary));
 			if(companyDelegate.updateVacancySalary(company, user)) {
-				System.out.println(salary);
+				request.setAttribute("status","updated");
+				
 			}
 			
 			String count = request.getParameter("count");
@@ -116,18 +116,20 @@ public class UpdateVacancyServlet extends HttpServlet {
 				company.setVacancyStatus("available");
 			}
 			if(companyDelegate.updateVacancyCount(company, user)) {
-				System.out.println(vacancyCount);
+				request.setAttribute("status","updated");
 			}
-			//response.sendRedirect("ViewPublishedJobsServlet");
+		
 		} else if ("DELETE".equals(action)) {
-		    System.out.println("delete action");
+		   
 			company.setJobId(oldJobId);
 			if(companyDelegate.removeVacancy(company, user)) {
-				System.out.println("vacancy deleted");
+				request.setAttribute("status","deleted");
 			}
+			
 		}
 		
-		response.sendRedirect("ViewPublishedJobsServlet");
+		RequestDispatcher rd = request.getRequestDispatcher("ViewPublishedJobsServlet");
+		rd.forward(request, response);
 		}catch(Exception e) {
 			
 		}

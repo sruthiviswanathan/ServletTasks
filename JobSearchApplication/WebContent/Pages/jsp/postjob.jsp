@@ -46,6 +46,28 @@
 			<h3>YOUR NEXT HIRE IS HERE!!!</h3>
 		</div>
 		
+		
+		 <div id="snackbar">
+                        
+        </div>
+        <script>
+        				function displaySuccessMessage(){
+        					 var para = document.createElement("p");
+        					  var node = document.createTextNode("YOUR JOB VACANCY IS POSTED SUCCESSFULLY!!");
+        					  para.appendChild(node);
+        					  var element = document.getElementById("snackbar");
+        					  element.className="show";
+        					  element.appendChild(para);
+        					  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
+        				}
+        				
+		</script>
+        				<c:if test="${jobPosted == 'yes'}">
+        				<script>
+        				displaySuccessMessage();
+        				</script>
+						</c:if>
+		
 		<div class="container__postjob">
 		<form action="${Config.BASE_PATH}PostJobServlet" id="postjob"
 			name="postjob" onsubmit="return validatePostJob()" method="post">

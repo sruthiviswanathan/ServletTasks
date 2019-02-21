@@ -46,6 +46,43 @@
 				
 							</ul>
 						</div>
+      					
+      		<div id="snackbar">
+                        
+        	</div>
+        <script>
+        				function displayUpdatedSuccessMessage(){
+        					 var para = document.createElement("p");
+        					  var node = document.createTextNode("VACANCY HAS BEEN UPDATED SUCCESSFULLY");
+        					  para.appendChild(node);
+        					  var element = document.getElementById("snackbar");
+        					  element.className="show";
+        					  element.appendChild(para);
+        					  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
+        				}
+        				function displayDeletedSuccessMessage(){
+       					 var para = document.createElement("p");
+       					  var node = document.createTextNode("VACANCY HAS BEEN DELETED SUCCESSFULLY");
+       					  para.appendChild(node);
+       					  var element = document.getElementById("snackbar");
+       					  element.className="show";
+       					  element.appendChild(para);
+       					  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
+       				}
+        				
+		</script>
+        				<c:if test="${status == 'updated'}">
+        				<script>
+        				displayUpdatedSuccessMessage();
+        				</script>
+						</c:if>
+        				<c:if test="${status == 'deleted'}">
+        				<script>
+        				displayDeletedSuccessMessage();
+        				</script>
+						</c:if>			
+  					
+      					
       					<c:choose>
       					
 						<c:when test="${noVacancy == 'yes'}">
