@@ -60,11 +60,25 @@
         					  element.appendChild(para);
         					  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
         				}
+        				function displayFailureMessage(){
+       					 var para = document.createElement("p");
+       					  var node = document.createTextNode("OOPS!!ERROR THIS JOB VACANCY IN YOUR COMPANY IS ALREADY PUBLISHED!!");
+       					  para.appendChild(node);
+       					  var element = document.getElementById("snackbar");
+       					  element.className="show";
+       					  element.appendChild(para);
+       					  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
+       				}
         				
 		</script>
         				<c:if test="${jobPosted == 'yes'}">
         				<script>
         				displaySuccessMessage();
+        				</script>
+						</c:if>
+						<c:if test="${jobPosted == 'no'}">
+        				<script>
+        				displayFailureMessage();
         				</script>
 						</c:if>
 		

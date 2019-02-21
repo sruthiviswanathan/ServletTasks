@@ -101,21 +101,12 @@ public class FindCompanyServlet extends HttpServlet {
 						request.setAttribute("displayVacancies", vacancyDetails);
 						company.setJobId(jobId);
 
-						/*
-						 * interviewProcess = userDelegate.retrieveInterviewProcess(company); if
-						 * (interviewProcess.isEmpty()) {
-						 * System.out.println("***No reviews on Interview process!!!***"); }
-						 * 
-						 * else { for (Company j : interviewProcess) {
-						 * request.setAttribute("displayInterviewProcess", interviewProcess); }
-						 */
 					}
 				}
-				// }
 				companyReviews = userDelegate.retrieveReview(company);
 
 				if (companyReviews.isEmpty()) {
-					System.out.println("***No Reviews for this Company!!!***");
+					request.setAttribute("noReviews","yes");
 				} else {
 					for (Company i : companyReviews) {
 						request.setAttribute("displayCompanyReviews", companyReviews);

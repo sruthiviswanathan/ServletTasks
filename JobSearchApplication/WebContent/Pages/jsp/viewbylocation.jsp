@@ -14,7 +14,6 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/viewjobs.css">
-<link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/mainpage.css">
 <script src="${Config.BASE_PATH}Pages/js/jquery-3.3.1.min.js"></script>
 
 </head>
@@ -51,7 +50,7 @@
 		
 		 <div class="container__searchbar">
                
-                        <form action="${Config.BASE_PATH}SearchByLocation" id="findLocation" onsubmit="submitFindLocation()" method="post">
+                        <form action="${Config.BASE_PATH}SearchByLocation" method="post">
                                
                                 <div class="searchbar__row">   
                                  
@@ -60,7 +59,7 @@
                                 </div>
  
                                 <div class="col-60 col-xs-12 col-sm-12">
-                                        <input type="text" class="row__input" oninput ="return removeLocationErrors();" name="location"  placeholder="Enter a Location.."
+                                        <input type="text" class="row__input"  name="location"  placeholder="Enter a Location.."
                                                 required><i class="icon fa fa-map-marker" aria-hidden="true"></i>
                                 </div>
  

@@ -13,7 +13,6 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/viewjobs.css">
-<link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/mainpage.css">
 <script src="${Config.BASE_PATH}Pages/js/jquery-3.3.1.min.js"></script>
 
 </head>
@@ -52,13 +51,13 @@
 		
                 
                 <div class="container__searchbar">
-                        <form action="${Config.BASE_PATH}ViewByJob" id="findJob" onsubmit="submitFindJob()" method="post">
+                        <form action="${Config.BASE_PATH}ViewByJob" method="post">
                   <div class="searchbar__row">               
                                 <div class="col-20 col-xs-12 col-sm-12">
                                         <label for="job" class="row__label">SEARCH FOR JOB</label>
                                 </div>
                                 <div class="col-60 col-xs-12 col-sm-12">
-                                        <input type="text" class="row__input"  oninput ="return removeErrors();" name="job" placeholder="Search for Job.."
+                                        <input type="text" class="row__input" name="job" placeholder="Search for Job.."
                                                 required><i class="icon fa fa-search" aria-hidden="true"></i>
                                 </div>
                                 <div class="col-10 col-xs-12 col-sm-12">

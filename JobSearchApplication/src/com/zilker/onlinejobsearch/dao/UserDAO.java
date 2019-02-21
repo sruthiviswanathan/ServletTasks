@@ -164,16 +164,13 @@ public class UserDAO {
 		try {
 			connection = DButils.getConnection();
 			preparestatement = connection.prepareStatement(QueryConstants.RETRIEVEINTERVIEWPROCESS);
-			preparestatement.setInt(1, company.getJobId());
-			preparestatement.setInt(2, company.getCompanyId());
+			preparestatement.setInt(1, company.getCompanyId());
 			resultset = preparestatement.executeQuery();
 			while (resultset.next()) {
 				Company c = new Company();
-				c.setInterviewProcess(resultset.getString(1));
-				String userId = resultset.getString(2);
-				int userIdNo = Integer.parseInt(userId);
-				String userName = fetchUserNameById(userIdNo);
-				c.setUserName(userName);
+				c.setJobRole(resultset.getString(1));
+				c.setInterviewProcess(resultset.getString(2));
+				c.setUserName(resultset.getString(3));
 				comp.add(c);
 			}
 		} catch (SQLException e) {

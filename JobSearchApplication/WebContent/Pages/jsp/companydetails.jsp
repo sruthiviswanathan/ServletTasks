@@ -55,6 +55,7 @@
 			<c:forEach items="${displayCompany}" var="comp">
 				<div class="display__row">
 						<input type="hidden" name="company" value="${comp.getCompanyName()}">
+						<c:set var="company" value="${comp.getCompanyName()}"></c:set>
 					
 					<div class="col-20 col-xs-12 col-sm-12">
 						<label for="company" class="display__row__label">COMPANY NAME</label>
@@ -90,7 +91,7 @@
 							</c:if>
 						</div>
 					</div>
-				
+					
 				</div>
 				
 			</c:forEach>
@@ -104,12 +105,12 @@
 			
 			</div>
 			
-			<div class="display__reviews">
+			<div class="display__reviews col-xs-12 col-sm-12">
 				
 				<c:choose>
     			
     			  <c:when test="${noReviews == 'yes'}">
-    			  <div class="error col-60 col-xs-12 col-sm-12">
+    			  	<div class="error col-60 col-xs-12 col-sm-12">
                           <c:out value="***No Reviews have been given yet***"></c:out>
                     </div>
                   </c:when>
@@ -130,17 +131,24 @@
 					
 							<label for="rating">RATING :</label>
 							 <c:out value="${displayCompanyReviews[0].getRating()}" /> 
-					</div> 
+					</div>
+					
 				</c:otherwise>	
 				
 				</c:choose>
-				
 					<div class="col-20 col-xs-12 col-sm-12">
 							<input type="submit" class="row__button col-xs-12 col-sm-12" value="VIEW ALL REVIEWS">
-					</div>
+					</div> 
+					
 			</div>
 				
 		</form>
+					<form action="${Config.BASE_PATH}ReviewsOnInterviewServlet" method="post">
+					<input type="hidden" name="company" value="${company}">
+					<div class="col-40 col-xs-12 col-sm-12">
+					<input type="submit" class="row__button col-xs-12 col-sm-12" value="KNOW ABOUT INTERVIEWS">
+					</div>
+					</form>
 	</div>
 		
 		

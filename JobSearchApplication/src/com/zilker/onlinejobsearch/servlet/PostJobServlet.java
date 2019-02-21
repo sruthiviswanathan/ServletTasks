@@ -1,6 +1,7 @@
 package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -99,11 +100,7 @@ public class PostJobServlet extends HttpServlet {
 			request.setAttribute("jobs", job); 
 			if(companyDelegate.publishVacancy(company, user)) {
 				request.setAttribute("jobPosted","yes");
-				System.out.println("jobposted");
 				companyDelegate.compareVacancyWithRequest(company);
-				System.out.println("jobposted");
-				//getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/postjob.jsp").forward(request,response);
-				//response.sendRedirect("Pages/jsp/postjob.jsp");
 				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/postjob.jsp");
 				rd.forward(request, response);
 			}else {
@@ -111,7 +108,17 @@ public class PostJobServlet extends HttpServlet {
 			}
 			
 			
-		}catch(Exception e) {
+		}
+		 catch (SQLIntegrityConstraintViolationException e) {
+			 
+			  request.setAttribute("jobPosted","no");
+			  RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/postjob.jsp");
+			  rd.forward(request, response);
+			  
+			  }
+		
+		
+		catch(Exception e) {
 			System.out.println(e);
 		}
 	}

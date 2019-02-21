@@ -218,6 +218,15 @@
 		<servlet-name>ViewAppliedJobsServlet</servlet-name>
 		<url-pattern>/ViewAppliedJobsServlet</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>ReviewsOnInterviewServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.ReviewsOnInterviewServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ReviewsOnInterviewServlet</servlet-name>
+		<url-pattern>/ReviewsOnInterviewServlet</url-pattern>
+	</servlet-mapping>
 	
 </element>
 

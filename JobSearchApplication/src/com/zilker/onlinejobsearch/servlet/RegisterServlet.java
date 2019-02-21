@@ -126,19 +126,15 @@ public class RegisterServlet extends HttpServlet {
 			  
 		
 		  catch (SQLIntegrityConstraintViolationException e) {
-		  System.out.println("exception here");
+		 
 		  request.setAttribute("userRegistrationError","error");
-		  //RequestDispatcher rd = request.getRequestDispatcher("RegisterServlet");
-		  //rd.forward(request,response); 
 		  response.sendRedirect("RegisterServlet"); 
 		  
 		  }
 		 
 			
 			catch(Exception e) {
-				response.sendRedirect("Pages/jsp/error.jsp");
-			//	System.out.println("exception");
-				
+				response.sendRedirect("Pages/jsp/error.jsp");				
 			}
 	}
 
