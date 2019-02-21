@@ -43,7 +43,7 @@ public class ViewAppliedUsersServlet extends HttpServlet {
 				response.sendRedirect("index.jsp");
 			}
 			ArrayList<Company> appliedUsers = new ArrayList<Company>();
-			//HttpSession session = request.getSession();
+			
 			String email = (String) session.getAttribute("email");
 			User user= new User();
 			Company company = new Company();
@@ -57,7 +57,7 @@ public class ViewAppliedUsersServlet extends HttpServlet {
 			company.setCompanyId(companyId);
 			appliedUsers=companyDelegate.viewAppliedUsers(company);
 			if (appliedUsers.isEmpty()) {
-				//System.out.println("No interested users!!");
+				
 				request.setAttribute("noInterestedUsers","yes");
 				
 			} else {

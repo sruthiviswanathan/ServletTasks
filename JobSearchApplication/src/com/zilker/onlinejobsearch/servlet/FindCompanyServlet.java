@@ -60,7 +60,6 @@ public class FindCompanyServlet extends HttpServlet {
 			ArrayList<Company> companyDetails = new ArrayList<Company>();
 			ArrayList<Company> vacancyDetails = new ArrayList<Company>();
 			ArrayList<Company> companyReviews = new ArrayList<Company>();
-			ArrayList<Company> interviewProcess = new ArrayList<Company>();
 			Company company = new Company();
 			CompanyDelegate companyDelegate = new CompanyDelegate();
 			UserDelegate userDelegate = new UserDelegate();
@@ -68,7 +67,7 @@ public class FindCompanyServlet extends HttpServlet {
 			company.setCompanyName(companyName);
 			companyId = companyDelegate.fetchCompanyId(company);
 			if (companyId == 0) {
-				// response.sendRedirect("Pages/jsp/findcompany.jsp");
+				
 				request.setAttribute("noCompany", "yes");
 				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/errorcompanyresults.jsp");
 				rd.forward(request, response);

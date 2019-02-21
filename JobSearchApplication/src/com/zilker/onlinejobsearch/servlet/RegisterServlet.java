@@ -42,7 +42,7 @@ public class RegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-			//System.out.println("signup");
+		
 			request.setAttribute("userRegistrationError","error");
 		
 			Technology technology = new Technology();
@@ -84,13 +84,6 @@ public class RegisterServlet extends HttpServlet {
 			String companyName = request.getParameter("companyName");
 			String designation = request.getParameter("designation");
 			
-			
-			System.out.println(name);
-			System.out.println(password);
-			System.out.println(confirmPassword);
-			System.out.println(email);
-			System.out.println(companyName);
-			System.out.println(designation);
 			user.setUserName(name);
 			user.setEmail(email);
 			user.setPassword(password);
@@ -118,7 +111,7 @@ public class RegisterServlet extends HttpServlet {
 				   request.setAttribute("registerSuccess","yes");
 				   RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/findjob.jsp");
 				   rd.forward(request, response);
-				   //response.sendRedirect("GetAllDataServlet"); 
+				    
 			}
 			
 			

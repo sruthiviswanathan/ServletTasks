@@ -56,11 +56,11 @@ public class ReviewsOnInterviewServlet extends HttpServlet {
 			Company company = new Company();
 			CompanyDelegate companyDelegate = new CompanyDelegate();
 			String companyName = request.getParameter("company");
-			System.out.println(companyName);
+			
 			company.setCompanyName(companyName);
 			companyId = companyDelegate.fetchCompanyId(company);
 			company.setCompanyId(companyId);
-			System.out.println(companyId);
+		
 			companyDetails = companyDelegate.retrieveVacancyByCompany(company);
 				
 			for (Company j : companyDetails) {

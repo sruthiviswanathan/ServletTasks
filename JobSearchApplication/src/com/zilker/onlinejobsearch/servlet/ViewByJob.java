@@ -46,8 +46,6 @@ public class ViewByJob extends HttpServlet {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("email")==null){
 			response.sendRedirect("index.jsp");
-		}else {
-			System.out.println("session attribute "+session.getAttribute("email"));
 		}
 	}
 

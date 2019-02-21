@@ -79,8 +79,7 @@ public class UpdateVacancyServlet extends HttpServlet {
 		
 			company.setOldJobId(oldJobId);
 			String newJobDesignation = request.getParameter("job");
-			//jobMapping.setJobRole(newJobDesignation);
-			//newJobId = jobDelegate.fetchJobId(jobMapping);
+		
 			newJobId = Integer.parseInt(newJobDesignation);
 			company.setJobId(newJobId);
 			if(companyDelegate.updateVacancyJobId(company, user)) {

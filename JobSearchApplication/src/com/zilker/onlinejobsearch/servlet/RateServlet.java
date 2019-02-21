@@ -48,7 +48,7 @@ public class RateServlet extends HttpServlet {
 				response.sendRedirect("index.jsp");
 			}
 			String companyName = request.getParameter("companyname");
-			System.out.println(companyName);
+			
 			request.setAttribute("companyname", companyName);
 			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/reviewandrating.jsp");
 			rd.forward(request, response);

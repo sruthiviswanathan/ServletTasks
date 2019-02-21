@@ -100,11 +100,9 @@ public class RegisterAdminServlet extends HttpServlet {
 
 				if (userId != 0) {
 					user.setUserId(userId);
-//					company.setCompanyName(companyName);
-//					companyId = companyDelegate.fetchCompanyId(company);
 					company.setCompanyId(Integer.parseInt(companyid));
 					flag = userDelegate.insertIntoAdmin(user, company);
-//					CompanyDelegate.insertIntoCompanyDetails(user, company);
+
 					if (flag == 1) {
 						 session.setAttribute("email",email);
 						request.setAttribute("registerSuccess","yes");
@@ -118,7 +116,7 @@ public class RegisterAdminServlet extends HttpServlet {
 		} 
 		
 		 catch (SQLIntegrityConstraintViolationException e) {
-			  System.out.println("exception here");
+			
 			  request.setAttribute("adminRegistrationError","error");
 			  response.sendRedirect("RegisterAdminServlet"); 
 			  

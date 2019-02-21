@@ -38,7 +38,7 @@ public class RequestVacancyServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
-			//response.getWriter().append("Served at: ").append(request.getContextPath());
+			
 			HttpSession session = request.getSession();
 			String email = (String) session.getAttribute("email");
 			User user= new User();
@@ -52,7 +52,7 @@ public class RequestVacancyServlet extends HttpServlet {
 			JobDelegate jobDelegate = new JobDelegate();
 			job = jobDelegate.displayJobs(jobMapping);
 			request.setAttribute("jobs", job); 
-			//response.sendRedirect("Pages/jsp/requestvacancy.jsp");
+			
 			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/requestvacancy.jsp");
 			rd.forward(request, response);
 			}catch(Exception e) {
@@ -71,18 +71,14 @@ public class RequestVacancyServlet extends HttpServlet {
 			String email = (String) session.getAttribute("email");
 			User user= new User();
 			UserDelegate userDelegate = new UserDelegate();
-			//JobDelegate jobDelegate = new JobDelegate();
 			JobRequest jobrequest = new JobRequest();
-			//JobMapping jobMapping = new JobMapping();
+			
 			user.setEmail(email);
 			String jobDesignation = request.getParameter("job");
 			String location = request.getParameter("location");
 			String salary = request.getParameter("salary");
 			jobrequest.setEmail(user.getEmail());
-			/*
-			 * jobMapping.setJobRole(jobDesignation); jobId =
-			 * jobDelegate.fetchJobId(jobMapping);
-			 */
+			
 			jobId = Integer.parseInt(jobDesignation);
 			jobrequest.setJobId(jobId);
 			jobrequest.setLocation(location);
@@ -96,8 +92,7 @@ public class RequestVacancyServlet extends HttpServlet {
 			request.setAttribute("jobs", job); 
 			if(userDelegate.requestNewVacancy(jobrequest, user)) {
 				request.setAttribute("saved","yes");
-				System.out.println("saved");
-				//response.sendRedirect("Pages/jsp/requestvacancy.jsp");
+				
 				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/requestvacancy.jsp");
 				rd.forward(request, response);
 			}else {

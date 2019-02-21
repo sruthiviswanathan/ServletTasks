@@ -20,9 +20,7 @@
 		 <%
 			if(session.getAttribute("email")==null){
 				response.sendRedirect("http://localhost:8080/JobSearchApplication/index.jsp");
-			} else {
-				System.out.println("session attribute "+session.getAttribute("email"));
-			}
+			} 
 		%> 
 	<div class="maincontainer">
 		

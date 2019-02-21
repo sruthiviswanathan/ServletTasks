@@ -100,15 +100,15 @@ public class UserProfileServlet extends HttpServlet {
 		String designation=request.getParameter("designation");
 		user.setUserName(userName);
 		if(userDelegate.updateUserName(user)) {
-		System.out.println("updated username");	
+			//System.out.println("updated username");	
 		}
 		user.setCompany(companyName);
 		if(userDelegate.updateCompanyName(user)) {
-			System.out.println("updated company name");	
+			//System.out.println("updated company name");	
 		}
 		user.setDesignation(designation);
 		if(userDelegate.updateUserDesignation(user)) {
-			System.out.println("updated designation");
+			//System.out.println("updated designation");
 		}
 		
 		

@@ -86,8 +86,7 @@ public class PostJobServlet extends HttpServlet {
 			String salary = request.getParameter("salary");
 			String count = request.getParameter("count");
 			String description=request.getParameter("description");
-			//jobMapping.setJobRole(jobDesignation);
-			//jobId = jobDelegate.fetchJobId(jobMapping);
+			
 			jobId = Integer.parseInt(jobDesignation);
 			company.setCompanyId(companyId);
 			company.setJobId(jobId);
