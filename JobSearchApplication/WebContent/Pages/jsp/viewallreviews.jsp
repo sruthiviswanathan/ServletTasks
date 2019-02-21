@@ -65,7 +65,7 @@
 			
 			<div class="col-20 col-xs-12 col-sm-12">
 					<a href="<c:out value="${comp.getCompanyWebsiteUrl()}" />">
-					<button class="row__button" type="button" value="WEBSITE URL"> WEBSITE URL <i class="dir fa fa-chevron-circle-right"> </i></button></a>
+					<button class="row__button col-xs-12 col-sm-12" type="button" value="WEBSITE URL"> WEBSITE URL <i class="dir fa fa-chevron-circle-right"> </i></button></a>
 			</div>
 		</div>
 		
@@ -88,7 +88,7 @@
 			</div>
 		
 			<div class="col-20 col-xs-12 col-sm-12">
-				<button class="row__button" type="submit" value="RATE THIS COMPANY">RATE THIS COMPANY</button>
+				<button class="row__button col-xs-12 col-sm-12" type="submit" value="RATE THIS COMPANY">RATE THIS COMPANY</button>
 			</div>
 			
 		</div>
