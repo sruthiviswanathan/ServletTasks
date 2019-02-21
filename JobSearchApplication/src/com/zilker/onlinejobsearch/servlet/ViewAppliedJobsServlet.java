@@ -3,6 +3,7 @@ package com.zilker.onlinejobsearch.servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -65,7 +66,9 @@ public class ViewAppliedJobsServlet extends HttpServlet {
 			}
 			getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/viewinterestedjobs.jsp").forward(request,response);	
 		}catch(Exception e) {
-			
+			request.setAttribute("exception",e);
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/error.jsp");
+			rd.forward(request, response);
 		}
 	}
 

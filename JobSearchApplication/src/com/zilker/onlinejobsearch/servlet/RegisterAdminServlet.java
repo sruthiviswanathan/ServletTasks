@@ -124,7 +124,9 @@ public class RegisterAdminServlet extends HttpServlet {
 			
 
 		catch (Exception e) {
-//				response.sendRedirect("/Pages/Retry.jsp");
+			request.setAttribute("exception",e);
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/error.jsp");
+			rd.forward(request, response);
 		}
 
 	}

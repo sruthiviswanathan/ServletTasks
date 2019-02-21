@@ -107,7 +107,9 @@ public class RateServlet extends HttpServlet {
 			
 			
 		} catch (Exception e) {
-
+			request.setAttribute("exception",e);
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/error.jsp");
+			rd.forward(request, response);
 		}
 	}
 

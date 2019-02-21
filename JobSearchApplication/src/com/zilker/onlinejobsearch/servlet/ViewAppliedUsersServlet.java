@@ -68,7 +68,9 @@ public class ViewAppliedUsersServlet extends HttpServlet {
 			}
 			getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/viewinterestedusers.jsp").forward(request,response);	
 		}catch(Exception e) {
-			
+			request.setAttribute("exception",e);
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/error.jsp");
+			rd.forward(request, response);
 		}
 	}
 

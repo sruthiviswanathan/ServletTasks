@@ -104,7 +104,9 @@ public class ViewByJob extends HttpServlet {
 				
 			}	
 		} catch (SQLException e) {
-		
+			request.setAttribute("exception",e);
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/error.jsp");
+			rd.forward(request, response);
 		}
 
 	}

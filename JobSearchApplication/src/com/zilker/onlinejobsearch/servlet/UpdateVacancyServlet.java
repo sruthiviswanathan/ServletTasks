@@ -130,7 +130,9 @@ public class UpdateVacancyServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("ViewPublishedJobsServlet");
 		rd.forward(request, response);
 		}catch(Exception e) {
-			
+			request.setAttribute("exception",e);
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/error.jsp");
+			rd.forward(request, response);
 		}
 	}
 

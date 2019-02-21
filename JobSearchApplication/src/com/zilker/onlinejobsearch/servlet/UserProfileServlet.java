@@ -135,7 +135,9 @@ public class UserProfileServlet extends HttpServlet {
 		response.sendRedirect("UserProfileServlet");
 		
 		}catch(Exception e) {
-			
+			request.setAttribute("exception",e);
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/error.jsp");
+			rd.forward(request, response);
 		}
 	}
 

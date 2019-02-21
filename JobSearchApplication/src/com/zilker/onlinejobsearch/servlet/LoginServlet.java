@@ -95,7 +95,9 @@ public class LoginServlet extends HttpServlet {
 			} 
 		
 			}catch(Exception e) {
-				response.sendRedirect("Pages/jsp/error.jsp");
+				request.setAttribute("exception",e);
+				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/error.jsp");
+				rd.forward(request, response);
 			}
 	}
 

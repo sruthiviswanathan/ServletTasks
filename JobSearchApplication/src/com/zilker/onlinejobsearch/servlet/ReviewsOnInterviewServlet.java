@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -76,7 +77,9 @@ public class ReviewsOnInterviewServlet extends HttpServlet {
 			}
 			getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/interviewprocess.jsp").forward(request,response);
 			}catch(Exception e) {
-				
+				request.setAttribute("exception",e);
+				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/error.jsp");
+				rd.forward(request, response);
 			}
 	}
 

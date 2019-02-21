@@ -118,7 +118,9 @@ public class PostJobServlet extends HttpServlet {
 		
 		
 		catch(Exception e) {
-			System.out.println(e);
+			request.setAttribute("exception",e);
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/error.jsp");
+			rd.forward(request, response);
 		}
 	}
 

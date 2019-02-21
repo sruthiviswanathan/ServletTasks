@@ -99,7 +99,9 @@ public class RequestVacancyServlet extends HttpServlet {
 				response.sendRedirect("Pages/jsp/error.jsp");
 			}
 		}catch(Exception e) {
-			
+			request.setAttribute("exception",e);
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/error.jsp");
+			rd.forward(request, response);
 		}
 	}
 
