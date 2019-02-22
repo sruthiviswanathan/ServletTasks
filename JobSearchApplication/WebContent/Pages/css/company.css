@@ -177,9 +177,19 @@ a:active, a:hover {
     cursor: pointer;
     float: right;
   }  
+  
+  .container__button {
+    background-color: #212121;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }  
+  
   .row__content{
-            color: white;
-          position: relative;
+        color: white;
+        position: relative;
 		font-size:30px;
 		font-weight:bold;
         }
@@ -249,22 +259,21 @@ background-color:#424242;
     display:block;
     margin: 25px 6px 25px 3px;
     height: 50%;
+     width:100%;
   }
-
-
-.container__maincard  div {
-    box-sizing: border-box;
-    float: left;
-    
-}
 
 
 
 .maincard__card {
+	 box-sizing: border-box;
+    float: left;
     width: 25%;
+     height:200px;
+    overflow-y:hidden;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
+
    }
 
 .card__container {
@@ -275,6 +284,8 @@ background-color:#424242;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	color:white;
 	text-align:center;
+	height:100%;
+	overflow-y:hidden;
   }
 
   .maincard__card:hover {

@@ -20,6 +20,7 @@ public class Company {
 	private String jobRole;
 	private String vacancyStatus;
 	private String email;
+	private String companyLogo;
 /*
  * Getters and setters for all variables
  */
@@ -109,6 +110,15 @@ public class Company {
 
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
+	}
+
+	
+	public String getCompanyLogo() {
+		return companyLogo;
+	}
+
+	public void setCompanyLogo(String companyLogo) {
+		this.companyLogo = companyLogo;
 	}
 
 	public float getAverageRating() {

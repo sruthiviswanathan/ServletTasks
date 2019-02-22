@@ -244,6 +244,8 @@
 				required>
 				<input type="text" placeholder="Enter Company Website URL" name="websiteUrl"
 				required>
+				<input type="text" placeholder="Give the URL of your company logo" name="companyLogo"
+				required>
 			<button type="submit" id="addcomp" class="btn">ADD COMPANY</button>
 			<button type="button" class="cancel btn" onclick="closeForm()">CLOSE</button>
 		</form>

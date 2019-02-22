@@ -38,10 +38,78 @@ public class FindCompanyServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
-		if (session.getAttribute("email") == null) {
-			response.sendRedirect("index.jsp");
-		}
+		try {
+			int companyId = 0;
+			HttpSession session = request.getSession();
+			String email = (String) session.getAttribute("email");
+			User user = new User();
+			user.setEmail(email);
+			ArrayList<Company> companyDetails = new ArrayList<Company>();
+			ArrayList<Company> vacancyDetails = new ArrayList<Company>();
+			ArrayList<Company> companyReviews = new ArrayList<Company>();
+			Company company = new Company();
+			CompanyDelegate companyDelegate = new CompanyDelegate();
+			UserDelegate userDelegate = new UserDelegate();
+			String companyName = request.getParameter("companyName").toString();;
+			company.setCompanyName(companyName);
+			companyId = companyDelegate.fetchCompanyId(company);
+			if (companyId == 0) {
+				
+				request.setAttribute("noCompany", "yes");
+				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/errorcompanyresults.jsp");
+				rd.forward(request, response);
+
+			} else {
+				company.setCompanyId(companyId);
+				companyDetails = companyDelegate.retrieveVacancyByCompany(company);
+				for (Company j : companyDetails) {
+					request.setAttribute("displayCompany", companyDetails);
+				}
+				vacancyDetails = companyDelegate.retrieveVacancyByCompany1(company);
+
+				if (vacancyDetails.isEmpty()) {
+					request.setAttribute("noVacancy", "yes");
+					
+					companyReviews = userDelegate.retrieveReview(company);
+
+					if (companyReviews.isEmpty()) {
+						request.setAttribute("noReviews", "yes");
+					} else {
+						for (Company i : companyReviews) {
+							request.setAttribute("displayCompanyReviews", companyReviews);
+						}
+					}
+					RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/companydetails.jsp");
+					rd.forward(request, response);
+				} else {
+					for (Company i : vacancyDetails) {
+						int jobId = i.getJobId();
+						request.setAttribute("displayVacancies", vacancyDetails);
+						company.setJobId(jobId);
+
+					}
+				}
+				companyReviews = userDelegate.retrieveReview(company);
+
+				if (companyReviews.isEmpty()) {
+					request.setAttribute("noReviews","yes");
+				} else {
+					for (Company i : companyReviews) {
+						request.setAttribute("displayCompanyReviews", companyReviews);
+					}
+				}
+				getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/companydetails.jsp").forward(request, response);
+			}
+			
+		} 
+		catch (Exception e) {
+			
+			/*
+			 * request.setAttribute("exception",e); RequestDispatcher rd =
+			 * request.getRequestDispatcher("Pages/jsp/error.jsp"); rd.forward(request,
+			 * response);
+			 */
+			}
 	}
 
 	/**
@@ -63,7 +131,7 @@ public class FindCompanyServlet extends HttpServlet {
 			Company company = new Company();
 			CompanyDelegate companyDelegate = new CompanyDelegate();
 			UserDelegate userDelegate = new UserDelegate();
-			String companyName = request.getParameter("companyName");
+			String companyName = request.getParameter("companyName").toString();;
 			company.setCompanyName(companyName);
 			companyId = companyDelegate.fetchCompanyId(company);
 			if (companyId == 0) {

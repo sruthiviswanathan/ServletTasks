@@ -173,8 +173,9 @@
 						<p>
 							<c:out value="${vac.getLocation()}" />
 						</p>
-						
-						<button class="row__button" id="btn${loop.count}"onclick="displaymodal(this.id)">VIEW MORE</button>
+						<p>
+						<button class="container__button" id="btn${loop.count}"onclick="displaymodal(this.id)">VIEW MORE</button>
+						</p>					
 					</div>
 				</div>
 

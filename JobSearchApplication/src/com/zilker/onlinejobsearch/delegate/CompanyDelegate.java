@@ -23,20 +23,6 @@ public class CompanyDelegate {
 	}
 
 	
-	public ArrayList<Company> RetreiveAllCompanies(Company company) throws SQLException {
-		// TODO Auto-generated method stub
-		ArrayList<Company> comp = new ArrayList<Company>();
-		try {
-			CompanyDAO companyDao = new CompanyDAO();
-			comp = companyDao.RetreiveAllCompanies(company);
-		} catch (SQLException e) {
-			throw e;
-		}
-		return comp;
-	}
-	
-	
-	
 	
 	public int fetchCompanyId(Company company) throws SQLException {
 		// TODO Auto-generated method stub
@@ -156,7 +142,7 @@ public class CompanyDelegate {
 	public void compareVacancyWithRequest(Company company) throws SQLException {
 		// TODO Auto-generated method stub
 		try {
-			System.out.println("hi");
+		
 			CompanyDAO companyDao = new CompanyDAO();
 			companyDao.compareVacancyWithRequest(company);
 		} catch (SQLException e) {

@@ -47,9 +47,10 @@ public class AddNewCompany extends HttpServlet {
 			CompanyDelegate companyDelegate = new CompanyDelegate();
 			String companyName = request.getParameter("companyName");
 			String websiteUrl = request.getParameter("websiteUrl");
+			String companyLogo = request.getParameter("companyLogo");
 			company.setCompanyName(companyName);
 			company.setCompanyWebsiteUrl(websiteUrl);
-
+			company.setCompanyLogo(companyLogo);
 			if (companyDelegate.addNewCompany(company)) {
 				response.sendRedirect("RegisterAdminServlet");
 			} else {

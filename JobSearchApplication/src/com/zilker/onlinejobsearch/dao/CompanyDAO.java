@@ -28,19 +28,19 @@ public class CompanyDAO {
 	public void compareVacancyWithRequest(Company company) throws SQLException {
 			NotifyUser notifyuser = new NotifyUser();
 		try {
-			System.out.println("hi");
+			
 			connection = DButils.getConnection();
 			statement = connection.createStatement();
 			resultset = statement.executeQuery(QueryConstants.RETRIEVEJOBREQUESTS);
 			int jobId = company.getJobId();
 			String location = company.getLocation();
-			System.out.println("I am Here...");
+			
 			while (resultset.next()) {
 				if ((jobId == resultset.getInt(2)) && location.equals(resultset.getString(3))) {
-					System.out.println("hi");
+					
 					String email = resultset.getString(1);
 					notifyuser.sendNotification(email);
-					System.out.println("hi");
+					
 				}
 			}
 
@@ -91,6 +91,7 @@ public class CompanyDAO {
 			preparestatement = connection.prepareStatement(QueryConstants.INSERTCOMPANY);
 			preparestatement.setString(1, company.getCompanyName());
 			preparestatement.setString(2, company.getCompanyWebsiteUrl());
+			preparestatement.setString(3, company.getCompanyLogo());
 			preparestatement.executeUpdate();
 			flag = true;
 		} catch (SQLException e) {
@@ -196,6 +197,7 @@ public class CompanyDAO {
 				Company c = new Company();
 				c.setCompanyId(resultset.getInt(1));
 				c.setCompanyName(resultset.getString(2));
+				c.setCompanyLogo(resultset.getString(3));
 				comp.add(c);
 			}
 
@@ -209,31 +211,6 @@ public class CompanyDAO {
 	}
 	
 
-	public ArrayList<Company> RetreiveAllCompanies(Company company) throws SQLException {
-		ArrayList<Company> comp = new ArrayList<Company>();
-		try {
-			float averageRating = 0;
-
-			connection = DButils.getConnection();
-			statement = connection.createStatement();
-			resultset = statement.executeQuery(QueryConstants.RETRIEVECOMPANYDATA);
-
-			while (resultset.next()) {
-				Company c = new Company();
-				c.setCompanyName(resultset.getString(2));
-				averageRating = calculateAverageRating(company);
-				c.setAverageRating(averageRating);
-				comp.add(c);
-			}
-
-		} catch (SQLException e) {
-
-			throw e;
-		} finally {
-			DButils.closeConnection(connection, preparestatement, resultset);
-		}
-		return comp;
-	}
 
 	/*
 	 * method for fetching job id given job designation.

@@ -3,6 +3,7 @@
     <%@ page import="com.zilker.onlinejobsearch.config.Config"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <%@ include file = "usernavbar.jsp" %>
+ <jsp:include page="/RetreiveAllCompanyServlet" />
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,70 +53,23 @@
                         <h3>POPULAR COMPANIES</h3>
                 </div>
                 <div class="container__maincard">
-                        <div class="maincard__card col-sm-6 col-xs-height">
+                       
+                      <c:forEach var="comp" items="${companyList}" varStatus="loop">
+						
+						 <div class="maincard__card col-sm-6 col-xs-height">
+						 	<c:set var="company" value="${comp.getCompanyName()}"/>
                                 <div class="card__container">
-                                        <a href="companydetails.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
-                                                        alt="Avatar" style="width:50%"></a>
-                                        <h4><b>Company Name</b></h4>
-                                        <p>Overall Rating</p>
+                                     <a href="${Config.BASE_PATH}FindCompanyServlet?companyName=${company}">
+						  			<img src="${comp.getCompanyLogo()}"
+                                                        alt="Avatar" style="width:50%;height:75%;"></a> 
+                                        <h4><b><c:out value="${comp.getCompanyName()}" /></b></h4>
+                                     
                                 </div>
+                        
                         </div>
-                        <div class="maincard__card col-sm-6 col-xs-height">
-                                <div class="card__container">
-                                        <a href="companydetails.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
-                                                        alt="Avatar" style="width:50%"></a>
-                                        <h4><b>Company Name</b></h4>
-                                        <p>Overall Rating</p>
-                                </div>
-                        </div>
-                        <div class="maincard__card col-sm-6 col-xs-height">
-                                <div class="card__container">
-                                        <a href="companydetails.html"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
-                                                        alt="Avatar" style="width:50%"></a>
-                                        <h4><b>Company Name</b></h4>
-                                        <p>Overall Rating</p>
-                                </div>
-                        </div>
-                        <div class="maincard__card col-sm-6 col-xs-height">
-                                <div class="card__container">
-                                        <a href="companydetails.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
-                                                        alt="Avatar" style="width:50%"></a>
-                                        <h4><b>Company Name</b></h4>
-                                        <p>Overall Rating</p>
-                                </div>
-                        </div>
-                        <div class="maincard__card col-sm-6 col-xs-height">
-                                <div class="card__container">
-                                        <a href="companydetails.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
-                                                        alt="Avatar" style="width:50%"></a>
-                                        <h4><b>Company Name</b></h4>
-                                        <p>Overall Rating</p>
-                                </div>
-                        </div>
-                        <div class="maincard__card col-sm-6 col-xs-height">
-                                <div class="card__container">
-                                        <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
-                                                        alt="Avatar" style="width:50%"></a>
-                                        <h4><b>Company Name</b></h4>
-                                        <p>Overall Rating</p>
-                                </div>
-                        </div>
-                        <div class="maincard__card col-sm-6 col-xs-height">
-                                <div class="card__container">
-                                        <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
-                                                        alt="Avatar" style="width:50%"></a>
-                                        <h4><b>Company Name</b></h4>
-                                        <p>Overall Rating</p>
-                                </div>
-                        </div>
-                        <div class="maincard__card col-sm-6 col-xs-height">
-                                <div class="card__container">
-                                        <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoaW4BTgOUrtjclwmlgttyWsHv0ykHPDWgg_J0lCZHdNu5T4vY"
-                                                        alt="Avatar" style="width:50%"></a>
-                                        <h4><b>Company Name</b></h4>
-                                        <p>Overall Rating</p>
-                                </div>
-                        </div>
+                      
+					</c:forEach>
+                      
                 </div>
         </div>
 </body>

@@ -14,10 +14,10 @@ public class QueryConstants {
 	public static final String INSERTCOMPANYADMIN = "insert into company_admin(user_id,company_id,created_by,updated_by) values(?,?,?,?)";
 	public static final String RETRIEVEUSERDATA = "select email,password,role,user_id from user_classification";
 	public static final String RETRIEVEUSERDETAILS = "select user_name,company_name,designation from user_classification where user_id=?";
-	public static final String INSERTCOMPANY = "insert into company_details(company_name,website_url) values(?,?)";
+	public static final String INSERTCOMPANY = "insert into company_details(company_name,website_url,company_logo) values(?,?,?)";
 	public static final String INSERTCOMPANYBYSITEADMIN = "insert into company_details(company_name,website_url,created_by,updated_by) values(?,?,?,?)";
 	public static final String UPDATECOMPANYCREATER = "update company_details set created_by=?,updated_by=? where company_id=?";
-	public static final String RETRIEVECOMPANYDATA = "select company_id,company_name from company_details";
+	public static final String RETRIEVECOMPANYDATA = "select company_id,company_name,company_logo from company_details";
 	public static final String RETRIEVEJOBDATA = "select job_id,job_designation from job";
 	public static final String RETRIEVETECHNOLOGYDATA = "select technology_id,technology from technology";
 	public static final String INSERTVACANCY = "insert into vacancy_publish(company_id,job_id,location,job_description,salary,vacancy_count,created_by,updated_by) values(?,?,?,?,?,?,?,?)";

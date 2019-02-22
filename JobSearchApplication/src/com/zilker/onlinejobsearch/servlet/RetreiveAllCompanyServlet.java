@@ -34,18 +34,15 @@ public class RetreiveAllCompanyServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 		try {
 		Company company = new Company();
 		ArrayList<Company> companyDetails = new ArrayList<Company>();
 		CompanyDelegate companyDelegate = new CompanyDelegate();
 		
-		companyDetails = companyDelegate.RetreiveAllCompanies(company);
+		companyDetails = companyDelegate.displayCompanies(company);	
 		request.setAttribute("companyList", companyDetails); 
-
-		getServletConfig().getServletContext().getRequestDispatcher("Pages/jsp/index.jsp").forward(request,response);
-
-		
+	
 		}catch(Exception e) {
 			request.setAttribute("exception",e);
 			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/error.jsp");
