@@ -41,6 +41,7 @@
 					<li>JOB HUNT</li>
 					<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet">
 					<i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
+					<li style="float: right">Hi,<%= session.getAttribute("userName") %> </li>
                     
                     </ul>
             </div>

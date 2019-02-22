@@ -7,7 +7,8 @@ body{
  	 background-position: center;
   	 background-repeat: no-repeat;
   	 background-size: cover;   
-      margin:0px;
+     margin:0px;
+     font-family: "Times New Roman", Times, serif;
 }
 * {
     box-sizing: border-box;

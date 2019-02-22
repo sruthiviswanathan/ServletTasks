@@ -209,8 +209,9 @@ public class UserDAO {
 
 		try {
 			String userName = "";
+		
 			connection1 = DButils.getConnection();
-			preparestatement1 = connection.prepareStatement(QueryConstants.RETRIEVEUSERNAMEBYID);
+			preparestatement1 = connection1.prepareStatement(QueryConstants.RETRIEVEUSERNAMEBYID);
 			preparestatement1.setInt(1, userId);
 			resultset1 = preparestatement1.executeQuery();
 			while (resultset1.next()) {

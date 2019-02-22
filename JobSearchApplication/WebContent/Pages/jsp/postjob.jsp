@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%> 	
 	<%@ page import="com.zilker.onlinejobsearch.config.Config"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,8 +38,9 @@
 				<li><button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button></li>			
 				<li>JOB HUNT</li>
 				<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet"><i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
+				<li style="float: right">Hi,<%= session.getAttribute("userName") %> </li>
 			</ul>
-		</div>
+		</div> 
 
 		<div class="container__title">
 			<h3>YOUR NEXT HIRE IS HERE!!!</h3>

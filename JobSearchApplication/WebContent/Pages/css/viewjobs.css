@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-	font-family: Arial;
+	font-family: "Times New Roman", Times, serif;
 	width: 100%;
 	margin: 0;
 	background:
@@ -438,5 +438,10 @@ a:active, a:hover {
 	.split--left {
 		width: 30%;
 		padding-bottom:20%;
+	}
+	.arrow {
+		display: block;
+		margin-top: -17px;
+		margin-left: 3px;
 	}
 }

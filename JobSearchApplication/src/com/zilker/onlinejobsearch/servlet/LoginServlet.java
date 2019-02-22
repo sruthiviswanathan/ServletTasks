@@ -67,7 +67,8 @@ public class LoginServlet extends HttpServlet {
 			
 			HttpSession session=request.getSession(); 
 			//response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-			int role=0;
+			int role=0,userId=0;
+			String userName="";
 			UserDelegate userDelegate = new UserDelegate();
 			User user = new User();
 			String password = request.getParameter("psw");
@@ -77,6 +78,12 @@ public class LoginServlet extends HttpServlet {
 			role = userDelegate.login(user);
 			session.setAttribute("email",email); 
 			
+			
+			  userId = userDelegate.fetchUserId(user);
+			  userName = userDelegate.fetchUserNameById(userId);  
+			  session.setAttribute("userName",userName);
+			 
+			
 			if (role == 0) {
 				
 				request.setAttribute("loginError","error");
@@ -84,7 +91,7 @@ public class LoginServlet extends HttpServlet {
 				rd.forward(request, response);
 				
 			} else if (role == 1) {
-				
+					
 				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/findjob.jsp");
 				rd.forward(request, response);
 				

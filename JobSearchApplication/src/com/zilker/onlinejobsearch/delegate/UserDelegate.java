@@ -10,7 +10,9 @@ import com.zilker.onlinejobsearch.beans.JobRequest;
 import com.zilker.onlinejobsearch.beans.Technology;
 import com.zilker.onlinejobsearch.beans.User;
 import com.zilker.onlinejobsearch.beans.UserTechnologyMapping;
+import com.zilker.onlinejobsearch.constants.QueryConstants;
 import com.zilker.onlinejobsearch.dao.UserDAO;
+import com.zilker.onlinejobsearch.utils.DButils;
 
 public class UserDelegate {
 
@@ -38,6 +40,23 @@ public class UserDelegate {
 		return flag;
 	}
 
+	public String fetchUserNameById(int userId) throws SQLException {
+		String userName = "";
+		try {
+			
+			UserDAO userDao = new UserDAO();
+			userName = userDao.fetchUserNameById(userId);
+			
+			return userName;
+		} catch (SQLException e) {
+			throw e;
+		} 
+	}
+
+	
+	
+	
+	
 	public int fetchUserId(User user) throws SQLException {
 		int userId = 0;
 		// TODO Auto-generated method stub
