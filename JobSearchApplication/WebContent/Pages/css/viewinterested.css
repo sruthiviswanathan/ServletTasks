@@ -20,7 +20,20 @@ body {
     border: 1px solid #ddd;
     padding: 8px;
   }
-  
+  .disabled{
+	background-color: #bdbdbd;
+	color:white;
+    cursor:not-allowed;
+	padding: 12px 20px;
+	border: none;
+ }
+  .contact__button{
+	background-color:#212121 ;
+	color:white;
+    cursor:not-allowed;
+	padding: 12px 20px;
+	border: none;
+ }
   .container__customers tr:nth-child(even){background-color: #f2f2f2;}
   .container__customers tr:nth-child(odd){background-color: #ddd;}
   
@@ -51,7 +64,7 @@ body {
   	margin-top:0px;
    }     
   @media (max-width:319px) {
-.container__customers{
+.col-xs-12{
     width: 100%;
     margin: 0;
   }
@@ -59,7 +72,7 @@ body {
 } 
 
 @media (min-width:320px) and (max-width:1025px) {
-.container__customers{
+.col-md-12{
     width: 100%;
     margin: 0;
   }

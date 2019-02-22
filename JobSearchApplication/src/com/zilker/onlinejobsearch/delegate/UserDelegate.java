@@ -346,6 +346,20 @@ public class UserDelegate {
 		return flag;
 	}
 
+	public boolean markContacted(Company company, User user)throws SQLException  {
+		// TODO Auto-generated method stub
+		boolean flag = false;
+		try {
+			System.out.println("done1");
+			UserDAO userDao = new UserDAO();
+			flag = userDao.markContacted(company,user);
+		} catch (SQLException e) {
+			
+			throw e;
+		}
+		return flag;
+	}
+	
 	public boolean applyForJob(Company company, User user)throws SQLException  {
 		// TODO Auto-generated method stub
 		boolean flag = false;
@@ -353,6 +367,7 @@ public class UserDelegate {
 			UserDAO userDao = new UserDAO();
 			flag = userDao.applyForJob(company,user);
 		} catch (SQLException e) {
+			
 			throw e;
 		}
 		return flag;

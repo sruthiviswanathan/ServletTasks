@@ -12,6 +12,7 @@
   <title>INTERESTED USERS</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/viewinterested.css">
+  <script src="${Config.BASE_PATH}Pages/js/jquery-3.3.1.min.js"></script>
 
 </head>
 <body>
@@ -22,7 +23,7 @@
 		%> 
     <div class="container">
     
-		<div class="container__title">
+		<div class="container__title col-xs-12 col-md-12">
 			<h3>YOUR NEXT HIRE IS HERE!!!</h3>
 		</div>
 					<c:choose>
@@ -32,23 +33,53 @@
 						</div>
 						</c:when>
 		<c:otherwise>
-		<table class="container__customers">
+		<table class="container__customers col-xs-12 col-md-12">
 			
   				<tr>
     				<th>USERNAME</th>
     				<th>EMAIL</th>
     				<th>JOB DESIGNATION</th>
     				<th>LOCATION</th>
+    				<th>CONTACTED</th>
   			    </tr>
-  			 
-					 <c:forEach var="user" items="${appliedUsers}">
+  			 	
+					 <c:forEach var="user" items="${appliedUsers}" varStatus="loop">
+						
 						<tr>
+						
 							<td>	<c:out value="${user.getUserName()}" /> </td>
 							<td>	<c:out value="${user.getEmail()}" /> </td>  
 							<td>	<c:out value="${user.getJobRole()}" /> </td> 
-							<td>	<c:out value="${user.getLocation()}" /> </td> 
-						</tr>	
+							<td>	<c:out value="${user.getLocation()}" /> </td>
+							<c:choose>
+							
+							<c:when test="${user.getContacted() == 'yes'}">
+							<td>
+							<form action="${Config.BASE_PATH}UpdateContactedUsersServlet"  id="apply1${loop.count}" onsubmit="event.preventDefault(); apply1(this,'button${loop.count}');"  method="post">
+							<input type="hidden" name="emailId" value="${user.getEmail()}"/>
+							<input type="hidden" name="job" value="${user.getJobRole()}"/>
+							<input type="hidden" name="location" value="${user.getLocation()}"/>
+							<input type ="submit"  class="disabled" id="button${loop.count}" name = "contacted" value="CONTACTED">
+							</form>
+							</td>
+							</c:when>
+							
+							<c:otherwise>
+							<td>
+							<form action="${Config.BASE_PATH}UpdateContactedUsersServlet"  id="apply1${loop.count}" onsubmit="event.preventDefault(); apply1(this,'button${loop.count}');"  method="post">
+							<input type="hidden" name="emailId" value="${user.getEmail()}"/>
+							<input type="hidden" name="job" value="${user.getJobRole()}"/>
+							<input type="hidden" name="location" value="${user.getLocation()}"/>
+							<input type ="submit" class="contact__button" id="button${loop.count}" name = "contacted" value="CONTACTED">
+							</form>
+							</td>
+							</c:otherwise>
+							
+							</c:choose>
+						</tr>
+						
 					</c:forEach>
+				
 		</table>
 		</c:otherwise>
 		</c:choose>

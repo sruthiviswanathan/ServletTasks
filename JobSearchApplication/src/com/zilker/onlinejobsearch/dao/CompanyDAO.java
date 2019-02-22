@@ -594,6 +594,7 @@ public class CompanyDAO {
 				c.setJobRole(resultset.getString(3));
 				c.setEmail(resultset.getString(4));	
 				c.setLocation(resultset.getString(5));
+				c.setContacted(resultset.getString(6));
 				comp.add(c);
 						
 

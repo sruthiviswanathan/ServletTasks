@@ -236,7 +236,15 @@
 		<servlet-name>RetreiveAllCompanyServlet</servlet-name>
 		<url-pattern>/RetreiveAllCompanyServlet</url-pattern>
 	</servlet-mapping>
-	
+	<servlet>
+		<servlet-name>UpdateContactedUsersServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.UpdateContactedUsersServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UpdateContactedUsersServlet</servlet-name>
+		<url-pattern>/UpdateContactedUsersServlet</url-pattern>
+	</servlet-mapping>
 </element>
 
 

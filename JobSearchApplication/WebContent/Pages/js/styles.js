@@ -130,6 +130,8 @@ function apply(event,id){
 	      dataType:"text",
 	      success:function(msg){
 	    	  console.log(msg);
+	    	  if (msg === 'success'){
+	    	 
 	    	  var para = document.createElement("p");
 	    	  var node = document.createTextNode("YOU HAVE APPLIED FOR THIS JOB!!COMPANY MAY CONTACT YOU ANY TIME");
 	    	  para.appendChild(node);
@@ -137,7 +139,16 @@ function apply(event,id){
 	    	  element.className="show";
 	    	  element.appendChild(para);
 	    	  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
-	    	  
+	    	  } 
+	    	  else if(msg === 'error'){
+	    		  var para = document.createElement("p");
+		    	  var node = document.createTextNode("YOU HAVE ALREADY APPLIED FOR THIS JOB");
+		    	  para.appendChild(node);
+		    	  var element = document.getElementById("snackbar");
+		    	  element.className="show";
+		    	  element.appendChild(para);
+		    	  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);  
+	    	  }
 	      }
 	    }).done(function(data) {
 	    	console.log(submit);
@@ -159,3 +170,35 @@ function displaySuccessMessage(){
 	  element.appendChild(para);
 	  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
 }
+
+function apply1(event,id){
+	console.log(event);
+
+	    var formEl = $(event);
+	    var submit = document.getElementById(id);
+	    $.ajax({
+	      type: 'POST',
+	      url: formEl.prop('action'),
+	      accept: {
+	        javascript: 'application/javascript'
+	      },
+	      data: formEl.serialize(),
+	      beforeSend: function() {
+	    	  console.log(submit);
+	      },
+	      dataType:"text",
+	      success:function(msg){
+	    	  console.log(msg);
+	    	 
+	      }
+	    }).done(function(data) {
+	    	console.log(submit);
+	    	submit.disabled=true;
+	    	submit.className = "disabled";
+	    	submit.value="CONTACTED";
+	    });
+
+return false;
+}
+
+

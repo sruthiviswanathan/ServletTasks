@@ -102,7 +102,7 @@ public class RegisterAdminServlet extends HttpServlet {
 					user.setUserId(userId);
 					company.setCompanyId(Integer.parseInt(companyid));
 					flag = userDelegate.insertIntoAdmin(user, company);
-
+					CompanyDelegate.insertIntoCompanyDetails(user, company);
 					if (flag == 1) {
 						 session.setAttribute("email",email);
 						request.setAttribute("registerSuccess","yes");

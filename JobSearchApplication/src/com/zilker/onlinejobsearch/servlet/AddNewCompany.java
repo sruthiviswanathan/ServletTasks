@@ -1,13 +1,18 @@
 package com.zilker.onlinejobsearch.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.zilker.onlinejobsearch.beans.Company;
+import com.zilker.onlinejobsearch.beans.Technology;
 import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
+import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
 
 /**
@@ -32,7 +37,26 @@ public class AddNewCompany extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		try {
+			
+			Technology technology = new Technology();
+			ArrayList<Technology> tech = new ArrayList<Technology>();
+			UserDelegate userDelegate = new UserDelegate();
+			tech = userDelegate.displayTechnologies(technology);
+			request.setAttribute("technologies",tech);
+			
+			Company company = new Company();
+			ArrayList<Company> displayCompanies = new ArrayList<Company>();
+			CompanyDelegate companyDelegate = new CompanyDelegate();
+			displayCompanies = companyDelegate.displayCompanies(company);
+			request.setAttribute("companies", displayCompanies);
+			
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/signup.jsp");
+			rd.forward(request, response);
+			
+			}catch(Exception e) {
+				
+			}
 	}
 
 	/**
@@ -52,7 +76,7 @@ public class AddNewCompany extends HttpServlet {
 			company.setCompanyWebsiteUrl(websiteUrl);
 			company.setCompanyLogo(companyLogo);
 			if (companyDelegate.addNewCompany(company)) {
-				response.sendRedirect("RegisterAdminServlet");
+				response.sendRedirect("AddNewCompany");
 			} else {
 				response.sendRedirect("Pages/jsp/error.jsp");
 			}

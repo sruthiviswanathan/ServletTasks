@@ -21,7 +21,7 @@ body{
 }
 
 .disabled{
-	background-color: #212121;
+	background-color: #bdbdbd;
 	color:white;
     cursor:not-allowed;
     width: 45%;

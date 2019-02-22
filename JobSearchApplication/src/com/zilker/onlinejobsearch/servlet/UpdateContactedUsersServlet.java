@@ -3,9 +3,7 @@ package com.zilker.onlinejobsearch.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLIntegrityConstraintViolationException;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,16 +19,16 @@ import com.zilker.onlinejobsearch.delegate.JobDelegate;
 import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
 /**
- * Servlet implementation class ApplyForJobServlet
+ * Servlet implementation class UpdateContactedUsersServlet
  */
-@WebServlet("/ApplyForJobServlet")
-public class ApplyForJobServlet extends HttpServlet {
+@WebServlet("/UpdateContactedUsersServlet")
+public class UpdateContactedUsersServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ApplyForJobServlet() {
+    public UpdateContactedUsersServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,7 +38,7 @@ public class ApplyForJobServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -51,11 +49,11 @@ public class ApplyForJobServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		try {
 			response.setContentType("text/html;charset=UTF-8");
-			
+		
 			int companyId=0,jobId=0,userId=0;
 			Company company = new Company();
 			JobMapping jobMapping = new JobMapping();
-			CompanyDelegate companyDelegate = new CompanyDelegate();
+	
 			UserDelegate userDelegate = new UserDelegate();
 			JobDelegate jobDelegate = new JobDelegate();
 			HttpSession session = request.getSession();
@@ -64,18 +62,22 @@ public class ApplyForJobServlet extends HttpServlet {
 			user.setEmail(email);
 			userId = userDelegate.fetchUserId(user);
 			user.setUserId(userId);
+			
 			String location = request.getParameter("location");
-			String companyName = request.getParameter("companyName");
-			String jobDesignation = request.getParameter("jobDesignation");
-			company.setCompanyName(companyName);
-			companyId = companyDelegate.fetchCompanyId(company);
+			String emailId = request.getParameter("emailId");
+			String jobDesignation = request.getParameter("job");
+			
+			companyId = userDelegate.fetchCompanyIdByAdmin(user);
 			jobMapping.setJobRole(jobDesignation);
 			jobId = jobDelegate.fetchJobId(jobMapping);
+			company.setEmail(emailId);
 			company.setCompanyId(companyId);
 			company.setJobId(jobId);
 			company.setLocation(location);
-			if(userDelegate.applyForJob(company,user)) {
-				 System.out.println("nope");
+			
+			if(userDelegate.markContacted(company,user)) {
+				
+				
 				response.setContentType("application/json");
 				out.print("success");
 				out.flush();
@@ -85,14 +87,7 @@ public class ApplyForJobServlet extends HttpServlet {
 			}
 		}
 		
-		catch (SQLIntegrityConstraintViolationException e) {
-			 
-			 System.out.println("nope");
-			 response.setContentType("application/json");
-			 out.print("error");
-			 out.flush();
-			  
-			}
+		
 		
 		
 		catch(Exception e) {

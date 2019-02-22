@@ -21,6 +21,7 @@ public class Company {
 	private String vacancyStatus;
 	private String email;
 	private String companyLogo;
+	private String contacted;
 /*
  * Getters and setters for all variables
  */
@@ -143,6 +144,14 @@ public class Company {
 
 	public void setJobRole(String jobRole) {
 		this.jobRole = jobRole;
+	}
+	
+	public String getContacted() {
+		return contacted;
+	}
+
+	public void setContacted(String contacted) {
+		this.contacted = contacted;
 	}
 
 	public String getCompanyWebsiteUrl() {

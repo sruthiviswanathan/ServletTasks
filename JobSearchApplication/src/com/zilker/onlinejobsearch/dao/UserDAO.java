@@ -709,6 +709,7 @@ public class UserDAO {
 			flag = true;
 
 		} catch (SQLException e) {
+			 System.out.println("nope");
 			throw e;
 
 		} finally {
@@ -717,6 +718,46 @@ public class UserDAO {
 		return flag;
 	}
 
+	
+	public boolean markContacted(Company company, User user) throws SQLException{
+		// TODO Auto-generated method stub
+		boolean flag = false;
+		try {
+			System.out.println("done1");
+			connection = DButils.getConnection();
+			preparestatement = connection.prepareStatement(QueryConstants.MARKCONTACTED);
+			preparestatement.setString(1, "yes");
+			preparestatement.setInt(2, user.getUserId());
+			preparestatement.setInt(3, user.getUserId());
+			preparestatement.setInt(4, company.getCompanyId());
+			preparestatement.setInt(5, company.getJobId());
+			preparestatement.setString(6, company.getLocation());
+			preparestatement.setString(7, company.getEmail());
+			preparestatement.executeUpdate();
+			flag = true;
+			System.out.println("done");	
+		} catch (SQLException e) {
+		
+			throw e;
+
+		} finally {
+			DButils.closeConnection(connection, preparestatement, resultset);
+		}
+		return flag;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public boolean deleteTechnologyDetails(UserTechnologyMapping userTechnology, User user)throws SQLException {
 		// TODO Auto-generated method stub
 		boolean flag = false;
