@@ -77,24 +77,8 @@
                        
                         <div class="field__entry checkbox col-75">
 							
-							
-							<%-- <c:forEach var="tech" items="${technologies}">	
-																				
-							<input type="checkbox" name="tech" value="${tech.getTechnologyId()}"><c:out
-											value="${tech.getTechnology()}" />	
-							</c:forEach> --%>
-								<%-- <%@ page import="com.zilker.onlinejobsearch.beans.UserTechnologyMapping"%>  
-								<%@page import="java.util.ArrayList" %>
-
-									<%  
-									ArrayList<UserTechnologyMapping> list = new ArrayList<UserTechnologyMapping>();
-									list = (ArrayList<UserTechnologyMapping>) request.getAttribute("userTech");
-									%>  --%>
-								
-									
-						
 							 
-								<c:forEach var="tech" items="${technologies}">
+						<c:forEach var="tech" items="${technologies}">
 						
 									<c:forEach var="user" items="${userTech}"> 		
 									
@@ -111,8 +95,8 @@
 									</c:forEach>
 									
 									
-									<c:set var="tech1" value="${user.getTechnologyId()}" />	
-									<c:set var="tech2" value="${tech.getTechnologyId()}" />
+								   <%--  <c:set var="tech1" value="${user.getTechnologyId()}" />	
+									<c:set var="tech2" value="${tech.getTechnologyId()}" /> --%>
 									
 									<c:choose>
 									<c:when test="${tech1 != tech2}">
@@ -124,7 +108,8 @@
 								
 								
 							</c:forEach>
-
+							
+					
 
 						</div>
 						</div>
