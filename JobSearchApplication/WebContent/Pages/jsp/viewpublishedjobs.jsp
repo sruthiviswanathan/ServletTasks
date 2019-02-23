@@ -125,7 +125,7 @@
                                         		<div class="content__updatejobs">
                                                 
                                                 <div class="updatejobs__field col-xs-12 col-md-12">
-                                                <label for="select-job" class="field__entry row col-75"><b>JOB DESIGNATION</b></label>
+                                                <label for="select-job" class="field__entry row col-75"><b>JOB DESIGNATION*</b></label>
                                                
                                                         <select id="job" name="job" class="select row col-75" required>
                                                       		
@@ -137,31 +137,31 @@
                                                			 <span class="error"><p id="job_error"></p></span>
                                                </div>
                                                
-                                                <div class="updatejobs__nav">
+                                               <!--  <div class="updatejobs__nav">
                                                         <button type="button" id="add" onclick="openForm()">NEW</button>
-                                                </div>
+                                                </div> -->
                                                
                                                 <div class="updatejobs__field col-xs-12 col-md-12">
-                                                <label  for="location" class="field__entry row col-25"><b>LOCATION</b></label>
+                                                <label  for="location" class="field__entry row col-75"><b>LOCATION*</b></label>
                                                 <input type="text" class="field__input row col-75" id="location" name="location" value="${vac.getLocation()}" required>
                                                <span class="error"><p id="location_error"></p></span>
                                                </div>
                                                
                                                 <div class="updatejobs__field col-xs-12 col-md-12">
-                                                <label  for="salary" class="field__entry row col-25"><b>SALARY</b></label>
+                                                <label  for="salary" class="field__entry row col-75"><b>SALARY(LPA)*</b></label>
                                                 <input type="number" class="field__input row col-75" id="salary" name="salary" value="${vac.getSalary()}"
                                                         step=".01" required>
                                                  <span class="error"><p id="salary_error"></p></span>
                                                  </div>
                                                     
                                                  <div class="updatejobs__field col-xs-12 col-md-12">
-                                                <label  for="count" class="field__entry row col-25"><b>COUNT</b></label>
+                                                <label  for="count" class="field__entry row col-75"><b>NO OF VACANCIES*</b></label>
                                                 <input type="number" class="field__input row col-75" id="count" name="count" value="${vac.getVacancyCount()}"required>
                                                <span class="error"><p id="count_error"></p></span>
                                                </div>
                                                
                                                 <div class="updatejobs__field col-xs-12 col-md-12">
-                                                <label for="description" class="field__entry row col-75"><b>JOB DESCRIPTION</b></label>
+                                                <label for="description" class="field__entry row col-75"><b>JOB DESCRIPTION*</b></label>
                                                 <textarea rows="4" cols="50" class="field__input row col-75" name="description" required>${vac.getJobDescription()}</textarea>
                                        			<span class="error"><p id="desc_error"></p></span>
                                        			</div>
@@ -183,14 +183,14 @@
 						</c:forEach>
 						</c:otherwise>
 						</c:choose>
-                            <div class="container__form-popup" id="myForm">
+                            <%-- <div class="container__form-popup" id="myForm">
                                     <form action="${Config.BASE_PATH}ViewPublishedJobsServlet" class="form-container" method="post">
                                             <h3>ADD NEW JOB DESIGNATION</h3>
                                             <input type="text" placeholder="Enter new Job designation" name="newjob" required>
                                             <button type="submit" id="addjob" class="btn">ADD DESIGNATION</button>
                                             <button type="button" class="cancel btn" onclick="closeForm()">CLOSE</button>
                                     </form>
-                            </div> 
+                            </div>  --%>
                         
                         </div>
                    

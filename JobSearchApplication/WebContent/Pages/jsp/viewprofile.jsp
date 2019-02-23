@@ -49,6 +49,28 @@
 			<h3>YOUR PROFILE!!!</h3>
 		</div>						
 
+		 <div id="snackbar">
+                        
+        </div>
+        <script>
+        				function displaySuccessMessage(){
+        					 var para = document.createElement("p");
+        					  var node = document.createTextNode("YOUR PROFILE IS UPDATED!!");
+        					  para.appendChild(node);
+        					  var element = document.getElementById("snackbar");
+        					  element.className="show";
+        					  element.appendChild(para);
+        					  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
+        				}
+        				
+        				
+		</script>
+        				<c:if test="${updated == 'yes'}">
+        				<script>
+        				displaySuccessMessage();
+        				</script>
+						</c:if>
+
         <div class="container__profile">
             <form action="${Config.BASE_PATH}UserProfileServlet" name ="update" id="update"  onsubmit="return updateUser()" method="post">
                
@@ -95,8 +117,8 @@
 									</c:forEach>
 									
 									
-								   <%--  <c:set var="tech1" value="${user.getTechnologyId()}" />	
-									<c:set var="tech2" value="${tech.getTechnologyId()}" /> --%>
+									<c:set var="tech1" value="${user.getTechnologyId()}" />	
+									<c:set var="tech2" value="${tech.getTechnologyId()}" />
 									
 									<c:choose>
 									<c:when test="${tech1 != tech2}">
@@ -108,6 +130,7 @@
 								
 								
 							</c:forEach>
+						
 							
 					
 

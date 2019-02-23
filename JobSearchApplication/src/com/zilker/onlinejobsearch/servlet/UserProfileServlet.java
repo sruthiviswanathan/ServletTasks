@@ -80,12 +80,17 @@ public class UserProfileServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+		
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
 		String[] technology;
+		Technology technologies = new Technology();
 		UserTechnologyMapping usertechnology = new UserTechnologyMapping();
 		UserTechnologyMapping userTechnologyMapping = new UserTechnologyMapping();
-		 ArrayList<UserTechnologyMapping> userTechnology = new ArrayList<UserTechnologyMapping>();
+		ArrayList<UserTechnologyMapping> userTechnology = new ArrayList<UserTechnologyMapping>();
+		ArrayList<User> userList = new ArrayList<User>();
+		ArrayList<Technology> tech = new ArrayList<Technology>();
+		
 		UserDelegate userDelegate = new UserDelegate();
 		User user= new User();
 		user.setEmail(email);
@@ -131,8 +136,16 @@ public class UserProfileServlet extends HttpServlet {
 				
 		      }
 		   }
-		
-		response.sendRedirect("UserProfileServlet");
+		   	userList = userDelegate.retrieveUserData(user);
+			userTechnology = userDelegate.displayUserTechnologies(userTechnologyMapping, user); 
+			tech = userDelegate.displayTechnologies(technologies);
+			request.setAttribute("technologies",tech);
+			request.setAttribute("userData", userList); 
+			request.setAttribute("userTech", userTechnology); 
+			request.setAttribute("updated","yes");
+			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/viewprofile.jsp");
+			rd.forward(request, response);
+		//response.sendRedirect("UserProfileServlet");
 		
 		}catch(Exception e) {
 			request.setAttribute("exception",e);
