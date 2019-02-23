@@ -113,6 +113,10 @@
     			  	<div class="error col-60 col-xs-12 col-sm-12">
                           <c:out value="***No Reviews have been given yet***"></c:out>
                     </div>
+                    
+                    <div class="col-20 col-xs-12 col-sm-12">
+							<input type="submit" class="row__button col-xs-12 col-sm-12" value="RATE THIS COMPANY">
+					</div> 
                   </c:when>
 					
 				<c:otherwise>
@@ -132,13 +136,15 @@
 							<label for="rating">RATING :</label>
 							 <c:out value="${displayCompanyReviews[0].getRating()}" /> 
 					</div>
-					
-				</c:otherwise>	
-				
-				</c:choose>
 					<div class="col-20 col-xs-12 col-sm-12">
 							<input type="submit" class="row__button col-xs-12 col-sm-12" value="VIEW ALL REVIEWS">
 					</div> 
+				</c:otherwise>	
+				
+				</c:choose>
+					<!-- <div class="col-20 col-xs-12 col-sm-12">
+							<input type="submit" class="row__button col-xs-12 col-sm-12" value="VIEW ALL REVIEWS">
+					</div>  -->
 					
 			</div>
 				
