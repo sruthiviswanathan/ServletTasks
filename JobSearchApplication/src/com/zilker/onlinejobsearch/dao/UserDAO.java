@@ -709,7 +709,7 @@ public class UserDAO {
 			flag = true;
 
 		} catch (SQLException e) {
-			 System.out.println("nope");
+		
 			throw e;
 
 		} finally {

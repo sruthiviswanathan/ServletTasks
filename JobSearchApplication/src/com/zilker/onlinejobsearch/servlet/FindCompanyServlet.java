@@ -51,6 +51,9 @@ public class FindCompanyServlet extends HttpServlet {
 			CompanyDelegate companyDelegate = new CompanyDelegate();
 			UserDelegate userDelegate = new UserDelegate();
 			String companyName = request.getParameter("companyName").toString();;
+			int userId=0;
+			userId=userDelegate.fetchUserId(user);
+			user.setUserId(userId);
 			company.setCompanyName(companyName);
 			companyId = companyDelegate.fetchCompanyId(company);
 			if (companyId == 0) {
@@ -65,7 +68,7 @@ public class FindCompanyServlet extends HttpServlet {
 				for (Company j : companyDetails) {
 					request.setAttribute("displayCompany", companyDetails);
 				}
-				vacancyDetails = companyDelegate.retrieveVacancyByCompany1(company);
+				vacancyDetails = companyDelegate.retrieveVacancyByCompany1(company,user);
 
 				if (vacancyDetails.isEmpty()) {
 					request.setAttribute("noVacancy", "yes");
@@ -122,15 +125,23 @@ public class FindCompanyServlet extends HttpServlet {
 		try {
 			int companyId = 0;
 			HttpSession session = request.getSession();
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("index.jsp");
+			}
 			String email = (String) session.getAttribute("email");
 			User user = new User();
 			user.setEmail(email);
+			
 			ArrayList<Company> companyDetails = new ArrayList<Company>();
 			ArrayList<Company> vacancyDetails = new ArrayList<Company>();
 			ArrayList<Company> companyReviews = new ArrayList<Company>();
 			Company company = new Company();
 			CompanyDelegate companyDelegate = new CompanyDelegate();
 			UserDelegate userDelegate = new UserDelegate();
+			int userId=0;
+			userId=userDelegate.fetchUserId(user);
+			user.setUserId(userId);
+
 			String companyName = request.getParameter("companyName").toString();;
 			company.setCompanyName(companyName);
 			companyId = companyDelegate.fetchCompanyId(company);
@@ -146,7 +157,7 @@ public class FindCompanyServlet extends HttpServlet {
 				for (Company j : companyDetails) {
 					request.setAttribute("displayCompany", companyDetails);
 				}
-				vacancyDetails = companyDelegate.retrieveVacancyByCompany1(company);
+				vacancyDetails = companyDelegate.retrieveVacancyByCompany1(company,user);
 
 				if (vacancyDetails.isEmpty()) {
 					request.setAttribute("noVacancy", "yes");

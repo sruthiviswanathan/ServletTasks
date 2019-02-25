@@ -1,9 +1,11 @@
 @charset "UTF-8";
 
 /*Styling for admin,findcompany,findjob,searchbylocation */
+
 body{
 	font-family: "Times New Roman", Times, serif;
-	 background:url(https://images.unsplash.com/photo-1521020773588-3b28297b1e70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
+	/*  background:url(https://images.unsplash.com/photo-1521020773588-3b28297b1e70?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80); */
+	background-color:white;
 	 height: 100vh;
  	 background-position: center;
   	 background-repeat: no-repeat;

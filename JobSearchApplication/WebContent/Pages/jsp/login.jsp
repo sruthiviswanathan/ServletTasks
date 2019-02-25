@@ -12,6 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/login.css">
 <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/navbar.css">
+<link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/tags.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>LOGIN/SIGNUP</title>
@@ -119,7 +120,7 @@
 					</div>
 							
 					<div class="signup__field col-xs-12 col-md-12">
-							<label for="cpsw" class="field__entry row col-25"><b>RETYPE PASSWORD*</b></label> 
+							<label for="cpsw" class="field__entry row col-25"><b>CONFIRM PASSWORD*</b></label> 
 							<input class="field__input row col-75" type="password"
 							placeholder="Reenter Password" name="cpsw">
 							 <span class="error"><p id="reg_cpsw_error"></p></span> 
@@ -141,13 +142,17 @@
 						
 					<div class="signup__field col-xs-12 col-md-12">
 						<label for="skills" class="field__entry row col-25"><b>ADD SKILLS TO YOUR PROFILE</b></label>
+						
+						<!--  <div class="tags-input" data-name="tags-input">
+						 </div> -->
 						<div class="field__entry checkbox col-25">
 							
 							<c:forEach var="tech" items="${technologies}">
 							<input type="checkbox" name="tech" value="${tech.getTechnologyId()}"><c:out value="${tech.getTechnology()}" />
 							</c:forEach>
 							
-						</div>
+						</div> 
+						
 					</div>
 					
 					<div class="signup__nav">
@@ -192,7 +197,7 @@
 						</div>
 						
 						<div class="signupadmin__field col-xs-12 col-md-12">	
-						<label for="psw" class="field__entry row col-25"><b>RETYPE PASSWORD*</b></label>
+						<label for="psw" class="field__entry row col-25"><b>CONFIRM PASSWORD*</b></label>
 						<input class="field__input row col-75" type="password" placeholder="Reenter Password" name="cpsw">
  						<span class="error"><p id="cpsw_error"></p></span>
 						</div>
@@ -247,5 +252,6 @@
 <script src="${Config.BASE_PATH}Pages/js/form.js"></script>
 <script src="${Config.BASE_PATH}Pages/js/styles.js"></script>
 <script src="${Config.BASE_PATH}Pages/js/validate.js"></script>
+<script src="${Config.BASE_PATH}Pages/js/tags.js"></script>
 
 </html>

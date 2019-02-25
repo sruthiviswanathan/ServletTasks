@@ -64,12 +64,13 @@ public class CompanyDelegate {
 		return comp;
 	}
 
-	public ArrayList<Company> retrieveVacancyByCompany1(Company company) throws SQLException {
+
+	public ArrayList<Company> retrieveVacancyByCompany1(Company company,User user) throws SQLException {
 		// TODO Auto-generated method stub
 		ArrayList<Company> comp = new ArrayList<Company>();
 		try {
 			CompanyDAO companyDao = new CompanyDAO();
-			comp = companyDao.retrieveVacancyByCompany1(company);
+			comp = companyDao.retrieveVacancyByCompany1(company,user);
 		} catch (SQLException e) {
 			throw e;
 		}
@@ -88,12 +89,13 @@ public class CompanyDelegate {
 		return comp;
 	}
 
-	public ArrayList<Company> retrieveVacancyByLocation(Company company) throws SQLException {
+
+	public ArrayList<Company> retrieveVacancyByLocation(Company company,User user) throws SQLException {
 		// TODO Auto-generated method stub
 		ArrayList<Company> comp = new ArrayList<Company>();
 		try {
 			CompanyDAO companyDao = new CompanyDAO();
-			comp = companyDao.retrieveVacancyByLocation(company);
+			comp = companyDao.retrieveVacancyByLocation(company,user);
 		} catch (SQLException e) {
 			throw e;
 		}

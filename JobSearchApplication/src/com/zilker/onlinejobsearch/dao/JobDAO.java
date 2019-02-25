@@ -18,8 +18,8 @@ import com.zilker.onlinejobsearch.utils.DButils;
 public class JobDAO {
 
 	private Connection connection = null;
-	private PreparedStatement preparestatement, preparestatement1 = null;
-	private ResultSet resultset, resultset1 = null;
+	private PreparedStatement preparestatement, preparestatement1,preparestatement2 = null;
+	private ResultSet resultset, resultset1,resultset2 = null;
 	private Statement statement = null;
 
 	/*
@@ -122,10 +122,11 @@ public class JobDAO {
 		return comp;
 	}
 
+	
 	/*
 	 * method 2 for retrieving vacancy based on job.
 	 */
-	public ArrayList<Company> retrieveVacancyByJob1(Company company) throws SQLException {
+	public ArrayList<Company> retrieveVacancyByJob1(Company company,User user) throws SQLException {
 		ArrayList<Company> comp = new ArrayList<Company>();
 		try {
 			float averageRating = 0;
@@ -156,6 +157,23 @@ public class JobDAO {
 					c.setCompanyWebsiteUrl(resultset1.getString(2));
 					c.setAverageRating(averageRating);
 					c.setCompanyId(resultset1.getInt(3));
+					
+					
+					preparestatement2 = connection.prepareStatement(QueryConstants.USERAPPLIEDJOBS);
+					System.out.println(user.getUserId());
+					preparestatement2.setInt(1, user.getUserId());
+					resultset2 = preparestatement2.executeQuery();
+					while(resultset2.next()) {
+						
+						if((resultset1.getInt(3)==resultset2.getInt(1))  && ((resultset.getString(3).equals(resultset2.getString(3)))) 
+								&&((company.getJobId()== resultset2.getInt(2)))) 
+						{
+						
+								c.setFlag(1);
+								
+						}
+					}
+					
 					comp.add(c);
 				}
 
@@ -169,6 +187,8 @@ public class JobDAO {
 		}
 		return comp;
 	}
+	
+	
 
 	public boolean ifTechnologyIdExists(JobMapping jobmapping) throws SQLException {
 		// TODO Auto-generated method stub

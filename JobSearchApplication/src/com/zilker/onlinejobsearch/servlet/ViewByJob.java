@@ -17,6 +17,7 @@ import com.zilker.onlinejobsearch.beans.Company;
 import com.zilker.onlinejobsearch.beans.JobMapping;
 import com.zilker.onlinejobsearch.beans.User;
 import com.zilker.onlinejobsearch.delegate.JobDelegate;
+import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
 
 
@@ -57,6 +58,7 @@ public class ViewByJob extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+			
 			response.setContentType("text/html;charset=UTF-8");
 			HttpSession session = request.getSession();
 			if(session.getAttribute("email")==null){
@@ -67,12 +69,14 @@ public class ViewByJob extends HttpServlet {
 			user.setEmail(email);
 			ArrayList<String> jobRole = new ArrayList<String>();
 			ArrayList<Company> vacancyDetails = new ArrayList<Company>();
+			UserDelegate userDelegate = new UserDelegate();
 			JobDelegate jobDelegate = new JobDelegate();
 			Company company = new Company();
 			JobMapping jobmapping = new JobMapping();
 
-			int jobId = 0;
-			
+			int jobId = 0,userId=0;
+			userId=userDelegate.fetchUserId(user);
+			user.setUserId(userId);
 			String jobDesignation = request.getParameter("job");			
 			jobRole.add(jobDesignation);
 			request.setAttribute("job",jobRole);
@@ -87,7 +91,7 @@ public class ViewByJob extends HttpServlet {
 			else {
 			
 				company.setJobId(jobId);
-				vacancyDetails = jobDelegate.retrieveVacancyByJob1(company);
+				vacancyDetails = jobDelegate.retrieveVacancyByJob1(company,user);
 				if (vacancyDetails.isEmpty()) {
 					request.setAttribute("noVacancy","yes");
 					RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/viewjobs.jsp");

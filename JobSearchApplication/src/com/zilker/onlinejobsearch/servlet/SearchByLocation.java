@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.zilker.onlinejobsearch.beans.Company;
 import com.zilker.onlinejobsearch.beans.User;
 import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
+import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
 
 /**
@@ -52,14 +53,22 @@ public class SearchByLocation extends HttpServlet {
 		try {
 			HttpSession session = request.getSession();
 			String email = (String) session.getAttribute("email");
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("index.jsp");
+			}
 			User user= new User();
 			user.setEmail(email);
 			ArrayList<Company> retrieveByLocation = new ArrayList<Company>();
 			Company company = new Company();	
 			CompanyDelegate companyDelegate = new CompanyDelegate();
+			UserDelegate userDelegate = new UserDelegate();
+			int userId=0;
+			userId=userDelegate.fetchUserId(user);
+			user.setUserId(userId);
+			
 			String location = request.getParameter("location");
 				company.setLocation(location);
-				retrieveByLocation = companyDelegate.retrieveVacancyByLocation(company);
+				retrieveByLocation = companyDelegate.retrieveVacancyByLocation(company,user);
 				if (retrieveByLocation.isEmpty()) {
 					request.setAttribute("noVacancy","yes");
 					RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/viewbylocation.jsp");

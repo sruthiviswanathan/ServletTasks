@@ -129,7 +129,7 @@
 					</div>
 							
 					<div class="signup__field col-xs-12 col-md-12">
-							<label for="cpsw" class="field__entry row col-25"><b>RETYPE PASSWORD*</b></label> 
+							<label for="cpsw" class="field__entry row col-25"><b>CONFIRM PASSWORD*</b></label> 
 							<input class="field__input row col-75" type="password"
 							placeholder="Reenter Password" name="cpsw">
 							 <span class="error"><p id="reg_cpsw_error"></p></span> 
@@ -201,7 +201,7 @@
 						</div>
 						
 						<div class="signupadmin__field col-xs-12 col-md-12">	
-						<label for="psw" class="field__entry row col-25"><b>RETYPE PASSWORD*</b></label>
+						<label for="psw" class="field__entry row col-25"><b>CONFIRM PASSWORD*</b></label>
 						<input class="field__input row col-75" type="password" placeholder="Reenter Password" name="cpsw">
  						<span class="error"><p id="cpsw_error"></p></span>
 						</div>

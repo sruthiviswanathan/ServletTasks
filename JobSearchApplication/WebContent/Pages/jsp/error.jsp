@@ -11,13 +11,9 @@ body, html {
 }
 
 .bg {
-  /* The image used */
+
   background-image: url(http://materialdesignblog.com/wp-content/uploads/2017/01/404_1.gif);
-
-  /* Full height */
   height: 100%; 
-
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

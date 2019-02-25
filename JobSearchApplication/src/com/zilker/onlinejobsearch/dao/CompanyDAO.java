@@ -316,11 +316,13 @@ public class CompanyDAO {
 		return averageRating;
 	}
 
+
+	
 	/*
 	 * method 2 for retrieving vacancy based on company.
 	 */
 
-	public ArrayList<Company> retrieveVacancyByCompany1(Company company) throws SQLException {
+	public ArrayList<Company> retrieveVacancyByCompany1(Company company,User user) throws SQLException {
 		ArrayList<Company> comp = new ArrayList<Company>();
 		try {
 
@@ -344,8 +346,24 @@ public class CompanyDAO {
 				while (resultset2.next()) {
 					c.setJobId(jobId);
 					c.setJobRole(resultset2.getString(1));
+				
+					
+					preparestatement = connection.prepareStatement(QueryConstants.USERAPPLIEDJOBS);
+					preparestatement.setInt(1, user.getUserId());
+					resultset = preparestatement.executeQuery();
+					while(resultset.next()) {
+						
+						if((company.getCompanyId()==resultset.getInt(1))  && ((resultset1.getString(3).equals(resultset.getString(3)))) 
+								&&((jobId == resultset.getInt(2)))) 
+						{
+							
+								c.setFlag(1);
+								
+						}
+					}
+					
 					comp.add(c);
-
+					
 				}
 
 			}
@@ -355,10 +373,14 @@ public class CompanyDAO {
 		} finally {
 			DButils.closeConnection(connection, preparestatement1, resultset1);
 			DButils.closeConnection(connection, preparestatement2, resultset2);
+			DButils.closeConnection(connection, preparestatement, resultset);
 		}
 		return comp;
 	}
 
+	
+	
+	
 	public ArrayList<Company> retrieveVacancyByCompanyAdmin(Company company) throws SQLException {
 		ArrayList<Company> comp = new ArrayList<Company>();
 		try {
@@ -398,11 +420,13 @@ public class CompanyDAO {
 		return comp;
 	}
 
-	public ArrayList<Company> retrieveVacancyByLocation(Company company) throws SQLException {
+
+	
+	public ArrayList<Company> retrieveVacancyByLocation(Company company,User user) throws SQLException {
 		// TODO Auto-generated method stub
 		ArrayList<Company> comp = new ArrayList<Company>();
 		try {
-			int companyId=0,jobId=0;float averageRating =0;
+			
 			connection = DButils.getConnection();
 			preparestatement = connection.prepareStatement(QueryConstants.RETRIEVECOMPANYBYLOCATION);
 			preparestatement.setString(1, company.getLocation());
@@ -417,9 +441,23 @@ public class CompanyDAO {
 				c.setSalary(resultset.getFloat(6));
 				c.setVacancyCount(resultset.getInt(7));				
 				
-				comp.add(c);
-						
+			
+				
+				preparestatement1 = connection.prepareStatement(QueryConstants.USERAPPLIEDJOBS);
+				preparestatement1.setInt(1, user.getUserId());
+				resultset1 = preparestatement1.executeQuery();
+				while(resultset1.next()) {
+					
+					if((resultset.getInt(8)==resultset1.getInt(1))  && ((company.getLocation().equals(resultset1.getString(3)))) 
+							&&((resultset.getInt(9) == resultset1.getInt(2)))) 
+					{
+							
+							c.setFlag(1);
+							
+					}
+				}
 
+				comp.add(c);
 			}					
 		
 		} catch (SQLException e) {
@@ -428,7 +466,7 @@ public class CompanyDAO {
 		} finally {
 			DButils.closeConnection(connection, preparestatement, resultset);
 			DButils.closeConnection(connection, preparestatement1, resultset1);
-			DButils.closeConnection(connection, preparestatement2, resultset2);
+			
 		}
 		return comp;
 

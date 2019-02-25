@@ -49,12 +49,13 @@ public class JobDelegate {
 		return comp;
 	}
 
-	public ArrayList<Company> retrieveVacancyByJob1(Company company) throws SQLException {
+	
+	public ArrayList<Company> retrieveVacancyByJob1(Company company,User user) throws SQLException {
 		// TODO Auto-generated method stub
 		ArrayList<Company> comp = new ArrayList<Company>();
 		try {
 			JobDAO jobDao = new JobDAO();
-			comp = jobDao.retrieveVacancyByJob1(company);
+			comp = jobDao.retrieveVacancyByJob1(company,user);
 		} catch (SQLException e) {
 			throw e;
 		}

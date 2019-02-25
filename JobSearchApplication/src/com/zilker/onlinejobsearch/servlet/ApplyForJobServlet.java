@@ -3,9 +3,7 @@ package com.zilker.onlinejobsearch.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLIntegrityConstraintViolationException;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,7 +38,10 @@ public class ApplyForJobServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		HttpSession session = request.getSession();
+		if(session.getAttribute("email")==null){
+			response.sendRedirect("index.jsp");
+		}
 	}
 
 	/**
@@ -75,7 +76,7 @@ public class ApplyForJobServlet extends HttpServlet {
 			company.setJobId(jobId);
 			company.setLocation(location);
 			if(userDelegate.applyForJob(company,user)) {
-				 System.out.println("nope");
+			
 				response.setContentType("application/json");
 				out.print("success");
 				out.flush();
@@ -87,7 +88,7 @@ public class ApplyForJobServlet extends HttpServlet {
 		
 		catch (SQLIntegrityConstraintViolationException e) {
 			 
-			 System.out.println("nope");
+			
 			 response.setContentType("application/json");
 			 out.print("error");
 			 out.flush();

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.zilker.onlinejobsearch.beans.Company;
 import com.zilker.onlinejobsearch.delegate.CompanyDelegate;
@@ -36,6 +37,12 @@ public class RetreiveAllCompanyServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		try {
+		
+			HttpSession session = request.getSession();
+			if(session.getAttribute("email")==null){
+				response.sendRedirect("index.jsp");
+			}	
+			
 		Company company = new Company();
 		ArrayList<Company> companyDetails = new ArrayList<Company>();
 		CompanyDelegate companyDelegate = new CompanyDelegate();

@@ -76,7 +76,7 @@
         
         
         		<div class="requestvacancy__field col-xs-12 col-md-12">
-                <label for="select-job" class="field__entry row col-75"><b>JOB DESIGNATION</b></label>
+                <label for="select-job" class="field__entry row col-75"><b>JOB DESIGNATION*</b></label>
                             
                        <select id="job" name="job" class="select row col-75">
 					 	<option value="">Select a Job Designation</option>
@@ -89,13 +89,13 @@
                 </div>
             
                 <div class="requestvacancy__field col-xs-12 col-md-12">
-                <label for="location" class="field__entry row col-75"><b>LOCATION</b></label>
+                <label for="location" class="field__entry row col-75"><b>LOCATION*</b></label>
                 <input type="text" class=" field__input row col-75" id="location" name="location" placeholder="Enter Job Location..">
                 <span class="error"><p id="location_error"></p></span>
                 </div>
                
                 <div class="requestvacancy__field col-xs-12 col-md-12">
-                <label for="salary" class="field__entry row col-75"><b>SALARY</b></label>
+                <label for="salary" class="field__entry row col-75"><b>SALARY EXPECTED(LPA)*</b></label>
                 <input type="number" class="field__input row col-75" id="salary" name="salary" placeholder="Enter Salary.." step=".01">
                 <span class="error"><p id="salary_error"></p></span>
        			</div>

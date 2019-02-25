@@ -22,11 +22,24 @@ public class Company {
 	private String email;
 	private String companyLogo;
 	private String contacted;
+	private int flag;
+	
 /*
  * Getters and setters for all variables
  */
+	
+	
+	
 	public int getUserId() {
 		return userId;
+	}
+
+	public int getFlag() {
+		return flag;
+	}
+
+	public void setFlag(int flag) {
+		this.flag = flag;
 	}
 
 	public void setUserId(int userId) {

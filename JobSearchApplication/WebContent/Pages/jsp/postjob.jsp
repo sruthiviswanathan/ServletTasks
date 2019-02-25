@@ -27,7 +27,7 @@
 		 <div id="mySidenav" class="container__sidenav">
                         <div class="sidenav__items">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="${Config.BASE_PATH}PostJobServlet">POST JOB</a>
+                        <a href="${Config.BASE_PATH}PostJobServlet">PUBLISH NEW VACANCY</a>
                         <a href="${Config.BASE_PATH}ViewPublishedJobsServlet">VIEW PUBLISHED JOBS</a>
                         <a href="${Config.BASE_PATH}ViewAppliedUsersServlet">VIEW INTERESTED PEOPLE</a>
                 </div>
@@ -111,13 +111,13 @@
 				</div>
 				
 				<div class="postjob__field col-xs-12 col-md-12">
-				<label for="salary" class="field__entry row col-25"><b>SALARY*</b></label> 
+				<label for="salary" class="field__entry row col-25"><b>SALARY(LPA)*</b></label> 
 				<input type="number" class="field__input row col-75" id="salary" name="salary" placeholder="Enter Salary.." step=".01"> 
 				<span class="error"><p id="salary_error"></p></span>
 				</div>
 				
 				<div class="postjob__field col-xs-12 col-md-12">
-				<label for="count" class="field__entry row col-25"><b>COUNT*</b></label>
+				<label for="count" class="field__entry row col-25"><b>NO OF VACANCIES*</b></label>
 				<input type="number" class="field__input row col-75" id="count" name="count" placeholder="Enter Vacancy Count..">
 				<span class="error"><p id="count_error"></p></span>
 				</div>
