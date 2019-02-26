@@ -74,6 +74,7 @@ public class RegisterAdminServlet extends HttpServlet {
 		try {
 			HttpSession session=request.getSession(); 
 			int userId = 0, flag = 0;
+			String userName="";
 			UserDelegate userDelegate = new UserDelegate();
 			CompanyDelegate companyDelegate = new CompanyDelegate();
 			User user = new User();
@@ -104,7 +105,10 @@ public class RegisterAdminServlet extends HttpServlet {
 					flag = userDelegate.insertIntoAdmin(user, company);
 					CompanyDelegate.insertIntoCompanyDetails(user, company);
 					if (flag == 1) {
-						 session.setAttribute("email",email);
+						
+						userName = userDelegate.fetchUserNameById(userId);  
+						session.setAttribute("userName",userName);
+						session.setAttribute("email",email);
 						request.setAttribute("registerSuccess","yes");
 						RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/admin.jsp");
 						rd.forward(request, response);

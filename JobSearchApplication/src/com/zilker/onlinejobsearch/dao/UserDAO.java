@@ -230,13 +230,13 @@ public class UserDAO {
 	public int fetchTechnologyId(Technology technology) throws SQLException {
 		// TODO Auto-generated method stub
 		try {
-			connection = DButils.getConnection();
-			statement = connection.createStatement();
-			resultset = statement.executeQuery(QueryConstants.RETRIEVETECHNOLOGYDATA);
 			int technologyId = 0;
-			String technologyName = technology.getTechnology();
+			connection = DButils.getConnection();
+			preparestatement = connection.prepareStatement(QueryConstants.RETRIEVETECHNOLOGYID);
+			preparestatement.setString(1, technology.getTechnology());
+			resultset = preparestatement.executeQuery();
 			while (resultset.next()) {
-				if (technologyName.equalsIgnoreCase(resultset.getString(2))) {
+				if (technology.getTechnology().equalsIgnoreCase(resultset.getString(2))) {
 					technologyId = resultset.getInt(1);
 					break;
 				}

@@ -39,7 +39,7 @@
         };
 
         tag.element.classList.add('tag');
-        tag.element.textContent = tag.text;
+        tag.element.textContent = tag.text+"@";
 
         let closeBtn = document.createElement('span');
         closeBtn.classList.add('close');

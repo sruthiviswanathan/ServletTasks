@@ -20,6 +20,7 @@ public class QueryConstants {
 	public static final String RETRIEVECOMPANYDATA = "select company_id,company_name,company_logo from company_details";
 	public static final String RETRIEVEJOBDATA = "select job_id,job_designation from job";
 	public static final String RETRIEVETECHNOLOGYDATA = "select technology_id,technology from technology";
+	public static final String RETRIEVETECHNOLOGYID = "select technology_id,technology from technology where technology=?";
 	public static final String INSERTVACANCY = "insert into vacancy_publish(company_id,job_id,location,job_description,salary,vacancy_count,created_by,updated_by) values(?,?,?,?,?,?,?,?)";
 	public static final String INSERTJOB = "insert into job(job_designation,created_by,updated_by)" + "values(?,?,?)";
 	public static final String DELETEVACANCY = "update vacancy_publish set vacancy_count=0 ,vacancy_status='expired',updated_by=? where company_id=? and job_id=?";

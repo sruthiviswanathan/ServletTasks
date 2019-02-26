@@ -63,9 +63,11 @@ function registerForm()
     var company =  document.forms["signup"]["companyName"];  
     var designation =  document.forms["signup"]["designation"];  
     var password = document.forms["signup"]["psw"];  
-    var confirm = document.forms["signup"]["cpsw"];  
+    var confirm = document.forms["signup"]["cpsw"]; 
+    var spans = document.getElementById('skill').getElementsByTagName('span');
+    var obj = [];
     console.log("validate");
-    
+    var str="";
     
     if (name.value == "")                                  
     { 
@@ -135,7 +137,19 @@ function registerForm()
     	 document.getElementById("reg_des_error").innerHTML = designationError;
         designation.focus(); 
         return false; 
-    }  
+    }
+    
+    
+
+    for(var i = 0, l = spans.length; i < l; i++){
+    obj[spans[i].textContent] = spans[i].textContent || spans[i].innerText;
+    str +=  obj[spans[i].textContent] ;
+   // str += '@';
+    }
+  
+document.getElementById('skillset').value = str;
+
+    console.log(str);
     removeRegisterError();
 	   
     return true; 

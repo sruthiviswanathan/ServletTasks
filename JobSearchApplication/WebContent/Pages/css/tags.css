@@ -4,7 +4,7 @@
 }
 
 .tags-input {
-    border: 1px solid #333;
+    /* border: 1px solid #333; */
     display: inline-block;
 }
 
@@ -36,7 +36,10 @@
 }
 
 .tags-input .main-input {
-    border: 0;
+   /*  border: 0;
     outline: 0;
-    padding: 0.5em 0.1em;
+    padding: 0.5em 0.1em; */
+    font-size: 15px;
+    padding: 12px;
+    border-radius: 4px;
 }

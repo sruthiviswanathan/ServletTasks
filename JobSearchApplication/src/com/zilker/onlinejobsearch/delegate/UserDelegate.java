@@ -54,7 +54,18 @@ public class UserDelegate {
 	}
 
 	
-	
+	public int fetchTechnologyId(Technology technology) throws SQLException {
+		// TODO Auto-generated method stub
+		int technologyId = 0;
+		// TODO Auto-generated method stub
+		try {
+			UserDAO userDao = new UserDAO();
+			technologyId = userDao.fetchTechnologyId(technology);
+			return technologyId;
+		} catch (SQLException e) {
+			throw e;
+		}
+	}
 	
 	
 	public int fetchUserId(User user) throws SQLException {

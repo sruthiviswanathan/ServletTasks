@@ -142,16 +142,17 @@
 						
 					<div class="signup__field col-xs-12 col-md-12">
 						<label for="skills" class="field__entry row col-25"><b>ADD SKILLS TO YOUR PROFILE</b></label>
+						<input type="hidden" id="skillset" name="skillset" value="">
 						
-						<!--  <div class="tags-input" data-name="tags-input">
-						 </div> -->
-						<div class="field__entry checkbox col-25">
+						 <div class="tags-input field__input row col-75" id="skill" data-name="tags-input">
+						 </div>
+						<%-- <div class="field__entry checkbox col-25">
 							
 							<c:forEach var="tech" items="${technologies}">
 							<input type="checkbox" name="tech" value="${tech.getTechnologyId()}"><c:out value="${tech.getTechnology()}" />
 							</c:forEach>
 							
-						</div> 
+						</div>  --%>	
 						
 					</div>
 					
