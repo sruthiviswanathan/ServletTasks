@@ -88,8 +88,7 @@ public class RegisterServlet extends HttpServlet {
 			String email = request.getParameter("email");
 			String companyName = request.getParameter("companyName");
 			String designation = request.getParameter("designation");
-			// String skills = request.getParameter("skillset");
-
+	
 			user.setUserName(name);
 			user.setEmail(email);
 			user.setPassword(password);
@@ -102,14 +101,14 @@ public class RegisterServlet extends HttpServlet {
 				user.setUserId(userId);
 				userDelegate.insertIntoUser(user);
 
-				// technology = request.getParameterValues("tech");
+				
 				skills = request.getParameter("skillset");
 				if (skills != null) {
 					technology = skills.split("@");
 					if (technology != null) {
 
 						for (int i = 0; i < technology.length; i++) {
-							System.out.println(technology[i]);
+							
 
 							usertechnology.setUserId(user.getUserId());
 							techh.setTechnology(technology[i]);
@@ -125,7 +124,7 @@ public class RegisterServlet extends HttpServlet {
 							}
 						}
 
-					}
+					}	
 				}
 
 				session.setAttribute("email", email);

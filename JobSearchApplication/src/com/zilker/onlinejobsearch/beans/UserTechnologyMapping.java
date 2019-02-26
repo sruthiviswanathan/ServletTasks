@@ -8,6 +8,7 @@ public class UserTechnologyMapping {
 	private int userId;
 	private int technologyId;
 	private int oldTechnologyId;
+	private String technologyName;
 
 	public int getUserId() {
 		return userId;
@@ -31,6 +32,14 @@ public class UserTechnologyMapping {
 
 	public void setOldTechnologyId(int oldTechnologyId) {
 		this.oldTechnologyId = oldTechnologyId;
+	}
+
+	public String getTechnologyName() {
+		return technologyName;
+	}
+
+	public void setTechnologyName(String technologyName) {
+		this.technologyName = technologyName;
 	}
 
 }

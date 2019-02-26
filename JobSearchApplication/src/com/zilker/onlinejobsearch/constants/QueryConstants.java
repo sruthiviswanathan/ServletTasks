@@ -53,7 +53,7 @@ public class QueryConstants {
 	public static final String UPDATEUSERNAME = "update user_classification set user_name=?,updated_by=?,update_timestamp=? where user_id=?";
 	public static final String UPDATEUSERCOMPANY = "update user_classification set company_name=?,updated_by=?,update_timestamp=? where user_id=?";
 	public static final String UPDATEUSERDESIGNATION = "update user_classification set designation=?,updated_by=?,update_timestamp=? where user_id=?";
-	public static final String RETRIEVEUSERTECHNOLOGY = "select technology_id from user_technology_mapping where user_id=?";
+	public static final String RETRIEVEUSERTECHNOLOGY = "select t.technology from user_technology_mapping,technology t where user_id=? and user_technology_mapping.technology_id=t.technology_id";
 	public static final String UPDATEUSERTECHNOLOGY = "update user_technology_mapping set technology_id=?,updated_by=?,update_timestamp=? where user_id=? and technology_id=?";
 	public static final String UPDATEVACANCYDESIGNATION = "update vacancy_publish set job_id=?,updated_by=?,update_timestamp=? where company_id=? and job_id=?";
 	public static final String UPDATEVACANCYLOCATION = "update vacancy_publish set location=?,updated_by=?,update_timestamp=? where company_id=? and job_id=?";

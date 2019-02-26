@@ -146,13 +146,7 @@
 						
 						 <div class="tags-input field__input row col-75" id="skill" data-name="tags-input">
 						 </div>
-						<%-- <div class="field__entry checkbox col-25">
-							
-							<c:forEach var="tech" items="${technologies}">
-							<input type="checkbox" name="tech" value="${tech.getTechnologyId()}"><c:out value="${tech.getTechnology()}" />
-							</c:forEach>
-							
-						</div>  --%>	
+						
 						
 					</div>
 					

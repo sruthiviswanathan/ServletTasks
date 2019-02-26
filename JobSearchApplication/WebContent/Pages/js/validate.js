@@ -142,9 +142,9 @@ function registerForm()
     
 
     for(var i = 0, l = spans.length; i < l; i++){
-    obj[spans[i].textContent] = spans[i].textContent || spans[i].innerText;
+    obj[spans[i].textContent] = spans[i].textContent || spans[i].innerText || "@";
     str +=  obj[spans[i].textContent] ;
-   // str += '@';
+   
     }
   
 document.getElementById('skillset').value = str;
@@ -321,6 +321,10 @@ function updateUser()
     var name = document.forms["update"]["username"];                
      var cname =  document.forms["update"]["cname"];   
     var designation = document.forms["update"]["designation"];  
+    var spans = document.getElementById('skill').getElementsByTagName('span');
+    var obj = [];
+    console.log("validate");
+    var str="";
    
     if (name.value == "")                                  
     { 
@@ -344,6 +348,16 @@ function updateUser()
         designation.focus(); 
         return false; 
     } 
+    
+    for(var i = 0, l = spans.length; i < l; i++){
+        obj[spans[i].textContent] =  spans[i].innerText.trim() || "@";
+        str +=  obj[spans[i].textContent] ;
+       
+        }
+      
+    document.getElementById('skillset').value = str;
+
+        console.log(str);
     
    
     return true; 

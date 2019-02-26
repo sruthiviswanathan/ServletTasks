@@ -84,13 +84,15 @@ public class UserProfileServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
 		String[] technology;
-		Technology technologies = new Technology();
+		String skills;
+		int technologyId=0;
+		//Technology technologies = new Technology();
 		UserTechnologyMapping usertechnology = new UserTechnologyMapping();
 		UserTechnologyMapping userTechnologyMapping = new UserTechnologyMapping();
 		ArrayList<UserTechnologyMapping> userTechnology = new ArrayList<UserTechnologyMapping>();
 		ArrayList<User> userList = new ArrayList<User>();
 		ArrayList<Technology> tech = new ArrayList<Technology>();
-		
+		Technology techh = new Technology();
 		UserDelegate userDelegate = new UserDelegate();
 		User user= new User();
 		user.setEmail(email);
@@ -116,30 +118,58 @@ public class UserProfileServlet extends HttpServlet {
 			//System.out.println("updated designation");
 		}
 		
-		
-		
-		technology = request.getParameterValues("tech");
-		   if (technology != null) 
-		   {
-			  
+		skills = request.getParameter("skillset");
+		if (skills != null) {
+			technology = skills.split("@");
+			if (technology != null) {
+
 				userTechnology = userDelegate.displayUserTechnologies(userTechnologyMapping, user);
 				if(userTechnology.isEmpty()) {
 				}else {
 				userDelegate.deleteTechnologyDetails(userTechnologyMapping,user);
 				}
-				
-		      for (int i = 0; i < technology.length; i++) 
-		      {
-		    	    usertechnology.setUserId(user.getUserId());
-					usertechnology.setTechnologyId(Integer.parseInt(technology[i]));
-					flag = userDelegate.addTechnologyDetails(usertechnology);	
-				
-		      }
-		   }
+				for (int i = 0; i < technology.length; i++) {
+					
+					System.out.println(technology[i]);
+					usertechnology.setUserId(user.getUserId());
+					techh.setTechnology(technology[i]);
+					technologyId = userDelegate.fetchTechnologyId(techh);
+					if (technologyId == 0) {
+						techh.setTechnology(technology[i]);
+						technologyId = userDelegate.addNewTechnology(techh, user);
+						usertechnology.setTechnologyId(technologyId);
+						flag = userDelegate.addTechnologyDetails(usertechnology);
+					} else {
+						usertechnology.setTechnologyId(technologyId);
+						flag = userDelegate.addTechnologyDetails(usertechnology);
+					}
+				}
+
+			}	
+		}
+		
+//		technology = request.getParameterValues("tech");
+//		   if (technology != null) 
+//		   {
+//			  
+//				userTechnology = userDelegate.displayUserTechnologies(userTechnologyMapping, user);
+//				if(userTechnology.isEmpty()) {
+//				}else {
+//				userDelegate.deleteTechnologyDetails(userTechnologyMapping,user);
+//				}
+//				
+//		      for (int i = 0; i < technology.length; i++) 
+//		      {
+//		    	    usertechnology.setUserId(user.getUserId());
+//					usertechnology.setTechnologyId(Integer.parseInt(technology[i]));
+//					flag = userDelegate.addTechnologyDetails(usertechnology);	
+//				
+//		      }
+//		   }
 		   	userList = userDelegate.retrieveUserData(user);
 			userTechnology = userDelegate.displayUserTechnologies(userTechnologyMapping, user); 
-			tech = userDelegate.displayTechnologies(technologies);
-			request.setAttribute("technologies",tech);
+			//tech = userDelegate.displayTechnologies(techh);
+			//request.setAttribute("technologies",tech);
 			request.setAttribute("userData", userList); 
 			request.setAttribute("userTech", userTechnology); 
 			request.setAttribute("updated","yes");
@@ -148,6 +178,7 @@ public class UserProfileServlet extends HttpServlet {
 		//response.sendRedirect("UserProfileServlet");
 		
 		}catch(Exception e) {
+			System.out.println(e);
 			request.setAttribute("exception",e);
 			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/error.jsp");
 			rd.forward(request, response);

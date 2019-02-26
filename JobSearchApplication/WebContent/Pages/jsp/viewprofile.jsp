@@ -11,8 +11,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/forms.css">
   <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/navbar.css">
+    <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/tags.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>LOGIN/SIGNUP</title>
+   
 </head>
 
 <body>
@@ -62,7 +64,11 @@
         					  element.appendChild(para);
         					  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
         				}
-        				
+        				function deleteTag(id){
+        					console.log(id);
+        					var elem = document.getElementById("item"+id).remove();
+        					
+        				}
         				
 		</script>
         				<c:if test="${updated == 'yes'}">
@@ -93,48 +99,23 @@
                         <label for="designation" class="field__entry row col-25"><b>DESIGNATION*</b></label>
                         <input type="text" class="field__input row col-75" id="desig" name="designation" value="${data.getDesignation()}">
                         <span class="error"><p id="des_error"></p></span> 
-                   	 </div>
+                   	   </div>
+                       
                        <div class="profile__field col-xs-12 col-md-12">
                         <label for="skills" class="field__entry row col-25"><b>SKILLS SAVED IN YOUR PROFILE</b></label>
-                       
-                        <div class="field__entry checkbox col-75">
-							
-							 
-						<c:forEach var="tech" items="${technologies}">
-						
-									<c:forEach var="user" items="${userTech}"> 		
-									
-									<c:set var="tech1" value="${user.getTechnologyId()}" />	
-									<c:set var="tech2" value="${tech.getTechnologyId()}" />
-									
-									<c:choose>
-									<c:when test="${tech1 == tech2}">
-										<input type="checkbox" name="tech"
-											value="${tech.getTechnologyId()}" checked="checked">
-										<c:out value="${tech.getTechnology()}" />
-									</c:when>
-									</c:choose>
-									</c:forEach>
-									
-									
-									<c:set var="tech1" value="${user.getTechnologyId()}" />	
-									<c:set var="tech2" value="${tech.getTechnologyId()}" />
-									
-									<c:choose>
-									<c:when test="${tech1 != tech2}">
-										<input type="checkbox" name="tech"
-											value="${tech.getTechnologyId()}">
-										<c:out value="${tech.getTechnology()}" />
-									</c:when>
-									</c:choose>
-								
-								
-							</c:forEach>
-						
-							
+                         <input type="hidden" id="skillset" name="skillset" value="">
+                         <div class="tags-input field__input row col-75" id="skill" data-name="tags-input">
+                       <c:forEach var="user" items="${userTech}" varStatus="loop"> 	
 					
-
+					<div id="item${loop.count}">                          
+                       <span class="tag" id="tag${loop.count}">${user.getTechnologyName()}<%-- <c:out value="${user.getTechnologyName()}"></c:out> --%>
+                       <span class="close" id="${loop.count}" onclick="deleteTag(this.id)"></span>
+                       </span>
+     				</div>
+						</c:forEach>
 						</div>
+                       
+						
 						</div>
 					</c:forEach>
              
@@ -148,4 +129,5 @@
 </body>
 <script src="${Config.BASE_PATH}Pages/js/styles.js"></script>
 <script src="${Config.BASE_PATH}Pages/js/validate.js"></script>
+ <script src="${Config.BASE_PATH}Pages/js/tags.js"></script>
 </html>

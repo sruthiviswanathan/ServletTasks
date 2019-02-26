@@ -11,6 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/login.css">
 <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/navbar.css">
+<link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/tags.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>LOGIN/SIGNUP</title>
@@ -150,13 +151,10 @@
 						
 					<div class="signup__field col-xs-12 col-md-12">
 						<label for="skills" class="field__entry row col-25"><b>ADD SKILLS TO YOUR PROFILE</b></label>
-						<div class="field__entry checkbox col-25">
-							
-							<c:forEach var="tech" items="${technologies}">
-							<input type="checkbox" name="tech" value="${tech.getTechnologyId()}"><c:out value="${tech.getTechnology()}" />
-							</c:forEach>
-							
-						</div>
+						<input type="hidden" id="skillset" name="skillset" value="">
+						
+						 <div class="tags-input field__input row col-75" id="skill" data-name="tags-input">
+						 </div>
 					</div>
 					
 					<div class="signup__nav">
@@ -256,5 +254,6 @@
 <script src="${Config.BASE_PATH}Pages/js/form.js"></script>
 <script src="${Config.BASE_PATH}Pages/js/styles.js"></script>
 <script src="${Config.BASE_PATH}Pages/js/validate.js"></script>
+<script src="${Config.BASE_PATH}Pages/js/tags.js"></script>
 
 </html>

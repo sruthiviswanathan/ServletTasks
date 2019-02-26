@@ -648,7 +648,9 @@ public class UserDAO {
 		// TODO Auto-generated method stub
 
 		ArrayList<UserTechnologyMapping> userTechnology = new ArrayList<UserTechnologyMapping>();
+	
 		try {
+			
 			connection = DButils.getConnection();
 			preparestatement = connection.prepareStatement(QueryConstants.RETRIEVEUSERTECHNOLOGY);
 			preparestatement.setInt(1, user.getUserId());
@@ -656,7 +658,9 @@ public class UserDAO {
 
 			while (resultset.next()) {
 				UserTechnologyMapping t = new UserTechnologyMapping();
-				t.setTechnologyId(resultset.getInt(1));
+				//t.setTechnologyId(resultset.getInt(1));
+				t.setTechnologyName(resultset.getString(1));
+				
 				userTechnology.add(t);
 			}
 

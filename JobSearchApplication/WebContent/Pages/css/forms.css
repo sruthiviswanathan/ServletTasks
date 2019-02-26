@@ -62,7 +62,7 @@
   position: fixed;
   z-index: 2;
   left: 50%;
-  bottom: 700px;
+  bottom: 100px;
   font-size: 17px;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
