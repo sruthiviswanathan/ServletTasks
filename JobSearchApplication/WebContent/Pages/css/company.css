@@ -70,7 +70,7 @@ body{
   position: fixed;
   z-index: 2;
   left: 50%;
-  bottom: 700px;
+  top: 100px;
   font-size: 17px;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
@@ -83,23 +83,23 @@ body{
 }
 
 @-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;} 
-  to {bottom: 700px; opacity: 1;}
+ from {top: 0; opacity: 0;} 
+  to {top: 100px; opacity: 1;}
 }
 
 @keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 700px; opacity: 1;}
+ from {top: 0; opacity: 0;} 
+  to {top: 100px; opacity: 1;}
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 700px; opacity: 1;} 
-  to {bottom: 0; opacity: 0;}
+ from {top: 0; opacity: 0;} 
+  to {top: 100px; opacity: 1;}
 }
 
 @keyframes fadeout {
-  from {bottom: 700px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+ from {top: 0; opacity: 0;} 
+  to {top: 100px; opacity: 1;}
 }
  
  
@@ -310,7 +310,7 @@ background-color:#424242;
         z-index: 1;
         top: 45px;
         left: 0;
-        background-color: #757575;
+        background-color: #e0e0e0;
         overflow-x: hidden;
         transition: 0.5s;
         padding-top: 60px;
@@ -328,7 +328,7 @@ background-color:#424242;
       }
       
       .sidenav__items a:hover {
-       color: #f1f1f1;
+       color: #616161;
       }
       
       .sidenav__items .closebtn {

@@ -30,7 +30,7 @@ body {
   .contact__button{
 	background-color:#212121 ;
 	color:white;
-    cursor:not-allowed;
+    cursor:pointer;
 	padding: 12px 20px;
 	border: none;
  }
@@ -51,7 +51,7 @@ body {
   text-align: center;
   background-color:#212121;
   padding:2px;
-  margin-top:10px;
+  margin-top:0px;
 }
  .success {
     font-size:16px;

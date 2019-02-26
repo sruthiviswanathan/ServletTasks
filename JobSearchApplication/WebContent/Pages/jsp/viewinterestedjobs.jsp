@@ -23,7 +23,7 @@
     <div class="container">
     
 		<div class="container__title">
-			<h3>YOUR NEXT HIRE IS HERE!!!</h3>
+			<h3>GETTING HIRED JUST GOT EASIER WITH US!!!</h3>
 		</div>
 					<c:choose>
 						<c:when test="${noAppliedJobs == 'yes'}">

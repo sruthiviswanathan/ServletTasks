@@ -37,8 +37,8 @@
 			<ul class="navbar__list">
 				<li><button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button></li>			
 				<li>JOB HUNT</li>
-				<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet"><i class="fa fa-user-circle" aria-hidden="true"></i>LOGOUT</a></li>
-				<li style="float: right">Hi,<%= session.getAttribute("userName") %> </li>
+				<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet">Logout</a></li>
+				<li style="float: right"><i class="fa fa-user-circle" aria-hidden="true"></i> Hi, <%= session.getAttribute("userName") %> </li>
 			</ul>
 		</div> 
 
@@ -117,7 +117,7 @@
 				</div>
 				
 				<div class="postjob__field col-xs-12 col-md-12">
-				<label for="count" class="field__entry row col-25"><b>NO OF VACANCIES*</b></label>
+				<label for="count" class="field__entry row col-75"><b>NO OF VACANCIES*</b></label>
 				<input type="number" class="field__input row col-75" id="count" name="count" placeholder="Enter Vacancy Count..">
 				<span class="error"><p id="count_error"></p></span>
 				</div>
