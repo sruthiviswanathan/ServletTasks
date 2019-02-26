@@ -104,14 +104,18 @@
                         <label for="skills" class="field__entry row col-25"><b>SKILLS SAVED IN YOUR PROFILE</b></label>
                          <input type="hidden" id="skillset" name="skillset" value="">
                          <div class="tags-input field__input row col-75" id="skill" data-name="tags-input">
-                       <c:forEach var="user" items="${userTech}" varStatus="loop"> 	
+                     
+                     <c:if test="${userTech.size() != 0 }">    
+                     <c:forEach var="user" items="${userTech}" varStatus="loop"> 	
 					
-					<div id="item${loop.count}">                          
+					<div class="input__skills"id="item${loop.count}">                          
                        <span class="tag" id="tag${loop.count}">${user.getTechnologyName()}<%-- <c:out value="${user.getTechnologyName()}"></c:out> --%>
                        <span class="close" id="${loop.count}" onclick="deleteTag(this.id)"></span>
                        </span>
      				</div>
-						</c:forEach>
+					</c:forEach>
+					</c:if>
+					
 						</div>
                        
 						

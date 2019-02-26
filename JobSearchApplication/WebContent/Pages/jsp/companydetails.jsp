@@ -60,15 +60,16 @@
 					<div class="col-20 col-xs-12 col-sm-12">
 						<label for="company" class="display__row__label">COMPANY NAME</label>
 					</div>
-					
+					<%-- <div class="col-20 image col-xs-12 col-sm-12">
+						<img src="${comp.getCompanyLogo()}"alt="zilker" />
+					</div> --%>
 					<div class="row__content col-60 col-xs-12 col-sm-12">
-						
 						<div class="content__value">
 							<c:out value="${comp.getCompanyName()}" />
 						</div>
 					</div>
 					
-					 <div class="col-10 col-xs-12 col-sm-12">
+					 <div class="col-50 col-xs-12 col-sm-12">
 						     <a href="<c:out value="${comp.getCompanyWebsiteUrl()}" />"><button
 								class="row__button col-xs-12 col-sm-12" type="button" value="WEBSITE URL"> WEBSITE URL <i class="dir fa fa-chevron-circle-right"> </i>
 							</button></a>
@@ -114,7 +115,7 @@
                           <c:out value="***No Reviews have been given yet***"></c:out>
                     </div>
                     
-                    <div class="col-20 col-xs-12 col-sm-12">
+                    <div class="col-50 col-xs-12 col-sm-12">
 							<input type="submit" class="row__button col-xs-12 col-sm-12" value="RATE THIS COMPANY">
 					</div> 
                   </c:when>
@@ -136,7 +137,7 @@
 							<label for="rating">RATING :</label>
 							 <c:out value="${displayCompanyReviews[0].getRating()}" /> 
 					</div>
-					<div class="col-20 col-xs-12 col-sm-12">
+					<div class="col-50 col-xs-12 col-sm-12">
 							<input type="submit" class="row__button col-xs-12 col-sm-12" value="VIEW ALL REVIEWS">
 					</div> 
 				</c:otherwise>	
@@ -151,7 +152,7 @@
 		</form>
 					<form action="${Config.BASE_PATH}ReviewsOnInterviewServlet" method="post">
 					<input type="hidden" name="company" value="${company}">
-					<div class="col-40 col-xs-12 col-sm-12">
+					<div class="col-50 col-xs-12 col-sm-12">
 					<input type="submit" class="row__button col-xs-12 col-sm-12" value="KNOW ABOUT INTERVIEWS">
 					</div>
 					</form>

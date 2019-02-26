@@ -75,7 +75,7 @@ public class RegisterServlet extends HttpServlet {
 		try {
 			HttpSession session = request.getSession();
 			String[] technology;
-			String skills;
+			String skills="";
 			String userName = "";
 			int userId = 0, flag = 0, technologyId = 0;
 			UserDelegate userDelegate = new UserDelegate();
@@ -101,9 +101,9 @@ public class RegisterServlet extends HttpServlet {
 				user.setUserId(userId);
 				userDelegate.insertIntoUser(user);
 
-				
+			}
 				skills = request.getParameter("skillset");
-				if (skills != null) {
+				if (skills != "") {
 					technology = skills.split("@");
 					if (technology != null) {
 
@@ -135,7 +135,7 @@ public class RegisterServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/findjob.jsp");
 				rd.forward(request, response);
 
-			}
+			//}
 
 		}
 

@@ -31,7 +31,7 @@ public class QueryConstants {
 	public static final String VIEWAPPLIEDJOBS="select company_details.company_name,job.job_designation,applyforjob.location from applyforjob,company_details,job where user_id = ? and company_details.company_id=applyforjob.company_id and applyforjob.job_id = job.job_id"; 
 	//public static final String RETRIEVEVACANCYBYCOMPID = "select company_id,job_id,location,job_description,salary,vacancy_count from vacancy_publish where company_id=? and vacancy_status='available'";
 	public static final String RETRIEVEVACANCYADMIN = "select company_id,job_id,location,job_description,salary,vacancy_count from vacancy_publish where company_id=?";
-	public static final String RETRIEVECOMPANYNAME = "select company_name,website_url,company_id from company_details where company_id=?";
+	public static final String RETRIEVECOMPANYNAME = "select company_name,website_url,company_id,company_logo from company_details where company_id=?";
 	public static final String RETRIEVEJOBDESIGNATION = "select job_designation from job where job_id=?";
 	public static final String RETRIEVEVACANCYBYJOBID = "select company_id,job_id,location,job_description,salary,vacancy_count from vacancy_publish where job_id=? and vacancy_status='available'";
 	public static final String INSERTJOBREQUEST = "insert into job_request(email,job_id,location,salary,created_by,updated_by) values(?,?,?,?,?,?)";

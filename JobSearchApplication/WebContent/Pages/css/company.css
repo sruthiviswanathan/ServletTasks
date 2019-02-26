@@ -29,7 +29,12 @@ body{
 	border: none;
  }
 
-
+.image{
+	width:100px;
+	height:200px;
+	overflow:hidden;
+	
+}
 .container__title {
   color: white;
   text-align: center;
@@ -237,6 +242,13 @@ a:active, a:hover {
     width: 60%;
     margin-top: 20px;
   }
+  
+  .col-50{
+  	float: right;
+  	margin:20px 250px 20px 20px;
+  	width: 20%;
+  }
+  
   
   .searchbar__row:after,.display__row:after,.modal__row:after {
     content: "";

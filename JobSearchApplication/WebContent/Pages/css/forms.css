@@ -43,6 +43,9 @@
     margin-left:10px;
  
  }
+ .input__skills{
+ display:inline-block;
+ }
  .select {
  color:black;
  width: 50%;

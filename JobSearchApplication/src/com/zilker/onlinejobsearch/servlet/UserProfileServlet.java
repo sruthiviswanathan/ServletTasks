@@ -62,8 +62,12 @@ public class UserProfileServlet extends HttpServlet {
 		ArrayList<Technology> tech = new ArrayList<Technology>();
 		tech = userDelegate.displayTechnologies(technology);
 		request.setAttribute("technologies",tech);
-		request.setAttribute("userData", userList); 
-		request.setAttribute("userTech", userTechnology); 
+		request.setAttribute("userData", userList);
+		if(userTechnology.isEmpty()) {
+			//request.setAttribute("userTech", userTechnology);
+		}else {
+			request.setAttribute("userTech", userTechnology);
+		}
 		RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/viewprofile.jsp");
 		rd.forward(request, response);
 		
@@ -84,14 +88,14 @@ public class UserProfileServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("email");
 		String[] technology;
-		String skills;
+		String skills="";
 		int technologyId=0;
 		//Technology technologies = new Technology();
 		UserTechnologyMapping usertechnology = new UserTechnologyMapping();
 		UserTechnologyMapping userTechnologyMapping = new UserTechnologyMapping();
 		ArrayList<UserTechnologyMapping> userTechnology = new ArrayList<UserTechnologyMapping>();
 		ArrayList<User> userList = new ArrayList<User>();
-		ArrayList<Technology> tech = new ArrayList<Technology>();
+		
 		Technology techh = new Technology();
 		UserDelegate userDelegate = new UserDelegate();
 		User user= new User();
@@ -119,7 +123,7 @@ public class UserProfileServlet extends HttpServlet {
 		}
 		
 		skills = request.getParameter("skillset");
-		if (skills != null) {
+		if (skills != "") {
 			technology = skills.split("@");
 			if (technology != null) {
 
@@ -148,34 +152,15 @@ public class UserProfileServlet extends HttpServlet {
 			}	
 		}
 		
-//		technology = request.getParameterValues("tech");
-//		   if (technology != null) 
-//		   {
-//			  
-//				userTechnology = userDelegate.displayUserTechnologies(userTechnologyMapping, user);
-//				if(userTechnology.isEmpty()) {
-//				}else {
-//				userDelegate.deleteTechnologyDetails(userTechnologyMapping,user);
-//				}
-//				
-//		      for (int i = 0; i < technology.length; i++) 
-//		      {
-//		    	    usertechnology.setUserId(user.getUserId());
-//					usertechnology.setTechnologyId(Integer.parseInt(technology[i]));
-//					flag = userDelegate.addTechnologyDetails(usertechnology);	
-//				
-//		      }
-//		   }
+
 		   	userList = userDelegate.retrieveUserData(user);
 			userTechnology = userDelegate.displayUserTechnologies(userTechnologyMapping, user); 
-			//tech = userDelegate.displayTechnologies(techh);
-			//request.setAttribute("technologies",tech);
 			request.setAttribute("userData", userList); 
 			request.setAttribute("userTech", userTechnology); 
 			request.setAttribute("updated","yes");
 			RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/viewprofile.jsp");
 			rd.forward(request, response);
-		//response.sendRedirect("UserProfileServlet");
+		
 		
 		}catch(Exception e) {
 			System.out.println(e);
