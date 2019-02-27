@@ -76,32 +76,32 @@
         				</script>
 						</c:if>
 
-        <div class="container__profile">
+        <div class="container__profile col-xs-12 col-md-12">
             <form action="${Config.BASE_PATH}UserProfileServlet" name ="update" id="update"  onsubmit="return updateUser()" method="post">
                
              
           
                 <c:forEach var="data" items="${userData}">
              <div class="profile__field col-xs-12 col-md-12">     
-                    <label for="uname" class="field__entry row col-25"><b>USERNAME*</b></label>
+                    <label for="uname" class="field__entry row col-75"><b>USERNAME*</b></label>
                     <input type="text" class="field__input row col-75" id="uname" name="username" value="${data.getUserName()}">  
                      <span class="error"><p id="name_error"></p></span>                     
                     </div>
                     
              <div class="profile__field col-xs-12 col-md-12">          
-                        <label for="cname" class="field__entry row col-25"><b>COMPANY NAME*</b></label>
+                        <label for="cname" class="field__entry row col-75"><b>COMPANY NAME*</b></label>
                         <input type="text" class="field__input row col-75" id="cname" name="cname" value="${data.getCompany()}" >
                          <span class="error"><p id="comp_error"></p></span> 
                     </div>
                     
                        <div class="profile__field col-xs-12 col-md-12">
-                        <label for="designation" class="field__entry row col-25"><b>DESIGNATION*</b></label>
+                        <label for="designation" class="field__entry row col-75"><b>DESIGNATION*</b></label>
                         <input type="text" class="field__input row col-75" id="desig" name="designation" value="${data.getDesignation()}">
                         <span class="error"><p id="des_error"></p></span> 
                    	   </div>
                        
                        <div class="profile__field col-xs-12 col-md-12">
-                        <label for="skills" class="field__entry row col-25"><b>SKILLS SAVED IN YOUR PROFILE</b></label>
+                        <label for="skills" class="field__entry row col-75"><b>SKILLS SAVED IN YOUR PROFILE</b></label>
                          <input type="hidden" id="skillset" name="skillset" value="">
                          <div class="tags-input field__input row col-75" id="skill" data-name="tags-input">
                      

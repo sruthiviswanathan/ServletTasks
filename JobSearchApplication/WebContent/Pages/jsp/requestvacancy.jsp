@@ -68,7 +68,7 @@
 						</c:if>
         				
         
-      <div class="container__requestvacancy">
+      <div class="container__requestvacancy col-xs-12 col-md-12">
 						        
     		<form action="${Config.BASE_PATH}RequestVacancyServlet" id="requestvacancy" name="requestvacancy" onsubmit="return validateRequestVacancy()" method="post" >
         
