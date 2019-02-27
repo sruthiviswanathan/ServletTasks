@@ -15,6 +15,7 @@
         <title>Find Jobs</title>
         <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/mainpage.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 </head>
 
 <body>
@@ -37,7 +38,7 @@
                         <form action="${Config.BASE_PATH}ViewByJob" method="post">
                   <div class="searchbar__row">               
                                 <div class="col-20 col-xs-12 col-sm-12">
-                                        <label for="job" class="row__label">SEARCH FOR JOB</label>
+                                        <!-- <label for="job" class="row__label">SEARCH FOR JOB</label> -->
                                 </div>
                                 <div class="col-60 col-xs-12 col-sm-12">
                                         <input type="text" class="row__input" name="job" placeholder="Search for Job.."
@@ -53,11 +54,11 @@
                 <div class="container__title">
                         <h3>POPULAR COMPANIES</h3>
                 </div>
-                <div class="container__maincard">
+                <div class="container__maincard col-sm-12 col-xs-12">
                        
                       <c:forEach var="comp" items="${companyList}" varStatus="loop">
 						
-						 <div class="maincard__card col-sm-6 col-xs-height">
+						 <div class="maincard__card col-sm-6 col-xs-12">
 						 	<c:set var="company" value="${comp.getCompanyName()}"/>
                                 <div class="card__container">
                                      <a href="${Config.BASE_PATH}FindCompanyServlet?companyName=${company}">

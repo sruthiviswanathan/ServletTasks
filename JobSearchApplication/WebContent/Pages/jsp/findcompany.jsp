@@ -28,7 +28,7 @@
                         <form action="${Config.BASE_PATH}FindCompanyServlet" method="post">
                					<div class="searchbar__row">                  
                                 <div class="col-20 col-xs-12 col-sm-12">
-                                        <label for="job" class="row__label">SEARCH FOR COMPANY</label>
+                                      <!--   <label for="job" class="row__label">SEARCH FOR COMPANY</label> -->
                                 </div>
                                 <div class="col-60 col-xs-12 col-sm-12">
                                         <input type="text" class="row__input" name="companyName" placeholder="Search for Company.."
@@ -45,11 +45,11 @@
                         <h3>POPULAR COMPANIES</h3>
                 </div>
                
-          		 <div class="container__maincard">
+          		<div class="container__maincard col-sm-12 col-xs-12">
                        
                        <c:forEach var="comp" items="${companyList}" varStatus="loop">
 						
-						 <div class="maincard__card col-sm-6 col-xs-height">
+						<div class="maincard__card col-sm-6 col-xs-12">
 						 	<c:set var="company" value="${comp.getCompanyName()}"/>
                                 <div class="card__container">
                                        <a href="${Config.BASE_PATH}FindCompanyServlet?companyName=${company}">

@@ -119,12 +119,11 @@
 				<div class="container__split split--right rightside btn${loop.count}">
 
 
-					<div class="right__header" id="myHeader">
+					<div class="right__header col-xs-height col-sm-height" id="myHeader">
 
 						<div class="right__row">
 							 <div class="col-60 col-xs-12 col-md-12">
-							<img
-									src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgM9iV2vxu6hjLHVBHx2YccOI2YzoFiR8-ErdjC35zdwsTiFgW"/>
+							<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgM9iV2vxu6hjLHVBHx2YccOI2YzoFiR8-ErdjC35zdwsTiFgW"/>
 							</div> 
 							<div class="col-60 col-xs-12 col-md-12">
 								<h3>
@@ -159,7 +158,7 @@
 						</div>
 
 					</div>
-					<div class="right__content">
+					<div class="right__content col-xs-12 col-md-12">
 								<p>	<b>JOB DESIGNATION:</b>
 								<c:out value="${job.get(0)}" />
 								</p>

@@ -88,7 +88,7 @@
         				</script>
 						</c:if>
 		
-		<div class="container__postjob">
+		<div class="container__postjob col-xs-12 col-md-12">
 		<form action="${Config.BASE_PATH}PostJobServlet" id="postjob"
 			name="postjob" onsubmit="return validatePostJob()" method="post">
 		

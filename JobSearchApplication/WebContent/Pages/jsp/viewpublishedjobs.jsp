@@ -125,7 +125,7 @@
                                 			<form action="${Config.BASE_PATH}UpdateVacancyServlet" name="postjob" method="post">
                                     		<input type="hidden" name="jobdesignation" value="${vac.getJobRole()}">
                                         		
-                                        		<div class="content__updatejobs">
+                                        		<div class="content__updatejobs col-xs-12 col-md-12">
                                                 
                                                 <div class="updatejobs__field col-xs-12 col-md-12">
                                                 <label for="select-job" class="field__entry row col-75"><b>JOB DESIGNATION*</b></label>

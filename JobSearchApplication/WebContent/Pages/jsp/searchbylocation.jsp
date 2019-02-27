@@ -31,7 +31,7 @@
                                 <div class="searchbar__row">   
                                  
                                 <div class="col-20 col-xs-12 col-sm-12">
-                                        <label for="job" class="row__label">SEARCH BY LOCATION</label>
+                                       <!--  <label for="job" class="row__label">SEARCH BY LOCATION</label> -->
                                 </div>
  
                                 <div class="col-60 col-xs-12 col-sm-12">
@@ -52,11 +52,11 @@
                 <div class="container__title">
                         <h3>POPULAR COMPANIES</h3>
                 </div>
-                 <div class="container__maincard">
+                <div class="container__maincard col-sm-12 col-xs-12">
                        
                       <c:forEach var="comp" items="${companyList}" varStatus="loop">
 						
-						 <div class="maincard__card col-sm-6 col-xs-height">
+					<div class="maincard__card col-sm-6 col-xs-12">
 						 	<c:set var="company" value="${comp.getCompanyName()}"/>
                                 <div class="card__container">
                                        <a href="${Config.BASE_PATH}FindCompanyServlet?companyName=${company}">
