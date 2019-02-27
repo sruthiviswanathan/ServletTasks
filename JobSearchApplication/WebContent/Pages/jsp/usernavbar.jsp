@@ -29,7 +29,12 @@
 					<li>JOB HUNT</li>
 					
 					<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet">Logout</a></li>
-					<li style="float: right"><i class="fa fa-user-circle" aria-hidden="true"></i> Hi, <%= session.getAttribute("userName") %> </li>
+					<li style="float: right">
+					<a href="${Config.BASE_PATH}UserProfileServlet">
+					<li style="float: right"> Hi, <%= session.getAttribute("userName") %></li>
+                    <li style="float: right"><i class="user fa fa-user-circle" aria-hidden="true"></i></li> 
+                    </a>
+                    </li>  
                         </ul>
                 </div>
 				

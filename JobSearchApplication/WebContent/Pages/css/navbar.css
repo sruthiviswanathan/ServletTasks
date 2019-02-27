@@ -22,7 +22,7 @@ body{
 
 li {
     float: left;
-    margin-top: 13px;
+    margin-top: 12px;
     margin-left: 8px;
     color: white;
 }
@@ -34,8 +34,8 @@ li a {
     background-color: #212121;
     border: transparent;
     color: white;
-     margin-top: 0px;
-    margin-left: 12px;
+    margin-top: 2px;
+    margin-left: 0px;
 }
 
 li a:hover {
@@ -44,6 +44,10 @@ li a:hover {
 
 a:active, a:hover {
     opacity: 0.8;
+}
+
+.user{
+	margin-top:1px
 }
 
 .fa-user-circle,.fa-pencil-square-o{

@@ -32,6 +32,7 @@
 						</div>
 						</c:when>
 		<c:otherwise>
+		<div style="overflow-x:auto">
 		<table class="container__customers">
 			
   				<tr>
@@ -49,6 +50,7 @@
 						</tr>	
 					</c:forEach>
 		</table>
+		</div>
 		</c:otherwise>
 		</c:choose>
 </div>

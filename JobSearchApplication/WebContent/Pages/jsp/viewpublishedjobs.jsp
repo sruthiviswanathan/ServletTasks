@@ -38,7 +38,13 @@
 									</button></li>
 								<li>JOB HUNT</li>
 								<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet">Logout</a></li>
-								<li style="float: right"><i class="fa fa-user-circle" aria-hidden="true"></i> Hi, <%= session.getAttribute("userName") %> </li>
+								<li style="float: right">
+									<a href="${Config.BASE_PATH}Pages/jsp/admin.jsp">
+									<li style="float: right"> Hi, <%= session.getAttribute("userName") %></li>
+				                    <li style="float: right"><i class="user fa fa-user-circle" aria-hidden="true"></i></li> 
+				                    </a>
+				                </li>
+								<%-- <li style="float: right"><i class="fa fa-user-circle" aria-hidden="true"></i> Hi, <%= session.getAttribute("userName") %> </li> --%>
 								<li style="float: right" ><button class="arrow" id="btn" onclick="displaymenu(this.id)">
 								<i class="fa fa-arrow-left" aria-hidden="true"></i></button></li>
 								
@@ -93,7 +99,7 @@
      		 <div class="container__split split--left">        
                        
                                 <div class="left__jobs">
-                                <div class="jobs__row jobs__row1">
+                                <div class="jobs__row jobs--row1">
                                 	 
                                 	 <c:forEach var="vac" items="${vacancyDetails}" varStatus="loop">
                                       

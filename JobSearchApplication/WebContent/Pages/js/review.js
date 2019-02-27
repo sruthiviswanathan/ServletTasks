@@ -60,24 +60,24 @@ function validateForm() {
   var x, y, z, i, valid = true;
   x = document.getElementsByClassName("tab");
   y = x[currentTab].getElementsByTagName("input");
-  z = x[currentTab].getElementsByTagName("select");
+ // z = x[currentTab].getElementsByTagName("select");
  
-    if (y[0].value == "") {
+    if (y[1].value == "") {
       // add an "invalid" class to the field:
-      y[0].className += " invalid";
+      y[1].className += " invalid";
       valid=false;
     }
-    if(z[0].value == "0"){ 
+   /* if(z[0].value == "0"){ 
     z[0].className += " invalid";
       // and set the current valid status to false
       valid = false;
-    }
+    }*/
 
-  // If the valid status is true, mark the step as finished and valid:
+  
   if (valid) {
     document.getElementsByClassName("step")[currentTab].className += " finish";
   }
-  return valid; // return the valid status
+  return valid; 
 }
 
 function fixStepIndicator(n) {

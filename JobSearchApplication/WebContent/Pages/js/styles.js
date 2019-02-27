@@ -18,13 +18,6 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
-/*function searchByLocation(){
-	  var ul = document.getElementById("parent");
-	  var liToKill = ul.childNodes[5];
-	  liToKill.parentNode.removeChild( liToKill );
-}*/
-
-
 
 function displaymodal(id) {
 	
@@ -73,8 +66,7 @@ function displaymenu(id) {
 }
 
 function removeErrors(){
-	var elem = document.getElementById('jobError').remove();;
-    //elem.parentNode.removeChild(elem);
+	var elem = document.getElementById('jobError').remove();
     return false;
 }
 function submitFindJob(){
@@ -100,12 +92,11 @@ function removeCompanyErrors(){
 		console.log(elem1);	
 		elem1.parentNode.removeChild(elem1);
 	}
- /*   return false;*/
+
 }
 function submitFindCompany(){
 
 	var elem = document.getElementById('companyError');	
-	//document.getElementById("findCompany").submit();
 	if(elem){
 		console.log(elem);	
 		elem.parentNode.removeChild(elem);
@@ -138,7 +129,7 @@ function apply(event,id){
 	    	  var element = document.getElementById("snackbar");
 	    	  element.className="show";
 	    	  element.appendChild(para);
-	    	  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
+	    	  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 5000);
 	    	  } 
 	    	  else if(msg === 'error'){
 	    		  var para = document.createElement("p");
@@ -147,7 +138,7 @@ function apply(event,id){
 		    	  var element = document.getElementById("snackbar");
 		    	  element.className="show";
 		    	  element.appendChild(para);
-		    	  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);  
+		    	  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 5000);  
 	    	  }
 	      }
 	    }).done(function(data) {
@@ -168,7 +159,7 @@ function displaySuccessMessage(){
 	  var element = document.getElementById("snackbar");
 	  element.className="show";
 	  element.appendChild(para);
-	  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 3000);
+	  setTimeout(function(){ element.className = element.className.replace("show", ""); }, 5000);
 }
 
 function apply1(event,id){

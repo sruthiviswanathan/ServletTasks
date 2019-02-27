@@ -12,7 +12,6 @@ import com.zilker.onlinejobsearch.beans.Company;
 import com.zilker.onlinejobsearch.beans.User;
 import com.zilker.onlinejobsearch.constants.QueryConstants;
 import com.zilker.onlinejobsearch.utils.DButils;
-//import com.zilker.onlinejobsearch.utils.NotifyUser;
 import com.zilker.onlinejobsearch.utils.NotifyUser;
 
 public class CompanyDAO {
@@ -293,10 +292,11 @@ public class CompanyDAO {
 	}
 
 	public float calculateAverageRating(Company company) throws SQLException {
-
+		
+		int count=0;
 		float averageRating = 0;
 		try {
-
+			
 			float rating = 0;
 			String ratings = "";
 			connection = DButils.getConnection();
@@ -306,16 +306,17 @@ public class CompanyDAO {
 			while (resultset.next()) {
 				ratings = resultset.getString(1);
 				rating = Float.parseFloat(ratings);
-				averageRating = (averageRating + rating) / 2;
+				averageRating = averageRating + rating;
+				count++;
 			}
-
+			
 		} catch (SQLException e) {
 			throw e;
 		} finally {
 			// DButils.closeConnection(connection, preparestatement, resultset);
 		}
 
-		return averageRating;
+		return Math.round(averageRating/count);
 	}
 
 

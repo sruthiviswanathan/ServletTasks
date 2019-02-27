@@ -41,7 +41,7 @@
 					<li><button onmouseover="openNav()" class="hambug"><i class="fa fa-bars" aria-hidden="true"></i></button></li>			
 					<li>JOB HUNT</li>
 					<li style="float: right"><a href="${Config.BASE_PATH}LogoutServlet">Logout</a></li>
-					<li style="float: right"><i class="fa fa-user-circle" aria-hidden="true"></i> Hi, <%= session.getAttribute("userName") %> </li>
+					<li style="float: right"><a href="${Config.BASE_PATH}UserProfileServlet"><i class="fa fa-user-circle" aria-hidden="true"></i> Hi, <%= session.getAttribute("userName") %></a></li>
                     
                     </ul>
         </div> 

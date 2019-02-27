@@ -328,7 +328,7 @@ li a {
 	border: transparent;
 	color: white;
 	 margin-top: 0px;
-    margin-left: 12px;
+    margin-left: 3px;
 }
 
 li a:hover {
@@ -422,7 +422,7 @@ a:active, a:hover {
 	}
 	.split--left {
 		width: 100%;
-		padding-bottom:40%;
+		padding-bottom:20%;
 	}
 	.arrow {
 		display: block;
@@ -439,11 +439,11 @@ a:active, a:hover {
 	}
 	.split--left {
 		width: 30%;
-		padding-bottom:20%;
+		padding-bottom:10%;
 	}
-	.arrow {
+	/* .arrow {
 		display: block;
 		margin-top: -17px;
 		margin-left: 3px;
-	}
+	} */
 }

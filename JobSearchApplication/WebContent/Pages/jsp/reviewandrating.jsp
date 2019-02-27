@@ -13,7 +13,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/reviewrating.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/navbar.css">
 </head>
 <body>
 <%
@@ -28,15 +27,15 @@
         
         <div class="tab">
         		<div class="tab__label">
-                <h2>RATE A COMPANY</h2>
+                <h2>Rate <c:out value="${companyname}"/></h2>
                 </div>
-                        <select id="company" name ="company" oninput="this.className = ''" >
+                        <%-- <select id="company" name ="company" oninput="this.className = ''" >
                           <option value="${companyname}">${companyname}</option>
 								<c:forEach var="comp" items="${companies}">
 									<option value="${comp.getCompanyName()}"><c:out value="${comp.getCompanyName()}" /></option>
 								</c:forEach>
-                        </select>
-                        
+                        </select> --%>
+          <p><input type="text" value="${companyname}" name="company" readonly></p>              
           <p><input type="number" placeholder="Rate this company on a Scale of 5"  oninput="this.className = ''" name="rating" step=".01"></p>
           <p><textarea placeholder="Share something about this company..."  oninput="this.className = ''" name="review" required></textarea></p>
         </div>
