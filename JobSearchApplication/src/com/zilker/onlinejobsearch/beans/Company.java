@@ -9,7 +9,7 @@ public class Company {
 
 	private int userId;
 	private int companyId;
-	private String companyName, userName;
+	private String companyName, userName,userCompany,userDesignation;
 	private int jobId, vacancyCount;
 	private int oldJobId;
 	private String companyWebsiteUrl, jobDescription, location;
@@ -32,6 +32,22 @@ public class Company {
 	
 	public int getUserId() {
 		return userId;
+	}
+
+	public String getUserCompany() {
+		return userCompany;
+	}
+
+	public void setUserCompany(String userCompany) {
+		this.userCompany = userCompany;
+	}
+
+	public String getUserDesignation() {
+		return userDesignation;
+	}
+
+	public void setUserDesignation(String userDesignation) {
+		this.userDesignation = userDesignation;
 	}
 
 	public int getFlag() {

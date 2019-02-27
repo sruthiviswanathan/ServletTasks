@@ -24,30 +24,30 @@
 		%> 
 <div class="maincontainer">
 		
-		<div class="container__searchbar">
+		<div class="container__searchbar col-xs-12 col-sm-12 col-md-3">
 			<form action="${Config.BASE_PATH}FindCompanyServlet" method="post">
 				<div class="searchbar__row">
 				
-				<div class="col-20 col-xs-12 col-sm-12">
-					<label for="job" class="row__label">SEARCH FOR COMPANY</label>
+				<div class="searchbar__label col-xs-12 col-sm-12 col-md-3">
+					<label for="job" class="row__label col-md-3">SEARCH FOR COMPANY</label>
 				</div>
 				
-				<div class="col-60 col-xs-12 col-sm-12">
+				<div class="searchbar__input col-xs-12 col-sm-12 col-md-3">
 					<input type="text" name="companyName" class="row__input"
 						placeholder="Search for Company.." required><i
 						class="icon fa fa-search" aria-hidden="true"></i>
 				</div>
 				
-				<div class="col-10 col-xs-12 col-sm-12">
-					<input type="submit" class="row__button col-xs-12 col-sm-12" value="SEARCH">
+				<div class="searchbar__button col-xs-12 col-sm-12 col-md-3">
+					<input type="submit" class="row__button col-xs-12 col-sm-12 col-md-3" value="SEARCH">
 				</div>
 				
 				</div>
 			</form>
 		</div>
-		
+	<form action="${Config.BASE_PATH}RateServlet" method="get">	
 	<div class="container__display">
-	<form action="${Config.BASE_PATH}RateServlet" method="get">
+	
 	
 	<c:forEach items="${displayCompany}" var="comp">
 	<input type="hidden" name="companyname" value="${comp.getCompanyName()}">
@@ -63,9 +63,9 @@
 				</div>
 			</div>
 			
-			<div class="col-20 col-xs-12 col-sm-12">
+			<div class="col-20 col-xs-12 col-sm-12 col-md-6">
 					<a href="<c:out value="${comp.getCompanyWebsiteUrl()}" />">
-					<button class="row__button" type="button" value="WEBSITE URL"> WEBSITE URL <i class="dir fa fa-chevron-circle-right"> </i></button></a>
+					<button class="row__button col-xs-12 col-sm-12 col-md-6" type="button" value="WEBSITE URL"> WEBSITE URL <i class="dir fa fa-chevron-circle-right"> </i></button></a>
 			</div>
 		</div>
 		
@@ -87,21 +87,21 @@
 						</div>
 			</div>
 		
-			<div class="col-20 col-xs-12 col-sm-12">
-				<button class="row__button" type="submit" value="RATE THIS COMPANY">RATE THIS COMPANY</button>
+			<div class="col-20 col-xs-12 col-sm-12 col-md-6">
+				<button class="row__button col-xs-12 col-sm-12 col-md-6" type="submit" value="RATE THIS COMPANY">RATE THIS COMPANY</button>
 			</div>
 			
 		</div>
 		
 		</c:forEach>
 		
-		<div class="display__row">
-			<div class="col-20 col-xs-12 col-sm-12">
-				<label for="company" class="display__row__label">KNOW WHAT OTHERS SAY ABOUT THE INTERVIEW PROCESS!!</label>
-			</div>
-		</div>
+	</div>		
+	
+	<div class="container__title">
+			<h3>KNOW WHAT OTHERS SAY ABOUT THE INTERVIEW PROCESS!!!!</h3>
+	   </div>	
 			
-		<div class="display__reviews">
+		<!-- <div class="display__reviews"> -->
 		
 		 	<c:choose>
 		 	<c:when test="${noReviews == 'yes'}">
@@ -111,30 +111,27 @@
              </c:when>
 		
 			<c:otherwise>
-			<c:forEach items="${displayInterviewProcess}" var="rev"> 
 			
-			   <div class="content__value col-20 col-xs-12 col-sm-12">
-						<label for="rating">JOB DESIGNATION :</label>
-							<c:out value="${rev.getJobRole()}" />	
-				</div>	
-				<div class="content__value col-20 col-xs-12 col-sm-12">
-						<label for="companyname">NAME :</label>	
-						<c:out value="${rev.getUserName()}" />
+			
+			<c:forEach items="${displayInterviewProcess}" var="rev"> 
+				<div class="maincard__reviewcard col-sm-6 col-xs-height">
+					<div class="card__container">
+						<p>
+							<b><c:out value="${rev.getUserName()}" /></b> ,<i><c:out value="${rev.getUserCompany()}" /> , <c:out value="${rev.getUserDesignation()}" /> </i>
+						</p>
+						<p>
+							I have undergone the interview for <c:out value="${rev.getJobRole()}" /> role in this company,<c:out value="${rev.getInterviewProcess()}" />
+						</p>
+										
+					</div>
 				</div>
-				<div class="content__value col-60 col-xs-12 col-sm-12">
-					
-						  <label for="review">REVIEW :</label>
-							<c:out value="${rev.getInterviewProcess()}" />
-					
-			   </div>
-			</c:forEach> 
+			</c:forEach>
 			</c:otherwise>
 			
 			</c:choose>
 			
-		</div>
 	</form>
-	</div>
+	
 </div>
 </body>
 <script src="${Config.BASE_PATH}Pages/js/styles.js"></script>

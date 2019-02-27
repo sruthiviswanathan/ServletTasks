@@ -14,6 +14,7 @@
         <title>Find Jobs</title>
         <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/mainpage.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+         	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 
 <body>
@@ -24,23 +25,23 @@
 		%> 
          <div class="maincontainer">
          
-                 <div class="container__searchbar">
+                 <div class="container__searchbar col-xs-12 col-sm-12 col-md-3">
                
                         <form action="${Config.BASE_PATH}SearchByLocation"  method="post">
                                
                                 <div class="searchbar__row">   
                                  
-                                <div class="col-20 col-xs-12 col-sm-12">
-                                       <!--  <label for="job" class="row__label">SEARCH BY LOCATION</label> -->
+                                <div class="col-60 col-xs-12 col-sm-12 col-md-3">
+                                       <label for="job" class="row__label col-md-3">SEARCH BY LOCATION</label>
                                 </div>
  
-                                <div class="col-60 col-xs-12 col-sm-12">
+                                <div class="col-60 col-xs-12 col-sm-12 col-md-3">
                                         <input type="text" class="row__input" name="location"  placeholder="Enter a Location.."
                                                 required><i class="icon fa fa-map-marker" aria-hidden="true"></i>
                                 </div>
  
-                                <div class="col-10 col-xs-12 col-sm-12">
-                                        <input type="submit" class="row__button col-xs-12 col-sm-12" value="SEARCH">
+                                <div class="col-10 col-xs-12 col-sm-12 col-md-3">
+                                        <input type="submit" class="row__button col-xs-12 col-sm-12 col-md-3" value="SEARCH">
                                 </div>
                                 
                 				</div>

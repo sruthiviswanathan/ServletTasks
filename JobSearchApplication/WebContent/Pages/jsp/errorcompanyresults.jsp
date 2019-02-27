@@ -29,26 +29,26 @@
                                        </c:if>
         						</div>
         
- 				<div class="container__searchbar">
+ 				<div class="container__searchbar col-xs-12 col-sm-12 col-md-3">
                         <form action="${Config.BASE_PATH}FindCompanyServlet" id="findCompany" onsubmit="submitFindCompany()" method="post">
                					<div class="searchbar__row">                  
-                                <div class="col-20 col-xs-12 col-sm-12">
-                                        <label for="job" class="row__label">SEARCH FOR COMPANY</label>
+                                <div class="col-60 col-xs-12 col-sm-12 col-md-3">
+                                        <label for="job" class="row__label col-md-3">SEARCH FOR COMPANY</label>
                                 </div>
-                                <div class="col-60 col-xs-12 col-sm-12">
+                                <div class="col-60 col-xs-12 col-sm-12 col-md-3">
                                         <input type="text" class="row__input"  oninput ="removeCompanyErrors();" name="companyName" placeholder="Search for Company.."
                                                 required><i class="icon fa fa-search" aria-hidden="true"></i>
                                 </div>
-                                <div class="col-10 col-xs-12 col-sm-12">
-                                        <input type="submit" class="row__button col-xs-12 col-sm-12" value="SEARCH">
+                                <div class="col-10 col-xs-12 col-sm-12 col-md-3">
+                                        <input type="submit" class="row__button col-xs-12 col-sm-12 col-md-3" value="SEARCH">
                                 </div>
                                </div>
                         </form>
                 </div>
                 
-               <div class="container__title">
+               <!-- <div class="container__title">
                         <h3>POPULAR COMPANIES</h3>
-                </div>
+                </div> -->
              	
              	 <div class="container__maincard">
                        

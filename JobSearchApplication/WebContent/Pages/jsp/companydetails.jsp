@@ -26,22 +26,22 @@
 		%> 
 	<div id="maincontainer">
 		
-		<div class="container__searchbar">
+		<div class="container__searchbar col-xs-12 col-sm-12 col-md-3">
 			<form action="${Config.BASE_PATH}FindCompanyServlet" method="post">
 				<div class="searchbar__row">
 				
-				<div class="col-20 col-xs-12 col-sm-12">
-					<label for="job" class="row__label">SEARCH FOR COMPANY</label>
+				<div class="searchbar__label col-xs-12 col-sm-12 col-md-3">
+					<label for="job" class="row__label col-md-3">SEARCH FOR COMPANY</label>
 				</div>
 				
-				<div class="col-60 col-xs-12 col-sm-12">
+				<div class="searchbar__input col-xs-12 col-sm-12 col-md-3">
 					<input type="text" name="companyName" class="row__input"
 						placeholder="Search for Company.." required><i
 						class="icon fa fa-search" aria-hidden="true"></i>
 				</div>
 				
-				<div class="col-10 col-xs-12 col-sm-12">
-					<input type="submit" class="row__button col-xs-12 col-sm-12" value="SEARCH">
+				<div class="searchbar__button col-xs-12 col-sm-12 col-md-3">
+					<input type="submit" class="row__button col-xs-12 col-sm-12 col-md-3" value="SEARCH">
 				</div>
 				
 				</div>
@@ -69,9 +69,9 @@
 						</div>
 					</div>
 					
-					 <div class="col-50 col-xs-12 col-sm-12">
+					 <div class="col-50 col-xs-12 col-sm-12 col-md-6">
 						     <a href="<c:out value="${comp.getCompanyWebsiteUrl()}"/>" target="_blank"><button
-								class="row__button col-xs-12 col-sm-12" type="button" value="WEBSITE URL"> WEBSITE URL <i class="dir fa fa-chevron-circle-right"> </i>
+								class="row__button col-xs-12 col-sm-12 col-md-6" type="button" value="WEBSITE URL"> WEBSITE URL <i class="dir fa fa-chevron-circle-right"> </i>
 							</button></a>
 
 					</div>
@@ -92,68 +92,19 @@
 							</c:if>
 						</div>
 					</div>
+					<div class="col-50 col-xs-12 col-sm-12 col-md-6">
+							<input type="submit" class="row__button col-xs-12 col-sm-12 col-md-6" value="VIEW ALL REVIEWS">
+					</div> 
 					
 				</div>
 				
-			</c:forEach>
-			
-			<div class="display__row">
-			
-			<div class="col-20 col-xs-12 col-sm-12">
-				<label for="company" class="display__row__label">WANT TO KNOW WHAT
-					OTHERS THINK ABOUT THIS COMPANY?</label>
-			</div>
-			
-			</div>
-			
-			<div class="display__reviews col-xs-12 col-sm-12">
-				
-				<c:choose>
-    			
-    			  <c:when test="${noReviews == 'yes'}">
-    			  	<div class="error col-60 col-xs-12 col-sm-12">
-                          <c:out value="***No Reviews have been given yet***"></c:out>
-                    </div>
-                    
-                    <div class="col-50 col-xs-12 col-sm-12">
-							<input type="submit" class="row__button col-xs-12 col-sm-12" value="RATE THIS COMPANY">
-					</div> 
-                  </c:when>
-					
-				<c:otherwise>
-					<div class="content__value col-20 col-xs-12 col-sm-12">
-						<label for="companyname">NAME :</label>	
-						<c:out value="${displayCompanyReviews[0].getUserName()}" />						
-					</div>
-					
-					<div class="content__value col-20 col-xs-12 col-sm-12">
-					
-							<label for="review">REVIEW :</label>
-							<c:out value="${displayCompanyReviews[0].getReview()}" /> 			
-					</div>
-					
-					<div class="content__value col-10 col-xs-12 col-sm-12">
-					
-							<label for="rating">RATING :</label>
-							 <c:out value="${displayCompanyReviews[0].getRating()}" /> 
-					</div>
-					<div class="col-50 col-xs-12 col-sm-12">
-							<input type="submit" class="row__button col-xs-12 col-sm-12" value="VIEW ALL REVIEWS">
-					</div> 
-				</c:otherwise>	
-				
-				</c:choose>
-					<!-- <div class="col-20 col-xs-12 col-sm-12">
-							<input type="submit" class="row__button col-xs-12 col-sm-12" value="VIEW ALL REVIEWS">
-					</div>  -->
-					
-			</div>
+			</c:forEach>		
 				
 		</form>
 					<form action="${Config.BASE_PATH}ReviewsOnInterviewServlet" method="post">
 					<input type="hidden" name="company" value="${company}">
-					<div class="col-50 col-xs-12 col-sm-12">
-					<input type="submit" class="row__button col-xs-12 col-sm-12" value="KNOW ABOUT INTERVIEWS">
+					<div class="col-50 col-xs-12 col-sm-12 col-md-6">
+					<input type="submit" class="row__button col-xs-12 col-sm-12 col-md-6" value="KNOW ABOUT INTERVIEWS">
 					</div>
 					</form>
 	</div>

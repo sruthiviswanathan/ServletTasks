@@ -140,10 +140,13 @@ public class UserDAO {
 				Company c = new Company();
 				c.setReview(resultset.getString(1));
 				c.setRating(resultset.getFloat(3));
-				String userId = resultset.getString(2);
+				/*String userId = resultset.getString(2);
 				int userIdNo = Integer.parseInt(userId);
 				String userName = fetchUserNameById(userIdNo);
-				c.setUserName(userName);
+				c.setUserName(userName);*/
+				c.setUserName(resultset.getString(4));
+				c.setUserCompany(resultset.getString(5));
+				c.setUserDesignation(resultset.getString(6));
 				comp.add(c);
 			}
 
@@ -171,6 +174,8 @@ public class UserDAO {
 				c.setJobRole(resultset.getString(1));
 				c.setInterviewProcess(resultset.getString(2));
 				c.setUserName(resultset.getString(3));
+				c.setUserCompany(resultset.getString(4));
+				c.setUserDesignation(resultset.getString(5));
 				comp.add(c);
 			}
 		} catch (SQLException e) {
