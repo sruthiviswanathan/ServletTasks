@@ -106,7 +106,7 @@
 		
 		 	<c:choose>
 		 	<c:when test="${noReviews == 'yes'}">
-    		<div class="error col-60 col-xs-12 col-sm-12">
+    		<div class="error col-40 col-xs-12 col-sm-12">
                  <c:out value="***No Reviews have been given yet***"></c:out>
              </div>
              </c:when>
