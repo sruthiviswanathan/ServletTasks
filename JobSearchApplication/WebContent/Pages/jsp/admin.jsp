@@ -59,7 +59,7 @@
 						 	
                                 <div class="card__container">
                                      <a href="${Config.BASE_PATH}PostJobServlet">
-						  			<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpSOeEh3aUkQgcUF28pOs4d1jOaK9nba-hATsRDyEaZKW0LXJWHQ"alt="Avatar" style="width:50%;height:75%;"></a> 
+						  			<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpSOeEh3aUkQgcUF28pOs4d1jOaK9nba-hATsRDyEaZKW0LXJWHQ"alt="Avatar"></a> 
                                         <h4><b><c:out value="PUBLISH NEW VACANCY" /></b></h4>
                                      
                                 </div>
@@ -69,7 +69,7 @@
                                 <div class="card__container">
                                      <a href="${Config.BASE_PATH}ViewAppliedUsersServlet">
 						  			<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV-s57fKLRPJdJfP5x6W0NdUhsbb-bdnqMht73fFnY1410cERJ"
-                                                        alt="Avatar" style="width:50%;height:75%;"></a> 
+                                                        alt="Avatar"></a> 
                                         <h4><b><c:out value="VIEW INTERESTED USERS" /></b></h4>
                                      
                                 </div>
@@ -78,7 +78,7 @@
                               <div class="maincard__card col-sm-6 col-xs-height">
                                 <div class="card__container">
                                      <a href="${Config.BASE_PATH}ViewPublishedJobsServlet">
-						  			<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCmEAMa4TOu7L_M5bVz3yWVc-p-3E5axRiAJO9EnTQbEVVoM99" alt="Avatar" style="width:50%;height:75%;"></a> 
+						  			<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCmEAMa4TOu7L_M5bVz3yWVc-p-3E5axRiAJO9EnTQbEVVoM99" alt="Avatar"></a> 
                                         <h4><b><c:out value="VIEW PUBLISHED VACANCIES" /></b></h4>
                                      
                                 </div>
@@ -88,9 +88,9 @@
                         	
                 			
                 </div>
-                <div class="maincard__image col-sm-12 col-xs-12">
+                <!-- <div class="maincard__image col-sm-12 col-xs-12">
                     <img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2015/9/8/1441712108064/ca67c8f9-71e0-4680-b3f8-d20fe1d5a035-620x372.png?width=700&quality=85&auto=format&fit=max&s=a85b3995b77d35ee8fc06705d73b6547">
-                </div>
+                </div> -->
 		
 		</div>
 	</div>

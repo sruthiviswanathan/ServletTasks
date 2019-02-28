@@ -278,7 +278,6 @@ public class CompanyDAO {
 				c.setCompanyLogo(resultset.getString(4));
 				averageRating = calculateAverageRating(company);
 				c.setAverageRating(averageRating);
-				/* c.setCompanyLogo(resultset.getString(4)); */
 				comp.add(c);
 
 			}

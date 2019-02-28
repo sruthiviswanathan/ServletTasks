@@ -140,10 +140,6 @@ public class UserDAO {
 				Company c = new Company();
 				c.setReview(resultset.getString(1));
 				c.setRating(resultset.getFloat(3));
-				/*String userId = resultset.getString(2);
-				int userIdNo = Integer.parseInt(userId);
-				String userName = fetchUserNameById(userIdNo);
-				c.setUserName(userName);*/
 				c.setUserName(resultset.getString(4));
 				c.setUserCompany(resultset.getString(5));
 				c.setUserDesignation(resultset.getString(6));

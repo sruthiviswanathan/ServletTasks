@@ -58,8 +58,6 @@ public class AdminStatisticsServlet extends HttpServlet {
 			company.setCompanyId(companyId);
 			int appliedUsers=companyDelegate.numberOfAppliedUsers(company);
 			int postedJobs = companyDelegate.numberOfVacancyPublished(company);
-			System.out.println(appliedUsers);
-			System.out.println(postedJobs);
 			request.setAttribute("appliedUsers",appliedUsers);
 			request.setAttribute("postedJobs",postedJobs);
 			getServletConfig().getServletContext().getRequestDispatcher("/Pages/jsp/admin.jsp").forward(request,response);	

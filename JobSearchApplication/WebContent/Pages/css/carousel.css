@@ -83,16 +83,6 @@ body {font-family: Verdana, sans-serif;}
   background-color: rgba(0,0,0,0.8);
 }
 
-
-
-
-
-
-
-
-
-
-
 @-webkit-keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
@@ -103,10 +93,17 @@ body {font-family: Verdana, sans-serif;}
   to {opacity: 1}
 }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text { font-size: 20px;}
-  .slideshow-container{
- 		margin-top:10px; 
-  }
-}
+@media (max-width:319px) {
+ 
+  .numbertext{
+  margin-top:35px;
+ }
+} 
+
+@media (min-width:320px) and (max-width:1025px) {
+ 
+ .numbertext{
+  margin-top:35px;
+ }
+} 
+

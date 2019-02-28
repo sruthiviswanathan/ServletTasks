@@ -98,7 +98,6 @@ public class LoginServlet extends HttpServlet {
 			} else if (role == 2) {
 				
 				RequestDispatcher rd = request.getRequestDispatcher("AdminStatisticsServlet");
-				//RequestDispatcher rd = request.getRequestDispatcher("Pages/jsp/admin.jsp");
 				rd.forward(request, response);
 			} 
 		
