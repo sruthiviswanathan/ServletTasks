@@ -25,7 +25,7 @@
 				response.sendRedirect("http://localhost:8080/JobSearchApplication/index.jsp");
 			}
 		%> 
-        <div class="maincontainer">
+        <div class="maincontainer" id="maincontainer">
                    
                    		<div class="success">
 						<c:if test="${registerSuccess == 'yes'}">
