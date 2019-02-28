@@ -15,6 +15,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<script src="${Config.BASE_PATH}Pages/js/styles.js"></script>
 </head>
 
 <body>
@@ -116,8 +117,8 @@
              </c:when>
 		
 			<c:otherwise>
-				<c:forEach items="${displayCompanyReviews}" var="rev"> 
-				<div class="maincard__card col-sm-6 col-xs-height">
+				<c:forEach items="${displayCompanyReviews}" var="rev" varStatus="loop"> 
+				<div class="maincard__reviewcard col-sm-6 col-xs-height">
 					<div class="card__container">
 						<p>
 							<b><c:out value="${rev.getUserName()}" /></b> ,<i><c:out value="${rev.getUserCompany()}" /> , <c:out value="${rev.getUserDesignation()}" /> </i>
@@ -126,36 +127,15 @@
 							<c:out value="${rev.getReview()}" />
 						</p>
 						<p>
-							<c:out value="${rev.getRating()}" />
+							<span id="stars${loop.count}"></span>
+							<script type="text/javascript">
+							displayRatings(${loop.count},${rev.getRating()});
+							</script>
 						</p>					
 					</div>
 				</div>
 			</c:forEach>
 			
-			
-			
-					
-			<%-- <c:forEach items="${displayCompanyReviews}" var="rev"> 
-			
-				<div class="content__value col-60 col-xs-12 col-sm-12">
-						<label for="companyname">NAME :</label>	
-						<c:out value="${rev.getUserName()}" />
-				</div>
-			
-				<div class="content__value col-60 col-xs-12 col-sm-12">
-					
-						  <label for="review">REVIEW :</label>
-							<c:out value="${rev.getReview()}" />
-					
-			   </div>
-			
-			   <div class="content__value col-10 col-xs-12 col-sm-12">
-						<label for="rating">RATING :</label>
-							<c:out value="${rev.getRating()}" />	
-				</div>
-				
-					
-			</c:forEach>  --%>
 			</c:otherwise>
 			
 			</c:choose>
@@ -165,6 +145,6 @@
 	
 </div>
 </body>
-<script src="${Config.BASE_PATH}Pages/js/styles.js"></script>
+<%-- <script src="${Config.BASE_PATH}Pages/js/styles.js"></script> --%>
 
 </html>

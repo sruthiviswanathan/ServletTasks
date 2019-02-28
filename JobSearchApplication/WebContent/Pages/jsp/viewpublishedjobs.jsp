@@ -100,7 +100,7 @@
      		 <div class="container__split split--left">        
                        
                                 <div class="left__jobs">
-                                <div class="jobs__row jobs--row1">
+                                <div class="jobs__row">
                                 	 
                                 	 <c:forEach var="vac" items="${vacancyDetails}" varStatus="loop">
                                       
