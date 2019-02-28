@@ -42,8 +42,9 @@ body,html {
     background-color: rgba(0,0,0,0.5);
     margin: 0px 20px 20px -10px;
     text-align: inherit;
+     vertical-align: middle;
     width:100%;
-    height:550px;
+    height:450px;
     color:white;
     font-size:28px;
     border-radius:10px;
@@ -63,6 +64,10 @@ body,html {
     font-family: 'Lato', sans-serif;
   } 
   
+   .testimonials{
+    vertical-align: middle;
+    margin-top:64px;
+   }
       
 @media (max-width:319px) {
  .text--mod,.nav--mod,.button--mod{
