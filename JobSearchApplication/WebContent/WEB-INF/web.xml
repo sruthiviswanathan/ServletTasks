@@ -245,6 +245,15 @@
 		<servlet-name>UpdateContactedUsersServlet</servlet-name>
 		<url-pattern>/UpdateContactedUsersServlet</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>AdminStatisticsServlet</servlet-name>
+		<servlet-class>com.zilker.onlinejobsearch.servlet.AdminStatisticsServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AdminStatisticsServlet</servlet-name>
+		<url-pattern>/AdminStatisticsServlet</url-pattern>
+	</servlet-mapping>
 </element>
 
 

@@ -423,6 +423,47 @@ public class CompanyDAO {
 		return comp;
 	}
 
+	
+	public int numberOfVacancyPublished(Company company) throws SQLException {
+		int count=0;
+		try {
+
+			connection = DButils.getConnection();
+			int jobId = 0;
+			preparestatement1 = connection.prepareStatement(QueryConstants.RETRIEVEVACANCYADMIN);
+			preparestatement1.setInt(1, company.getCompanyId());
+			resultset1 = preparestatement1.executeQuery();
+			while (resultset1.next()) {
+				Company c = new Company();
+				c.setJobDescription(resultset1.getString(4));
+				c.setLocation(resultset1.getString(3));
+				c.setSalary(resultset1.getFloat(5));
+				c.setVacancyCount(resultset1.getInt(6));
+
+				String jobRole = resultset1.getString(2);
+				jobId = Integer.parseInt(jobRole);
+				preparestatement2 = connection.prepareStatement(QueryConstants.RETRIEVEJOBDESIGNATION);
+				preparestatement2.setInt(1, jobId);
+				resultset2 = preparestatement2.executeQuery();
+				while (resultset2.next()) {
+					c.setJobId(jobId);
+					c.setJobRole(resultset2.getString(1));
+					//comp.add(c);
+					count++;
+
+				}
+
+			}
+
+		} catch (SQLException e) {
+			throw e;
+		} finally {
+			DButils.closeConnection(connection, preparestatement1, resultset1);
+			DButils.closeConnection(connection, preparestatement2, resultset2);
+		}
+		return count;
+	}
+
 
 	
 	public ArrayList<Company> retrieveVacancyByLocation(Company company,User user) throws SQLException {
@@ -648,6 +689,30 @@ public class CompanyDAO {
 			DButils.closeConnection(connection, preparestatement, resultset);
 		}
 		return comp;
+
+	}
+	
+	public int numberOfAppliedUsers(Company company)throws SQLException{
+		// TODO Auto-generated method stub
+		int count=0;
+		try {
+			connection = DButils.getConnection();
+			preparestatement = connection.prepareStatement(QueryConstants.VIEWAPPLIEDUSERS);
+			preparestatement.setInt(1, company.getCompanyId());
+			resultset = preparestatement.executeQuery();
+		
+		
+			while (resultset.next()) {
+				count++;
+			}					
+		
+		} catch (SQLException e) {
+			throw e;
+
+		} finally {
+			DButils.closeConnection(connection, preparestatement, resultset);
+		}
+		return count;
 
 	}
 

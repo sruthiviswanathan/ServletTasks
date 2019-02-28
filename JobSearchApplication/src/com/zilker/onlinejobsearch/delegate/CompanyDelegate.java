@@ -89,6 +89,17 @@ public class CompanyDelegate {
 		return comp;
 	}
 
+	public int numberOfVacancyPublished(Company company) throws SQLException {
+		// TODO Auto-generated method stub
+		int count=0;
+		try {
+			CompanyDAO companyDao = new CompanyDAO();
+			count = companyDao.numberOfVacancyPublished(company);
+		} catch (SQLException e) {
+			throw e;
+		}
+		return count;
+	}
 
 	public ArrayList<Company> retrieveVacancyByLocation(Company company,User user) throws SQLException {
 		// TODO Auto-generated method stub
@@ -258,6 +269,18 @@ public class CompanyDelegate {
 			throw e;
 		}
 		return comp;
+	}
+	
+	public int numberOfAppliedUsers(Company company)throws SQLException{
+		// TODO Auto-generated method stub
+		int count=0;
+		try {
+			CompanyDAO companyDao = new CompanyDAO();
+			count = companyDao.numberOfAppliedUsers(company);
+		} catch (SQLException e) {
+			throw e;
+		}
+		return count;
 	}
 
 
