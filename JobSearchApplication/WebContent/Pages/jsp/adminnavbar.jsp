@@ -31,7 +31,6 @@
                     <li style="float: right"><i class="user fa fa-user-circle" aria-hidden="true"></i></li> 
                     </a>
                 </li>  
-				<%-- <li style="float: right"><i class="fa fa-user-circle" aria-hidden="true"></i> Hi, <%= session.getAttribute("userName") %></li> --%>
 			</ul>
 		</div>
 

@@ -12,7 +12,7 @@
         <title>View Jobs</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="${Config.BASE_PATH}/Pages/css/viewjobs.css">
-        <link rel="stylesheet" href="${Config.BASE_PATH}/Pages/css/forms.css">
+        <link rel="stylesheet" href="${Config.BASE_PATH}/Pages/css/updatejobs.css">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 
@@ -187,15 +187,7 @@
 						</c:forEach>
 						</c:otherwise>
 						</c:choose>
-                            <%-- <div class="container__form-popup" id="myForm">
-                                    <form action="${Config.BASE_PATH}ViewPublishedJobsServlet" class="form-container" method="post">
-                                            <h3>ADD NEW JOB DESIGNATION</h3>
-                                            <input type="text" placeholder="Enter new Job designation" name="newjob" required>
-                                            <button type="submit" id="addjob" class="btn">ADD DESIGNATION</button>
-                                            <button type="button" class="cancel btn" onclick="closeForm()">CLOSE</button>
-                                    </form>
-                            </div>  --%>
-                        
+                       
                         </div>
                    
 </body>

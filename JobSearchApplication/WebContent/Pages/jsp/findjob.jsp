@@ -51,7 +51,7 @@
                         </form>
                 </div>
               
-               <!--  <div class="container__title">
+               <!-- <div class="container__title">
                         <h3>POPULAR COMPANIES</h3>
                 </div> -->
                 <div class="container__maincard col-sm-12 col-xs-12">

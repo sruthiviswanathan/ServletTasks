@@ -19,8 +19,6 @@ import com.zilker.onlinejobsearch.beans.User;
 import com.zilker.onlinejobsearch.delegate.JobDelegate;
 import com.zilker.onlinejobsearch.delegate.UserDelegate;
 
-
-
 /**
  * Servlet implementation class ViewByJob
  */
