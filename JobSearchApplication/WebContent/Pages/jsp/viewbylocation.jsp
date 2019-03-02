@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body onload="displayFirstVacancy()">
 <%
 			if(session.getAttribute("email")==null){
 				response.sendRedirect("http://localhost:8080/JobSearchApplication/index.jsp");

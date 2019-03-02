@@ -60,6 +60,23 @@ function displayjobs(id) {
 
 }
 
+function displayFirstVacancy(){
+	var y = document.getElementsByClassName("rightside");
+	for (var i = 0; i < y.length; i++) {
+		  console.log(y[i]);
+		  y[i].style.display ="none";
+		}
+var x = document.getElementsByClassName("btn1");
+console.log(x);
+for (var i = 0; i < x.length; i++) {
+	  console.log(x[i]);
+	  x[i].style.display ="block";
+	}
+}
+
+
+
+
 function displaymenu(id) {
   var x = document.getElementsByClassName("rightside");
   for (var i = 0; i < x.length; i++) {

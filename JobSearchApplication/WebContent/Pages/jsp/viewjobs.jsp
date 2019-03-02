@@ -18,7 +18,7 @@
 
 </head>
 
-<body>
+<body onload="displayFirstVacancy()">
 <%
 			if(session.getAttribute("email")==null){
 				response.sendRedirect("http://localhost:8080/JobSearchApplication/index.jsp");
@@ -119,6 +119,7 @@
 
 		<c:forEach var="comp" items="${displayVacancy}" varStatus="loop">
 			
+				
 				<div class="container__split split--right rightside btn${loop.count}">
 
 

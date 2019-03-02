@@ -16,7 +16,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 
-<body>
+<body onload="displayFirstVacancy()">
 		<%
 			if(session.getAttribute("email")==null){
 				response.sendRedirect("http://localhost:8080/JobSearchApplication/index.jsp");
