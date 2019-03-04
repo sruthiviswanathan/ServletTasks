@@ -156,8 +156,12 @@
     opacity: 0.8;
    } 
 
-   .active , .btn:hover{
-     opacity: 0.8;
+   .active{
+     background-color:white;
+     color:black;
+  }
+  .btn:hover{
+   opacity: 0.8;
   }
 
   .cancelbtn {

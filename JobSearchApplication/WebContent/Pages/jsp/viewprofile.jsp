@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
         <%@ page import="com.zilker.onlinejobsearch.config.Config"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%--  <%@ include file = "usernavbar.jsp" %> --%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,11 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/forms.css">
-  <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/navbar.css">
+	  <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/navbar.css">
     <link rel="stylesheet" href="${Config.BASE_PATH}Pages/css/tags.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <title>LOGIN/SIGNUP</title>
+    <title>YOUR PROFILE</title>
    
 </head>
 

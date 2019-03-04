@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="com.zilker.onlinejobsearch.config.Config"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +47,7 @@
 					<li style="float: right"><button class="arrow" id="btn" onclick="displaymenu(this.id)">
 					<i class="fa fa-arrow-left" aria-hidden="true"></i></button></li>
 			</ul>
-		</div> 
+		</div>  
 		
                 
                 <div class="container__searchbar">

@@ -28,9 +28,9 @@
 		 <div id="mySidenav" class="container__sidenav">
                         <div class="sidenav__items">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="${Config.BASE_PATH}PostJobServlet">PUBLISH NEW VACANCY</a>
-                        <a href="${Config.BASE_PATH}ViewPublishedJobsServlet">VIEW PUBLISHED JOBS</a>
-                        <a href="${Config.BASE_PATH}ViewAppliedUsersServlet">VIEW INTERESTED PEOPLE</a>
+						<a href="${Config.BASE_PATH}PostJobServlet">PUBLISH NEW VACANCY</a>
+						<a href="${Config.BASE_PATH}ViewAppliedUsersServlet">VIEW INTERESTED USERS</a> 
+						<a href="${Config.BASE_PATH}ViewPublishedJobsServlet">VIEW PUBLISHED JOBS</a>
                 </div>
 		</div>
 	

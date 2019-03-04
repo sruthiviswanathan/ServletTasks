@@ -42,6 +42,7 @@ body{
   padding:5px;
   margin-top:0px;
 }
+
 .display__row__label,.content__value,.review__content{
 	padding: 12px 12px 12px 0;
     display: inline-block;

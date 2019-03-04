@@ -11,7 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
-<div class="container">
+<div class="topnavcontainer">
 	<div id="mySidenav" class="container__sidenav">
                 <div class="sidenav__items">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
